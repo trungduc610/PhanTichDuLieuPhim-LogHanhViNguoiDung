@@ -1,0 +1,8 @@
+{
+  "run_id": "run-62b191534ce6",
+  "started_at_utc": "2026-10-03T08:58:12.739335+00:00",
+  "status": "BLOCKED_ENVIRONMENT",
+  "input": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\generated\\demo.jsonl",
+  "reason": "Docker executable not found. Install/start Docker Desktop with Linux containers.",
+  "finished_at_utc": "2026-10-03T08:58:14.070665+00:00"
+}

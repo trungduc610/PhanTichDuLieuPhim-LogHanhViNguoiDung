@@ -1,0 +1,3 @@
+flume-1  | 2026-10-04T04:21:39.488488087Z Info: Including Hive libraries found via () for Hive access
+flume-1  | 2026-10-04T04:21:39.488650688Z + exec /opt/java/openjdk/bin/java -Xmx20m -Dflume.root.logger=INFO,console -cp '/opt/flume/conf:/opt/flume/lib/*:/lib/*' -Djava.library.path= org.apache.flume.node.Application --name a1 --conf-file /project/config/flume.conf
+flume-1  | 2026-10-04T04:51:43.704579729Z Attempting to shutdown background worker.

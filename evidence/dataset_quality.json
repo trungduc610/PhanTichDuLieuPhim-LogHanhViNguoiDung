@@ -1,0 +1,102 @@
+{
+  "input_rows": 9742,
+  "duplicate_movie_ids": 0,
+  "missing_title": 0,
+  "missing_genres": 0,
+  "no_genres_listed": 34,
+  "missing_or_unparsed_release_year": 13,
+  "normalized_rows_changed": 11,
+  "source": "data\\raw\\ml-latest-small\\movies.csv",
+  "source_sha256": "5a5f32dd9bb3797b8e728a1b98958789d2b13f294a69fdfbc5727f8a9611aa07",
+  "checked_at_utc": "2026-10-03T08:54:56.043294+00:00",
+  "utf8_decode_errors": 0,
+  "csv_format_errors": 0,
+  "issues": [
+    {
+      "line": 6061,
+      "movieId": 40697,
+      "issue": "releaseYear_unavailable",
+      "title": "Babylon 5"
+    },
+    {
+      "line": 9033,
+      "movieId": 140956,
+      "issue": "releaseYear_unavailable",
+      "title": "Ready Player One"
+    },
+    {
+      "line": 9093,
+      "movieId": 143410,
+      "issue": "releaseYear_unavailable",
+      "title": "Hyena Road"
+    },
+    {
+      "line": 9140,
+      "movieId": 147250,
+      "issue": "releaseYear_unavailable",
+      "title": "The Adventures of Sherlock Holmes and Doctor Watson"
+    },
+    {
+      "line": 9181,
+      "movieId": 149334,
+      "issue": "releaseYear_unavailable",
+      "title": "Nocturnal Animals"
+    },
+    {
+      "line": 9261,
+      "movieId": 156605,
+      "issue": "releaseYear_unavailable",
+      "title": "Paterson"
+    },
+    {
+      "line": 9369,
+      "movieId": 162414,
+      "issue": "releaseYear_unavailable",
+      "title": "Moonlight"
+    },
+    {
+      "line": 9450,
+      "movieId": 167570,
+      "issue": "releaseYear_unavailable",
+      "title": "The OA"
+    },
+    {
+      "line": 9516,
+      "movieId": 171495,
+      "issue": "releaseYear_unavailable",
+      "title": "Cosmos"
+    },
+    {
+      "line": 9517,
+      "movieId": 171631,
+      "issue": "releaseYear_unavailable",
+      "title": "Maria Bamford: Old Baby"
+    },
+    {
+      "line": 9520,
+      "movieId": 171749,
+      "issue": "releaseYear_unavailable",
+      "title": "Death Note: Desu nôto (2006–2007)"
+    },
+    {
+      "line": 9527,
+      "movieId": 171891,
+      "issue": "releaseYear_unavailable",
+      "title": "Generation Iron 2"
+    },
+    {
+      "line": 9613,
+      "movieId": 176601,
+      "issue": "releaseYear_unavailable",
+      "title": "Black Mirror"
+    }
+  ],
+  "related_csv_rows": {
+    "ratings": 100836,
+    "tags": 3683,
+    "links": 9742
+  },
+  "status": "PASS",
+  "output_rows": 9742,
+  "output_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536"
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run-a9b3a8a26afb",
+  "started_at_utc": "2026-10-04T08:38:33.680887+00:00",
+  "status": "PASS",
+  "input": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\generated\\demo.jsonl",
+  "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+  "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+  "spooled_file": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\spool\\300431e93c614783ae1af161af88939a.jsonl",
+  "output_dir": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\output",
+  "spool_completed": true,
+  "finished_at_utc": "2026-10-04T08:39:23.742922+00:00"
+}

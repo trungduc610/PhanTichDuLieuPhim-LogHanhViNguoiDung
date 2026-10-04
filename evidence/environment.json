@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-10-04T08:35:05.344287+00:00",
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\GIGA\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+  "tools": {
+    "java -version": {
+      "available": true,
+      "exit_code": 0,
+      "output": "java version \"1.8.0_251\"\r\nJava(TM) SE Runtime Environment (build 1.8.0_251-b08)\r\nJava HotSpot(TM) 64-Bit Server VM (build 25.251-b08, mixed mode)\r\n"
+    },
+    "docker version": {
+      "available": true,
+      "exit_code": 0,
+      "output": "Client:\n Version:           29.8.1\n API version:       1.56\n Go version:        go1.26.8\n Git commit:        4a63305\n Built:             Tue Sep 15 16:28:39 2026\n OS/Arch:           windows/amd64\n Context:           desktop-linux\n\nServer: Docker Desktop 4.93.0 (240920)\n Engine:\n  Version:          29.8.1\n  API version:      1.56 (minimum version 1.40)\n  Go version:       go1.26.8\n  Git commit:       464cd50\n  Built:            Tue Sep 15 16:25:38 2026\n  OS/Arch:          linux/amd64\n  Experimental:     false\n containerd:\n  Version:          v2.3.5\n  GitCommit:        1294c24a7da8e5a793ed378161673abe94118892\n runc:\n  Version:          1.5.1\n  GitCommit:        v1.5.1-0-g8f2685a4\n docker-init:\n  Version:          0.19.0\n  GitCommit:        de40ad0\n"
+    },
+    "docker compose version": {
+      "available": true,
+      "exit_code": 0,
+      "output": "Docker Compose version v5.5.1\n"
+    },
+    "wsl --status": {
+      "available": true,
+      "exit_code": 0,
+      "output": "Default Distribution: docker-desktop\r\nDefault Version: 2\r\nWSL1 is not supported with your current machine configuration.\r\nPlease enable the \"Windows Subsystem for Linux\" optional component to use WSL1.\r\n"
+    },
+    "git --version": {
+      "available": true,
+      "exit_code": 0,
+      "output": "git version 2.54.0.windows.1\n"
+    }
+  }
+}

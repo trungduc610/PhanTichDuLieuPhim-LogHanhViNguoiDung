@@ -1,0 +1,907 @@
+{
+  "checked_at_utc": "2026-10-04T04:51:44.164300+00:00",
+  "mode": "pipeline_reconciliation",
+  "input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 303052,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 1000000,
+    "unique": 1000000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output": {
+    "total": 550573,
+    "unique": 550573,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output_files": [
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-1.jsonl",
+      "bytes": 514899,
+      "sha256": "1c27b1da5488237fcc71e23356cb67476c1e9f8b5c0e6dbce5e3527e936ac1b5"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-10.jsonl",
+      "bytes": 171660,
+      "sha256": "b40dfd8e09d48c8b01c4919cba513df040d902f2e663e2ee1fae4b81baed8908"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-100.jsonl",
+      "bytes": 2231510,
+      "sha256": "38624257d82021564b47b1b1dae5a882773f2489ab27ad0e8f997d154ec27b22"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-101.jsonl",
+      "bytes": 2059848,
+      "sha256": "f0d42c3f6c9218bbc2ee953496500918ca94e3cc64bd2889fba8e0555f59fe02"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-102.jsonl",
+      "bytes": 2231334,
+      "sha256": "e351a3044a010b0e6bb2f6768cbaf00f9cb59ba22d32b3ff81af8cdd205f8e82"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-103.jsonl",
+      "bytes": 2231698,
+      "sha256": "a52e4d77e16bed434cb7985a6db9540051e93f28050355b2d6aa3aa4407a414d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-104.jsonl",
+      "bytes": 2060000,
+      "sha256": "15a3c67f3430b2c19eb0ff21313df0fb30a9273dfb2d988a4f9e18680a616a29"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-105.jsonl",
+      "bytes": 1888275,
+      "sha256": "338b2acf412bc7d7f610d92e8fc0296a742c601f2bf96adf231799aee69b52cc"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-106.jsonl",
+      "bytes": 2060190,
+      "sha256": "b2a973cc1f2870ea48e7238d9e25dea75f16ce2c0cb97ce137eed9573a9026b8"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-107.jsonl",
+      "bytes": 2059842,
+      "sha256": "387e0254027533d52b8f8d6e8f1c6fef099f1803291e46e07a09503cdfb5398b"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-108.jsonl",
+      "bytes": 1888270,
+      "sha256": "5b0ed28ec2b4f3da13ce1093a776dfdfc507e288750f032c66795a44cecd88f2"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-109.jsonl",
+      "bytes": 2231649,
+      "sha256": "a06255826739e144f0556541cbbb2bae7fc0662f3f9bd0c352482807ee55bbf3"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-11.jsonl",
+      "bytes": 171629,
+      "sha256": "dcc5689cf1dff6becaf6a0b8faf1345b167de00a421e748f9f701748f51f0d23"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-110.jsonl",
+      "bytes": 2060043,
+      "sha256": "9fd04c3f6056914f6d9ba72e97dbcbf6537f9772b33d6956ea2954c8a2901b1e"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-111.jsonl",
+      "bytes": 2231766,
+      "sha256": "17c297ea007673cb04b37e37802b8d17da2e0e9e05cd00c463dcb27a96336400"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-112.jsonl",
+      "bytes": 1888433,
+      "sha256": "76c9d29719bd04bc50502b3bbc84d9ba2ba797b65b1efa28592296c0b5c2dfb1"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-113.jsonl",
+      "bytes": 1888227,
+      "sha256": "dcbb9ff89d890bbc407f5f330737e9e44f259fcbe10e2f4a319f7e6fbea0fa6d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-114.jsonl",
+      "bytes": 1888444,
+      "sha256": "69fb54ec8e52653c1d388faf8a8a22fc4dc55a6a0dc41d4fd52634ff6a9ec73c"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-115.jsonl",
+      "bytes": 1716688,
+      "sha256": "2e3f383e305a117973dfae866f028b69ceea34b03f03dccb9d031480fb0a3baf"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-116.jsonl",
+      "bytes": 2060030,
+      "sha256": "b8ee3230bf93631b56dacdd416d3f7958ed2f129cc6bfd2993ce6615919da176"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-117.jsonl",
+      "bytes": 2231909,
+      "sha256": "a8d50783719adc4d6823178d090ef832cef022a15aec437e1a85772a60bad361"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-118.jsonl",
+      "bytes": 2060009,
+      "sha256": "5783ac9a9b54839fff952f08136ce108da6fb1b0adb7e7a0c9987afa25c18b77"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-119.jsonl",
+      "bytes": 1888539,
+      "sha256": "68d638086453968159e6a7eb13b93c7232466f6365149f4f7fce896085df5e85"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-12.jsonl",
+      "bytes": 171690,
+      "sha256": "1246895f807adc3255db9e79d911c912268c44e246d73e5ce5b8aa00d0a457c5"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-120.jsonl",
+      "bytes": 2231685,
+      "sha256": "f56104a1b59de7be6746636a07e23d94ca040e3a5fcbcfbd251a8d4de342583d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-121.jsonl",
+      "bytes": 2231759,
+      "sha256": "5e596631fc100adb07963a3c289680ed6475b1c2ac3f7205075b9fe54a44adcd"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-122.jsonl",
+      "bytes": 2060104,
+      "sha256": "fa2dbb1ac640f2d52ecdf15b7bf097b3913a92c85161cc8948eec0ce939e38c7"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-123.jsonl",
+      "bytes": 2403592,
+      "sha256": "c81a72679642e10b3d974ca684f45b62c7431a82a3a11ddebb036e4076a1e3aa"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-124.jsonl",
+      "bytes": 2232078,
+      "sha256": "fb1119a6a0aa43a56a2bc7643358595c26daf15d8f600cd8cdd5ce838f48aacf"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-125.jsonl",
+      "bytes": 1716745,
+      "sha256": "1740d1e4833791d4171afd5ced25163ceedbb35759c25ec68735ac18677b4de2"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-126.jsonl",
+      "bytes": 1888428,
+      "sha256": "e5bc6b5ea6ca7563f22e9ba68f3b8496764cd225822ceb6bec8b73058a463e69"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-127.jsonl",
+      "bytes": 2403465,
+      "sha256": "b1daa5f04a7ca000203608815cc63125f8f27df725c3142c032c8072f2a94b23"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-128.jsonl",
+      "bytes": 1888712,
+      "sha256": "5006e23d49a61bb554ecc41a61e6977ee139ec215f6e7d7fa8c24ef2bf482e70"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-129.jsonl",
+      "bytes": 2403110,
+      "sha256": "b0865e44111834b18747205e17caf1d05f2dcf1f4035fd06dc3e453ed7a409ab"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-13.jsonl",
+      "bytes": 171688,
+      "sha256": "ae60b4d171b590e980feed93ac016c594c25526f89e72fb3b04c29b9f78e5342"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-130.jsonl",
+      "bytes": 2059939,
+      "sha256": "c3ac44f247940fb767332dcaf41e0b430c70e79c61318c291035155fefa4e1ac"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-131.jsonl",
+      "bytes": 1888426,
+      "sha256": "0102385c4c01dfffb7a35e2208dddbb84248ad75f5043af60bc73784b6e6e993"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-132.jsonl",
+      "bytes": 1888184,
+      "sha256": "4d6129f477ecbb14230ecb425a0babe557f52f2d9d6068f9a5e7f68988a26880"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-133.jsonl",
+      "bytes": 1372965,
+      "sha256": "b192a8ed5499a46a6000a893a10b296e2defd509d3d27b31e652c5eb08154c23"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-134.jsonl",
+      "bytes": 1544833,
+      "sha256": "ce0c39375e79a62ad567edc16732143a680ceff2fd2aa7e9a59dac5bf7a1e25a"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-135.jsonl",
+      "bytes": 1201694,
+      "sha256": "dfa7dabd8a86454c6962f81bee654a589e3c481636defc9667aa73b357795720"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-136.jsonl",
+      "bytes": 1201787,
+      "sha256": "ea53616a54293269c1b66525e52b2c7bb7557e1c4fad8a663ab7e73148e98759"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-137.jsonl",
+      "bytes": 1545020,
+      "sha256": "4ec4b2e05adfe4f10b453662ba3a5cf21cf45806e9c0c4adb78d50be8f150e82"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-138.jsonl",
+      "bytes": 1544867,
+      "sha256": "f0c11403b3bf6e320b02d77519fdbe4165ce60536dc73e2d2fd4911b1a7b0809"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-139.jsonl",
+      "bytes": 1029898,
+      "sha256": "0983959c13921f0972c339743342ba9289cb02db34e0ec57fd00823a770552ff"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-14.jsonl",
+      "bytes": 343371,
+      "sha256": "08b89e503b7888fba361c752ee2fab52ea3baa527fd8f3c51fa4ae64fb1378c1"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-140.jsonl",
+      "bytes": 1888246,
+      "sha256": "f847cb820178fe6434c7803e0215793f9531ddec018f3906cdac44733b4193b8"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-141.jsonl",
+      "bytes": 2060214,
+      "sha256": "7dd302b0c4dbbf2aa70854510713d7eedc0967b4b4a2e3716d71b2453806a634"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-142.jsonl",
+      "bytes": 2059927,
+      "sha256": "7dc3ebf40a0fb9d9db616938b4740ad495bb3c91f5cd567b641cca39931d4820"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-143.jsonl",
+      "bytes": 1888370,
+      "sha256": "2f91473a48f3a662f991db66a3ba378e93bb7ddc597b42775fbff2b61d7a4dd0"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-144.jsonl",
+      "bytes": 2231591,
+      "sha256": "cfe223012e7774c3306f59edf88c4540f399efba6d2f9c58835657438fc86490"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-145.jsonl",
+      "bytes": 1716591,
+      "sha256": "9f1d5a30c72f5dd1d7b20944c1f548fa246f0800966c2042a6d80a2d0520f65c"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-146.jsonl",
+      "bytes": 2060118,
+      "sha256": "82fa0d5b00987b1c47fe4b6729043b8552679431c9b7cbf3f07495b99bec5750"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-147.jsonl",
+      "bytes": 2231555,
+      "sha256": "7a851de08ae489d91c9dd491c0bca4354779026dc86d8d4e173f9ae4ae61edc0"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-148.jsonl",
+      "bytes": 2059768,
+      "sha256": "735fe063ee7e52ef781b28ca9e98cbd76baa7a333f1b6e49045d66eb1fb03a88"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-149.jsonl",
+      "bytes": 2060034,
+      "sha256": "466aba4e78fd563d62badf52a6f00af3142559119e2124c6fa4abfc76a2fb6cb"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-15.jsonl",
+      "bytes": 171693,
+      "sha256": "84a405138957431dac099d939bdf3c7373d1b992c913a80a6623db68e5258a34"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-150.jsonl",
+      "bytes": 1545083,
+      "sha256": "49f07cf895b0b2a61bfac924007eca92366d1f01851983e56f7b44b9cc09adcd"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-151.jsonl",
+      "bytes": 1545130,
+      "sha256": "5e528e4a992b03ed5c1bb2d9101d409ebe2b304e399d20a286903bc482df96c3"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-152.jsonl",
+      "bytes": 1029933,
+      "sha256": "dc955fa1785224c4fe9326dcfc782efb0073099bb1d87574959626dea068f93a"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-153.jsonl",
+      "bytes": 1201788,
+      "sha256": "c016976de37b406ed304be235162aa3d392788528cc04cabcbc3fa83ee94d5e8"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-154.jsonl",
+      "bytes": 1373808,
+      "sha256": "f7a290873f1ad0837f6008a247647b0434cc9a2441476b76b5884b32053ac696"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-155.jsonl",
+      "bytes": 1373280,
+      "sha256": "484fd483acf3566c5a6bb5b3bb156488db959f87db2d1f0679eb3d5ebd1f6d0e"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-156.jsonl",
+      "bytes": 1373267,
+      "sha256": "57c01fa655fdfa925172b94a7404f666d155ea3dcb92ee7a335ca688c832db7a"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-157.jsonl",
+      "bytes": 1544869,
+      "sha256": "157b5eeed6126f6399fa11c9178aec0b1278abc0f68128a99f05d3cb140ebb05"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-158.jsonl",
+      "bytes": 1373183,
+      "sha256": "63cc9fc6a0c059d22144a9a50061b9e4a102ffd522efae6a7c958403574fd037"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-159.jsonl",
+      "bytes": 1716714,
+      "sha256": "964a1153ae39da4770f1da0df0f9cb30ce15be4e3eaa4c7c3bf9698eac3eaabe"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-16.jsonl",
+      "bytes": 171676,
+      "sha256": "4b18ca84cf67d91d79cbfa3841ed6888fc401c1b6956910cb30fcecbc431e442"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-160.jsonl",
+      "bytes": 1545046,
+      "sha256": "0a328741364d73e8583b67407525a913ded9869ea3c67be2cb0141b86af99fc5"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-161.jsonl",
+      "bytes": 1545031,
+      "sha256": "10774ad121c737849430dee534a29aba9db5d6954010ef24941f343d1146572e"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-162.jsonl",
+      "bytes": 1545146,
+      "sha256": "5a2076616d6e9c3812a3498f81f2006fb8974f048880103931b5958e8fedd110"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-163.jsonl",
+      "bytes": 1201702,
+      "sha256": "700cef92371dcf02d11f1879c56777fb613692afd641de87e87046f72c2336c9"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-164.jsonl",
+      "bytes": 1030179,
+      "sha256": "604b2cba6f270333e064f7d21140448ed6f3edaab5a61feeebed6b5bc1f6fc52"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-165.jsonl",
+      "bytes": 1030167,
+      "sha256": "0d366b7a671f03d1dbeb1642744b048b44e7bb0e7fae5c073efc257aa4ac1c4a"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-166.jsonl",
+      "bytes": 1201808,
+      "sha256": "6e5872058a67335a8122b1b76a0f9c59adf3c6d96eba8f3076a40f9b1a0d1d90"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-167.jsonl",
+      "bytes": 1201733,
+      "sha256": "812e180244cb376516448d8e11eca52646bf2c92d07db71ff2a1d463efa27af0"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-168.jsonl",
+      "bytes": 1029921,
+      "sha256": "f68b1713ec7a51a72dfb921bba81ecbd6d252ac39632f17706c4eb176f962ed3"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-169.jsonl",
+      "bytes": 1201774,
+      "sha256": "ff4c1cc1b01e28a705de5f298828f2bc8e9018b59156089b5d6e1bab09ce04cf"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-17.jsonl",
+      "bytes": 171749,
+      "sha256": "dbb7f251e505213b49b98812565f8162ed80a212c7a506f13412c609ff9d9ac9"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-170.jsonl",
+      "bytes": 1030005,
+      "sha256": "ba09461b2347081766a009c2915b43f49276bf12801e0dd673dea291c4d00952"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-171.jsonl",
+      "bytes": 1201719,
+      "sha256": "667b50a264c3a52d7b1b6aa5482ac0753c033df07216ec8559d9460a8a2dc8a0"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-172.jsonl",
+      "bytes": 1544924,
+      "sha256": "69136a343679ba2998aa95eaf3bda7d47a877638c0ddc5d372154ef7e724d860"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-173.jsonl",
+      "bytes": 1201664,
+      "sha256": "d81f7a652f43b5d6cb2ae6d3fbf73eb3e412f29938d514ebeb200a7d788039bd"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-174.jsonl",
+      "bytes": 1716809,
+      "sha256": "80bd3fd4440e215f31717199dce5ad5575a16a85a5d42ab3cbef553f59d7b222"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-175.jsonl",
+      "bytes": 196674,
+      "sha256": "d931e6f817e6b958ea0ef60562f28bc067473e8b07cfa7ef35c010b5b32c40df"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-18.jsonl",
+      "bytes": 171653,
+      "sha256": "c06756f0c431d2e694dab2199c1af4ba7b4151cdca1ff159e298bafbc6f1b3f6"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-19.jsonl",
+      "bytes": 171650,
+      "sha256": "ef90fa65ee4faf3a83f6657d402e488c16e9ca0cc25aea633e8bb2aa70187cde"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-2.jsonl",
+      "bytes": 343202,
+      "sha256": "fee588e50c9add3e51fad42c5f6dfd729a73f303f9b37a84b779a685fa4c0dd7"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-20.jsonl",
+      "bytes": 171602,
+      "sha256": "4d26ac40fa6b2da4f4712b55dded0c073b7c7581850f2b6f6590ae4649fb594d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-21.jsonl",
+      "bytes": 171700,
+      "sha256": "6946280053945f5f9e5e62f3e67bb42995aac968f6e25e39767f3418b3c48a0a"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-22.jsonl",
+      "bytes": 171593,
+      "sha256": "8546fb3cb707e0c7f2230eb3c689b12edf042f57da21a8c349bbe13bcdc42d7d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-23.jsonl",
+      "bytes": 171664,
+      "sha256": "1006412c23ef8256bc3ce43636af1311739ac9f9974d8748c073b6b85c7b6f56"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-24.jsonl",
+      "bytes": 171752,
+      "sha256": "ee1edcc7d196a3b1539c3d05906f18ec8fb18f709dfea3e946cafbc55dc5ef3e"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-25.jsonl",
+      "bytes": 171740,
+      "sha256": "118cd1668aa962ae169fa3d4004b7bdc962a8d4be3385940f0682285ecb8f063"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-26.jsonl",
+      "bytes": 171665,
+      "sha256": "fafd913cd6202e8def47bbfdd3d8471644907557c09d6624abc1a10c42121006"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-27.jsonl",
+      "bytes": 343388,
+      "sha256": "96456623921a587aefa670b4588706ca3c1c1c22679c20b57e143f7804a190b9"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-28.jsonl",
+      "bytes": 171690,
+      "sha256": "2e42ad865a6b06c7caae97a46b0b03371fef39ab80a375a7cf2372b2d1db2e05"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-29.jsonl",
+      "bytes": 171689,
+      "sha256": "a10e506ebadbd7fc16ece0901894882f301c69d21458e3a303fc7be38ad0279e"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-3.jsonl",
+      "bytes": 343329,
+      "sha256": "0427040262d9498206e5347933fe5ddc15b78e40f658da45219086b904dfdb2d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-30.jsonl",
+      "bytes": 343341,
+      "sha256": "f1aa181c565a54d28e96c21c372625388368917fd87c0f92c3e1033b865ddaa7"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-31.jsonl",
+      "bytes": 171655,
+      "sha256": "8e5c04e188c913f5fcd03cc23cb85078ab8b5b2a59c73cb8bee6f5288745bfc3"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-32.jsonl",
+      "bytes": 171582,
+      "sha256": "ee37615df9b6a81349d234ed9e35768029cf01adaa1abbdaf0c18e453055282b"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-33.jsonl",
+      "bytes": 171656,
+      "sha256": "209b4455f0fd930cfe8288a1340ae35a6b3129870c597ac97a675a6f64ed21d4"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-34.jsonl",
+      "bytes": 171631,
+      "sha256": "b5e6d4a8cd0328ea55b6bf71ce8f0f2010f313bad335e1d903239fb612c4ba91"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-35.jsonl",
+      "bytes": 171613,
+      "sha256": "551124989a1b834f2acea6735726713483ba5ba5a26888ea2219b9758076cd5d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-36.jsonl",
+      "bytes": 171690,
+      "sha256": "99e147d12bd46c444d8b0ffcd1e109bed4778c6196f4288d3b4bdfc04cd8b951"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-37.jsonl",
+      "bytes": 171639,
+      "sha256": "376eaa5fd7cfc0e6ffefc3db80e7d7fca8d4fea78d15703a0a82ccd24039713c"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-38.jsonl",
+      "bytes": 171740,
+      "sha256": "4d653b41c278d7c92ec882b461b3862e1e27682aea07b83b55d741bfff83c1c5"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-39.jsonl",
+      "bytes": 171693,
+      "sha256": "c4d595b1d9a983edceaa6763ef5de87c27fcae3287cfe3b0986b1d9ba78ae3f3"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-4.jsonl",
+      "bytes": 343323,
+      "sha256": "6e3afd5a6684665d8ebf01813018447615d0cbc9d1e875c9554b7132e5a2a981"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-40.jsonl",
+      "bytes": 171718,
+      "sha256": "42eda043602db3d5bfb0211c4c91771c533fe7c56330e7e08d6e3d7dcabad4dc"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-41.jsonl",
+      "bytes": 171737,
+      "sha256": "99de2adf9059de6c6072b77597b3c5b26fd29fe59f5aa68bd2a0d3f5ddae5d51"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-42.jsonl",
+      "bytes": 171577,
+      "sha256": "f32386416efc1e3db3ade2e0526c281fbda9face0804b4007e33115b883d2e42"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-43.jsonl",
+      "bytes": 171718,
+      "sha256": "da1fa44b19135275063e409f9e9a0b7754d45bdc3b56c592785d89e46d93f051"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-44.jsonl",
+      "bytes": 171657,
+      "sha256": "dd16d390419fef174401fcf5397d1c5b45b048f88c85bf8a1977fc72c7c70229"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-45.jsonl",
+      "bytes": 171720,
+      "sha256": "f76c70cd059e1de5d311ba20315151e58e7c4bd5fef6bbcddf055ef38bcd2e0b"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-46.jsonl",
+      "bytes": 171684,
+      "sha256": "ac5f7630129b393aaf5196e1852b3a0841ef6e8eab3ef64a1376d6ed4597ed9b"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-47.jsonl",
+      "bytes": 171607,
+      "sha256": "0dc165ae7a78f8fd812075815901f416f5b6467df808ff326f533d3bc2f3ca03"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-48.jsonl",
+      "bytes": 171634,
+      "sha256": "31081303b0e55c141ac79ceb3e6105d81a3ef333579762c030ec8051017d224f"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-49.jsonl",
+      "bytes": 171616,
+      "sha256": "74ca200b93fd8ef8be02505a304b11dacc366378f8e0a4975ff403844effcbb9"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-5.jsonl",
+      "bytes": 171640,
+      "sha256": "90b5ba24f3dd97393c66d3216e5b12a888d1c49add8ddd89e1099f341591c450"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-50.jsonl",
+      "bytes": 171703,
+      "sha256": "65c908d606f72c042563b54ed17f80f01fc05e52337053d6b61f1adfd6479644"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-51.jsonl",
+      "bytes": 171644,
+      "sha256": "648f422a14996a44aba520db66cba91a3a222bee1f9d10b5304d659a9510f10c"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-52.jsonl",
+      "bytes": 171706,
+      "sha256": "3322462d5ad796c27c2e77ba93482c7d7f81013d234ac387131e477898c7438e"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-53.jsonl",
+      "bytes": 171680,
+      "sha256": "ac0db0ad30a34060f8cf127799a172f924fb069a7e409edf6a1d9821c3f77488"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-54.jsonl",
+      "bytes": 171686,
+      "sha256": "3680cdf39f1a2ff81be3c6d67770c0a495c9ed10732eda015757697139d07891"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-55.jsonl",
+      "bytes": 171608,
+      "sha256": "f66f297e1dacc8966246a824f1481cd20ae3f0a667b2981f96a4dad5a8893763"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-56.jsonl",
+      "bytes": 171745,
+      "sha256": "707aa6de3a8aef87d1121fa57ca4740e059a86d4a829669d4da7885b2a9f992d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-57.jsonl",
+      "bytes": 171705,
+      "sha256": "087bfb6f647fda0aa21b8b4aa281cbd45e7fe93f08ed5516ed49448d35dccb02"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-58.jsonl",
+      "bytes": 171661,
+      "sha256": "8c3a4df89f2e6838a7d0401a361820aee42ea7fe1a8b3b448b9b37e6dfeab86f"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-59.jsonl",
+      "bytes": 171733,
+      "sha256": "12318080b70547f08a3579434f6a0a46ee6e692908c06a560bf6eaaa49c4239d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-6.jsonl",
+      "bytes": 343372,
+      "sha256": "f8156db28fd8a59a381cb72c8133b0bc74cd7d6bba5bd63ba257603e1f160467"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-60.jsonl",
+      "bytes": 171671,
+      "sha256": "0485f8cc3f7f8f2d6cb5ffef6d8395e3de51bca38fc3e356bb06f33208e0b8fc"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-61.jsonl",
+      "bytes": 171670,
+      "sha256": "43166d3ced06ad7c5423feed589ba785c969a282779614a1bcfff7ebe17fe435"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-62.jsonl",
+      "bytes": 171704,
+      "sha256": "185c27ab1b4deab80a7e0a24db3c95f7ac3f6ed007895c7712ea70609f50ce80"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-63.jsonl",
+      "bytes": 171689,
+      "sha256": "5f03093457b17c834569af4b948778f270d7be299b263bee2c605bd2cb965ac8"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-64.jsonl",
+      "bytes": 171670,
+      "sha256": "b2ae0452d06b10210db26f81a7d89e73a32c5986b56aa87621bbba1e8a800318"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-65.jsonl",
+      "bytes": 171695,
+      "sha256": "08d4bbe8f7fe9d636f24c2855702d64a3d1982dd55fe412f932ec475f01a89f3"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-66.jsonl",
+      "bytes": 171619,
+      "sha256": "4f759f0d708d130532e3c694f14dc26e3571e750c1ba4c499d357f463642cbf1"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-67.jsonl",
+      "bytes": 171645,
+      "sha256": "054bb4dddc60b83ce78758331f9f66753b12f9957bd6b971a3fefbe4880888f1"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-68.jsonl",
+      "bytes": 171665,
+      "sha256": "aaeb6d5ec3e45eb94ea5c5f2e06d117f122e262096b7baeaf3deb76071d5fcb1"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-69.jsonl",
+      "bytes": 171624,
+      "sha256": "4f1663a7be5b46e248b8f865041bb84936d4471defc25e713fa8164e29ced640"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-7.jsonl",
+      "bytes": 171632,
+      "sha256": "1ba0b31f33a23294dc809b5b07313fd0c4c0fac7dd6c476d6391d189b6e21921"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-70.jsonl",
+      "bytes": 171613,
+      "sha256": "92a6594a6770b5b5204aca56a69fa396db7fb0bb68bdc49e57c18405e803a7ca"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-71.jsonl",
+      "bytes": 171690,
+      "sha256": "61c8540686e3589ea847bce9ed13781b0c72cc82a909fabf3ea543cf176af5b0"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-72.jsonl",
+      "bytes": 171632,
+      "sha256": "bc8c2b106cc78b0b7c7023349691937f28aad18b8ab58308f936c4764a81b82c"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-73.jsonl",
+      "bytes": 171626,
+      "sha256": "1084015ba49b9d290deb4506fcfe6809baece1a880047eb4b2a14461c3799df6"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-74.jsonl",
+      "bytes": 171540,
+      "sha256": "5be70b1407a36b794b5e901efb5c30a45c83c2a55d108c3925c01e8b702932bf"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-75.jsonl",
+      "bytes": 171706,
+      "sha256": "06a03d5c4917952d5c3f956baae59a9c5726a8ea86cd57b4309ad12fb8023931"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-76.jsonl",
+      "bytes": 171648,
+      "sha256": "f381400b253d9968d5f6016db9a72775366fa2919937db7de9056587f11ace67"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-77.jsonl",
+      "bytes": 686525,
+      "sha256": "bc61805ea4666394bd042a157c0fc647df6a853e2d7b58c04cb98f59b71abbf1"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-78.jsonl",
+      "bytes": 2231802,
+      "sha256": "07efd952429a51c173f7ddc0abdfa9b68f4d2fa11c96e3dff46e3d940993e81d"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-79.jsonl",
+      "bytes": 1888041,
+      "sha256": "52f2b69ffc59c49fb95eaac4650dd6cff1dec9c74d547401b95132dc9e10a999"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-8.jsonl",
+      "bytes": 171661,
+      "sha256": "bb9b4f25b25ad98db44f4eec544ac1509434b0cf196ae6a79d58afdb7d9cdfa9"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-80.jsonl",
+      "bytes": 1888382,
+      "sha256": "59a3153570ec9ef87441ddd9ac23eac452166d87c8895ef38d401fafea50ea39"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-81.jsonl",
+      "bytes": 2231825,
+      "sha256": "87e19e395f57f37ab2679f7c04a5fd63fb0e48cac578ce6b6d139e67e4c2b0bf"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-82.jsonl",
+      "bytes": 2403461,
+      "sha256": "37c0b56d2513fe3325e30649b7dbdec6c814ccf5be66d50a752d8c285d404bac"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-83.jsonl",
+      "bytes": 1888475,
+      "sha256": "9f200aea4c33dd1db4665847dd9fdd29b902b7d005b18bc1f9396eeaa5ba3f46"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-84.jsonl",
+      "bytes": 2231818,
+      "sha256": "85a78d94da3f4eceb922256fdd4c5c6800a390b74ca6e132d7797c48b6b6e4c4"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-85.jsonl",
+      "bytes": 2060063,
+      "sha256": "bd89fafb7fe20d8a70703f4013558611d59ea6a950728e39b98b79bb683cc218"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-86.jsonl",
+      "bytes": 1716589,
+      "sha256": "f44530df9f2cad1d5aac079a8bf434d71a169f9f06a6274e1260cd3b4c5733f1"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-87.jsonl",
+      "bytes": 2059659,
+      "sha256": "793ab83e6f5565aa171850ca71e6a7d6850f0818195b5a999f0d98fb296fe6a5"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-88.jsonl",
+      "bytes": 1545008,
+      "sha256": "0f144871a1e309426a686dbd5be582d951eacf121bf10c4fd5e7c9ba61abb217"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-89.jsonl",
+      "bytes": 1545017,
+      "sha256": "251b1082e482913994ddb07dbfbd2b43931d00bc97c8c9219914758c1fc848e5"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-9.jsonl",
+      "bytes": 171724,
+      "sha256": "c591b074d37aeae846f8e487ca7ca973680c974aeccd940753dd8c36028ed479"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-90.jsonl",
+      "bytes": 1030118,
+      "sha256": "81fb18905c9e0d8275c743757058f90523d9c0576582f990bb66aa84ebe8b27c"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-91.jsonl",
+      "bytes": 1716583,
+      "sha256": "4ec190722cec0e31ec5fd2c3957b32335407c2da538f31f7c2463b5e8c0ecc20"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-92.jsonl",
+      "bytes": 1373421,
+      "sha256": "e6e73ee57855e86a680b55c2b011202e61abca0a20a50638afaee67824973817"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-93.jsonl",
+      "bytes": 1888556,
+      "sha256": "be7c35dce1f133d980a1c35c4801b9a167ed08c7e433288563f55ef590c8aa54"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-94.jsonl",
+      "bytes": 2060127,
+      "sha256": "8612a8ef75a89a325b653ea40d8914d5a74215430471da694fa02a99c1aa9e68"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-95.jsonl",
+      "bytes": 2231806,
+      "sha256": "34674202d42b60046d2139367a4e176bce4337aaae2af9583aa71dff5446c8c5"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-96.jsonl",
+      "bytes": 2060266,
+      "sha256": "1bc1cd7e86a8abd096c32439d013d9521c3ce21bfd1ae02ec17980afe112584c"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-97.jsonl",
+      "bytes": 2403235,
+      "sha256": "1f9a3ce363d5b72333f04153e0ef7ba0655bffe847ea634636616148e96795b0"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-98.jsonl",
+      "bytes": 2059939,
+      "sha256": "cf4026b0b25de0a7581019fc6b6997ca89a3af6dd433edd3b2ba2a2709e458ca"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output\\1791087701772-99.jsonl",
+      "bytes": 1888632,
+      "sha256": "9162e59be9022f6bf7181d46b7c78d58674fe93dfb36a0a4b658fe6b56f3d0ac"
+    }
+  ],
+  "missing_event_ids": 449427,
+  "unexpected_event_ids": 0,
+  "changed_payloads": 0,
+  "manifest_errors": [],
+  "status": "FAIL",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}

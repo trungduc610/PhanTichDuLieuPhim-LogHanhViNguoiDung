@@ -1,0 +1,16 @@
+data/raw/*
+data/processed/*
+data/generated/*
+data/spool/*
+data/output/*
+data/channel/*
+data/runs/*
+logs/*
+work/
+__pycache__/
+*.pyc
+*.part
+*.sqlite
+!data/**/.gitkeep
+!logs/.gitkeep
+# Keep small evidence JSON and docs; do not commit full event streams.

@@ -1,0 +1,5 @@
+Flume 1.11.0
+Source code repository: https://git.apache.org/repos/asf/flume.git
+Revision: 1a15927e594fd0d05a59d804b90a9c31ec93f5e1
+Compiled by rgoers on Sun Oct 16 14:44:15 MST 2022
+From source with checksum bbbca682177262aac3a89defde369a37

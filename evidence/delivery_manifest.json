@@ -1,0 +1,218 @@
+{
+  ".dockerignore": {
+    "bytes": 47,
+    "sha256": "464a0374b8b20b7e26eee5e222c21c8763adceab9bf2350df2eb36e43519adc9"
+  },
+  ".gitattributes": {
+    "bytes": 53,
+    "sha256": "18d7aace9e39705076524e13e2a699cb65b61a0e3af25a5ca59af5e52501964f"
+  },
+  ".gitignore": {
+    "bytes": 251,
+    "sha256": "d407d0b27a3e60ffbc33f6deb63881f80d4dbce854c83726e2ad696b303434fe"
+  },
+  "compose.yaml": {
+    "bytes": 193,
+    "sha256": "4c8127e576e475adf5b6960475f6d505f06cb62af50c959f4302e437a656316b"
+  },
+  "config/flume.conf": {
+    "bytes": 1109,
+    "sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116"
+  },
+  "data/channel/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data/generated/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data/generated/demo.jsonl": {
+    "bytes": 3433123,
+    "sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53"
+  },
+  "data/generated/demo.jsonl.manifest.json": {
+    "bytes": 1937,
+    "sha256": "c46985795174aafff5158027863245c315d407a9d0769799213a2e1853ae71f3"
+  },
+  "data/output/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data/processed/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data/processed/movies.csv": {
+    "bytes": 533347,
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536"
+  },
+  "data/raw/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data/raw/download_manifest.json": {
+    "bytes": 985,
+    "sha256": "09cb64d52eede8192b877dcc6552be4c27635762bdc3e3fc142bab281dfe94b0"
+  },
+  "data/raw/ml-latest-small/links.csv": {
+    "bytes": 197979,
+    "sha256": "97ad18e4e56a09363c65676b6cb3482ce3e2cea2372a24620c1599c843325f31"
+  },
+  "data/raw/ml-latest-small/movies.csv": {
+    "bytes": 494431,
+    "sha256": "5a5f32dd9bb3797b8e728a1b98958789d2b13f294a69fdfbc5727f8a9611aa07"
+  },
+  "data/raw/ml-latest-small/ratings.csv": {
+    "bytes": 2483723,
+    "sha256": "aa289ca83157595d0df6aea1be6a4ded676ddc4385472e8313a8ed9805352646"
+  },
+  "data/raw/ml-latest-small/README.txt": {
+    "bytes": 8342,
+    "sha256": "63d22ac138e80fae37021797ed8e1b9424b5239dc576a137422adf783ae3f404"
+  },
+  "data/raw/ml-latest-small/tags.csv": {
+    "bytes": 118660,
+    "sha256": "92a9f8bb7916dceef6151209845788c3643f794dfa79d1feaec7121b5960399d"
+  },
+  "data/raw/ml-latest-small.zip": {
+    "bytes": 978202,
+    "sha256": "696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436"
+  },
+  "data/runs/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "data/spool/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "Dockerfile": {
+    "bytes": 1039,
+    "sha256": "c3451becf8c2d51ddd2a7efbe1e405064552520b6f7555676cd6e6cc394d0f5f"
+  },
+  "docs/dataset_description.md": {
+    "bytes": 3824,
+    "sha256": "ee1f51eb02a4c8d2939e24f06826018d02fed1a1310f831e81a2b09b28333bd8"
+  },
+  "docs/flume_pipeline.md": {
+    "bytes": 4606,
+    "sha256": "4c54f3dfa2e6a5cd9e7137f2daef97c245974625acb3509c3817db129448aaff"
+  },
+  "docs/log_schema.md": {
+    "bytes": 4955,
+    "sha256": "1a494a48a767d2929f3285c596cf3ecc906143c4b2a1f3972fed8b43c6f0881f"
+  },
+  "docs/presentation_script.md": {
+    "bytes": 3124,
+    "sha256": "94d332d08cf46a99d08a551dfe56ddd8b7ffa14a444cef8f8c3f2c217b864ec8"
+  },
+  "docs/week1_report.md": {
+    "bytes": 5880,
+    "sha256": "c35bb4064d93b8df1507e0db0fe5f5d410c33442f84ae086b140cdc8c5f09124"
+  },
+  "docs/week2_handoff.md": {
+    "bytes": 3648,
+    "sha256": "543fae3b4fed472ff1b8ae17794fc7a142d7b19baa7fa4bbb057b61720e28ee9"
+  },
+  "evidence/dataset_quality.json": {
+    "bytes": 2540,
+    "sha256": "2549abec4c9ad63c6d2da039b35f1dfdb3ea9b80199872cdbc7662d1d8749b9b"
+  },
+  "evidence/demo_input_validation.json": {
+    "bytes": 911,
+    "sha256": "296d233b4d957d58a0dfeff008037060f68534aebe5d6395614b71d82b8cc49b"
+  },
+  "evidence/environment.json": {
+    "bytes": 945,
+    "sha256": "3705f416cc6699036f49d99cf7e3a6890e3e43b51f57a10afbd8ac32e5452174"
+  },
+  "evidence/execution_commands.md": {
+    "bytes": 2945,
+    "sha256": "d7b41581416ab10684776c8699e8613650231452f997f9938b713da65b615042"
+  },
+  "evidence/input-sample.jsonl": {
+    "bytes": 1714,
+    "sha256": "2ec01c99064a26892cfc2a001d7d8335c593dfd64cb34867b089431791a5ec18"
+  },
+  "evidence/pipeline_attempt.txt": {
+    "bytes": 1343,
+    "sha256": "66f917c15350d4dec2accc709b8a7dd78a334fd37b71f3f6b80a5878650a47ba"
+  },
+  "evidence/README.md": {
+    "bytes": 1718,
+    "sha256": "4d529b5f80226e31f277a1543572f3b174f79b219736bf94883cb55a85b5521f"
+  },
+  "evidence/run-62b191534ce6/commands.json": {
+    "bytes": 439,
+    "sha256": "0190f0174202fee42e26de812ed6401db48b7d44284cd5ca72ce5015405f4713"
+  },
+  "evidence/run-62b191534ce6/input_validation.json": {
+    "bytes": 911,
+    "sha256": "b1c359a0682071035afed03bd8e43e42bec6d68071b911e514f0c37edcfcb484"
+  },
+  "evidence/run-62b191534ce6/status.json": {
+    "bytes": 432,
+    "sha256": "1be5db1a67cd2b119991b0e7085bbf824b94edbec73c862adb7c4245f63401aa"
+  },
+  "evidence/static_checks.json": {
+    "bytes": 485,
+    "sha256": "b2d7ef576f633383c1578d2dd54b99cf914cc695652265a6908ee0f57c11dea5"
+  },
+  "evidence/tests.txt": {
+    "bytes": 1330,
+    "sha256": "06e4ff9c2a071026586d509dd081b746daca7e19a662dd13f6753a1733751a88"
+  },
+  "logs/.gitkeep": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "README.md": {
+    "bytes": 11773,
+    "sha256": "d6092a39626b9b89ecaf21d850fe9c98ac221bb9b986948b107af6905c464b6c"
+  },
+  "requirements.txt": {
+    "bytes": 61,
+    "sha256": "7aa0db98a9e68681855b8a6a6e747d6156187ef07f8475689f4246ae0e97f984"
+  },
+  "scripts/check_environment.py": {
+    "bytes": 1209,
+    "sha256": "7b52d27df3202d36d1123d39ba884c5fb290b98757517d298410b9763d2a2ee4"
+  },
+  "scripts/common.py": {
+    "bytes": 851,
+    "sha256": "246ee962b07d43e9b9beafb1918ce1a35b88d9ee9f30ea03e0a70232068706b0"
+  },
+  "scripts/download_dataset.py": {
+    "bytes": 2989,
+    "sha256": "1021c134db680b2dff5361529d538d002aae524ca25ea9c78b80cf02397f0b00"
+  },
+  "scripts/generate_logs.py": {
+    "bytes": 7538,
+    "sha256": "392c065a3e108a26a4e4848b1f1891bbbcf760a6489653f8f52a85fa2220ad6c"
+  },
+  "scripts/prepare_movies.py": {
+    "bytes": 4421,
+    "sha256": "e24361adcd91c219e2fe45b7682435e02551601da66f83af43949e63e26c0d34"
+  },
+  "scripts/run_flume.sh": {
+    "bytes": 297,
+    "sha256": "2cce0d9291f24f1cf98bdbf665510d3a841433ef5a32060444ca9e1da1d46872"
+  },
+  "scripts/run_pipeline.py": {
+    "bytes": 6828,
+    "sha256": "1af1ff3a6d44f5616c76221d71f616253161b30f7200905c9185f7757fab4ab9"
+  },
+  "scripts/validate_pipeline.py": {
+    "bytes": 12130,
+    "sha256": "62b5ccac7a2acd119d13875e2d354acefd861cd927aad8fc54c4d49f62f3460e"
+  },
+  "scripts/verify_archive.py": {
+    "bytes": 635,
+    "sha256": "f2c364e535f6d1670d31bad70b5a0fe78d233b8a702afa17c361e0dd6c1fb111"
+  },
+  "tests/test_project.py": {
+    "bytes": 5158,
+    "sha256": "bc708d087bbc39be4e903cb2dbb1c453292c6ddd2039724edac9e3cfee4e688f"
+  }
+}

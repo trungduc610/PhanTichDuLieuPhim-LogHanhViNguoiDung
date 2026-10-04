@@ -1,0 +1,2 @@
+CONTAINER                        REPOSITORY          TAG                 PLATFORM            IMAGE ID            SIZE                CREATED
+movie-run-558d55e8a73f-flume-1   movie-log-flume     1.11.0-local        linux/amd64         8a72192ba6e9        760MB               8 seconds ago

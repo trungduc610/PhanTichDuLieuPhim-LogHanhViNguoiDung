@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-10-04T08:39:22.201658+00:00",
+  "mode": "pipeline_reconciliation",
+  "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 3058,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 10000,
+    "unique": 10000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output": {
+    "total": 10000,
+    "unique": 10000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output_files": [
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\output\\1791103122453-1.jsonl",
+      "bytes": 514899,
+      "sha256": "19cc164456982848d56d745bc7ec17247cb8853d767b197bd36bb27ab9f2b695"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\output\\1791103122453-2.jsonl",
+      "bytes": 686531,
+      "sha256": "d372bbc48aca9ffd8b38f9914a90334de1c99011bf60f6a7ce9875e6bd330886"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\output\\1791103122453-3.jsonl",
+      "bytes": 1201628,
+      "sha256": "7b7b9182443e2338b058f1f0c019b4024add2cd33672bf86de43bd6bb079aa1e"
+    },
+    {
+      "path": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\output\\1791103122453-4.jsonl",
+      "bytes": 1030065,
+      "sha256": "3ffa204e642116e645e4552cbdfcba421a30bf1a7557b4a5845ecaec72136c2d"
+    }
+  ],
+  "missing_event_ids": 0,
+  "unexpected_event_ids": 0,
+  "changed_payloads": 0,
+  "manifest_errors": [],
+  "status": "PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}

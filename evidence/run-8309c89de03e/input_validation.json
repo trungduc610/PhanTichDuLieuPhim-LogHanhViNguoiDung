@@ -1,0 +1,31 @@
+{
+  "checked_at_utc": "2026-10-03T11:51:19.963951+00:00",
+  "mode": "input_only",
+  "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 3058,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 10000,
+    "unique": 10000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output": {
+    "total": 0,
+    "unique": 0,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output_files": [],
+  "missing_event_ids": null,
+  "unexpected_event_ids": null,
+  "changed_payloads": null,
+  "manifest_errors": [],
+  "status": "INPUT_PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}

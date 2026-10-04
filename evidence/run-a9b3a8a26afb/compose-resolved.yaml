@@ -1,0 +1,23 @@
+name: movie-run-a9b3a8a26afb
+services:
+  flume:
+    build:
+      context: D:\Code\Bigdata\movie-log-bigdata-week1\movie-log-bigdata
+      dockerfile: Dockerfile
+    image: movie-log-flume:1.11.0-local
+    init: true
+    networks:
+      default: null
+    stop_grace_period: 1m0s
+    volumes:
+      - type: bind
+        source: D:/Code/Bigdata/movie-log-bigdata-week1/movie-log-bigdata/data/runs/run-a9b3a8a26afb
+        target: /data
+        bind: {}
+      - type: bind
+        source: D:/Code/Bigdata/movie-log-bigdata-week1/movie-log-bigdata/logs/run-a9b3a8a26afb
+        target: /logs
+        bind: {}
+networks:
+  default:
+    name: movie-run-a9b3a8a26afb_default

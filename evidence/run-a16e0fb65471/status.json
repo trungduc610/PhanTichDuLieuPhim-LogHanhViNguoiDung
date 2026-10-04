@@ -1,0 +1,13 @@
+{
+  "run_id": "run-a16e0fb65471",
+  "started_at_utc": "2026-10-04T04:18:39.316578+00:00",
+  "status": "FAIL",
+  "input": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\generated\\main.jsonl",
+  "input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+  "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+  "spooled_file": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\spool\\bbb5bd12d52443e4b8904a74feee601d.jsonl",
+  "output_dir": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output",
+  "spool_completed": true,
+  "reason": "Timeout waiting for ingestion/drain; reconciliation records actual output",
+  "finished_at_utc": "2026-10-04T04:53:30.608619+00:00"
+}

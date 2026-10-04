@@ -1,0 +1,108 @@
+ Image movie-log-flume:1.11.0-local Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 601B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.08kB 0.1s done
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jre-jammy
+#3 ...
+
+#4 [auth] library/eclipse-temurin:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jre-jammy
+#3 DONE 2.9s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 87B 0.0s done
+#5 DONE 0.0s
+
+#6 [ 1/10] FROM docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0
+#6 resolve docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0 0.0s done
+#6 ...
+
+#7 [internal] load build context
+#7 transferring context: 2.25kB 0.0s done
+#7 DONE 0.1s
+
+#6 [ 1/10] FROM docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0
+#6 sha256:5f56727168cfb1d988e5189edb4ef8c9d6960917dec3afeec2929a0c66ba08c5 0B / 2.46kB 0.2s
+#6 sha256:5f56727168cfb1d988e5189edb4ef8c9d6960917dec3afeec2929a0c66ba08c5 2.46kB / 2.46kB 0.3s done
+#6 sha256:69a52647c36199c8be7e5d31ae127f7a464d855d8371333758a7b9766cd0b5b0 0B / 127B 0.2s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 0B / 42.33MB 0.2s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 0B / 16.11MB 0.2s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 0B / 29.75MB 0.2s
+#6 sha256:69a52647c36199c8be7e5d31ae127f7a464d855d8371333758a7b9766cd0b5b0 127B / 127B 0.5s done
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 1.05MB / 16.11MB 0.9s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 3.15MB / 16.11MB 1.1s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 4.19MB / 16.11MB 1.2s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 2.10MB / 29.75MB 1.2s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 5.24MB / 16.11MB 1.7s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 6.29MB / 16.11MB 2.1s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 4.19MB / 29.75MB 2.3s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 3.15MB / 42.33MB 2.6s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 7.34MB / 16.11MB 2.7s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 8.39MB / 16.11MB 3.6s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 6.29MB / 29.75MB 3.6s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 6.29MB / 42.33MB 4.2s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 9.44MB / 16.11MB 4.2s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 10.49MB / 16.11MB 4.8s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 8.39MB / 29.75MB 5.0s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 11.53MB / 16.11MB 5.6s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 9.44MB / 42.33MB 5.9s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 12.58MB / 16.11MB 6.2s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 10.49MB / 29.75MB 6.2s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 13.63MB / 16.11MB 6.8s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 14.68MB / 16.11MB 7.4s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 12.58MB / 29.75MB 7.4s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 12.58MB / 42.33MB 8.1s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 15.73MB / 16.11MB 8.6s
+#6 sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 16.11MB / 16.11MB 9.3s done
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 14.68MB / 29.75MB 11.0s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 14.68MB / 42.33MB 13.2s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 16.78MB / 29.75MB 14.3s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 17.83MB / 42.33MB 16.8s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 18.87MB / 29.75MB 17.6s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 20.97MB / 29.75MB 20.9s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 20.97MB / 42.33MB 21.8s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 23.07MB / 29.75MB 24.2s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 24.12MB / 42.33MB 26.5s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 25.17MB / 29.75MB 27.6s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 27.26MB / 29.75MB 30.7s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 27.26MB / 42.33MB 31.5s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 29.36MB / 29.75MB 34.2s
+#6 sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 29.75MB / 29.75MB 34.7s done
+#6 extracting sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 30.41MB / 42.33MB 35.7s
+#6 extracting sha256:98c4455a98982b35380ec62f90d5cf0edff02eeb4b3bb18595d871fdeb0c0c67 0.9s done
+#6 extracting sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a
+#6 extracting sha256:ffd29860ca713d718d516979425e8e71a07ffe790755fdc7abeffaebe713675a 1.1s done
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 33.55MB / 42.33MB 38.2s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 36.70MB / 42.33MB 40.6s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 39.85MB / 42.33MB 43.0s
+#6 sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 42.33MB / 42.33MB 45.0s done
+#6 extracting sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9
+#6 extracting sha256:018bc96d45046f7c5ed9fbf159122e3de3f1c4cf246740df414ed58c7cc305f9 0.5s done
+#6 DONE 45.7s
+
+#6 [ 1/10] FROM docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0
+#6 extracting sha256:69a52647c36199c8be7e5d31ae127f7a464d855d8371333758a7b9766cd0b5b0 0.0s done
+#6 extracting sha256:5f56727168cfb1d988e5189edb4ef8c9d6960917dec3afeec2929a0c66ba08c5 0.0s done
+#6 DONE 45.8s
+
+#8 [ 2/10] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates python3 procps     && rm -rf /var/lib/apt/lists/*
+#8 1.363 Get:1 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+#8 1.375 Get:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+#8 2.374 Get:3 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [7,843 kB]
+#8 2.670 Get:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+#8 3.072 Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+#8 4.212 Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1,792 kB]
+#8 7.961 Get:7 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [266 kB]
+#8 7.969 Get:8 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [84.6 kB]
+#8 8.432 Get:9 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [17.5 MB]
+#8 8.737 Get:10 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [4,376 kB]
+#8 17.95 Get:11 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [1,321 kB]
+
