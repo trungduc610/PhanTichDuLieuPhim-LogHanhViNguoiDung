@@ -1,0 +1,26 @@
+{
+  "audit_date_local": "2026-10-11",
+  "timezone": "Asia/Saigon",
+  "os": "Windows-10-10.0.19045-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "tools_in_path": {
+    "python": "C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps\\python.EXE",
+    "py": "C:\\Users\\User\\AppData\\Local\\Microsoft\\WindowsApps\\py.EXE",
+    "java": null,
+    "docker": "C:\\Users\\User\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.EXE",
+    "spark-submit": null,
+    "git": "C:\\Program Files\\Git\\cmd\\git.EXE"
+  },
+  "pyspark_spec": "None",
+  "source_config_hash": {
+    "path": "config/flume.conf",
+    "bytes": 1109,
+    "sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+    "sha256_lf": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+    "tracked": true,
+    "lines": 30,
+    "utf8": "valid",
+    "bom": false
+  }
+}

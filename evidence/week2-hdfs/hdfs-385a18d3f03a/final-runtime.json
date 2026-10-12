@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-12T08:10:42.114762+00:00",
+  "run_id": "hdfs-385a18d3f03a",
+  "verification_source_sha256": "da195277c6eaf7a8b347cad0fba8679bd30aefd2a163aea33ad6672cce69f2d6",
+  "commands": {
+    "final-docker-info": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-docker-info-c761b847\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-docker-info-c761b847\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-context": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-context-b6a9be42\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-context-b6a9be42\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-spark-image": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-spark-image-8d916bd0\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-spark-image-8d916bd0\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-ps": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-ps-38639166\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-ps-38639166\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-compose": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-compose-859d2108\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-compose-859d2108\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-list": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-list-5f8cb7aa\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-list-5f8cb7aa\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-du": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-du-52481ad5\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-du-52481ad5\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-report": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-report-f5b096fe\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-report-f5b096fe\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-safe": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-safe-02219316\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-safe-02219316\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-fsck": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-fsck-2e06bec7\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-fsck-2e06bec7\\stdout.txt",
+      "exit_code": 0
+    },
+    "final-logs": {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-logs-425125d9\\finished.json",
+      "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-logs-425125d9\\stdout.txt",
+      "exit_code": 0
+    }
+  }
+}

@@ -1,0 +1,1 @@
+Refusing non-empty unformatted namenode volume

@@ -1,0 +1,50 @@
+[
+  {
+    "path": "scripts/check_environment.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/common.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/download_dataset.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/generate_logs.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/prepare_movies.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/run_pipeline.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/spark_smoke_test.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/validate_pipeline.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "scripts/verify_archive.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "src/__init__.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "src/schemas.py",
+    "status": "PARSE_OK"
+  },
+  {
+    "path": "tests/test_project.py",
+    "status": "PARSE_OK"
+  }
+]

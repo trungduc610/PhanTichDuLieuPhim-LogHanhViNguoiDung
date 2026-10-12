@@ -1,0 +1,73 @@
+{
+  "checked_at_utc": "2026-10-11T15:44:04.651267+00:00",
+  "mode": "input_only",
+  "input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "movies_quality": {
+    "path": "data\\processed\\movies.csv",
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "bytes": 533347,
+    "rows": 9742,
+    "unique_movie_ids": 9742,
+    "error_rows": 0,
+    "issues_sample": [],
+    "releaseYear_null_allowed": 13,
+    "no_genres_listed": 34,
+    "status": "PASS"
+  },
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 303052,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 1000000,
+    "valid": 1000000,
+    "unique": 1000000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 303052,
+      "play": 348474,
+      "complete": 141907,
+      "stop": 116021,
+      "pause": 90546
+    },
+    "watch_seconds": 1458785357,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z"
+  },
+  "output": {
+    "total": 0,
+    "valid": 0,
+    "unique": 0,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {},
+    "watch_seconds": 0,
+    "users": 0,
+    "movies": 0,
+    "sessions": 0,
+    "timestamp_min": null,
+    "timestamp_max": null
+  },
+  "output_files": [],
+  "output_file_summary": {
+    "files": 0,
+    "bytes": 0,
+    "empty_files": 0,
+    "missing_final_newline_files": 0
+  },
+  "missing_event_ids": null,
+  "unexpected_event_ids": null,
+  "changed_payloads": null,
+  "manifest_errors": [],
+  "status": "INPUT_PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}

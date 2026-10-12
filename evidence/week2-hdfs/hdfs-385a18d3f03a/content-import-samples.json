@@ -1,0 +1,242 @@
+[
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv",
+    "line": 1,
+    "text": "movieId,title,genres,releaseYear"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv",
+    "line": 2,
+    "text": "1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy,1995"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv",
+    "line": 3,
+    "text": "2,Jumanji (1995),Adventure|Children|Fantasy,1995"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-1.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"0337150f-26ca-5f36-9574-0ba21d121642\",\"userId\":\"sim-user-000358\",\"sessionId\":\"d30c9b3c-8d33-56e4-84e2-73dffc96fb46\",\"movieId\":247,\"action\":\"view\",\"timestamp\":\"2026-09-12T00:43:49Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-1.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"2e5cfa2e-f2a5-5a98-9681-8406454c655e\",\"userId\":\"sim-user-000358\",\"sessionId\":\"d30c9b3c-8d33-56e4-84e2-73dffc96fb46\",\"movieId\":247,\"action\":\"play\",\"timestamp\":\"2026-09-12T00:43:56Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-1.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"c7567c60-001d-5938-a813-a65f5b8fd7e6\",\"userId\":\"sim-user-000358\",\"sessionId\":\"d30c9b3c-8d33-56e4-84e2-73dffc96fb46\",\"movieId\":247,\"action\":\"complete\",\"timestamp\":\"2026-09-12T03:21:56Z\",\"watchDuration\":9480,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-10.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"9c699d6c-0316-5cb7-8011-00c24e9d9fcb\",\"userId\":\"sim-user-000956\",\"sessionId\":\"f671daf7-3fae-5aae-9b33-a6d8fe77a692\",\"movieId\":172215,\"action\":\"view\",\"timestamp\":\"2026-09-14T16:59:02Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":8160,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-10.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"fd580e7a-f278-5544-9d23-cbd3fcd08156\",\"userId\":\"sim-user-000956\",\"sessionId\":\"f671daf7-3fae-5aae-9b33-a6d8fe77a692\",\"movieId\":172215,\"action\":\"play\",\"timestamp\":\"2026-09-14T16:59:14Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":8160,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-10.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"fff0f8be-891d-591b-a7e5-4dda618210ac\",\"userId\":\"sim-user-000956\",\"sessionId\":\"f671daf7-3fae-5aae-9b33-a6d8fe77a692\",\"movieId\":172215,\"action\":\"pause\",\"timestamp\":\"2026-09-14T17:18:40Z\",\"watchDuration\":1166,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":8160,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-11.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"468d88a7-a191-53eb-87fa-9b87af9b0061\",\"userId\":\"sim-user-000641\",\"sessionId\":\"c9001810-57df-5ce6-9299-ce7853bede4e\",\"movieId\":7262,\"action\":\"play\",\"timestamp\":\"2026-09-27T18:01:12Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-11.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"8d9f6075-9804-5e44-9987-dfa178873d10\",\"userId\":\"sim-user-000641\",\"sessionId\":\"c9001810-57df-5ce6-9299-ce7853bede4e\",\"movieId\":7262,\"action\":\"pause\",\"timestamp\":\"2026-09-27T19:40:22Z\",\"watchDuration\":5950,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-11.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"fd2419a1-dbb9-548d-843c-5d2f9b26bd3f\",\"userId\":\"sim-user-000641\",\"sessionId\":\"c9001810-57df-5ce6-9299-ce7853bede4e\",\"movieId\":7262,\"action\":\"play\",\"timestamp\":\"2026-09-27T19:41:56Z\",\"watchDuration\":0,\"sequenceNumber\":3,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-12.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"291897ed-7600-5623-b9aa-2a197c9ce557\",\"userId\":\"sim-user-000281\",\"sessionId\":\"e1a5b062-4420-5edc-b490-507853bc5151\",\"movieId\":1648,\"action\":\"play\",\"timestamp\":\"2026-09-18T02:29:30Z\",\"watchDuration\":0,\"sequenceNumber\":3,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":6180,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-12.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"573cd6bd-74c6-584a-a8d9-cac0b52e1561\",\"userId\":\"sim-user-000281\",\"sessionId\":\"e1a5b062-4420-5edc-b490-507853bc5151\",\"movieId\":1648,\"action\":\"complete\",\"timestamp\":\"2026-09-18T02:52:01Z\",\"watchDuration\":1351,\"sequenceNumber\":4,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":6180,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-12.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"b5ed7ef0-8919-5038-90a3-7dcb7d63c43e\",\"userId\":\"sim-user-000028\",\"sessionId\":\"b968fec3-1b7b-5e22-82b3-7d2282a55788\",\"movieId\":3451,\"action\":\"view\",\"timestamp\":\"2026-09-27T10:35:09Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":4380,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-13.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"9538fb26-3e9b-5fde-bb36-19510ddc395b\",\"userId\":\"sim-user-000204\",\"sessionId\":\"c4de048f-ddaf-5cc2-830e-660084d9842f\",\"movieId\":8638,\"action\":\"play\",\"timestamp\":\"2026-09-19T12:34:35Z\",\"watchDuration\":0,\"sequenceNumber\":3,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":7080,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-13.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"76cc9051-97e0-5a17-8455-090fb67241ec\",\"userId\":\"sim-user-000204\",\"sessionId\":\"c4de048f-ddaf-5cc2-830e-660084d9842f\",\"movieId\":8638,\"action\":\"stop\",\"timestamp\":\"2026-09-19T13:38:40Z\",\"watchDuration\":3845,\"sequenceNumber\":4,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":7080,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-13.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"d96fc3fe-e812-5324-9e91-d7d82440413d\",\"userId\":\"sim-user-000958\",\"sessionId\":\"9b6a01ab-6c98-5ed9-a54f-737e7d7e84d5\",\"movieId\":122920,\"action\":\"view\",\"timestamp\":\"2026-09-25T04:52:43Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":10560,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-14.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"39e13a39-2706-53ad-9825-104c1c237719\",\"userId\":\"sim-user-000720\",\"sessionId\":\"6ff30a53-45e2-5925-9c5b-0c79abd77297\",\"movieId\":7262,\"action\":\"play\",\"timestamp\":\"2026-09-18T03:02:07Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-14.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"4b2c545d-bf18-5603-9bdf-a90c5e57a759\",\"userId\":\"sim-user-000720\",\"sessionId\":\"6ff30a53-45e2-5925-9c5b-0c79abd77297\",\"movieId\":7262,\"action\":\"pause\",\"timestamp\":\"2026-09-18T03:47:09Z\",\"watchDuration\":2702,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-14.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"fe9ab17d-9e91-5a8b-83bd-9b6664c4b5e4\",\"userId\":\"sim-user-000720\",\"sessionId\":\"6ff30a53-45e2-5925-9c5b-0c79abd77297\",\"movieId\":7262,\"action\":\"play\",\"timestamp\":\"2026-09-18T03:51:28Z\",\"watchDuration\":0,\"sequenceNumber\":3,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9480,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-15.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"7104f992-f825-557c-9947-b0f1533fcdac\",\"userId\":\"sim-user-000042\",\"sessionId\":\"7b709932-112d-5347-90e9-b12a7bedc0ea\",\"movieId\":8645,\"action\":\"view\",\"timestamp\":\"2026-09-18T09:10:37Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":8340,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-15.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"5ced2339-b466-50fe-accf-d1c239de064d\",\"userId\":\"sim-user-000042\",\"sessionId\":\"7b709932-112d-5347-90e9-b12a7bedc0ea\",\"movieId\":8645,\"action\":\"play\",\"timestamp\":\"2026-09-18T09:10:49Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":8340,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-15.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"ea9ac41d-675e-59e5-9e44-f7ffe335710e\",\"userId\":\"sim-user-000042\",\"sessionId\":\"7b709932-112d-5347-90e9-b12a7bedc0ea\",\"movieId\":8645,\"action\":\"complete\",\"timestamp\":\"2026-09-18T11:29:49Z\",\"watchDuration\":8340,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":8340,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-2.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"5fb9a58c-73a6-5530-a51d-36eecd2727bb\",\"userId\":\"sim-user-000803\",\"sessionId\":\"a3081a21-3f1b-59fc-829e-147a4a1137b1\",\"movieId\":175,\"action\":\"view\",\"timestamp\":\"2026-09-17T10:12:13Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":6420,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-2.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"7a02396a-f377-53eb-b974-594bbcfd1fbe\",\"userId\":\"sim-user-000803\",\"sessionId\":\"a3081a21-3f1b-59fc-829e-147a4a1137b1\",\"movieId\":175,\"action\":\"play\",\"timestamp\":\"2026-09-17T10:12:26Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":6420,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-2.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"428694ce-1619-5be2-874b-fc4f0046dc4d\",\"userId\":\"sim-user-000803\",\"sessionId\":\"a3081a21-3f1b-59fc-829e-147a4a1137b1\",\"movieId\":175,\"action\":\"pause\",\"timestamp\":\"2026-09-17T10:29:25Z\",\"watchDuration\":1019,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":6420,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-3.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"c836aba5-c051-5bb9-900c-4ebe14910ea0\",\"userId\":\"sim-user-000882\",\"sessionId\":\"ad265686-e0f3-5438-bb9d-5192d2579b50\",\"movieId\":3897,\"action\":\"complete\",\"timestamp\":\"2026-09-19T05:50:25Z\",\"watchDuration\":2816,\"sequenceNumber\":4,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":3900,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-3.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"3bcd8624-8e26-501d-9bde-92759e138dcd\",\"userId\":\"sim-user-000144\",\"sessionId\":\"8ae33fe3-2a9c-53bc-baee-c63a26adae65\",\"movieId\":20,\"action\":\"view\",\"timestamp\":\"2026-09-28T15:14:19Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":4680,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-3.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"1a06033c-89e8-5280-8f3e-fb6c42e0642d\",\"userId\":\"sim-user-000087\",\"sessionId\":\"9a473772-8e38-5f3d-9d10-82f048c28c52\",\"movieId\":181139,\"action\":\"view\",\"timestamp\":\"2026-09-18T15:30:56Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":8100,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-4.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"0371f2c8-449e-51f7-914d-37d95796642a\",\"userId\":\"sim-user-000609\",\"sessionId\":\"37636703-6ed5-5d35-a0ef-282fda9b57b1\",\"movieId\":7030,\"action\":\"view\",\"timestamp\":\"2026-09-29T12:39:34Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":5700,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-4.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"2cc838af-b706-58ea-be74-69e546d1d3c5\",\"userId\":\"sim-user-000609\",\"sessionId\":\"37636703-6ed5-5d35-a0ef-282fda9b57b1\",\"movieId\":7030,\"action\":\"play\",\"timestamp\":\"2026-09-29T12:39:46Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":5700,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-4.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"969f06cf-0900-5d99-bc67-365dc77dcca6\",\"userId\":\"sim-user-000609\",\"sessionId\":\"37636703-6ed5-5d35-a0ef-282fda9b57b1\",\"movieId\":7030,\"action\":\"pause\",\"timestamp\":\"2026-09-29T12:49:16Z\",\"watchDuration\":570,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":5700,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-5.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"8885e188-1f68-5eca-9984-3317d6cee1a8\",\"userId\":\"sim-user-000676\",\"sessionId\":\"01bff4d7-a1eb-59f6-a53c-7a420610b237\",\"movieId\":7179,\"action\":\"play\",\"timestamp\":\"2026-09-29T11:11:39Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":10140,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-5.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"46260674-0555-5f0e-a8d4-162de13256e0\",\"userId\":\"sim-user-000676\",\"sessionId\":\"01bff4d7-a1eb-59f6-a53c-7a420610b237\",\"movieId\":7179,\"action\":\"stop\",\"timestamp\":\"2026-09-29T11:34:17Z\",\"watchDuration\":1358,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":10140,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-5.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"cd72d2b8-7593-566a-9146-32c256c337ec\",\"userId\":\"sim-user-000961\",\"sessionId\":\"727f338d-48f1-5cb6-9465-bea1ca8b99b7\",\"movieId\":94833,\"action\":\"view\",\"timestamp\":\"2026-09-07T14:34:00Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":3720,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-6.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"f0ca9150-423f-56b0-8301-fea59eabd11a\",\"userId\":\"sim-user-000745\",\"sessionId\":\"e0b93035-b3ed-512d-970b-37004419c073\",\"movieId\":7013,\"action\":\"play\",\"timestamp\":\"2026-09-10T01:22:52Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":6360,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-6.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"821884b5-b9fc-5a4e-bf68-b4a6d82f1f37\",\"userId\":\"sim-user-000745\",\"sessionId\":\"e0b93035-b3ed-512d-970b-37004419c073\",\"movieId\":7013,\"action\":\"stop\",\"timestamp\":\"2026-09-10T03:07:37Z\",\"watchDuration\":6285,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":6360,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-6.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"38c21c99-0c68-5d03-a7aa-de5730e73c46\",\"userId\":\"sim-user-000624\",\"sessionId\":\"b188ec79-ad29-5096-af4a-1f8088d0b19e\",\"movieId\":52281,\"action\":\"view\",\"timestamp\":\"2026-09-22T12:47:12Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":7020,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-7.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"516e82fd-927d-5a17-8c9f-45087d2f889f\",\"userId\":\"sim-user-000299\",\"sessionId\":\"74338ead-ca75-53b6-837e-c2b6c848dbf7\",\"movieId\":7074,\"action\":\"complete\",\"timestamp\":\"2026-09-16T09:43:48Z\",\"watchDuration\":7140,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":7140,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-7.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"dcd05cf3-0fe1-538a-8371-ab9f10301753\",\"userId\":\"sim-user-000726\",\"sessionId\":\"74451d8f-6b9c-5cfa-99a3-e7d7844262e0\",\"movieId\":6887,\"action\":\"view\",\"timestamp\":\"2026-09-10T03:47:36Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":10140,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-7.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"fc8c2580-3c07-5e1c-87b6-98552a288fe0\",\"userId\":\"sim-user-000726\",\"sessionId\":\"74451d8f-6b9c-5cfa-99a3-e7d7844262e0\",\"movieId\":6887,\"action\":\"play\",\"timestamp\":\"2026-09-10T03:47:47Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":10140,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-8.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"335d8202-7516-5a8f-945c-3835166af060\",\"userId\":\"sim-user-000559\",\"sessionId\":\"537c6ef5-c6a3-5554-a28a-e2e07aab528f\",\"movieId\":100163,\"action\":\"play\",\"timestamp\":\"2026-09-18T15:20:27Z\",\"watchDuration\":0,\"sequenceNumber\":3,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":10800,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-8.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"4776a1b5-6359-5fae-871d-fa44d719dcad\",\"userId\":\"sim-user-000559\",\"sessionId\":\"537c6ef5-c6a3-5554-a28a-e2e07aab528f\",\"movieId\":100163,\"action\":\"complete\",\"timestamp\":\"2026-09-18T15:28:59Z\",\"watchDuration\":512,\"sequenceNumber\":4,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":10800,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-8.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"92b355ea-aead-58ff-b31e-2162b1dad59f\",\"userId\":\"sim-user-000681\",\"sessionId\":\"16870ea8-3226-5d53-92bf-edc52e4eaf49\",\"movieId\":2431,\"action\":\"view\",\"timestamp\":\"2026-09-18T12:31:22Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":9900,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-9.jsonl",
+    "line": 1,
+    "text": "{\"eventId\":\"ac9a0e9e-0a37-56c0-8424-db800b7ae43c\",\"userId\":\"sim-user-000955\",\"sessionId\":\"b77a662f-3815-51e1-89da-deea0df37838\",\"movieId\":53550,\"action\":\"view\",\"timestamp\":\"2026-09-01T02:08:51Z\",\"watchDuration\":0,\"sequenceNumber\":0,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":4800,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-9.jsonl",
+    "line": 2,
+    "text": "{\"eventId\":\"6fe3bc73-129f-5c7c-8c4a-6a0195da03f7\",\"userId\":\"sim-user-000955\",\"sessionId\":\"b77a662f-3815-51e1-89da-deea0df37838\",\"movieId\":53550,\"action\":\"play\",\"timestamp\":\"2026-09-01T02:08:54Z\",\"watchDuration\":0,\"sequenceNumber\":1,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":4800,\"durationSource\":\"synthetic\"}"
+  },
+  {
+    "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-9.jsonl",
+    "line": 3,
+    "text": "{\"eventId\":\"3d40d61e-09e4-508d-86cb-b9115f1a4ed1\",\"userId\":\"sim-user-000955\",\"sessionId\":\"b77a662f-3815-51e1-89da-deea0df37838\",\"movieId\":53550,\"action\":\"stop\",\"timestamp\":\"2026-09-01T03:15:24Z\",\"watchDuration\":3990,\"sequenceNumber\":2,\"runId\":\"f93ca6901f8554ae127a\",\"isSynthetic\":true,\"simulatedMovieDuration\":4800,\"durationSource\":\"synthetic\"}"
+  }
+]

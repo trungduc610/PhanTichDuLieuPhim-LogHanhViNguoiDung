@@ -1,0 +1,18 @@
+{
+  "run_id": "hdfs-385a18d3f03a",
+  "project": "movie-hdfs-385a18d3f03a",
+  "evidence": "evidence/week2-hdfs/hdfs-385a18d3f03a",
+  "audit": "audit/2026-10-12-141203-week2-tv1-hdfs",
+  "started_at_utc": "2026-10-12T07:24:36.923402+00:00",
+  "ui_url": "http://127.0.0.1:19870",
+  "configuration_hashes": {
+    "compose.hdfs.yaml": "6f8c362baf2ad064e98fd702a6738e4857b40a806ce40988909cf7a336600b95",
+    "config/hdfs/core-site.xml": "3bbe59fa78332b796b13e2c100d58182a950e846fdf14c7468b6c183558bf926",
+    "config/hdfs/hdfs-site.xml": "642c55a757ce9efd9e5ab01cdcd087222aaf9f0486c3996907a46c5065addc3e",
+    "config/hdfs/log4j.properties": "9cc5e56e54f003255d404a9ec68e1455903ce5d7b9349984e6e0f93fe01b4174",
+    "scripts/hdfs_service.sh": "b52f82d5019c36273ca61644fcfada9bfb3dfcabde992ae515ee0e8df2a00a7e",
+    "scripts/run_hdfs.py": "3bd980bc0460816910e69e4d1b2eb6176b598c5a206fd6273998d6c995ed6d29",
+    "scripts/hdfs_common.py": "8e8feea5fab0c1bc6b4a20ad5af86804f0afb6c1f6c00ada94ed771f52a72896",
+    "scripts/hdfs_source.py": "ca67f457278f13c215cab86db1940d7375424b7de50b073dcd271cbf178663d8"
+  }
+}

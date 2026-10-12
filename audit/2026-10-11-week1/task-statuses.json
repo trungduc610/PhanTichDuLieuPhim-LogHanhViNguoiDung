@@ -1,0 +1,122 @@
+{
+  "tasks": [
+    {
+      "id": "TV1-01",
+      "requirement": "Lựa chọn movie dataset phù hợp",
+      "status": "ĐẠT"
+    },
+    {
+      "id": "TV1-02",
+      "requirement": "Kiểm dataset, chọn trường",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV1-03",
+      "requirement": "Nguồn, định dạng, số bản ghi, dictionary",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV1-04",
+      "requirement": "Xây dựng log hành vi",
+      "status": "ĐẠT"
+    },
+    {
+      "id": "TV1-05",
+      "requirement": "Thống nhất cấu trúc log",
+      "status": "ĐẠT"
+    },
+    {
+      "id": "TV1-06",
+      "requirement": "Chuẩn bị log đủ lớn cho Tuần 2",
+      "status": "CHƯA ĐẠT"
+    },
+    {
+      "id": "TV1-07",
+      "requirement": "Cài/cấu hình Flume",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV1-08",
+      "requirement": "Source và flume.conf",
+      "status": "ĐẠT"
+    },
+    {
+      "id": "TV1-09",
+      "requirement": "Channel",
+      "status": "ĐẠT"
+    },
+    {
+      "id": "TV1-10",
+      "requirement": "Sink",
+      "status": "ĐẠT"
+    },
+    {
+      "id": "TV1-11",
+      "requirement": "Chạy Source → Channel → Sink, đối chiếu toàn vẹn",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV1-12",
+      "requirement": "Ảnh hoặc log chứng minh Flume",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV2-01",
+      "requirement": "Kiểm data TV1 thực tế",
+      "status": "CHƯA THỂ XÁC MINH"
+    },
+    {
+      "id": "TV2-02",
+      "requirement": "Kiểu dữ liệu từng trường",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV2-03",
+      "requirement": "Schema tái sử dụng và áp dụng Spark",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV2-04",
+      "requirement": "Khóa liên kết",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV2-05",
+      "requirement": "Chất lượng dữ liệu",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV2-06",
+      "requirement": "Thống nhất kiến trúc",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV2-07",
+      "requirement": "Luồng xử lý tổng thể",
+      "status": "ĐẠT"
+    },
+    {
+      "id": "TV2-08",
+      "requirement": "Môi trường Python/Java/Spark",
+      "status": "ĐẠT MỘT PHẦN"
+    },
+    {
+      "id": "TV2-09",
+      "requirement": "SparkSession và action cơ bản",
+      "status": "CHƯA THỂ XÁC MINH"
+    },
+    {
+      "id": "TV2-10",
+      "requirement": "Spark đọc output Flume thật",
+      "status": "CHƯA THỂ XÁC MINH"
+    }
+  ],
+  "counts": {
+    "ĐẠT": 7,
+    "ĐẠT MỘT PHẦN": 11,
+    "CHƯA ĐẠT": 1,
+    "CHƯA THỂ XÁC MINH": 3
+  },
+  "pass_rate_formula": "7/22*100",
+  "pass_rate_percent": 31.818181818181817
+}

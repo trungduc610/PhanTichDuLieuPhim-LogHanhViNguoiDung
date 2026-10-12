@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-11-221710-week1-recheck\create_report.py", line 94, in <module>
+    add('\nDocker ban đầu chưa chạy; sandbox không đọc được Docker config/context. Dùng thao tác đã được phép để mở Docker Desktop có sẵn và gọi Docker ngoài sandbox, không sửa quyền/cấu hình bảo mật. TLS Python lần đầu lỗi CA (exit1); bundle rootCApublic từ Node giúp tải HTTPS verified (exit0), không tắt TLS. '+step('download')+', '+step('download-ca')+'.')
+                                                                                                                                                                                                                                                                                                                          ^^^^^^^^^^^^^^^^
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-11-221710-week1-recheck\create_report.py", line 32, in step
+    raise ValueError((label,files))
+ValueError: ('download', [WindowsPath('C:/Users/User/Documents/GitHub/PhanTichDuLieuPhim-LogHanhViNguoiDung/audit/2026-10-11-221710-week1-recheck/execution/download-ca-67778823/command.json'), WindowsPath('C:/Users/User/Documents/GitHub/PhanTichDuLieuPhim-LogHanhViNguoiDung/audit/2026-10-11-221710-week1-recheck/execution/download-d0e07b57/command.json')])

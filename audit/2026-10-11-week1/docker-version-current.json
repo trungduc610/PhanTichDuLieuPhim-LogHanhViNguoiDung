@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "docker",
+    "version"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:48.365446+00:00",
+  "exit_code": 1,
+  "output": "Client:\n Version:           29.7.2\n API version:       1.55\n Go version:        go1.26.5\n Git commit:        a7dcaa6\n Built:             Wed Aug  5 18:31:33 2026\n OS/Arch:           windows/amd64\n Context:           default\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified.\n"
+}

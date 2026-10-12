@@ -1,0 +1,24 @@
+ .dockerignore                |   1 +
+ Dockerfile                   |   4 +-
+ README.md                    | 167 +++++++---------------------
+ compose.yaml                 |   8 +-
+ docs/data_quality_report.md  |  80 ++------------
+ docs/dataset_description.md  |   8 +-
+ docs/flume_pipeline.md       |  24 +++-
+ docs/log_schema.md           |  14 ++-
+ docs/movie_schema.md         |  47 ++------
+ docs/presentation_script.md  |  18 +--
+ docs/system_architecture.md  |  13 ++-
+ docs/user_log_schema.md      |  85 ++++----------
+ docs/week1_member2_report.md | 141 ++----------------------
+ docs/week1_report.md         |  63 ++---------
+ docs/week2_handoff.md        |  74 +++++--------
+ requirements.txt             |   4 +-
+ scripts/check_environment.py |   9 +-
+ scripts/prepare_movies.py    |   4 +-
+ scripts/run_flume.sh         |   2 +-
+ scripts/run_pipeline.py      |  64 +++++++++--
+ scripts/spark_smoke_test.py  | 256 ++++++++++++++++++++++---------------------
+ scripts/validate_pipeline.py |  37 +++++--
+ tests/test_project.py        |  42 +++++++
+ 23 files changed, 465 insertions(+), 700 deletions(-)

@@ -1,0 +1,26 @@
+test_any_storage_property_change_is_detected (test_hdfs_properties.StoragePropertiesTests.test_any_storage_property_change_is_detected) ... ok
+test_duplicate_storage_property_is_rejected (test_hdfs_properties.StoragePropertiesTests.test_duplicate_storage_property_is_rejected) ... ok
+test_timestamp_comment_is_not_storage_identity (test_hdfs_properties.StoragePropertiesTests.test_timestamp_comment_is_not_storage_identity) ... ok
+test_duplicate_movies_rejected (test_project.ProjectTests.test_duplicate_movies_rejected) ... ok
+test_duration_tampering_rejected (test_project.ProjectTests.test_duration_tampering_rejected) ... ok
+test_empty_sink_never_passes (test_project.ProjectTests.test_empty_sink_never_passes) ... ok
+test_exact_counts_boundaries_and_sessions (test_project.ProjectTests.test_exact_counts_boundaries_and_sessions) ... ok
+test_integer_overflow_rejected (test_project.ProjectTests.test_integer_overflow_rejected) ... ok
+test_invalid_utf8_rejected (test_project.ProjectTests.test_invalid_utf8_rejected) ... ok
+test_missing_duplicate_invalid_and_mutated_detected (test_project.ProjectTests.test_missing_duplicate_invalid_and_mutated_detected) ... ok
+test_missing_genres_rejected (test_project.ProjectTests.test_missing_genres_rejected) ... ok
+test_mock_reordered_output_matches (test_project.ProjectTests.test_mock_reordered_output_matches) ... ok
+test_naive_timezone_rejected (test_project.ProjectTests.test_naive_timezone_rejected) ... ok
+test_normalization_preserves_missing_year (test_project.ProjectTests.test_normalization_preserves_missing_year) ... ok
+test_output_protection (test_project.ProjectTests.test_output_protection) ... ok
+test_seed_reproducibility (test_project.ProjectTests.test_seed_reproducibility) ... ok
+test_truncated_event_rejected (test_project.ProjectTests.test_truncated_event_rejected) ... ok
+test_unknown_movie_rejected (test_project.ProjectTests.test_unknown_movie_rejected) ... ok
+test_validation_evidence_not_overwritten (test_project.ProjectTests.test_validation_evidence_not_overwritten) ... ok
+test_validator_checks_duplicate_movie_ids (test_project.ProjectTests.test_validator_checks_duplicate_movie_ids) ... ok
+test_validator_reports_empty_roll_file (test_project.ProjectTests.test_validator_reports_empty_roll_file) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 2.590s
+
+OK

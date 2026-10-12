@@ -1,0 +1,212 @@
+[
+  {
+    "run": "run-558d55e8a73f",
+    "status": {
+      "run_id": "run-558d55e8a73f",
+      "started_at_utc": "2026-10-04T03:54:43.105805+00:00",
+      "status": "PASS",
+      "input": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\generated\\demo.jsonl",
+      "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+      "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+      "spooled_file": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-558d55e8a73f\\spool\\c34ba8b686f64e3b82b2407cd56410e4.jsonl",
+      "output_dir": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-558d55e8a73f\\output",
+      "spool_completed": true,
+      "finished_at_utc": "2026-10-04T04:08:05.098158+00:00"
+    },
+    "input": {
+      "total": 10000,
+      "unique": 10000,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "output": {
+      "total": 10000,
+      "unique": 10000,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "missing": 0,
+    "extra": 0,
+    "changed": 0,
+    "files": 4,
+    "bytes": 3433123,
+    "operational_log": {
+      "lines": 3,
+      "selected": [
+        {
+          "line": 2,
+          "text": "flume-1  | 2026-10-04T04:07:23.610768578Z + exec /opt/java/openjdk/bin/java -Xmx20m -Dflume.root.logger=INFO,console -cp '/opt/flume/conf:/opt/flume/lib/*:/lib/*' -Djava.library.path= org.apache.flume.node.Application --name a1 --conf-file /project/config/flume.conf"
+        }
+      ]
+    },
+    "samples_equal": true
+  },
+  {
+    "run": "run-62b191534ce6",
+    "status": {
+      "run_id": "run-62b191534ce6",
+      "started_at_utc": "2026-10-03T08:58:12.739335+00:00",
+      "status": "BLOCKED_ENVIRONMENT",
+      "input": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\generated\\demo.jsonl",
+      "reason": "Docker executable not found. Install/start Docker Desktop with Linux containers.",
+      "finished_at_utc": "2026-10-03T08:58:14.070665+00:00"
+    },
+    "input": null,
+    "output": null,
+    "missing": null,
+    "extra": null,
+    "changed": null,
+    "files": null,
+    "bytes": null,
+    "operational_log": null,
+    "samples_equal": null
+  },
+  {
+    "run": "run-8309c89de03e",
+    "status": null,
+    "input": null,
+    "output": null,
+    "missing": null,
+    "extra": null,
+    "changed": null,
+    "files": null,
+    "bytes": null,
+    "operational_log": null,
+    "samples_equal": null
+  },
+  {
+    "run": "run-a16e0fb65471",
+    "status": {
+      "run_id": "run-a16e0fb65471",
+      "started_at_utc": "2026-10-04T04:18:39.316578+00:00",
+      "status": "FAIL",
+      "input": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\generated\\main.jsonl",
+      "input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+      "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+      "spooled_file": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\spool\\bbb5bd12d52443e4b8904a74feee601d.jsonl",
+      "output_dir": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a16e0fb65471\\output",
+      "spool_completed": true,
+      "reason": "Timeout waiting for ingestion/drain; reconciliation records actual output",
+      "finished_at_utc": "2026-10-04T04:53:30.608619+00:00"
+    },
+    "input": {
+      "total": 1000000,
+      "unique": 1000000,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "output": {
+      "total": 550573,
+      "unique": 550573,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "missing": 449427,
+    "extra": 0,
+    "changed": 0,
+    "files": 175,
+    "bytes": 189032724,
+    "operational_log": {
+      "lines": 3,
+      "selected": [
+        {
+          "line": 2,
+          "text": "flume-1  | 2026-10-04T04:21:39.488650688Z + exec /opt/java/openjdk/bin/java -Xmx20m -Dflume.root.logger=INFO,console -cp '/opt/flume/conf:/opt/flume/lib/*:/lib/*' -Djava.library.path= org.apache.flume.node.Application --name a1 --conf-file /project/config/flume.conf"
+        }
+      ]
+    },
+    "samples_equal": true
+  },
+  {
+    "run": "run-a9b3a8a26afb",
+    "status": {
+      "run_id": "run-a9b3a8a26afb",
+      "started_at_utc": "2026-10-04T08:38:33.680887+00:00",
+      "status": "PASS",
+      "input": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\generated\\demo.jsonl",
+      "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+      "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+      "spooled_file": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\spool\\300431e93c614783ae1af161af88939a.jsonl",
+      "output_dir": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-a9b3a8a26afb\\output",
+      "spool_completed": true,
+      "finished_at_utc": "2026-10-04T08:39:23.742922+00:00"
+    },
+    "input": {
+      "total": 10000,
+      "unique": 10000,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "output": {
+      "total": 10000,
+      "unique": 10000,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "missing": 0,
+    "extra": 0,
+    "changed": 0,
+    "files": 4,
+    "bytes": 3433123,
+    "operational_log": {
+      "lines": 3,
+      "selected": [
+        {
+          "line": 2,
+          "text": "flume-1  | 2026-10-04T08:38:38.889776637Z + exec /opt/java/openjdk/bin/java -Xmx20m -Dflume.root.logger=INFO,console -cp '/opt/flume/conf:/opt/flume/lib/*:/lib/*' -Djava.library.path= org.apache.flume.node.Application --name a1 --conf-file /project/config/flume.conf"
+        }
+      ]
+    },
+    "samples_equal": true
+  },
+  {
+    "run": "run-f63c810e9d8d",
+    "status": {
+      "run_id": "run-f63c810e9d8d",
+      "started_at_utc": "2026-10-04T06:56:22.884446+00:00",
+      "status": "PASS",
+      "input": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\generated\\main.jsonl",
+      "input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+      "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+      "spooled_file": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-f63c810e9d8d\\spool\\122c9828248e4d9982b5a53b5269faae.jsonl",
+      "output_dir": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\data\\runs\\run-f63c810e9d8d\\output",
+      "spool_completed": true,
+      "finished_at_utc": "2026-10-04T07:46:15.349788+00:00"
+    },
+    "input": {
+      "total": 1000000,
+      "unique": 1000000,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "output": {
+      "total": 1000000,
+      "unique": 1000000,
+      "duplicates": 0,
+      "conflicting_ids": 0,
+      "invalid": 0
+    },
+    "missing": 0,
+    "extra": 0,
+    "changed": 0,
+    "files": 254,
+    "bytes": 343339148,
+    "operational_log": {
+      "lines": 3,
+      "selected": [
+        {
+          "line": 2,
+          "text": "flume-1  | 2026-10-04T06:59:03.446668567Z + exec /opt/java/openjdk/bin/java -Xmx20m -Dflume.root.logger=INFO,console -cp '/opt/flume/conf:/opt/flume/lib/*:/lib/*' -Djava.library.path= org.apache.flume.node.Application --name a1 --conf-file /project/config/flume.conf"
+        }
+      ]
+    },
+    "samples_equal": true
+  }
+]

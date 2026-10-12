@@ -1,0 +1,236 @@
+{
+  "checked_at_utc": "2026-10-11T15:35:05.110970+00:00",
+  "mode": "input_only",
+  "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "movies_quality": {
+    "path": "data\\processed\\movies.csv",
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "bytes": 533347,
+    "rows": 9742,
+    "unique_movie_ids": 9742,
+    "error_rows": 0,
+    "issues_sample": [],
+    "releaseYear_null_allowed": 13,
+    "no_genres_listed": 34,
+    "status": "PASS"
+  },
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 3058,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 10000,
+    "valid": 10000,
+    "unique": 10000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 3058,
+      "play": 3471,
+      "complete": 1390,
+      "stop": 1177,
+      "pause": 904
+    },
+    "watch_seconds": 14367626,
+    "users": 861,
+    "movies": 1664,
+    "sessions": 3058,
+    "timestamp_min": "2026-08-31T17:05:18Z",
+    "timestamp_max": "2026-09-30T15:31:07Z"
+  },
+  "output": {
+    "total": 0,
+    "valid": 0,
+    "unique": 0,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {},
+    "watch_seconds": 0,
+    "users": 0,
+    "movies": 0,
+    "sessions": 0,
+    "timestamp_min": null,
+    "timestamp_max": null
+  },
+  "output_files": [],
+  "output_file_summary": {
+    "files": 0,
+    "bytes": 0,
+    "empty_files": 0,
+    "missing_final_newline_files": 0
+  },
+  "missing_event_ids": null,
+  "unexpected_event_ids": null,
+  "changed_payloads": null,
+  "manifest_errors": [],
+  "status": "INPUT_PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}
+{
+  "checked_at_utc": "2026-10-11T15:37:42.070009+00:00",
+  "mode": "pipeline_reconciliation",
+  "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "movies_quality": {
+    "path": "data\\processed\\movies.csv",
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "bytes": 533347,
+    "rows": 9742,
+    "unique_movie_ids": 9742,
+    "error_rows": 0,
+    "issues_sample": [],
+    "releaseYear_null_allowed": 13,
+    "no_genres_listed": 34,
+    "status": "PASS"
+  },
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 3058,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 10000,
+    "valid": 10000,
+    "unique": 10000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 3058,
+      "play": 3471,
+      "complete": 1390,
+      "stop": 1177,
+      "pause": 904
+    },
+    "watch_seconds": 14367626,
+    "users": 861,
+    "movies": 1664,
+    "sessions": 3058,
+    "timestamp_min": "2026-08-31T17:05:18Z",
+    "timestamp_max": "2026-09-30T15:31:07Z"
+  },
+  "output": {
+    "total": 10000,
+    "valid": 10000,
+    "unique": 10000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 3058,
+      "play": 3471,
+      "complete": 1390,
+      "stop": 1177,
+      "pause": 904
+    },
+    "watch_seconds": 14367626,
+    "users": 861,
+    "movies": 1664,
+    "sessions": 3058,
+    "timestamp_min": "2026-08-31T17:05:18Z",
+    "timestamp_max": "2026-09-30T15:31:07Z"
+  },
+  "output_files": [
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-1.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "empty": true,
+      "final_newline": null
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-2.jsonl",
+      "bytes": 171626,
+      "sha256": "e0bce4ddaea60f8ed1b52e7699b82f4d9097badff50a1cece4ce620ec8a5f764",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-3.jsonl",
+      "bytes": 171630,
+      "sha256": "d837415835d8704f97d8ea951a4bfe2212aadb4da03fad236bbc1f79d629ed70",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-4.jsonl",
+      "bytes": 343290,
+      "sha256": "453fee73087d1558fa1db77215a032884802a49c3797e59cb379c1628c5b60c1",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-5.jsonl",
+      "bytes": 343185,
+      "sha256": "69d53ca8b4652fece5eea42f272d60ede5d05bc48862a8b81b1e7579c9d301f3",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-6.jsonl",
+      "bytes": 686662,
+      "sha256": "60adc24f6cd8373472499d11df865a3c1a491e089284d0edfc80b2bd88b41351",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-7.jsonl",
+      "bytes": 1201678,
+      "sha256": "7cb3a60b897fd4282e206e81ba889b5bc712f64dd912607ae865538191539463",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output\\1791732958017-8.jsonl",
+      "bytes": 515052,
+      "sha256": "5f663023052dcdb5de62a574464ef4573d39e51270b06813c740e25b282a4db3",
+      "empty": false,
+      "final_newline": true
+    }
+  ],
+  "output_file_summary": {
+    "files": 8,
+    "bytes": 3433123,
+    "empty_files": 1,
+    "missing_final_newline_files": 0
+  },
+  "missing_event_ids": 0,
+  "unexpected_event_ids": 0,
+  "changed_payloads": 0,
+  "manifest_errors": [],
+  "status": "PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}
+{
+  "run_id": "run-8ceda3a1111e",
+  "started_at_utc": "2026-10-11T15:35:04.372077+00:00",
+  "status": "PASS",
+  "input": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\generated\\demo.jsonl",
+  "source_config_hashes": {
+    "Dockerfile": "8037f027750233fc6925e351fae61221b471d15909c8819a5001918677dbd8cd",
+    "compose.yaml": "6d254f7483d76b51217d394f55ee5b1a296bc259fd135cd34ffb4b2af58fb6db",
+    "config/flume.conf": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+    "config/flume-env.sh": "f914612eb9674382dd78ad93afc91d90f6bb4b58e3278a28fbccfb53e23c64d3",
+    "config/log4j2.xml": "f7f47e1246016eaa5bfaa0a65a8c66be712baac931e05ce30adfd694625b277b",
+    "scripts/run_flume.sh": "6996130db3d8a0db1677bfdb40e5614980f980f2e812c3aed5ac990a5fe39c2b",
+    "scripts/verify_archive.py": "f2c364e535f6d1670d31bad70b5a0fe78d233b8a702afa17c361e0dd6c1fb111",
+    "scripts/run_pipeline.py": "156970930c55643e815cbec5b1a52416e2a93827d2ce10ba795275b91f086469",
+    "scripts/validate_pipeline.py": "5c8b5b607cd96b61620e318829fae3ab97ac7fd21e10298580bd3662ced761ad",
+    "scripts/movie_quality.py": "b754d98e7b041ba8fc3b3f58f74821c48278fbc4b59c6b4b20c70f8db2d0e273",
+    "scripts/common.py": "246ee962b07d43e9b9beafb1918ce1a35b88d9ee9f30ea03e0a70232068706b0"
+  },
+  "movies": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\processed\\movies.csv",
+  "git_revision": "bcb28b7fac0c9d260af0e6acb121947f991355f8",
+  "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+  "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+  "spooled_file": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\spool\\00b51635e05c44dfaae4724797f61080.jsonl",
+  "output_dir": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output",
+  "spool_completed": true,
+  "finished_at_utc": "2026-10-11T15:37:50.752136+00:00"
+}

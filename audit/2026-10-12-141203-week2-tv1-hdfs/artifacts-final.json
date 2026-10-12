@@ -1,0 +1,143 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-12T08:17:59.288290+00:00",
+  "preexisting_files_checked": 514,
+  "preexisting_changes": [],
+  "week1_manifest": {
+    "status": "PASS",
+    "files_checked": 344,
+    "issues": [],
+    "checked_at_utc": "2026-10-12T08:17:57.971506+00:00"
+  },
+  "executed_source_hashes_match": true,
+  "reviewed_source_docs": [
+    {
+      "path": "compose.hdfs.yaml",
+      "bytes": 1493,
+      "sha256": "6f8c362baf2ad064e98fd702a6738e4857b40a806ce40988909cf7a336600b95",
+      "lines": 49
+    },
+    {
+      "path": "config/hdfs/core-site.xml",
+      "bytes": 222,
+      "sha256": "3bbe59fa78332b796b13e2c100d58182a950e846fdf14c7468b6c183558bf926",
+      "lines": 5
+    },
+    {
+      "path": "config/hdfs/hdfs-site.xml",
+      "bytes": 1160,
+      "sha256": "642c55a757ce9efd9e5ab01cdcd087222aaf9f0486c3996907a46c5065addc3e",
+      "lines": 16
+    },
+    {
+      "path": "config/hdfs/log4j.properties",
+      "bytes": 309,
+      "sha256": "9cc5e56e54f003255d404a9ec68e1455903ce5d7b9349984e6e0f93fe01b4174",
+      "lines": 6
+    },
+    {
+      "path": "docs/week2_handoff.md",
+      "bytes": 3982,
+      "sha256": "607f8c5f49a07fd3c48d14025d49f06df26a24410b785bbac5524c520bb13b47",
+      "lines": 39
+    },
+    {
+      "path": "docs/week2_system_architecture.md",
+      "bytes": 2715,
+      "sha256": "e2bb167301a84346ab0120d827c7fd0aee6eadcfb2eafbb33d47de2cf70b39a0",
+      "lines": 32
+    },
+    {
+      "path": "docs/week2_tv1_hdfs_report.md",
+      "bytes": 10586,
+      "sha256": "3b93634ea132149c96bef489dc0d6d1879e57bd786c985510b735d1fd146d61f",
+      "lines": 82
+    },
+    {
+      "path": "docs/week2_tv2_hdfs_handoff.md",
+      "bytes": 6709,
+      "sha256": "02f8d1870dbdf46883da81809e2e32432557c40fe8c72d9af15f75ed47bf05c2",
+      "lines": 71
+    },
+    {
+      "path": "scripts/create_hdfs_manifest.py",
+      "bytes": 5295,
+      "sha256": "be05553827a6582cb267366afa42b920f7054a0f2fc8a4da8805036079ce813d",
+      "lines": 84
+    },
+    {
+      "path": "scripts/hdfs_common.py",
+      "bytes": 1946,
+      "sha256": "8e8feea5fab0c1bc6b4a20ad5af86804f0afb6c1f6c00ada94ed771f52a72896",
+      "lines": 46
+    },
+    {
+      "path": "scripts/hdfs_guard_tests.py",
+      "bytes": 1986,
+      "sha256": "d85991321fab913f01ace47abbd92867434a343077b4c3d578f43eea01d128d1",
+      "lines": 33
+    },
+    {
+      "path": "scripts/hdfs_hash_verify.py",
+      "bytes": 4546,
+      "sha256": "e0889c118dbf4df32ae034ac59468dfb988c44bf6ab070248491a06423499f47",
+      "lines": 89
+    },
+    {
+      "path": "scripts/hdfs_io.py",
+      "bytes": 9586,
+      "sha256": "531830b6d80a5b4f6b4dcd1ff5ad202c480ed0ffa9ffd8be57fe40d1b6d3ad6b",
+      "lines": 130
+    },
+    {
+      "path": "scripts/hdfs_restart_verify.py",
+      "bytes": 5182,
+      "sha256": "ea194992f88199e2dbb2857eef07910af32bfba29643f2e24fba63c93adaf4ac",
+      "lines": 81
+    },
+    {
+      "path": "scripts/hdfs_service.sh",
+      "bytes": 1012,
+      "sha256": "b52f82d5019c36273ca61644fcfada9bfb3dfcabde992ae515ee0e8df2a00a7e",
+      "lines": 24
+    },
+    {
+      "path": "scripts/hdfs_source.py",
+      "bytes": 4602,
+      "sha256": "ca67f457278f13c215cab86db1940d7375424b7de50b073dcd271cbf178663d8",
+      "lines": 66
+    },
+    {
+      "path": "scripts/run_hdfs.py",
+      "bytes": 4031,
+      "sha256": "3bd980bc0460816910e69e4d1b2eb6176b598c5a206fd6273998d6c995ed6d29",
+      "lines": 71
+    },
+    {
+      "path": "scripts/spark_hdfs_validate.py",
+      "bytes": 6526,
+      "sha256": "1abb63409f4cd7cbd3f1d5fa5babb39768cb7a6c6c7dc397007e3b5f8ff73d17",
+      "lines": 96
+    },
+    {
+      "path": "scripts/spark_smoke_test.py",
+      "bytes": 11003,
+      "sha256": "47b128299335c43f4153ee846f63523886fc62db21c9242cd37b5c5fcef49645",
+      "lines": 140
+    },
+    {
+      "path": "src/schemas.py",
+      "bytes": 1472,
+      "sha256": "c11cf48dcbd99801d72ecb3be32ffb03b196efd7a9173c40817962c34d082310",
+      "lines": 38
+    },
+    {
+      "path": "tests/test_hdfs_properties.py",
+      "bytes": 1269,
+      "sha256": "3333908039b14141839b5f1b74b1427a583ef59f2e9e6c6a1db77cea5a97487b",
+      "lines": 24
+    }
+  ],
+  "source_review": "source-review-final.txt",
+  "final_remote_files_checked": 16
+}

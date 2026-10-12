@@ -1,0 +1,85 @@
+[
+    {
+        "Id": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+        "RepoTags": [
+            "apache/hadoop:3.3.6"
+        ],
+        "RepoDigests": [
+            "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2023-06-26T15:43:27.914081786Z",
+        "Config": {
+            "User": "hadoop",
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hadoop/bin",
+                "JAVA_HOME=/usr/lib/jvm/jre/",
+                "HADOOP_LOG_DIR=/var/log/hadoop",
+                "HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop"
+            ],
+            "Entrypoint": [
+                "/usr/local/bin/dumb-init",
+                "--",
+                "/opt/starter.sh"
+            ],
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/opt/hadoop",
+            "Labels": {
+                "org.label-schema.build-date": "20190305",
+                "org.label-schema.license": "GPLv2",
+                "org.label-schema.name": "CentOS Base Image",
+                "org.label-schema.schema-version": "1.0",
+                "org.label-schema.vendor": "CentOS"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 943715280,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:d69483a6face4499acb974449d1303591fcbb5cdce5420f36f8a6607bda11854",
+                "sha256:a7e55935cf0b2e0c66d732ac36b26c3395e5e365490fcfa31bd0aa7babd49aac",
+                "sha256:9006ada31dc9c6e81daeb5a82b92692a951fdfcef5a93b0e666e4c26e8a374ce",
+                "sha256:164052d30ef11401f243045331ccbf951828eea8ff8754a14dda59afe86bfece",
+                "sha256:dd41d0f944acbb6fcec44f1fcb8bc0b87a01e0ba39d15f09832b329b0cbd698e",
+                "sha256:b76b23935a3b19ed781cb4ecca7beed22c1833fb35d1f870e577b8c8ba6f19f8",
+                "sha256:91cbc41ea72438938f8b7212432a894d227e338a158b1fa478081b642c9f93ec",
+                "sha256:bb0818abbbc29050f2deccba97393aeef83da8bfdce3791dea06f1874fe90059",
+                "sha256:7afb22aa16c884361a0c5b26888b53e73249b314a424eecf79e4d0e280480431",
+                "sha256:77c76fa09ae5d4dfe7f2af48e192d115ab25d22b2f980cd5951632e9787550be",
+                "sha256:c7fc2d735bbcdaf6d7a30957e9e8150962b72549fc2ca462063b756a8327f7db",
+                "sha256:32c55d5f44bdd4a29d8ad695ba63e39f37a205e01771125e41246a11e6630e11",
+                "sha256:57d1b07c8254c56ef596e6aa8652d6bbd538069b405a4f40aa13c775333a05da",
+                "sha256:fdbdd5a1f11f6b60f51c5ae60bbc1de00d4d880c82f5eb71bb17af02d4c612be",
+                "sha256:ed1a1c70f454d5fb59b833d85fa6fc583ed6e7831cfb1bd769431cdea132a0a9",
+                "sha256:f83d2a17eaab79a361fa57ba1c03e964624ab0085cc26cce6060858435962b9c",
+                "sha256:0f28285923f8bcd769bf52139b3cbf612147be2c4b3bf669dfa531489062e302",
+                "sha256:a1b13947e8101bfdc6e93e7ac77c30bc22e952f5e9e37ce989311cc9968b3639",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:3d57b4bd8edeb7918bc3246acab93d254c630c7d14458a570e3e4deac26e7e72",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:d5d915d32079b2ff06f679af8d696323f47c2cc73c1f76a8efc39e286d347fb0",
+                "sha256:383097b407f6997e2432197be591be7afc669b743c22a459efb0107ae384acc0"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-12T07:19:03.415351964Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+            "size": 5124
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "docker.io/apache/hadoop"
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "checked_at_utc": "2026-10-12T07:51:18.457422+00:00",
+  "run_id": "hdfs-385a18d3f03a",
+  "storage_version_unchanged": false,
+  "format_marker_count_in_entire_logs": 1,
+  "reuse_markers": 2,
+  "logs": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\logs-after-restart-3398e18b\\stdout.txt",
+  "content_report": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\content-after-restart.json",
+  "before": {
+    "namenode": "#Mon Oct 12 07:24:59 UTC 2026\nnamespaceID=1182174077\nclusterID=hdfs-385a18d3f03a\ncTime=1791789899789\nstorageType=NAME_NODE\nblockpoolID=BP-1738312168-172.18.0.2-1791789899789\nlayoutVersion=-66\n",
+    "datanode": "#Mon Oct 12 07:25:13 UTC 2026\nstorageID=DS-530f74f7-1ee4-4b04-8596-ee4b071e22da\nclusterID=hdfs-385a18d3f03a\ncTime=0\ndatanodeUuid=666ed85c-0aa5-4e50-bc0c-70fa7a4d9b23\nstorageType=DATA_NODE\nlayoutVersion=-57\n"
+  },
+  "after": {
+    "namenode": "#Mon Oct 12 07:24:59 UTC 2026\nnamespaceID=1182174077\nclusterID=hdfs-385a18d3f03a\ncTime=1791789899789\nstorageType=NAME_NODE\nblockpoolID=BP-1738312168-172.18.0.2-1791789899789\nlayoutVersion=-66\n",
+    "datanode": "#Mon Oct 12 07:45:31 UTC 2026\nstorageID=DS-530f74f7-1ee4-4b04-8596-ee4b071e22da\nclusterID=hdfs-385a18d3f03a\ncTime=0\ndatanodeUuid=666ed85c-0aa5-4e50-bc0c-70fa7a4d9b23\nstorageType=DATA_NODE\nlayoutVersion=-57\n"
+  },
+  "note": "Controlled restart of this run only; demonstrates persistence, not HA/fault tolerance."
+}

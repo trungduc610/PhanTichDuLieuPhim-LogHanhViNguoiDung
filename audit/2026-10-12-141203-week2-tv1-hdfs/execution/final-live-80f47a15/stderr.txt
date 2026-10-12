@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-12-141203-week2-tv1-hdfs\final_live.py", line 29, in <module>
+    if label=='final-report':assert 'Live datanodes (1)' in text and 'Dead datanodes (0)' in text
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

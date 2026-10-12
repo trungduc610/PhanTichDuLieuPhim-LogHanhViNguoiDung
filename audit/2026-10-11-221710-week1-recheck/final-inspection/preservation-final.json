@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-10-11T16:15:25.017865+00:00",
+  "baseline_files": 172,
+  "unchanged_files": 149,
+  "changed_authorized_source_docs": [
+    ".dockerignore",
+    "compose.yaml",
+    "Dockerfile",
+    "docs/data_quality_report.md",
+    "docs/dataset_description.md",
+    "docs/flume_pipeline.md",
+    "docs/log_schema.md",
+    "docs/movie_schema.md",
+    "docs/presentation_script.md",
+    "docs/system_architecture.md",
+    "docs/user_log_schema.md",
+    "docs/week1_member2_report.md",
+    "docs/week1_report.md",
+    "docs/week2_handoff.md",
+    "README.md",
+    "requirements.txt",
+    "scripts/check_environment.py",
+    "scripts/prepare_movies.py",
+    "scripts/run_flume.sh",
+    "scripts/run_pipeline.py",
+    "scripts/spark_smoke_test.py",
+    "scripts/validate_pipeline.py",
+    "tests/test_project.py"
+  ],
+  "protected_history_errors": [],
+  "status": "PASS"
+}

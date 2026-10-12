@@ -6,6 +6,7 @@ services:
     stop_grace_period: 60s
     volumes:
       - ${RUN_DIR:-./data}:/data
+      - flume-channel:/data/channel
       - ${LOG_DIR:-./logs}:/logs
 
   spark:
@@ -13,7 +14,12 @@ services:
     profiles:
       - spark
     working_dir: /project
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
     volumes:
       - .:/project
     entrypoint: ["/opt/spark/bin/spark-submit"]
-    command: ["scripts/spark_smoke_test.py"]
+    command: ["scripts/spark_smoke_test.py", "--help"]
+
+volumes:
+  flume-channel:

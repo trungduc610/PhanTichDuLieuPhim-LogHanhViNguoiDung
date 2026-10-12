@@ -12,7 +12,7 @@ Hệ thống được thiết kế theo đúng định hướng công nghệ tr�
 * **Vai trò trung tâm**: Đóng vai trò là thành phần cốt lõi của luồng thu thập và vận chuyển dữ liệu log hành vi người dùng (User Behavior Log).
 * **Cơ chế hoạt động**: Hoạt động theo kiến trúc chuẩn:
   $$\text{Input Log} \longrightarrow \text{Source (spooldir)} \longrightarrow \text{Channel (file)} \longrightarrow \text{Sink (file\_roll)} \longrightarrow \text{Storage JSONL}$$
-* **Nhiệm vụ**: Đảm bảo log được tiếp nhận tin cậy, đệm bền vững trên đĩa chống mất mát dữ liệu khi có sự cố, và xuất ra các tệp JSON Lines ổn định phục vụ xử lý phía sau.
+* **Nhiệm vụ**: Đảm bảo log được tiếp nhận tin cậy, đệm bền vững trên đĩa; chưa kiểm thử phục hồi sự cố, và xuất ra các tệp JSON Lines ổn định phục vụ xử lý phía sau.
 
 ### B. Các công nghệ hỗ trợ
 1. **Docker / Docker Compose**:
@@ -95,12 +95,15 @@ Hệ thống được module hóa thành các service độc lập qua Docker Co
 
 1. **Service `flume`**:
    * Image: `movie-log-flume:1.11.0-local` (OpenJDK JRE 8 + Apache Flume 1.11.0).
-   * Volume: Mount thư mục `./data` và `./logs`.
+   * Volume: Runner bind spool/output/log riêng theo run; File Channel dùng named volume Linux riêng theo Compose project, được xuất về host sau stop.
    * Trách nhiệm: Thu thập log và ghi output JSON Lines vào `./data/runs/<run-id>/output/`.
 
 2. **Service `spark`** (Tích hợp Tuần 1):
-   * Image: `apache/spark:3.5.1` (OpenJDK 17 + Python 3.10/3.11 + PySpark 3.5.1).
-   * Volume: Mount thư mục dự án vào `/opt/spark/work-dir` hoặc `/project`.
+   * Image: `apache/spark:3.5.1` (OpenJDK 11.0.22 + Python 3.8.10 + PySpark 3.5.1).
+   * Volume: Mount thư mục dự án vào `/project`.
    * Trách nhiệm: Đọc `movies.csv` và output JSONL của Flume để xác thực schema, kiểm tra chất lượng dữ liệu và kiểm thử liên kết khóa `movieId`.
 
-*Hai service hoạt động với các phiên bản Java độc lập (Flume dùng Java 8, Spark dùng Java 17), không xung đột môi trường và đảm bảo tính cô lập hoàn toàn.*
+*Hai service hoạt động với các phiên bản Java độc lập (Flume dùng Java 8, Spark dùng Java 11), không xung đột môi trường và đảm bảo tính cô lập hoàn toàn.*
+
+
+Ngày kiểm thực tế 11/10/2026: Flume và Spark QA đã chạy; phân tích/dashboard là Tuần 2. Chưa có bằng chứng nhóm phê duyệt kiến trúc; xem `docs/architecture_decision_pending.md`.

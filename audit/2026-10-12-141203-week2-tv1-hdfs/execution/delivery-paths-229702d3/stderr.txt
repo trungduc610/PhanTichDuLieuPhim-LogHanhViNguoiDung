@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-12-141203-week2-tv1-hdfs\check_delivery.py", line 34, in <module>
+    if match:assert 1<=int(match.group(2))<=len(path.read_text(encoding='utf-8').splitlines())
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1028, in read_text
+    return f.read()
+           ^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte

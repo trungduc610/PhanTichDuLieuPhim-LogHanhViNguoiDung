@@ -1,0 +1,11 @@
+Hadoop 3.3.4
+Source code repository https://github.com/apache/hadoop.git -r a585a73c3e02ac62350c136643a5e7f6095a3dbb
+Compiled by stevel on 2022-07-29T12:32Z
+Compiled with protoc 3.7.1
+From source with checksum fb9dd8918a7b8a5b430d61af858f6ec
+This command was run using /opt/spark/jars/hadoop-client-api-3.3.4.jar
+/opt/spark/jars/hadoop-client-api-3.3.4.jar
+/opt/spark/jars/hadoop-client-runtime-3.3.4.jar
+/opt/spark/jars/hadoop-shaded-guava-1.1.1.jar
+/opt/spark/jars/hadoop-yarn-server-web-proxy-3.3.4.jar
+Python 3.8.10

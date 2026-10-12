@@ -1,0 +1,27 @@
+{
+  "run_id": "run-8ceda3a1111e",
+  "started_at_utc": "2026-10-11T15:35:04.372077+00:00",
+  "status": "PASS",
+  "input": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\generated\\demo.jsonl",
+  "source_config_hashes": {
+    "Dockerfile": "8037f027750233fc6925e351fae61221b471d15909c8819a5001918677dbd8cd",
+    "compose.yaml": "6d254f7483d76b51217d394f55ee5b1a296bc259fd135cd34ffb4b2af58fb6db",
+    "config/flume.conf": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+    "config/flume-env.sh": "f914612eb9674382dd78ad93afc91d90f6bb4b58e3278a28fbccfb53e23c64d3",
+    "config/log4j2.xml": "f7f47e1246016eaa5bfaa0a65a8c66be712baac931e05ce30adfd694625b277b",
+    "scripts/run_flume.sh": "6996130db3d8a0db1677bfdb40e5614980f980f2e812c3aed5ac990a5fe39c2b",
+    "scripts/verify_archive.py": "f2c364e535f6d1670d31bad70b5a0fe78d233b8a702afa17c361e0dd6c1fb111",
+    "scripts/run_pipeline.py": "156970930c55643e815cbec5b1a52416e2a93827d2ce10ba795275b91f086469",
+    "scripts/validate_pipeline.py": "5c8b5b607cd96b61620e318829fae3ab97ac7fd21e10298580bd3662ced761ad",
+    "scripts/movie_quality.py": "b754d98e7b041ba8fc3b3f58f74821c48278fbc4b59c6b4b20c70f8db2d0e273",
+    "scripts/common.py": "246ee962b07d43e9b9beafb1918ce1a35b88d9ee9f30ea03e0a70232068706b0"
+  },
+  "movies": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\processed\\movies.csv",
+  "git_revision": "bcb28b7fac0c9d260af0e6acb121947f991355f8",
+  "input_sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53",
+  "config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+  "spooled_file": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\spool\\00b51635e05c44dfaae4724797f61080.jsonl",
+  "output_dir": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-8ceda3a1111e\\output",
+  "spool_completed": true,
+  "finished_at_utc": "2026-10-11T15:37:50.752136+00:00"
+}

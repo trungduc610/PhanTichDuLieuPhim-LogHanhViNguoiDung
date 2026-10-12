@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "exec",
+    "-T",
+    "namenode",
+    "hdfs",
+    "dfs",
+    "-cat",
+    "/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-10.jsonl"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-12T07:38:43.737696+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-10.jsonl-2fc7733c\\stdout.bin",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-10.jsonl-2fc7733c\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-12T07:38:59.171319+00:00",
+  "stdout_sha256": "41ef63fc07b4cec662e1ef7421522110cca0d164a41c48556b1f6a06a9773cff",
+  "stdout_bytes": 33132563
+}

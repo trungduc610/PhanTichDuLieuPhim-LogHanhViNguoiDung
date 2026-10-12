@@ -1,0 +1,97 @@
+{
+  "data": [
+    {
+      "path": "data/channel/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    },
+    {
+      "path": "data/generated/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    },
+    {
+      "path": "data/output/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    },
+    {
+      "path": "data/processed/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    },
+    {
+      "path": "data/raw/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    },
+    {
+      "path": "data/runs/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    },
+    {
+      "path": "data/spool/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    }
+  ],
+  "logs": [
+    {
+      "path": "logs/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256_lf": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tracked": true,
+      "lines": 0,
+      "utf8": "valid",
+      "bom": false
+    }
+  ],
+  "required": {
+    "data/raw/ml-latest-small.zip": false,
+    "data/raw/download_manifest.json": false,
+    "data/raw/ml-latest-small/README.txt": false,
+    "data/raw/ml-latest-small/movies.csv": false,
+    "data/processed/movies.csv": false,
+    "data/generated/demo.jsonl": false,
+    "data/generated/main.jsonl": false,
+    "data/runs/run-a9b3a8a26afb/output": false,
+    "data/runs/run-f63c810e9d8d/output": false
+  }
+}

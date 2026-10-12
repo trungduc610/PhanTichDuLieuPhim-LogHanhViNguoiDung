@@ -1,68 +1,31 @@
-# Schema dữ liệu User Behavior Log (Log hành vi người dùng)
+# Schema log hành vi
 
-## 1. Nguồn dữ liệu
-* **File nguồn**: Output thực tế được sinh ra bởi Apache Flume Sink:
-  * Run Main (chính thức): [`data/runs/run-f63c810e9d8d/output/*.jsonl`](file:///d:/Code/Bigdata/movie-log-bigdata-week1/movie-log-bigdata/data/runs/run-f63c810e9d8d/output) (1.000.000 bản ghi trên 254 files)
-  * Run Demo (kiểm thử nhanh): [`data/runs/run-a9b3a8a26afb/output/*.jsonl`](file:///d:/Code/Bigdata/movie-log-bigdata-week1/movie-log-bigdata/data/runs/run-a9b3a8a26afb/output) (10.000 bản ghi trên 4 files)
-* **Định dạng**: JSON Lines (UTF-8, mỗi dòng một JSON object hợp lệ kết thúc bằng `\n`).
-* **Vai trò trong hệ thống**: Đây là luồng dữ liệu trung tâm của đồ án, được thu thập và vận chuyển bền vững qua **Apache Flume** (`spooldir` Source → `file` Channel → `file_roll` Sink) trước khi lưu vào filesystem để Spark/PySpark đọc.
+Sink thật hiện tại: `data/runs/run-aa6b9eb58dca/output/` (main) và `data/runs/run-aefc814b0b5f/output/` (demo). JSON Lines UTF-8/LF, 12 trường; không dùng generated input thay Sink. Tái sử dụng `from src.schemas import USER_LOG_SCHEMA`, không khai báo schema bản sao.
 
-## 2. Bảng đặc tả Schema
+| Field | Spark type | Nullable | Ý nghĩa/ràng buộc |
+|---|---|---|---|
+| eventId | StringType | false | ID event; duy nhất trong lô, UUID v5 tái lập |
+| userId | StringType | false | User synthetic, không liên quan ratings.userId |
+| sessionId | StringType | false | Một user/phim/phiên |
+| movieId | LongType | false | Khóa ngoại dương, <=2^63-1, tồn tại trong movies |
+| action | StringType | false | view/play/pause/stop/complete |
+| timestamp | StringType | false | ISO UTC YYYY-MM-DDTHH:MM:SSZ; parse sang TimestampType UTC |
+| watchDuration | LongType | false | Giây mới phát sinh; view/play=0, pause/stop/complete>0 |
+| sequenceNumber | LongType | false | Bắt đầu 0, tăng 1 trong phiên, <=2^63-1 |
+| runId | StringType | false | ID lô mô phỏng; khác ID run vận chuyển Flume |
+| isSynthetic | BooleanType | false | true |
+| simulatedMovieDuration | LongType | false | 3600–10800 giây, cố định theo movieId+seed |
+| durationSource | StringType | false | synthetic |
 
-| Field | Spark Type | Nullable | Ý nghĩa | Ràng buộc nghiệp vụ |
-|---|---|---|---|---|
-| `eventId` | `StringType` | `false` | Khóa định danh duy nhất của event | UUID v5 từ run + session + sequence; duy nhất toàn cục. |
-| `userId` | `StringType` | `false` | Mã định danh người dùng mô phỏng | Định dạng `sim-user-XXXXXX` (tập 1.000 user). |
-| `sessionId` | `StringType` | `false` | Mã định danh phiên xem của người dùng | UUID v5 đại diện 1 user xem 1 phim trong 1 chuỗi hành vi liên tục. |
-| `movieId` | `LongType` | `false` | Mã định danh phim được tương tác | Khóa ngoại kết nối với `movies.csv` (`join key`). 100% khớp danh sách phim hợp lệ. |
-| `action` | `StringType` | `false` | Hành vi của người dùng trên phim | 5 hành vi hợp lệ: `view`, `play`, `pause`, `stop`, `complete`. |
-| `timestamp` | `StringType` | `false` | Thời điểm phát sinh sự kiện | Chuỗi chuẩn ISO 8601 UTC (`YYYY-MM-DDTHH:MM:SSZ`), tăng đơn điệu trong phiên. Đọc ban đầu dạng String rồi chuyển `TimestampType`. |
-| `watchDuration` | `LongType` | `false` | Số giây xem phát sinh từ lượt `play` gần nhất | Giá trị nguyên `>= 0`. Bằng 0 với `view`/`play`; > 0 với `pause`/`stop`/`complete`. Không phải thời lượng lũy kế. |
-| `sequenceNumber` | `LongType` | `false` | Thứ tự bước thực hiện trong phiên | Bắt đầu từ 0, tăng 1 theo từng hành vi trong cùng `sessionId`. |
-| `runId` | `StringType` | `false` | Mã định danh lần sinh dữ liệu | Định danh lô mô phỏng. |
-| `isSynthetic` | `BooleanType` | `false` | Cờ đánh dấu dữ liệu mô phỏng | Luôn mang giá trị `true`. |
-| `simulatedMovieDuration` | `LongType` | `false` | Thời lượng phim giả lập | Cố định theo `movieId` (từ 3.600 đến 10.800 giây = 1 đến 3 tiếng). |
-| `durationSource` | `StringType` | `false` | Nguồn thời lượng phim | Luôn mang giá trị `"synthetic"`. |
+Các string định danh không rỗng. Nullable=false không tự cưỡng chế reader; kiểm null riêng. Timestamp ban đầu StringType, job dùng to_timestamp, kiểm thất bại parse và khoảng thời gian trên toàn lô. Thứ tự vật lý giữa phiên/file không bảo đảm; sort trong phiên bằng sequenceNumber. Quy tắc transition, thời lượng/completion và chống chồng giờ user trong `docs/log_schema.md`, generator và streaming validator. Spark đọc/quét mọi field, kiểm duplicate/conflict và left anti join toàn log. UUID lặp lại khi cùng seed/tham số; không mô tả duy nhất toàn cục qua nhiều lần nhập.
 
-## 3. Khai báo Schema bằng PySpark (StructType)
+Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
 
-```python
-from pyspark.sql.types import (
-    StructType,
-    StructField,
-    StringType,
-    LongType,
-    BooleanType,
-)
+| Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+|---|---|---:|---:|---:|
+| Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+| Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
 
-USER_LOG_SCHEMA = StructType([
-    StructField("eventId", StringType(), nullable=False),
-    StructField("userId", StringType(), nullable=False),
-    StructField("sessionId", StringType(), nullable=False),
-    StructField("movieId", LongType(), nullable=False),
-    StructField("action", StringType(), nullable=False),
-    StructField("timestamp", StringType(), nullable=False),
-    StructField("watchDuration", LongType(), nullable=False),
-    StructField("sequenceNumber", LongType(), nullable=False),
-    StructField("runId", StringType(), nullable=False),
-    StructField("isSynthetic", BooleanType(), nullable=False),
-    StructField("simulatedMovieDuration", LongType(), nullable=False),
-    StructField("durationSource", StringType(), nullable=False),
-])
-```
+Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
 
-## 4. Hướng dẫn đọc bằng PySpark
-
-```python
-from pyspark.sql import functions as F
-
-logs_df = (
-    spark.read
-    .option("mode", "FAILFAST")
-    .schema(USER_LOG_SCHEMA)
-    .json("data/runs/run-f63c810e9d8d/output/*.jsonl")
-)
-
-# Chuyển đổi timestamp sang TimestampType chuẩn UTC
-logs_df = logs_df.withColumn("eventTime", F.to_timestamp("timestamp"))
-```
+Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.

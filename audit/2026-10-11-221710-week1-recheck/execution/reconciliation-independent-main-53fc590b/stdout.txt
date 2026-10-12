@@ -1,0 +1,185 @@
+{
+  "checked_at_utc": "2026-10-11T16:07:32.552281+00:00",
+  "mode": "pipeline_reconciliation",
+  "input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "movies_quality": {
+    "path": "data/processed/movies.csv",
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "bytes": 533347,
+    "rows": 9742,
+    "unique_movie_ids": 9742,
+    "error_rows": 0,
+    "issues_sample": [],
+    "releaseYear_null_allowed": 13,
+    "no_genres_listed": 34,
+    "status": "PASS"
+  },
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 303052,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 1000000,
+    "valid": 1000000,
+    "unique": 1000000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 303052,
+      "play": 348474,
+      "complete": 141907,
+      "stop": 116021,
+      "pause": 90546
+    },
+    "watch_seconds": 1458785357,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z"
+  },
+  "output": {
+    "total": 1000000,
+    "valid": 1000000,
+    "unique": 1000000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 303052,
+      "play": 348474,
+      "complete": 141907,
+      "stop": 116021,
+      "pause": 90546
+    },
+    "watch_seconds": 1458785357,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z"
+  },
+  "output_files": [
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-1.jsonl",
+      "bytes": 4463241,
+      "sha256": "6ed5f6b90cbb1d161426f2bd7ce0636a6df514111d90374babe095490c3bc6d3",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-10.jsonl",
+      "bytes": 33132563,
+      "sha256": "41ef63fc07b4cec662e1ef7421522110cca0d164a41c48556b1f6a06a9773cff",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-11.jsonl",
+      "bytes": 30213917,
+      "sha256": "c96c149a8dfbb6cb281c99ff586a76f096a653a8975d96c13e0719e5697ec476",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-12.jsonl",
+      "bytes": 29183763,
+      "sha256": "a34334e974804408393bc0391b6953a31185c3acccce91f1ded75f843a3d5d0b",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-13.jsonl",
+      "bytes": 27810781,
+      "sha256": "973b637795fe8a6ed8e124289432d9cb925bf9e4cb47c1c6fa407ea8f9b95e2b",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-14.jsonl",
+      "bytes": 25063177,
+      "sha256": "ffda6b53198a9a59e62e7bec22a28c0fadb2cf5b28b3d05e63f9eae18891ec8f",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-15.jsonl",
+      "bytes": 16995792,
+      "sha256": "50ee9e5eb716c5f65c8ec22eeba8b9be0087526d8832624fc929ac609d0c87e2",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-2.jsonl",
+      "bytes": 23690281,
+      "sha256": "98b3379a79e466f890dbc870c7152de1975067c2ca8005b594290cc653cd3400",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-3.jsonl",
+      "bytes": 23862302,
+      "sha256": "906db4c89f799a84579241ed538f4389c4901a05562f71f4373f922fa1752f29",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-4.jsonl",
+      "bytes": 15792847,
+      "sha256": "7272a6197bb9a76ceb9c426cc224cef232a8780544fbe2a9c768901e8c225b0c",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-5.jsonl",
+      "bytes": 16308520,
+      "sha256": "91e4b04ad6dfe69af904db00e9c5fe773ab15c6f4205736117667d44848d5b96",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-6.jsonl",
+      "bytes": 23175894,
+      "sha256": "67a7b145e62c7557c601a55a50a34972ccb35c43e23b2607a0921025511afd16",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-7.jsonl",
+      "bytes": 24892171,
+      "sha256": "000ff17e425ea92be8757b504aa8fc53721c20a1969420a1c64592edfe653290",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-8.jsonl",
+      "bytes": 24032718,
+      "sha256": "38450c96d21781aad2aceb8f73f1cbee829be5a8dd249d40e844f9adf96c620e",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "data/runs/run-aa6b9eb58dca/output/1791733800297-9.jsonl",
+      "bytes": 24721181,
+      "sha256": "e44b281d6b0a6c361297d7a833f629319a692b63acb08585ccf9ef6918ab9f58",
+      "empty": false,
+      "final_newline": true
+    }
+  ],
+  "output_file_summary": {
+    "files": 15,
+    "bytes": 343339148,
+    "empty_files": 0,
+    "missing_final_newline_files": 0
+  },
+  "missing_event_ids": 0,
+  "unexpected_event_ids": 0,
+  "changed_payloads": 0,
+  "manifest_errors": [],
+  "status": "PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-12T08:21:59.401590+00:00",
+  "report_sha256": "a9e274e2bed0e97c132e22f43d2873eebef92b30f4e08b69d7fb7da29194fab3",
+  "checked_links": 100,
+  "completed_command_records": 166,
+  "tasks": 10,
+  "products": 7,
+  "sections": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+  ],
+  "planned_manifest": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\delivery_manifest.json",
+  "note": "All existing artifact links checked. The manifest is created next; its later verification receipt is outside the frozen scope."
+}

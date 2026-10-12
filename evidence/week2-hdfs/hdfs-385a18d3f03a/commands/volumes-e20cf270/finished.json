@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "docker",
+    "volume",
+    "inspect",
+    "movie-hdfs-385a18d3f03a_namenode",
+    "movie-hdfs-385a18d3f03a_datanode"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-12T07:25:37.822603+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\volumes-e20cf270\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\volumes-e20cf270\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-12T07:25:37.958145+00:00"
+}

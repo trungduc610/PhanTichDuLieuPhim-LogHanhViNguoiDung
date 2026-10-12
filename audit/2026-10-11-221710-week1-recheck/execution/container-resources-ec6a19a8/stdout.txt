@@ -1,0 +1,4 @@
+Filesystem     1024-blocks      Used Available Capacity Mounted on
+overlay         1055762868   4075612 997983784       1% /
+C:\              209034444 141796660  67237784      68% /project
+Python 3.8.10

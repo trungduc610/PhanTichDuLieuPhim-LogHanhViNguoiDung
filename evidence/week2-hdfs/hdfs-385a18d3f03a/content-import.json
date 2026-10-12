@@ -1,0 +1,206 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-10-12T07:30:58.213858+00:00",
+  "hdfs_run_id": "hdfs-385a18d3f03a",
+  "source_manifest_sha256": "ab6e60dfd5185229f7244cfcd581d868d3b128c5c68150a393b5b7ca249119d7",
+  "source_hashes": {
+    "scripts/hdfs_io.py": "531830b6d80a5b4f6b4dcd1ff5ad202c480ed0ffa9ffd8be57fe40d1b6d3ad6b",
+    "scripts/hdfs_common.py": "8e8feea5fab0c1bc6b4a20ad5af86804f0afb6c1f6c00ada94ed771f52a72896",
+    "scripts/common.py": "246ee962b07d43e9b9beafb1918ce1a35b88d9ee9f30ea03e0a70232068706b0"
+  },
+  "files": [
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv",
+      "local_path": "data/processed/movies.csv",
+      "bytes": 533347,
+      "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+      "records": 9742,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-movies.csv-41e46f73\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-1.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-1.jsonl",
+      "bytes": 4463241,
+      "sha256": "6ed5f6b90cbb1d161426f2bd7ce0636a6df514111d90374babe095490c3bc6d3",
+      "records": 13000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-1.jsonl-0f4e0376\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-10.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-10.jsonl",
+      "bytes": 33132563,
+      "sha256": "41ef63fc07b4cec662e1ef7421522110cca0d164a41c48556b1f6a06a9773cff",
+      "records": 96500,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-10.jsonl-2fc7733c\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-11.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-11.jsonl",
+      "bytes": 30213917,
+      "sha256": "c96c149a8dfbb6cb281c99ff586a76f096a653a8975d96c13e0719e5697ec476",
+      "records": 88000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-11.jsonl-aad4129b\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-12.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-12.jsonl",
+      "bytes": 29183763,
+      "sha256": "a34334e974804408393bc0391b6953a31185c3acccce91f1ded75f843a3d5d0b",
+      "records": 85000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-12.jsonl-4b49a300\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-13.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-13.jsonl",
+      "bytes": 27810781,
+      "sha256": "973b637795fe8a6ed8e124289432d9cb925bf9e4cb47c1c6fa407ea8f9b95e2b",
+      "records": 81000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-13.jsonl-54b727ba\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-14.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-14.jsonl",
+      "bytes": 25063177,
+      "sha256": "ffda6b53198a9a59e62e7bec22a28c0fadb2cf5b28b3d05e63f9eae18891ec8f",
+      "records": 73000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-14.jsonl-58af71ef\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-15.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-15.jsonl",
+      "bytes": 16995792,
+      "sha256": "50ee9e5eb716c5f65c8ec22eeba8b9be0087526d8832624fc929ac609d0c87e2",
+      "records": 49500,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-15.jsonl-15fe5842\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-2.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-2.jsonl",
+      "bytes": 23690281,
+      "sha256": "98b3379a79e466f890dbc870c7152de1975067c2ca8005b594290cc653cd3400",
+      "records": 69000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-2.jsonl-05bd1a8b\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-3.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-3.jsonl",
+      "bytes": 23862302,
+      "sha256": "906db4c89f799a84579241ed538f4389c4901a05562f71f4373f922fa1752f29",
+      "records": 69500,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-3.jsonl-bbcb2e0c\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-4.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-4.jsonl",
+      "bytes": 15792847,
+      "sha256": "7272a6197bb9a76ceb9c426cc224cef232a8780544fbe2a9c768901e8c225b0c",
+      "records": 46000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-4.jsonl-c8881411\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-5.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-5.jsonl",
+      "bytes": 16308520,
+      "sha256": "91e4b04ad6dfe69af904db00e9c5fe773ab15c6f4205736117667d44848d5b96",
+      "records": 47500,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-5.jsonl-52f9e82a\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-6.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-6.jsonl",
+      "bytes": 23175894,
+      "sha256": "67a7b145e62c7557c601a55a50a34972ccb35c43e23b2607a0921025511afd16",
+      "records": 67500,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-6.jsonl-e953e935\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-7.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-7.jsonl",
+      "bytes": 24892171,
+      "sha256": "000ff17e425ea92be8757b504aa8fc53721c20a1969420a1c64592edfe653290",
+      "records": 72500,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-7.jsonl-e6c0e629\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-8.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-8.jsonl",
+      "bytes": 24032718,
+      "sha256": "38450c96d21781aad2aceb8f73f1cbee829be5a8dd249d40e844f9adf96c620e",
+      "records": 70000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-8.jsonl-d86bd2c4\\finished.json",
+      "matches_source": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-9.jsonl",
+      "local_path": "data/runs/run-aa6b9eb58dca/output/1791733800297-9.jsonl",
+      "bytes": 24721181,
+      "sha256": "e44b281d6b0a6c361297d7a833f629319a692b63acb08585ccf9ef6918ab9f58",
+      "records": 72000,
+      "replication": 1,
+      "empty": false,
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\cat-1791733800297-9.jsonl-37815ec3\\finished.json",
+      "matches_source": true
+    }
+  ],
+  "issues": [],
+  "missing_files": [],
+  "unexpected_files": [],
+  "live_datanodes": true,
+  "safe_mode_off": true,
+  "fsck_healthy": true,
+  "fsck_log": "FSCK started by root (auth:SIMPLE) from /172.18.0.2 for path /movie-log at Mon Oct 12 07:38:03 UTC 2026\n\n/movie-log <dir>\n/movie-log/processed <dir>\n/movie-log/raw <dir>\n/movie-log/raw/movies <dir>\n/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a <dir>\n/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv 533347 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741825_1001 len=533347 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs <dir>\n/movie-log/raw/user_logs/run-aa6b9eb58dca <dir>\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a <dir>\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-1.jsonl 4463241 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741826_1002 len=4463241 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-10.jsonl 33132563 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741827_1003 len=33132563 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-11.jsonl 30213917 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741828_1004 len=30213917 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-12.jsonl 29183763 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741829_1005 len=29183763 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-13.jsonl 27810781 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741830_1006 len=27810781 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-14.jsonl 25063177 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741831_1007 len=25063177 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-15.jsonl 16995792 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741832_1008 len=16995792 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-2.jsonl 23690281 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741833_1009 len=23690281 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-3.jsonl 23862302 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741834_1010 len=23862302 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-4.jsonl 15792847 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741835_1011 len=15792847 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-5.jsonl 16308520 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741836_1012 len=16308520 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-6.jsonl 23175894 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741837_1013 len=23175894 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-7.jsonl 24892171 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741838_1014 len=24892171 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-8.jsonl 24032718 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741839_1015 len=24032718 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-9.jsonl 24721181 bytes, replicated: replication=1, 1 block(s):  OK\n0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741840_1016 len=24721181 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.3:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]\n\n/movie-log/results <dir>\n\nStatus: HEALTHY\n Number of data-nodes:\t1\n Number of racks:\t\t1\n Total dirs:\t\t\t9\n Total symlinks:\t\t0\n\nReplicated Blocks:\n Total size:\t343872495 B\n Total files:\t16\n Total blocks (validated):\t16 (avg. block size 21492030 B)\n Minimally replicated blocks:\t16 (100.0 %)\n Over-replicated blocks:\t0 (0.0 %)\n Under-replicated blocks:\t0 (0.0 %)\n Mis-replicated blocks:\t\t0 (0.0 %)\n Default replication factor:\t1\n Average block replication:\t1.0\n Missing blocks:\t\t0\n Corrupt blocks:\t\t0\n Missing replicas:\t\t0 (0.0 %)\n Blocks queued for replication:\t0\n\nErasure Coded Block Groups:\n Total size:\t0 B\n Total files:\t0\n Total block groups (validated):\t0\n Minimally erasure-coded block groups:\t0\n Over-erasure-coded block groups:\t0\n Under-erasure-coded block groups:\t0\n Unsatisfactory placement block groups:\t0\n Average block group size:\t0.0\n Missing block groups:\t\t0\n Corrupt block groups:\t\t0\n Missing internal blocks:\t0\n Blocks queued for replication:\t0\nFSCK ended at Mon Oct 12 07:38:03 UTC 2026 in 50 milliseconds\n\n\nThe filesystem under path '/movie-log' is HEALTHY\n",
+  "totals": {
+    "movies": 9742,
+    "logs": 1000000,
+    "log_bytes": 343339148,
+    "duplicate_ids": 0,
+    "invalid_records": 0
+  },
+  "unique_event_ids": 1000000,
+  "total_bytes": 343872495,
+  "finished_at_utc": "2026-10-12T07:41:46.476479+00:00"
+}

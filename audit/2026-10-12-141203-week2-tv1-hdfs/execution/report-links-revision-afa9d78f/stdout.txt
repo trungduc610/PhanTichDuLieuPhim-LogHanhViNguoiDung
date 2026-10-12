@@ -1,0 +1,1 @@
+Corrected new report image links; preserved failed verification log and report revision hashes

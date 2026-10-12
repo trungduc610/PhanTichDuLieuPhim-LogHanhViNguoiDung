@@ -37,8 +37,20 @@ Các phim được shuffle bằng seed rồi gán trọng số rank^-0,85. User 
 
 Xấp xỉ 15% phiên chỉ view; phiên đã play có xác suất complete 55%, và xác suất có pause 35% nếu ngân sách event cho phép. Đây là tham số mô hình, không phải tỷ lệ đo từ người dùng. Nếu còn 1–2 event cuối, tạo phiên view-only để giữ đúng số lượng mà không cắt dở phiên. Một phần user/phim có thể không được chọn; `--users` là kích thước tập user, không ép tất cả phải hoạt động.
 
-RAM không chứa một triệu JSON event: ghi từng phiên tối đa 5 event ra `.part`, sau hoàn tất mới rename. Chỉ giữ metadata, trọng số, bộ đếm và khoảng thời gian phiên để chống chồng lấn; bộ nhớ phần lịch tăng theo số phiên, không hằng số. Validator lưu eventId/payload vào SQLite tạm trên đĩa, cache 16 MB. Cần đủ đĩa tạm khi kiểm tra dữ liệu lớn; chưa benchmark main một triệu event.
+RAM không chứa một triệu JSON event: ghi từng phiên tối đa 5 event ra `.part`, sau hoàn tất mới rename. Chỉ giữ metadata, trọng số, bộ đếm và khoảng thời gian phiên để chống chồng lấn; bộ nhớ phần lịch tăng theo số phiên, không hằng số. Validator lưu eventId/payload vào SQLite tạm trên đĩa, cache 16 MB. Cần đủ đĩa tạm khi kiểm tra dữ liệu lớn; lô main một triệu event đã chạy và được đo tại `evidence/run-aa6b9eb58dca/reconciliation.json`.
 
 Cùng dataset/seed/tham số tái tạo cùng eventId: một bản chạy lại không được nhập như hành vi mới. Nếu muốn lô độc lập, chỉ định `--run-id` khác. Nếu ghép demo và main, có thể có cùng user và khoảng ngày: chọn riêng dataset/lần chạy cho phân tích, không mặc nhiên coi chúng là một lịch sử người dùng liên tục.
 
 Kết quả demo: 10.000 event, 3.058 phiên; view 3.058, play 3.471, pause 904, stop 1.177, complete 1.390. Có 861 user hoạt động trong tập 1.000 user và 1.664 phim được chọn. Số play gồm cả resume; số phiên thực sự bắt đầu xem là 2.567. Kiểm tra input không phát hiện ID trùng, phiên sai hoặc phiên chồng nhau.
+
+
+Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+
+| Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+|---|---|---:|---:|---:|
+| Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+| Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+
+Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+
+Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.

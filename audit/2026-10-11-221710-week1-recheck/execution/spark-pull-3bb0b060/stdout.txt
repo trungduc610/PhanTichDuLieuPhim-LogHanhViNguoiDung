@@ -1,0 +1,37 @@
+3.5.1: Pulling from apache/spark
+486b105cee21: Pulling fs layer
+ba536847d6fa: Pulling fs layer
+3a9e183a5640: Pulling fs layer
+ef7346692452: Pulling fs layer
+318ff7bb2b26: Pulling fs layer
+8333604c87bb: Pulling fs layer
+18838527ab39: Pulling fs layer
+ec020c8178d4: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+482e8906db89: Pulling fs layer
+3c67549075b6: Pulling fs layer
+4f4fb700ef54: Already exists
+ef7346692452: Download complete
+ba536847d6fa: Download complete
+318ff7bb2b26: Download complete
+ec020c8178d4: Download complete
+8333604c87bb: Download complete
+486b105cee21: Download complete
+3a9e183a5640: Download complete
+482e8906db89: Download complete
+3c67549075b6: Download complete
+3c67549075b6: Pull complete
+482e8906db89: Pull complete
+486b105cee21: Pull complete
+ba536847d6fa: Pull complete
+ef7346692452: Pull complete
+318ff7bb2b26: Pull complete
+8333604c87bb: Pull complete
+18838527ab39: Download complete
+18838527ab39: Pull complete
+ec020c8178d4: Pull complete
+4f4fb700ef54: Pull complete
+3a9e183a5640: Pull complete
+Digest: sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94
+Status: Downloaded newer image for apache/spark:3.5.1
+docker.io/apache/spark:3.5.1

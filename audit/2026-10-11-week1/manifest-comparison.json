@@ -1,0 +1,424 @@
+{
+  "entries": 54,
+  "matched": [
+    "config/flume.conf",
+    "data/channel/.gitkeep",
+    "data/generated/.gitkeep",
+    "data/output/.gitkeep",
+    "data/processed/.gitkeep",
+    "data/raw/.gitkeep",
+    "data/runs/.gitkeep",
+    "data/spool/.gitkeep",
+    "evidence/dataset_quality.json",
+    "evidence/demo_input_validation.json",
+    "evidence/input-sample.jsonl",
+    "evidence/pipeline_attempt.txt",
+    "evidence/run-62b191534ce6/commands.json",
+    "evidence/run-62b191534ce6/input_validation.json",
+    "evidence/run-62b191534ce6/status.json",
+    "evidence/static_checks.json",
+    "evidence/tests.txt",
+    "logs/.gitkeep",
+    "scripts/check_environment.py",
+    "scripts/common.py",
+    "scripts/download_dataset.py",
+    "scripts/generate_logs.py",
+    "scripts/prepare_movies.py",
+    "scripts/run_flume.sh",
+    "scripts/run_pipeline.py",
+    "scripts/validate_pipeline.py",
+    "scripts/verify_archive.py",
+    "tests/test_project.py"
+  ],
+  "changed": [
+    {
+      "path": ".dockerignore",
+      "expected": {
+        "bytes": 47,
+        "sha256": "464a0374b8b20b7e26eee5e222c21c8763adceab9bf2350df2eb36e43519adc9"
+      },
+      "actual": {
+        "path": ".dockerignore",
+        "bytes": 54,
+        "sha256": "1790a8e81abae8746e917a9af5c735843d439e9c6feae10fee2b0364a884c61d",
+        "sha256_lf": "464a0374b8b20b7e26eee5e222c21c8763adceab9bf2350df2eb36e43519adc9",
+        "tracked": true,
+        "lines": 7,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": ".gitattributes",
+      "expected": {
+        "bytes": 53,
+        "sha256": "18d7aace9e39705076524e13e2a699cb65b61a0e3af25a5ca59af5e52501964f"
+      },
+      "actual": {
+        "path": ".gitattributes",
+        "bytes": 56,
+        "sha256": "10a34b5b4926a8bdffd1cbbf43f84c0ab82a2e6c6ebf427a957db0be1afc980a",
+        "sha256_lf": "18d7aace9e39705076524e13e2a699cb65b61a0e3af25a5ca59af5e52501964f",
+        "tracked": true,
+        "lines": 3,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": ".gitignore",
+      "expected": {
+        "bytes": 251,
+        "sha256": "d407d0b27a3e60ffbc33f6deb63881f80d4dbce854c83726e2ad696b303434fe"
+      },
+      "actual": {
+        "path": ".gitignore",
+        "bytes": 267,
+        "sha256": "b23b85320e80cd680ed8dc4939ee1243e04afc5c50159b51ff5b70eb3f20dba1",
+        "sha256_lf": "d407d0b27a3e60ffbc33f6deb63881f80d4dbce854c83726e2ad696b303434fe",
+        "tracked": true,
+        "lines": 16,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "compose.yaml",
+      "expected": {
+        "bytes": 193,
+        "sha256": "4c8127e576e475adf5b6960475f6d505f06cb62af50c959f4302e437a656316b"
+      },
+      "actual": {
+        "path": "compose.yaml",
+        "bytes": 431,
+        "sha256": "5cfbac4a54fbc80ad97177e8c6965d0526ea82db79dfdb734b6a662c70839cec",
+        "sha256_lf": "7e76906dd4138e6426cc838698a7fd759b97fc359df98fc70a263909e313b63f",
+        "tracked": true,
+        "lines": 19,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": false
+    },
+    {
+      "path": "Dockerfile",
+      "expected": {
+        "bytes": 1039,
+        "sha256": "c3451becf8c2d51ddd2a7efbe1e405064552520b6f7555676cd6e6cc394d0f5f"
+      },
+      "actual": {
+        "path": "Dockerfile",
+        "bytes": 1058,
+        "sha256": "91d37990f78aa97bb2d1165b53ae13a2253a7bbcd6a538a5dd241a247726caa8",
+        "sha256_lf": "c3451becf8c2d51ddd2a7efbe1e405064552520b6f7555676cd6e6cc394d0f5f",
+        "tracked": true,
+        "lines": 19,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "docs/dataset_description.md",
+      "expected": {
+        "bytes": 3824,
+        "sha256": "ee1f51eb02a4c8d2939e24f06826018d02fed1a1310f831e81a2b09b28333bd8"
+      },
+      "actual": {
+        "path": "docs/dataset_description.md",
+        "bytes": 3862,
+        "sha256": "abf467c1c24d3755f735aa9a694c725c64a540f4fd0640637c19c6f700400b94",
+        "sha256_lf": "ee1f51eb02a4c8d2939e24f06826018d02fed1a1310f831e81a2b09b28333bd8",
+        "tracked": true,
+        "lines": 38,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "docs/flume_pipeline.md",
+      "expected": {
+        "bytes": 4606,
+        "sha256": "4c54f3dfa2e6a5cd9e7137f2daef97c245974625acb3509c3817db129448aaff"
+      },
+      "actual": {
+        "path": "docs/flume_pipeline.md",
+        "bytes": 4640,
+        "sha256": "d8f60735cdb97cd0255949705e9ce4d9813bd072e0c589276a9403985bb4ceb0",
+        "sha256_lf": "4c54f3dfa2e6a5cd9e7137f2daef97c245974625acb3509c3817db129448aaff",
+        "tracked": true,
+        "lines": 34,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "docs/log_schema.md",
+      "expected": {
+        "bytes": 4955,
+        "sha256": "1a494a48a767d2929f3285c596cf3ecc906143c4b2a1f3972fed8b43c6f0881f"
+      },
+      "actual": {
+        "path": "docs/log_schema.md",
+        "bytes": 4999,
+        "sha256": "6a58380781b903181131c4e4d8a0fd9718fb8c67b9ec1a0dce2bcf47e193a49b",
+        "sha256_lf": "1a494a48a767d2929f3285c596cf3ecc906143c4b2a1f3972fed8b43c6f0881f",
+        "tracked": true,
+        "lines": 44,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "docs/presentation_script.md",
+      "expected": {
+        "bytes": 3124,
+        "sha256": "94d332d08cf46a99d08a551dfe56ddd8b7ffa14a444cef8f8c3f2c217b864ec8"
+      },
+      "actual": {
+        "path": "docs/presentation_script.md",
+        "bytes": 3141,
+        "sha256": "f12a096fb932dc5284a5be0016318d4bfc9995151579b7e994bc6af63b7760a2",
+        "sha256_lf": "94d332d08cf46a99d08a551dfe56ddd8b7ffa14a444cef8f8c3f2c217b864ec8",
+        "tracked": true,
+        "lines": 17,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "docs/week1_report.md",
+      "expected": {
+        "bytes": 5880,
+        "sha256": "c35bb4064d93b8df1507e0db0fe5f5d410c33442f84ae086b140cdc8c5f09124"
+      },
+      "actual": {
+        "path": "docs/week1_report.md",
+        "bytes": 5901,
+        "sha256": "e24bf3d129296433bc335f79cca7cc9f180a25aa62358c228350a6ef76cf177a",
+        "sha256_lf": "77c3eeba8a778b92c9ed4e3aa3a19e0e760865f90e35e05592ebe76f61761362",
+        "tracked": true,
+        "lines": 59,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": false
+    },
+    {
+      "path": "docs/week2_handoff.md",
+      "expected": {
+        "bytes": 3648,
+        "sha256": "543fae3b4fed472ff1b8ae17794fc7a142d7b19baa7fa4bbb057b61720e28ee9"
+      },
+      "actual": {
+        "path": "docs/week2_handoff.md",
+        "bytes": 5075,
+        "sha256": "a2b7969ed8c589c1ed54ef37e8a728061295c58dc1ccd4581d56b25859b4e289",
+        "sha256_lf": "4c14371aa131279d59a0530f47dc4a5c4ee693ac790d65c5290b13e8919ebc54",
+        "tracked": true,
+        "lines": 59,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": false
+    },
+    {
+      "path": "evidence/environment.json",
+      "expected": {
+        "bytes": 945,
+        "sha256": "3705f416cc6699036f49d99cf7e3a6890e3e43b51f57a10afbd8ac32e5452174"
+      },
+      "actual": {
+        "path": "evidence/environment.json",
+        "bytes": 2042,
+        "sha256": "ec81321d7157ea3851b1eae28ca1ed10c12851576de7fb931fca113efdf4ebb1",
+        "sha256_lf": "40dcfd3cd2973f0856e69a6faea57579e1390cff2e8e5e6065f8e186fbfd85ce",
+        "tracked": true,
+        "lines": 33,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": false
+    },
+    {
+      "path": "evidence/execution_commands.md",
+      "expected": {
+        "bytes": 2945,
+        "sha256": "d7b41581416ab10684776c8699e8613650231452f997f9938b713da65b615042"
+      },
+      "actual": {
+        "path": "evidence/execution_commands.md",
+        "bytes": 2986,
+        "sha256": "4cc4c114e6960582a243fca18399d2f156cb18203b703b3fa0da09a91f68a66e",
+        "sha256_lf": "d7b41581416ab10684776c8699e8613650231452f997f9938b713da65b615042",
+        "tracked": true,
+        "lines": 41,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "evidence/README.md",
+      "expected": {
+        "bytes": 1718,
+        "sha256": "4d529b5f80226e31f277a1543572f3b174f79b219736bf94883cb55a85b5521f"
+      },
+      "actual": {
+        "path": "evidence/README.md",
+        "bytes": 1740,
+        "sha256": "69ccfc34e0db8f19cd3dde0bf183d71c10836038822fac5bfbc5243b2926e36b",
+        "sha256_lf": "4d529b5f80226e31f277a1543572f3b174f79b219736bf94883cb55a85b5521f",
+        "tracked": true,
+        "lines": 22,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    },
+    {
+      "path": "README.md",
+      "expected": {
+        "bytes": 11773,
+        "sha256": "d6092a39626b9b89ecaf21d850fe9c98ac221bb9b986948b107af6905c464b6c"
+      },
+      "actual": {
+        "path": "README.md",
+        "bytes": 12425,
+        "sha256": "90ab439beb01130160dcd011e3dd8aaf54b29968cd0d90d6726b6611ac3e0851",
+        "sha256_lf": "09435eaf0f9c4adfa2fbfca2bf741a2654d1cb3a515f8f5bd4b056ca0e203013",
+        "tracked": true,
+        "lines": 154,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": false
+    },
+    {
+      "path": "requirements.txt",
+      "expected": {
+        "bytes": 61,
+        "sha256": "7aa0db98a9e68681855b8a6a6e747d6156187ef07f8475689f4246ae0e97f984"
+      },
+      "actual": {
+        "path": "requirements.txt",
+        "bytes": 62,
+        "sha256": "9a8093916c0899f33b06c0ed353d05c30682e29fe7a3dc560dc086064181d3be",
+        "sha256_lf": "7aa0db98a9e68681855b8a6a6e747d6156187ef07f8475689f4246ae0e97f984",
+        "tracked": true,
+        "lines": 1,
+        "utf8": "valid",
+        "bom": false
+      },
+      "matches_after_lf_normalization": true
+    }
+  ],
+  "missing": [
+    "data/generated/demo.jsonl",
+    "data/generated/demo.jsonl.manifest.json",
+    "data/processed/movies.csv",
+    "data/raw/download_manifest.json",
+    "data/raw/ml-latest-small/links.csv",
+    "data/raw/ml-latest-small/movies.csv",
+    "data/raw/ml-latest-small/ratings.csv",
+    "data/raw/ml-latest-small/README.txt",
+    "data/raw/ml-latest-small/tags.csv",
+    "data/raw/ml-latest-small.zip"
+  ],
+  "not_covered": [
+    "docs/data_quality_report.md",
+    "docs/movie_schema.md",
+    "docs/system_architecture.md",
+    "docs/user_log_schema.md",
+    "docs/week1_member2_report.md",
+    "evidence/delivery_manifest.json",
+    "evidence/main-input-validation.json",
+    "evidence/run-558d55e8a73f/build.log",
+    "evidence/run-558d55e8a73f/commands.json",
+    "evidence/run-558d55e8a73f/compose-resolved.yaml",
+    "evidence/run-558d55e8a73f/compose-version.txt",
+    "evidence/run-558d55e8a73f/docker-version.txt",
+    "evidence/run-558d55e8a73f/down.log",
+    "evidence/run-558d55e8a73f/flume-operational.log",
+    "evidence/run-558d55e8a73f/flume-version.txt",
+    "evidence/run-558d55e8a73f/images.txt",
+    "evidence/run-558d55e8a73f/input-sample.jsonl",
+    "evidence/run-558d55e8a73f/input_validation.json",
+    "evidence/run-558d55e8a73f/java-version.txt",
+    "evidence/run-558d55e8a73f/output-sample.jsonl",
+    "evidence/run-558d55e8a73f/reconciliation.json",
+    "evidence/run-558d55e8a73f/status.json",
+    "evidence/run-558d55e8a73f/stop-final.log",
+    "evidence/run-558d55e8a73f/stop.log",
+    "evidence/run-558d55e8a73f/up.log",
+    "evidence/run-8309c89de03e/build.log",
+    "evidence/run-8309c89de03e/compose-resolved.yaml",
+    "evidence/run-8309c89de03e/compose-version.txt",
+    "evidence/run-8309c89de03e/docker-version.txt",
+    "evidence/run-8309c89de03e/input_validation.json",
+    "evidence/run-a16e0fb65471/build.log",
+    "evidence/run-a16e0fb65471/commands.json",
+    "evidence/run-a16e0fb65471/compose-resolved.yaml",
+    "evidence/run-a16e0fb65471/compose-version.txt",
+    "evidence/run-a16e0fb65471/docker-version.txt",
+    "evidence/run-a16e0fb65471/down.log",
+    "evidence/run-a16e0fb65471/flume-operational.log",
+    "evidence/run-a16e0fb65471/flume-version.txt",
+    "evidence/run-a16e0fb65471/images.txt",
+    "evidence/run-a16e0fb65471/input-sample.jsonl",
+    "evidence/run-a16e0fb65471/input_validation.json",
+    "evidence/run-a16e0fb65471/java-version.txt",
+    "evidence/run-a16e0fb65471/output-sample.jsonl",
+    "evidence/run-a16e0fb65471/reconciliation.json",
+    "evidence/run-a16e0fb65471/status.json",
+    "evidence/run-a16e0fb65471/stop-final.log",
+    "evidence/run-a16e0fb65471/stop.log",
+    "evidence/run-a16e0fb65471/up.log",
+    "evidence/run-a9b3a8a26afb/build.log",
+    "evidence/run-a9b3a8a26afb/commands.json",
+    "evidence/run-a9b3a8a26afb/compose-resolved.yaml",
+    "evidence/run-a9b3a8a26afb/compose-version.txt",
+    "evidence/run-a9b3a8a26afb/docker-version.txt",
+    "evidence/run-a9b3a8a26afb/down.log",
+    "evidence/run-a9b3a8a26afb/flume-operational.log",
+    "evidence/run-a9b3a8a26afb/flume-version.txt",
+    "evidence/run-a9b3a8a26afb/images.txt",
+    "evidence/run-a9b3a8a26afb/input-sample.jsonl",
+    "evidence/run-a9b3a8a26afb/input_validation.json",
+    "evidence/run-a9b3a8a26afb/java-version.txt",
+    "evidence/run-a9b3a8a26afb/output-sample.jsonl",
+    "evidence/run-a9b3a8a26afb/reconciliation.json",
+    "evidence/run-a9b3a8a26afb/status.json",
+    "evidence/run-a9b3a8a26afb/stop-final.log",
+    "evidence/run-a9b3a8a26afb/stop.log",
+    "evidence/run-a9b3a8a26afb/up.log",
+    "evidence/run-f63c810e9d8d/build.log",
+    "evidence/run-f63c810e9d8d/commands.json",
+    "evidence/run-f63c810e9d8d/compose-resolved.yaml",
+    "evidence/run-f63c810e9d8d/compose-version.txt",
+    "evidence/run-f63c810e9d8d/docker-version.txt",
+    "evidence/run-f63c810e9d8d/down.log",
+    "evidence/run-f63c810e9d8d/flume-operational.log",
+    "evidence/run-f63c810e9d8d/flume-version.txt",
+    "evidence/run-f63c810e9d8d/images.txt",
+    "evidence/run-f63c810e9d8d/input-sample.jsonl",
+    "evidence/run-f63c810e9d8d/input_validation.json",
+    "evidence/run-f63c810e9d8d/java-version.txt",
+    "evidence/run-f63c810e9d8d/output-sample.jsonl",
+    "evidence/run-f63c810e9d8d/reconciliation.json",
+    "evidence/run-f63c810e9d8d/status.json",
+    "evidence/run-f63c810e9d8d/stop-final.log",
+    "evidence/run-f63c810e9d8d/stop.log",
+    "evidence/run-f63c810e9d8d/up.log",
+    "scripts/spark_smoke_test.py",
+    "src/__init__.py",
+    "src/schemas.py"
+  ]
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-12-141203-week2-tv1-hdfs\check_final.py", line 113, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-12-141203-week2-tv1-hdfs\check_final.py", line 94, in main
+    assert len(list((ROOT/'docs').glob('week2_*.md')))==3
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

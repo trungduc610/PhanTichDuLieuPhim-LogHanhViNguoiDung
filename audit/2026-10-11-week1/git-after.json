@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "C:\\Program Files\\Git\\cmd\\git.EXE",
+    "status",
+    "--porcelain=v1",
+    "--untracked-files=all"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:51.577599+00:00",
+  "exit_code": 0,
+  "output": "?? audit/2026-10-11-week1/artifact-presence.json\n?? audit/2026-10-11-week1/commands.json\n?? audit/2026-10-11-week1/compose-config-current.json\n?? audit/2026-10-11-week1/compose-version-current.json\n?? audit/2026-10-11-week1/dataset-validation-attempt.json\n?? audit/2026-10-11-week1/docker-containers-current.json\n?? audit/2026-10-11-week1/docker-images-current.json\n?? audit/2026-10-11-week1/docker-version-current.json\n?? audit/2026-10-11-week1/environment-current.json\n?? audit/2026-10-11-week1/git-before.json\n?? audit/2026-10-11-week1/git-revision.json\n?? audit/2026-10-11-week1/git-tracked.json\n?? audit/2026-10-11-week1/historical-evidence-review.json\n?? audit/2026-10-11-week1/inventory.json\n?? audit/2026-10-11-week1/java-host.json\n?? audit/2026-10-11-week1/manifest-comparison.json\n?? audit/2026-10-11-week1/numbered-project-files.txt\n?? audit/2026-10-11-week1/repository-instructions.json\n?? audit/2026-10-11-week1/run_audit.py\n?? audit/2026-10-11-week1/spark-host-attempt.json\n?? audit/2026-10-11-week1/syntax.json\n?? audit/2026-10-11-week1/tests-current.json\n"
+}

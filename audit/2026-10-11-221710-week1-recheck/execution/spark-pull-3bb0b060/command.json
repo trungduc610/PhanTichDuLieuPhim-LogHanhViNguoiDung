@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "docker",
+    "pull",
+    "apache/spark:3.5.1"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T15:33:22.042313+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "os": "Windows-10-10.0.19045-SP0",
+  "environment": {
+    "DOCKER_HOST": null,
+    "DOCKER_CONTEXT": null,
+    "DOCKER_CONFIG": null,
+    "RUN_DIR": null,
+    "LOG_DIR": null,
+    "TMP": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\temporary",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\execution\\spark-pull-3bb0b060\\stdout.txt",
+  "stderr_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\execution\\spark-pull-3bb0b060\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-11T15:37:13.434468+00:00"
+}

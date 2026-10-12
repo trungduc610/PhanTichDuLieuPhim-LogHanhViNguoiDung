@@ -1,0 +1,469 @@
+{
+  "fixture_only": true,
+  "never_flume_evidence": true,
+  "tests": [
+    {
+      "name": "valid_fixture",
+      "passed": true,
+      "result": {
+        "status": "PASS",
+        "expected_movies": 1,
+        "expected_logs": 6,
+        "movies": {
+          "rows": 1,
+          "unique_ids": 1,
+          "releaseYear_null_allowed": 0
+        },
+        "logs": {
+          "rows": 6,
+          "unique_event_ids": 6,
+          "users": 6,
+          "movies": 1,
+          "sessions": 6,
+          "timestamp_min": "2026-09-01T00:00:00Z",
+          "timestamp_max": "2026-09-01T00:00:00Z",
+          "watch_seconds": 0,
+          "materialized_payload_characters": 1566
+        },
+        "actions": {
+          "view": 6
+        },
+        "errors": {
+          "movie_required_null": 0,
+          "movie_empty_title_or_genres": 0,
+          "movie_invalid_id_or_year": 0,
+          "movie_duplicate_ids": 0,
+          "log_required_null": 0,
+          "log_empty_identity": 0,
+          "log_timestamp_parse": 0,
+          "log_timestamp_range": 0,
+          "log_action": 0,
+          "log_duration": 0,
+          "log_integer_ranges": 0,
+          "log_provenance": 0,
+          "log_duplicate_ids": 0,
+          "log_conflicting_ids": 0,
+          "orphan_movie_events": 0,
+          "movie_count_mismatch": 0,
+          "log_count_mismatch": 0,
+          "join_key_type_mismatch": 0,
+          "session_sequence_or_time": 0,
+          "session_segment_duration": 0,
+          "session_identity": 0
+        },
+        "examples": {},
+        "timestamp_timezone": "UTC"
+      }
+    },
+    {
+      "name": "orphan_beyond_first_five",
+      "passed": true,
+      "result": {
+        "status": "FAIL",
+        "expected_movies": 1,
+        "expected_logs": 6,
+        "movies": {
+          "rows": 1,
+          "unique_ids": 1,
+          "releaseYear_null_allowed": 0
+        },
+        "logs": {
+          "rows": 6,
+          "unique_event_ids": 6,
+          "users": 6,
+          "movies": 2,
+          "sessions": 6,
+          "timestamp_min": "2026-09-01T00:00:00Z",
+          "timestamp_max": "2026-09-01T00:00:00Z",
+          "watch_seconds": 0,
+          "materialized_payload_characters": 1568
+        },
+        "actions": {
+          "view": 6
+        },
+        "errors": {
+          "movie_required_null": 0,
+          "movie_empty_title_or_genres": 0,
+          "movie_invalid_id_or_year": 0,
+          "movie_duplicate_ids": 0,
+          "log_required_null": 0,
+          "log_empty_identity": 0,
+          "log_timestamp_parse": 0,
+          "log_timestamp_range": 0,
+          "log_action": 0,
+          "log_duration": 0,
+          "log_integer_ranges": 0,
+          "log_provenance": 0,
+          "log_duplicate_ids": 0,
+          "log_conflicting_ids": 0,
+          "orphan_movie_events": 1,
+          "movie_count_mismatch": 0,
+          "log_count_mismatch": 0,
+          "join_key_type_mismatch": 0,
+          "session_sequence_or_time": 0,
+          "session_segment_duration": 0,
+          "session_identity": 0
+        },
+        "examples": {
+          "orphan_movie_events": [
+            {
+              "movieId": 999,
+              "eventId": "fixture-5",
+              "userId": "user-5",
+              "sessionId": "session-5",
+              "action": "view",
+              "timestamp": "2026-09-01T00:00:00Z",
+              "watchDuration": 0,
+              "sequenceNumber": 0,
+              "runId": "fixture",
+              "isSynthetic": true,
+              "simulatedMovieDuration": 3600,
+              "durationSource": "synthetic",
+              "_file": "",
+              "eventTime": "2026-09-01 00:00:00"
+            }
+          ]
+        },
+        "timestamp_timezone": "UTC"
+      }
+    },
+    {
+      "name": "invalid_timestamp",
+      "passed": true,
+      "result": {
+        "status": "FAIL",
+        "expected_movies": 1,
+        "expected_logs": 6,
+        "movies": {
+          "rows": 1,
+          "unique_ids": 1,
+          "releaseYear_null_allowed": 0
+        },
+        "logs": {
+          "rows": 6,
+          "unique_event_ids": 6,
+          "users": 6,
+          "movies": 1,
+          "sessions": 6,
+          "timestamp_min": "2026-09-01T00:00:00Z",
+          "timestamp_max": "invalid",
+          "watch_seconds": 0,
+          "materialized_payload_characters": 1553
+        },
+        "actions": {
+          "view": 6
+        },
+        "errors": {
+          "movie_required_null": 0,
+          "movie_empty_title_or_genres": 0,
+          "movie_invalid_id_or_year": 0,
+          "movie_duplicate_ids": 0,
+          "log_required_null": 0,
+          "log_empty_identity": 0,
+          "log_timestamp_parse": 1,
+          "log_timestamp_range": 0,
+          "log_action": 0,
+          "log_duration": 0,
+          "log_integer_ranges": 0,
+          "log_provenance": 0,
+          "log_duplicate_ids": 0,
+          "log_conflicting_ids": 0,
+          "orphan_movie_events": 0,
+          "movie_count_mismatch": 0,
+          "log_count_mismatch": 0,
+          "join_key_type_mismatch": 0,
+          "session_sequence_or_time": 0,
+          "session_segment_duration": 0,
+          "session_identity": 0
+        },
+        "examples": {
+          "log_timestamp_parse": [
+            {
+              "eventId": "fixture-5",
+              "userId": "user-5",
+              "sessionId": "session-5",
+              "movieId": 1,
+              "action": "view",
+              "timestamp": "invalid",
+              "watchDuration": 0,
+              "sequenceNumber": 0,
+              "runId": "fixture",
+              "isSynthetic": true,
+              "simulatedMovieDuration": 3600,
+              "durationSource": "synthetic",
+              "_file": "",
+              "eventTime": null
+            }
+          ]
+        },
+        "timestamp_timezone": "UTC"
+      }
+    },
+    {
+      "name": "required_null",
+      "passed": true,
+      "result": {
+        "status": "FAIL",
+        "expected_movies": 1,
+        "expected_logs": 6,
+        "movies": {
+          "rows": 1,
+          "unique_ids": 1,
+          "releaseYear_null_allowed": 0
+        },
+        "logs": {
+          "rows": 6,
+          "unique_event_ids": 6,
+          "users": 5,
+          "movies": 1,
+          "sessions": 6,
+          "timestamp_min": "2026-09-01T00:00:00Z",
+          "timestamp_max": "2026-09-01T00:00:00Z",
+          "watch_seconds": 0,
+          "materialized_payload_characters": 1548
+        },
+        "actions": {
+          "view": 6
+        },
+        "errors": {
+          "movie_required_null": 0,
+          "movie_empty_title_or_genres": 0,
+          "movie_invalid_id_or_year": 0,
+          "movie_duplicate_ids": 0,
+          "log_required_null": 1,
+          "log_empty_identity": 0,
+          "log_timestamp_parse": 0,
+          "log_timestamp_range": 0,
+          "log_action": 0,
+          "log_duration": 0,
+          "log_integer_ranges": 0,
+          "log_provenance": 0,
+          "log_duplicate_ids": 0,
+          "log_conflicting_ids": 0,
+          "orphan_movie_events": 0,
+          "movie_count_mismatch": 0,
+          "log_count_mismatch": 0,
+          "join_key_type_mismatch": 0,
+          "session_sequence_or_time": 0,
+          "session_segment_duration": 0,
+          "session_identity": 1
+        },
+        "examples": {
+          "log_required_null": [
+            {
+              "eventId": "fixture-5",
+              "userId": null,
+              "sessionId": "session-5",
+              "movieId": 1,
+              "action": "view",
+              "timestamp": "2026-09-01T00:00:00Z",
+              "watchDuration": 0,
+              "sequenceNumber": 0,
+              "runId": "fixture",
+              "isSynthetic": true,
+              "simulatedMovieDuration": 3600,
+              "durationSource": "synthetic",
+              "_file": "",
+              "eventTime": "2026-09-01 00:00:00"
+            }
+          ]
+        },
+        "timestamp_timezone": "UTC"
+      }
+    },
+    {
+      "name": "duplicate_movie_metadata",
+      "passed": true,
+      "result": {
+        "status": "FAIL",
+        "expected_movies": 2,
+        "expected_logs": 6,
+        "movies": {
+          "rows": 2,
+          "unique_ids": 1,
+          "releaseYear_null_allowed": 0
+        },
+        "logs": {
+          "rows": 6,
+          "unique_event_ids": 6,
+          "users": 6,
+          "movies": 1,
+          "sessions": 6,
+          "timestamp_min": "2026-09-01T00:00:00Z",
+          "timestamp_max": "2026-09-01T00:00:00Z",
+          "watch_seconds": 0,
+          "materialized_payload_characters": 1566
+        },
+        "actions": {
+          "view": 6
+        },
+        "errors": {
+          "movie_required_null": 0,
+          "movie_empty_title_or_genres": 0,
+          "movie_invalid_id_or_year": 0,
+          "movie_duplicate_ids": 1,
+          "log_required_null": 0,
+          "log_empty_identity": 0,
+          "log_timestamp_parse": 0,
+          "log_timestamp_range": 0,
+          "log_action": 0,
+          "log_duration": 0,
+          "log_integer_ranges": 0,
+          "log_provenance": 0,
+          "log_duplicate_ids": 0,
+          "log_conflicting_ids": 0,
+          "orphan_movie_events": 0,
+          "movie_count_mismatch": 0,
+          "log_count_mismatch": 0,
+          "join_key_type_mismatch": 0,
+          "session_sequence_or_time": 0,
+          "session_segment_duration": 0,
+          "session_identity": 0
+        },
+        "examples": {
+          "movie_duplicate_ids": [
+            {
+              "movieId": 1,
+              "count": 2
+            }
+          ]
+        },
+        "timestamp_timezone": "UTC"
+      }
+    },
+    {
+      "name": "conflicting_event_id",
+      "passed": true,
+      "result": {
+        "status": "FAIL",
+        "expected_movies": 1,
+        "expected_logs": 6,
+        "movies": {
+          "rows": 1,
+          "unique_ids": 1,
+          "releaseYear_null_allowed": 0
+        },
+        "logs": {
+          "rows": 6,
+          "unique_event_ids": 5,
+          "users": 6,
+          "movies": 1,
+          "sessions": 6,
+          "timestamp_min": "2026-09-01T00:00:00Z",
+          "timestamp_max": "2026-09-01T00:00:00Z",
+          "watch_seconds": 0,
+          "materialized_payload_characters": 1566
+        },
+        "actions": {
+          "view": 6
+        },
+        "errors": {
+          "movie_required_null": 0,
+          "movie_empty_title_or_genres": 0,
+          "movie_invalid_id_or_year": 0,
+          "movie_duplicate_ids": 0,
+          "log_required_null": 0,
+          "log_empty_identity": 0,
+          "log_timestamp_parse": 0,
+          "log_timestamp_range": 0,
+          "log_action": 0,
+          "log_duration": 0,
+          "log_integer_ranges": 0,
+          "log_provenance": 0,
+          "log_duplicate_ids": 1,
+          "log_conflicting_ids": 1,
+          "orphan_movie_events": 0,
+          "movie_count_mismatch": 0,
+          "log_count_mismatch": 0,
+          "join_key_type_mismatch": 0,
+          "session_sequence_or_time": 0,
+          "session_segment_duration": 0,
+          "session_identity": 0
+        },
+        "examples": {
+          "log_duplicate_ids": [
+            {
+              "eventId": "fixture-0",
+              "rows": 2,
+              "payloads": 2
+            }
+          ]
+        },
+        "timestamp_timezone": "UTC"
+      }
+    },
+    {
+      "name": "negative_duration",
+      "passed": true,
+      "result": {
+        "status": "FAIL",
+        "expected_movies": 1,
+        "expected_logs": 6,
+        "movies": {
+          "rows": 1,
+          "unique_ids": 1,
+          "releaseYear_null_allowed": 0
+        },
+        "logs": {
+          "rows": 6,
+          "unique_event_ids": 6,
+          "users": 6,
+          "movies": 1,
+          "sessions": 6,
+          "timestamp_min": "2026-09-01T00:00:00Z",
+          "timestamp_max": "2026-09-01T00:00:00Z",
+          "watch_seconds": -1,
+          "materialized_payload_characters": 1567
+        },
+        "actions": {
+          "view": 6
+        },
+        "errors": {
+          "movie_required_null": 0,
+          "movie_empty_title_or_genres": 0,
+          "movie_invalid_id_or_year": 0,
+          "movie_duplicate_ids": 0,
+          "log_required_null": 0,
+          "log_empty_identity": 0,
+          "log_timestamp_parse": 0,
+          "log_timestamp_range": 0,
+          "log_action": 0,
+          "log_duration": 1,
+          "log_integer_ranges": 0,
+          "log_provenance": 0,
+          "log_duplicate_ids": 0,
+          "log_conflicting_ids": 0,
+          "orphan_movie_events": 0,
+          "movie_count_mismatch": 0,
+          "log_count_mismatch": 0,
+          "join_key_type_mismatch": 0,
+          "session_sequence_or_time": 0,
+          "session_segment_duration": 0,
+          "session_identity": 0
+        },
+        "examples": {
+          "log_duration": [
+            {
+              "eventId": "fixture-5",
+              "userId": "user-5",
+              "sessionId": "session-5",
+              "movieId": 1,
+              "action": "view",
+              "timestamp": "2026-09-01T00:00:00Z",
+              "watchDuration": -1,
+              "sequenceNumber": 0,
+              "runId": "fixture",
+              "isSynthetic": true,
+              "simulatedMovieDuration": 3600,
+              "durationSource": "synthetic",
+              "_file": "",
+              "eventTime": "2026-09-01 00:00:00"
+            }
+          ]
+        },
+        "timestamp_timezone": "UTC"
+      }
+    }
+  ],
+  "status": "PASS"
+}

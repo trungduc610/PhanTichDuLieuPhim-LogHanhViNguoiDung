@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--user",
+    "0:0",
+    "--tmpfs",
+    "/hdfs/name",
+    "--mount",
+    "type=bind,source=C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung,target=/project,readonly",
+    "-e",
+    "HDFS_RUN_ID=hdfs-000000000000",
+    "--entrypoint",
+    "bash",
+    "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+    "-c",
+    "mkdir -p /hdfs/name/current; printf \"clusterID=foreign-cluster\\n\" > /hdfs/name/current/VERSION; bash /project/scripts/hdfs_service.sh namenode"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-12T07:38:24.868880+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\wrong_cluster-575134dd\\stdout.txt",
+  "stderr": "evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\wrong_cluster-575134dd\\stderr.txt"
+}

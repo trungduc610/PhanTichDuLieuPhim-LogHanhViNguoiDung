@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "scripts/validate_pipeline.py",
+    "--input",
+    "data/generated/demo.jsonl",
+    "--input-only",
+    "--report",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-week1\\demo-recheck.json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:47.537835+00:00",
+  "exit_code": 1,
+  "output": "Traceback (most recent call last):\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\scripts\\validate_pipeline.py\", line 193, in <module>\r\n    result = validate(a.input, a.movies, a.output_dir, a.report)\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\scripts\\validate_pipeline.py\", line 19, in validate\r\n    raise FileNotFoundError(input_path)\r\nFileNotFoundError: data\\generated\\demo.jsonl\r\n"
+}

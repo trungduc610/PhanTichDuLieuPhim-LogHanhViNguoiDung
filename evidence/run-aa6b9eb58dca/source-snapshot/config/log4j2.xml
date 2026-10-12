@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c - %m%n"/>
+    </Console>
+    <File name="AgentFile" fileName="/logs/flume.log" append="true">
+      <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c - %m%n"/>
+    </File>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="AgentFile"/>
+    </Root>
+  </Loggers>
+</Configuration>

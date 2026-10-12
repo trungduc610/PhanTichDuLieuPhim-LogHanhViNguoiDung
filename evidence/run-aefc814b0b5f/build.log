@@ -1,0 +1,82 @@
+ Image movie-log-flume:1.11.0-local Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 625B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 30B 0.1s
+#2 transferring dockerfile: 1.21kB 0.2s done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jre-jammy
+#3 DONE 2.6s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 32B 0.1s
+#4 transferring context: 101B 0.4s done
+#4 DONE 0.5s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [ 1/12] FROM docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0
+#6 resolve docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0
+#6 resolve docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0 0.4s done
+#6 DONE 0.4s
+
+#5 [internal] load build context
+#5 transferring context: 526B 0.0s done
+#5 DONE 0.1s
+
+#7 [ 5/12] COPY scripts/verify_archive.py /tmp/verify_archive.py
+#7 CACHED
+
+#8 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates python3 procps     && rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [ 3/12] WORKDIR /tmp/flume-download
+#9 CACHED
+
+#10 [ 4/12] RUN curl -fSL --retry 3 "https://archive.apache.org/dist/flume/1.11.0/apache-flume-1.11.0-bin.tar.gz" -o flume.tar.gz     && curl -fSL --retry 3 "https://archive.apache.org/dist/flume/1.11.0/apache-flume-1.11.0-bin.tar.gz.sha512" -o flume.sha512
+#10 CACHED
+
+#11 [ 6/12] RUN python3 /tmp/verify_archive.py flume.tar.gz flume.sha512     && mkdir /opt/flume     && tar -xzf flume.tar.gz -C /opt/flume --strip-components=1     && rm -rf /tmp/flume-download
+#11 CACHED
+
+#12 [ 7/12] COPY config/flume-env.sh /opt/flume/conf/flume-env.sh
+#12 DONE 0.3s
+
+#13 [ 8/12] COPY config/log4j2.xml /opt/flume/conf/log4j2.xml
+#13 DONE 0.5s
+
+#14 [ 9/12] COPY config/flume.conf /project/config/flume.conf
+#14 DONE 0.8s
+
+#15 [10/12] COPY scripts/run_flume.sh /project/scripts/run_flume.sh
+#15 DONE 1.2s
+
+#16 [11/12] RUN chmod +x /project/scripts/run_flume.sh
+#16 DONE 2.5s
+
+#17 [12/12] WORKDIR /project
+#17 DONE 0.5s
+
+#18 exporting to image
+#18 exporting layers
+#18 exporting layers 3.1s done
+#18 exporting manifest sha256:c1fced6f06e956f277b4a99097a0ff6f71664ac998caddca46282f2e737ae6a3
+#18 exporting manifest sha256:c1fced6f06e956f277b4a99097a0ff6f71664ac998caddca46282f2e737ae6a3 0.3s done
+#18 exporting config sha256:1dc7dc21c2bf11f58df950bc5f43cc317c4c137d31fe263a906c6cac0cbcaf32
+#18 exporting config sha256:1dc7dc21c2bf11f58df950bc5f43cc317c4c137d31fe263a906c6cac0cbcaf32 0.2s done
+#18 exporting attestation manifest sha256:2f90b8d14aa82af11bc541e1a8ecda64699aa74a9bb4ace30c12554fb3589ea3
+#18 exporting attestation manifest sha256:2f90b8d14aa82af11bc541e1a8ecda64699aa74a9bb4ace30c12554fb3589ea3 0.1s done
+#18 exporting manifest list sha256:14ec9039d6597009ce1328027a3b5847afb512964ae4d1ffbcb7fc2da5749527 0.1s done
+#18 naming to docker.io/library/movie-log-flume:1.11.0-local
+#18 naming to docker.io/library/movie-log-flume:1.11.0-local 0.0s done
+#18 unpacking to docker.io/library/movie-log-flume:1.11.0-local
+#18 unpacking to docker.io/library/movie-log-flume:1.11.0-local 0.9s done
+#18 DONE 4.9s
+
+#19 resolving provenance for metadata file
+#19 DONE 0.1s
+ Image movie-log-flume:1.11.0-local Built 

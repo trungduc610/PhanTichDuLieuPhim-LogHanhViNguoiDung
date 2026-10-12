@@ -1,41 +1,12 @@
-# Schema dữ liệu Movie Dataset (Phim)
+# Schema metadata phim
 
-## 1. Nguồn dữ liệu
-* **File nguồn**: [`data/processed/movies.csv`](file:///d:/Code/Bigdata/movie-log-bigdata-week1/movie-log-bigdata/data/processed/movies.csv) (chuẩn hóa từ MovieLens Latest Small của GroupLens, University of Minnesota).
-* **Định dạng**: CSV (UTF-8, delimiter `,`, quote standard).
-* **Số lượng bản ghi**: 9.742 dòng (không tính header).
-* **Vai trò trong hệ thống**: Dữ liệu metadata mô tả thông tin phim. **Không đi qua Apache Flume**, được lưu trữ tĩnh và đưa trực tiếp vào Spark để kết nối (join) với log hành vi người dùng.
+Nguồn local: `data/processed/movies.csv`, chuẩn hóa riêng từ MovieLens; raw giữ nguyên. Metadata không đi qua Flume. CSV UTF-8 strict, delimiter phẩy, header và quote CSV chuẩn; title có dấu phẩy dùng parser, `escape='"'` với Spark để đọc double quote.
 
-## 2. Bảng đặc tả Schema
+| Field | Spark type | Nullable | Ràng buộc |
+|---|---|---|---|
+| movieId | LongType | false | Số dương <= 2^63-1, không trùng, join key |
+| title | StringType | false | Không rỗng, Unicode NFC, bỏ khoảng trắng ngoài |
+| genres | StringType | false | Không rỗng, nhãn phân cách bằng `\|`; giữ `(no genres listed)` |
+| releaseYear | IntegerType | true | Hậu tố `(YYYY)` cuối title, 1870–2100; không xác định để null |
 
-| Field | Spark Type | Nullable | Ý nghĩa | Ghi chú ràng buộc |
-|---|---|---|---|---|
-| `movieId` | `LongType` | `false` | Khóa định danh duy nhất của phim | Khóa chính (Primary Key), dùng làm khóa liên kết (`join key`). Đảm bảo 100% unique, không null. |
-| `title` | `StringType` | `false` | Tên phim đầy đủ | Giữ nguyên tên gốc kèm hậu tố năm nếu có (ví dụ: `Toy Story (1995)`). Chuẩn hóa khoảng trắng và Unicode NFC. |
-| `genres` | `StringType` | `false` | Danh sách thể loại phim | Ngăn cách bởi dấu gạch đứng `\|` (ví dụ: `Adventure\|Animation\|Children`). Phim không có thể loại ghi `(no genres listed)`. |
-| `releaseYear` | `IntegerType` | `true` | Năm phát hành của phim | Trích xuất bằng regex từ `title` dạng `(YYYY)` trong khoảng 1870–2100. Có 13 phim không có năm trong title được gán `null`. |
-
-## 3. Khai báo Schema bằng PySpark (StructType)
-
-```python
-from pyspark.sql.types import StructType, StructField, LongType, StringType, IntegerType
-
-MOVIE_SCHEMA = StructType([
-    StructField("movieId", LongType(), nullable=False),
-    StructField("title", StringType(), nullable=False),
-    StructField("genres", StringType(), nullable=False),
-    StructField("releaseYear", IntegerType(), nullable=True),
-])
-```
-
-## 4. Hướng dẫn đọc bằng PySpark
-
-```python
-movies_df = (
-    spark.read
-    .option("header", "true")
-    .option("encoding", "UTF-8")
-    .schema(MOVIE_SCHEMA)
-    .csv("data/processed/movies.csv")
-)
-```
+Schema tái sử dụng: `from src.schemas import MOVIE_SCHEMA`. 9.742 phim/ID unique; 13 null releaseYear hợp lệ, 34 `(no genres listed)`; không bỏ các dòng đó. Nullable=false là hợp đồng, Spark reader có thể vẫn tạo null; job kiểm riêng tất cả null bắt buộc, malformed, duplicate và range. Ví dụ đọc đầy đủ trong `scripts/spark_smoke_test.py`, kết quả QA trong `evidence/recheck-20261011-221710/dataset_quality.json` và Spark reports cùng thư mục.

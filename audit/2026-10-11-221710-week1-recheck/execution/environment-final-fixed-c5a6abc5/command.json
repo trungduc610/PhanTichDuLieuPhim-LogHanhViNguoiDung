@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "scripts/check_environment.py",
+    "--report",
+    "evidence/recheck-20261011-221710/environment.json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T15:59:59.860651+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "os": "Windows-10-10.0.19045-SP0",
+  "environment": {
+    "DOCKER_HOST": null,
+    "DOCKER_CONTEXT": null,
+    "DOCKER_CONFIG": null,
+    "RUN_DIR": null,
+    "LOG_DIR": null,
+    "TMP": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\temporary",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\execution\\environment-final-fixed-c5a6abc5\\stdout.txt",
+  "stderr_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\execution\\environment-final-fixed-c5a6abc5\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-11T16:00:02.165034+00:00"
+}

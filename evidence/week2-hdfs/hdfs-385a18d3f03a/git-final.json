@@ -1,0 +1,22 @@
+{
+  "checked_at_utc": "2026-10-12T08:13:34.969945+00:00",
+  "commands": [
+    {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-git-revision-72e483bd\\finished.json",
+      "exit_code": 0
+    },
+    {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-git-status-a1b5c6a4\\finished.json",
+      "exit_code": 0
+    },
+    {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-git-diff-stat-7a8ee8d7\\finished.json",
+      "exit_code": 0
+    },
+    {
+      "command": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\final-git-diff-74ed5959\\finished.json",
+      "exit_code": 0
+    }
+  ],
+  "note": "Tracked modifications were already present at baseline. Week 2 adds new files only; final-artifact check verifies every baseline file byte-for-byte."
+}

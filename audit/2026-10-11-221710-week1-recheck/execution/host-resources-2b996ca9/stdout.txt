@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-10-11T15:45:00.270117+00:00",
+  "os": "Windows-10-10.0.19045-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "memory_bytes": {
+    "physical_total": 16587788288,
+    "physical_available": 1948332032,
+    "pagefile_total": 23108096000,
+    "pagefile_available": 3035992064,
+    "virtual_total": 140737488224256,
+    "virtual_available": 140733083561984,
+    "extended_available": 0
+  },
+  "disk_bytes": {
+    "total": 214051270656,
+    "used": 144970190848,
+    "free": 69081079808
+  },
+  "temporary_directory": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\temporary",
+  "estimated_budget_bytes": {
+    "generated_and_spool_and_sink_main": 1030017444,
+    "sqlite_reconciliation_allowance": 2000000000,
+    "channel_and_export_allowance": 4000000000,
+    "docker_images_allowance": 4000000000
+  },
+  "budget_note": "Allow about 12 GB overall including images, channel/export, inputs/Sink and SQLite; rolling files and channel journals depend on runtime."
+}

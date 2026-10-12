@@ -1,0 +1,159 @@
+{
+  "history_preserved": true,
+  "source_files_read": 39,
+  "ast_errors": [],
+  "reference_issues": [
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": false
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": false
+    }
+  ],
+  "raw_rows": {
+    "data/raw/ml-latest-small/links.csv": 9742,
+    "data/raw/ml-latest-small/movies.csv": 9742,
+    "data/raw/ml-latest-small/ratings.csv": 100836,
+    "data/raw/ml-latest-small/tags.csv": 3683
+  },
+  "runs": [
+    {
+      "run": "run-aefc814b0b5f",
+      "status": "PASS",
+      "source_hash_errors": [],
+      "sink_hash_errors": [],
+      "unexpected_files": [],
+      "actual_agent_max_heap_bytes": [
+        "536870912"
+      ],
+      "counters": {
+        "accepted": 10000,
+        "put": 10000,
+        "take": 10000,
+        "sink": 10000,
+        "channel_remaining": 0
+      },
+      "nonzero_commands": [],
+      "sink_file_summary": {
+        "files": 3,
+        "bytes": 3433123,
+        "empty_files": 1,
+        "missing_final_newline_files": 0
+      }
+    },
+    {
+      "run": "run-aa6b9eb58dca",
+      "status": "PASS",
+      "source_hash_errors": [],
+      "sink_hash_errors": [],
+      "unexpected_files": [],
+      "actual_agent_max_heap_bytes": [
+        "536870912"
+      ],
+      "counters": {
+        "accepted": 1000000,
+        "put": 1000000,
+        "take": 1000000,
+        "sink": 1000000,
+        "channel_remaining": 0
+      },
+      "nonzero_commands": [],
+      "sink_file_summary": {
+        "files": 15,
+        "bytes": 343339148,
+        "empty_files": 0,
+        "missing_final_newline_files": 0
+      }
+    }
+  ]
+}

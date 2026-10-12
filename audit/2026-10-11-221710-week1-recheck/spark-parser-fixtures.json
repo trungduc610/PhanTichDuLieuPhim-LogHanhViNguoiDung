@@ -1,0 +1,84 @@
+{
+  "fixture_only": true,
+  "never_flume_evidence": true,
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "CSV_invalid_integer",
+      "rows": 2,
+      "malformed_or_type_errors": 1,
+      "null_movie_ids": 1,
+      "passed": true,
+      "examples": [
+        {
+          "movieId": 1,
+          "title": "Valid (2001)",
+          "genres": "Drama",
+          "releaseYear": 2001,
+          "_corrupt_record": null
+        },
+        {
+          "movieId": null,
+          "title": "Bad (2001)",
+          "genres": "Drama",
+          "releaseYear": 2001,
+          "_corrupt_record": "invalid,Bad (2001),Drama,2001"
+        }
+      ]
+    },
+    {
+      "name": "JSON_malformed_and_type_error",
+      "rows": 3,
+      "malformed_or_type_errors": 2,
+      "null_movie_ids": 2,
+      "passed": true,
+      "examples": [
+        {
+          "eventId": "fixture",
+          "userId": "fixture",
+          "sessionId": "fixture",
+          "movieId": 1,
+          "action": "view",
+          "timestamp": "2026-09-01T00:00:00Z",
+          "watchDuration": 0,
+          "sequenceNumber": 0,
+          "runId": "fixture",
+          "isSynthetic": true,
+          "simulatedMovieDuration": 3600,
+          "durationSource": "synthetic",
+          "_corrupt_record": null
+        },
+        {
+          "eventId": null,
+          "userId": null,
+          "sessionId": null,
+          "movieId": null,
+          "action": null,
+          "timestamp": null,
+          "watchDuration": null,
+          "sequenceNumber": null,
+          "runId": null,
+          "isSynthetic": null,
+          "simulatedMovieDuration": null,
+          "durationSource": null,
+          "_corrupt_record": "{broken json"
+        },
+        {
+          "eventId": "wrong-type",
+          "userId": "fixture",
+          "sessionId": "fixture",
+          "movieId": null,
+          "action": "view",
+          "timestamp": "2026-09-01T00:00:00Z",
+          "watchDuration": 0,
+          "sequenceNumber": 0,
+          "runId": "fixture",
+          "isSynthetic": true,
+          "simulatedMovieDuration": 3600,
+          "durationSource": "synthetic",
+          "_corrupt_record": "{\"eventId\": \"wrong-type\", \"userId\": \"fixture\", \"sessionId\": \"fixture\", \"movieId\": \"not-a-long\", \"action\": \"view\", \"timestamp\": \"2026-09-01T00:00:00Z\", \"watchDuration\": 0, \"sequenceNumber\": 0, \"runId\": \"fixture\", \"isSynthetic\": true, \"simulatedMovieDuration\": 3600, \"durationSource\": \"synthetic\"}"
+        }
+      ]
+    }
+  ]
+}

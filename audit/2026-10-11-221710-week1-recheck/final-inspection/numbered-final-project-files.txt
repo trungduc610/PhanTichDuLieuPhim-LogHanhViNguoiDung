@@ -1,0 +1,2029 @@
+
+FILE README.md
+    1: # Phân tích dữ liệu phim và log hành vi người dùng
+    2: 
+    3: Apache Flume là thành phần thu thập log; Spark kiểm tra dữ liệu phía sau. Dữ liệu kỹ thuật đã sẵn sàng cho Tuần 2. Nghiệm thu chưa đầy đủ vì chưa có bằng chứng nhóm xác nhận kiến trúc (TV2-06); không tuyên bố hoàn thành 100%.
+    4: 
+    5: ## Kết quả thực thi hiện tại
+    6: 
+    7: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+    8: 
+    9: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+   10: |---|---|---:|---:|---:|
+   11: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+   12: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+   13: 
+   14: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   15: 
+   16: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+   17: 
+   18: MovieLens là metadata/rating nguồn GroupLens; log `sim-user-*` là synthetic do generator tạo. `watchDuration` là giây mới phát sinh từ play gần nhất; runtime phim cũng synthetic. Không kết luận về người xem thật.
+   19: 
+   20: ## Luồng và runtime
+   21: 
+   22: ```text
+   23: MovieLens -> prepare_movies -> movies.csv -----------------------+
+   24:                                                                v
+   25: Generator -> spooldir Source -> File Channel -> File Roll Sink -> Spark QA
+   26:                                                                |
+   27:                                              Tuần 2: phân tích -> Dashboard
+   28: ```
+   29: 
+   30: Host Windows 10 build 19045 dùng Python 3.12.14 thật tại `C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; alias WindowsApps không dùng. Docker Desktop 4.88.1, Client/Engine 29.7.2, Compose v5.4.0, context desktop-linux, Linux containers, 4 CPU / 7,486 GiB Docker memory. Flume 1.11.0 chạy Temurin Java 1.8.0_504; agent thực ghi InitialHeapSize 134.217.728 và MaxHeapSize 536.870.912 byte. Spark/PySpark 3.5.1, Python 3.8.10, Java 11.0.22, master local[2], driver 2 GiB trong `apache/spark:3.5.1`. Host không cần PySpark/Java; scripts host dùng stdlib. Phiên bản/digest thực đo nằm trong execution logs và image-inspect; tag có thể thay đổi nên giữ image ID/digest khi bàn giao.
+   31: 
+   32: File Channel dùng volume Linux riêng theo Compose project; runner xuất checkpoint/data về `data/runs/<run-id>/channel/` sau khi dừng. Volume được giữ lại. Sink/spool bind vào thư mục run trên host; Storage là filesystem local, không HDFS. Không chạy hai lần trong cùng Compose project/channel.
+   33: 
+   34: ## Chạy và kiểm lại
+   35: 
+   36: Trong PowerShell đặt `$py` là executable Python thật ở trên (hoặc Python >=3.10 có sẵn). Chạy ở thư mục project; Linux dùng `python3`. Không cần pip cho scripts host; Spark chạy từ service container có sẵn dependency.
+   37: 
+   38: ```powershell
+   39: & $py scripts/check_environment.py --report evidence/environment-new.json
+   40: & $py scripts/download_dataset.py
+   41: & $py scripts/prepare_movies.py --output data/processed/movies-repeat.csv --report evidence/movies-repeat.json
+   42: & $py -m unittest discover -s tests -v
+   43: & $py scripts/generate_logs.py --mode demo --output data/generated/demo-repeat.jsonl
+   44: & $py scripts/run_pipeline.py --input data/generated/demo-repeat.jsonl --timeout 600
+   45: ```
+   46: 
+   47: Downloader tái sử dụng snapshot đã có sau kiểm hash; không ghi đè raw. Mọi output/report phải là đường dẫn mới chưa tồn tại. Nếu cần CA, truyền `--ca-file` với bundle tin cậy; giữ HTTPS verification. Bản tải mới 11/10 đã dùng root CA public từ runtime Node, không tắt TLS.
+   48: 
+   49: Chỉ sinh/chạy main sau demo E2E PASS với cùng source/config. Trong checkout này main đã có; chọn tên khác nếu sinh lại. Thay `run-DEMO-MOI` bằng run thực sự mới vừa PASS; bằng chứng lịch sử thiếu hash snapshot không được runner chấp nhận.
+   50: 
+   51: ```powershell
+   52: & $py scripts/generate_logs.py --mode main --events 1000000 --output data/generated/main-repeat.jsonl
+   53: & $py scripts/run_pipeline.py --input data/generated/main-repeat.jsonl --timeout 1800 --demo-proof evidence/run-DEMO-MOI/status.json
+   54: & $py scripts/validate_pipeline.py --input data/generated/main.jsonl --output-dir data/runs/run-aa6b9eb58dca/output --report evidence/main-recheck-new.json
+   55: docker compose -p movie-spark-recheck run --rm spark --driver-memory 2g scripts/spark_smoke_test.py --movie-report evidence/recheck-20261011-221710/dataset_quality.json --run-evidence evidence/run-aa6b9eb58dca --report evidence/spark-recheck-new.json
+   56: & $py scripts/create_delivery_manifest.py --verify evidence/recheck-20261011-221710/delivery_manifest.json
+   57: ```
+   58: 
+   59: Lệnh Spark kiểm hash và file list của đúng Sink run PASS, dùng schema từ `src/schemas.py`, action đọc tất cả fields, parse timestamp UTC, kiểm null/type/duplicate/full left anti join/session. Expected count lấy từ manifest/reconciliation đã xác minh, không lấy count quan sát để tạo PASS. `INPUT_PASS`, `.COMPLETED`, count và mẫu join không thay E2E reconciliation.
+   60: 
+   61: Runner tạo run/project/output/evidence riêng, publish `.tmp` đóng xong rồi rename cùng spool, lưu argv/cwd/UTC/exit/logs/source hashes/launcher/heap/counters/images/Compose. Dừng và gỡ container/network của chính run; giữ volume/channel/data. Build không tính vào timeout drain. Khoảng 12 GB đĩa dự kiến cho images, generated/spool/Sink, channel/export và SQLite; máy thực đo có 16 GB RAM và trên 60 GB đĩa trống. Không dùng `docker system prune`.
+   62: 
+   63: ## Bàn giao
+   64: 
+   65: `data/raw/` có ZIP/CSV/README license/manifest; `data/processed/` có movies; `data/generated/` có input/manifest. Dữ liệu phân tích là `data/runs/run-aa6b9eb58dca/output/`; demo `run-aefc814b0b5f` chỉ dùng kiểm thử. `logs/<run>/` và `evidence/<run>/` là log/bằng chứng, không phải event input. Không gộp demo/main như hai lịch sử người dùng độc lập.
+   66: 
+   67: Data/logs bị Git ignore nhưng thực sự tồn tại local, phải chép cùng source và evidence theo manifest khi bàn giao. Manifest loại spool bản copy, channel, temporary/fixtures, CA public tạm, history không được chọn và chính manifest; scope/exclusions được lưu trong JSON. Bằng chứng FAIL/BLOCKED/PASS cũ và audit cũ giữ nguyên, không dùng thay kết quả hiện tại.
+   68: 
+   69: Tài liệu: [dataset](docs/dataset_description.md), [log](docs/log_schema.md), [movie schema](docs/movie_schema.md), [log schema](docs/user_log_schema.md), [Flume](docs/flume_pipeline.md), [kiến trúc](docs/system_architecture.md), [quyết định chờ nhóm](docs/architecture_decision_pending.md), [chất lượng](docs/data_quality_report.md), [bàn giao Tuần 2](docs/week2_handoff.md).
+
+FILE Dockerfile
+    1: FROM eclipse-temurin:8-jre-jammy
+    2: ARG FLUME_VERSION=1.11.0
+    3: RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates python3 procps \
+    4:     && rm -rf /var/lib/apt/lists/*
+    5: WORKDIR /tmp/flume-download
+    6: RUN curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz" -o flume.tar.gz \
+    7:     && curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz.sha512" -o flume.sha512
+    8: COPY scripts/verify_archive.py /tmp/verify_archive.py
+    9: RUN python3 /tmp/verify_archive.py flume.tar.gz flume.sha512 \
+   10:     && mkdir /opt/flume \
+   11:     && tar -xzf flume.tar.gz -C /opt/flume --strip-components=1 \
+   12:     && rm -rf /tmp/flume-download
+   13: ENV FLUME_HOME=/opt/flume
+   14: ENV FLUME_HEAP_OPTS="-Xms128m -Xmx512m"
+   15: COPY config/flume-env.sh /opt/flume/conf/flume-env.sh
+   16: COPY config/log4j2.xml /opt/flume/conf/log4j2.xml
+   17: COPY config/flume.conf /project/config/flume.conf
+   18: COPY scripts/run_flume.sh /project/scripts/run_flume.sh
+   19: RUN chmod +x /project/scripts/run_flume.sh
+   20: WORKDIR /project
+   21: ENTRYPOINT ["/bin/bash", "/project/scripts/run_flume.sh"]
+
+FILE compose.yaml
+    1: services:
+    2:   flume:
+    3:     build: .
+    4:     image: movie-log-flume:1.11.0-local
+    5:     init: true
+    6:     stop_grace_period: 60s
+    7:     volumes:
+    8:       - ${RUN_DIR:-./data}:/data
+    9:       - flume-channel:/data/channel
+   10:       - ${LOG_DIR:-./logs}:/logs
+   11: 
+   12:   spark:
+   13:     image: apache/spark:3.5.1
+   14:     profiles:
+   15:       - spark
+   16:     working_dir: /project
+   17:     environment:
+   18:       PYTHONDONTWRITEBYTECODE: "1"
+   19:     volumes:
+   20:       - .:/project
+   21:     entrypoint: ["/opt/spark/bin/spark-submit"]
+   22:     command: ["scripts/spark_smoke_test.py", "--help"]
+   23: 
+   24: volumes:
+   25:   flume-channel:
+
+FILE requirements.txt
+    1: # Host download/generation/validator/runner/tests: Python >=3.10, standard library.
+    2: # Spark jobs: apache/spark:3.5.1 from compose.yaml bundles PySpark 3.5.1,
+    3: # Python 3.8.10 and Java 11.0.22 (measured 2026-10-11). No host pip install needed.
+
+FILE .gitignore
+    1: data/raw/*
+    2: data/processed/*
+    3: data/generated/*
+    4: data/spool/*
+    5: data/output/*
+    6: data/channel/*
+    7: data/runs/*
+    8: logs/*
+    9: work/
+   10: __pycache__/
+   11: *.pyc
+   12: *.part
+   13: *.sqlite
+   14: !data/**/.gitkeep
+   15: !logs/.gitkeep
+   16: # Keep small evidence JSON and docs; do not commit full event streams.
+
+FILE .gitattributes
+    1: *.sh text eol=lf
+    2: *.py text eol=lf
+    3: *.conf text eol=lf
+
+FILE .dockerignore
+    1: data
+    2: logs
+    3: evidence
+    4: work
+    5: tests
+    6: .git
+    7: __pycache__
+    8: audit
+
+FILE scripts/check_environment.py
+    1: """Record actual environment and tool exit codes without installing software."""
+    2: import argparse
+    3: import json
+    4: import platform
+    5: import shutil
+    6: import subprocess
+    7: import sys
+    8: from pathlib import Path
+    9: from common import utcnow, write_json
+   10: 
+   11: parser = argparse.ArgumentParser(description=__doc__)
+   12: parser.add_argument('--report', required=True, help='NEW environment report path')
+   13: options = parser.parse_args()
+   14: if Path(options.report).exists():
+   15:     raise FileExistsError('Use a new report path; prior evidence will not be overwritten')
+   16: result = {'checked_at_utc': utcnow(), 'os': platform.platform(), 'python': sys.version,
+   17:           'python_executable': sys.executable, 'tools': {}}
+   18: for args in [['java', '-version'], ['docker', 'version'], ['docker', 'compose', 'version'], ['wsl', '--status'], ['git', '--version']]:
+   19:     key = ' '.join(args)
+   20:     if not shutil.which(args[0]):
+   21:         result['tools'][key] = {'available': False, 'reason': 'not found in PATH'}
+   22:         continue
+   23:     try:
+   24:         proc = subprocess.run(args, capture_output=True, timeout=20)
+   25:         content = proc.stdout + proc.stderr
+   26:         encoding = 'utf-16-le' if b'\x00' in content else 'utf-8'
+   27:         result['tools'][key] = {'available': proc.returncode == 0, 'exit_code': proc.returncode,
+   28:                                'output': content.decode(encoding, errors='replace')}
+   29:     except Exception as exc:
+   30:         result['tools'][key] = {'available': False, 'reason': str(exc)}
+   31: write_json(options.report, result)
+   32: print(json.dumps(result, ensure_ascii=False, indent=2))
+
+FILE scripts/common.py
+    1: """Shared standard-library helpers; run CLI scripts from the project root."""
+    2: import hashlib
+    3: import json
+    4: from datetime import datetime, timezone
+    5: from pathlib import Path
+    6: 
+    7: 
+    8: def sha256(path):
+    9:     h = hashlib.sha256()
+   10:     with open(path, 'rb') as f:
+   11:         for block in iter(lambda: f.read(1024 * 1024), b''):
+   12:             h.update(block)
+   13:     return h.hexdigest()
+   14: 
+   15: 
+   16: def write_json(path, obj):
+   17:     path = Path(path)
+   18:     path.parent.mkdir(parents=True, exist_ok=True)
+   19:     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+   20: 
+   21: 
+   22: def utcnow():
+   23:     return datetime.now(timezone.utc).isoformat()
+   24: 
+   25: 
+   26: def parse_time(value):
+   27:     dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+   28:     if dt.tzinfo is None:
+   29:         raise ValueError('Timestamp must include timezone, e.g. +07:00 or Z')
+   30:     return dt.astimezone(timezone.utc)
+
+FILE scripts/create_delivery_manifest.py
+    1: """Create or verify a scoped immutable handoff manifest (no data regeneration)."""
+    2: import argparse
+    3: import json
+    4: from pathlib import Path
+    5: from common import sha256, utcnow, write_json
+    6: 
+    7: ROOT=Path(__file__).resolve().parents[1]
+    8: 
+    9: 
+   10: def verify(manifest_path):
+   11:     manifest=json.loads(Path(manifest_path).read_text(encoding='utf-8'))
+   12:     issues=[]
+   13:     for rel, expected in manifest['files'].items():
+   14:         p=ROOT/rel
+   15:         if not p.is_file():
+   16:             issues.append({'path':rel,'error':'missing'})
+   17:         elif p.stat().st_size!=expected['bytes'] or sha256(p)!=expected['sha256']:
+   18:             issues.append({'path':rel,'error':'bytes/hash mismatch'})
+   19:     return {'status':'PASS' if not issues else 'FAIL','files_checked':len(manifest['files']),'issues':issues,'checked_at_utc':utcnow()}
+   20: 
+   21: 
+   22: def main():
+   23:     p=argparse.ArgumentParser(description=__doc__)
+   24:     p.add_argument('--output')
+   25:     p.add_argument('--verify')
+   26:     p.add_argument('--audit-dir')
+   27:     p.add_argument('--run',action='append',default=[])
+   28:     p.add_argument('--extra-evidence',action='append',default=[])
+   29:     a=p.parse_args()
+   30:     if a.verify:
+   31:         result=verify(a.verify)
+   32:         print(json.dumps(result,ensure_ascii=False,indent=2))
+   33:         return 0 if result['status']=='PASS' else 1
+   34:     if not a.output or Path(a.output).exists():
+   35:         raise ValueError('--output must be a NEW file')
+   36:     scopes=['scripts','src','tests','config','docs','data/raw','data/processed','data/generated']
+   37:     scopes += [f'evidence/{x}' for x in a.run]+[f'data/runs/{x}/output' for x in a.run]+[f'logs/{x}' for x in a.run]+a.extra_evidence
+   38:     if a.audit_dir:
+   39:         scopes.append(a.audit_dir)
+   40:     files=set(ROOT/name for name in ['README.md','Dockerfile','compose.yaml','requirements.txt','.gitignore','.gitattributes','.dockerignore'])
+   41:     output=Path(a.output).resolve()
+   42:     for scope in scopes:
+   43:         folder=(ROOT/scope).resolve()
+   44:         if not folder.is_relative_to(ROOT):
+   45:             raise ValueError('Scope outside project')
+   46:         files.update(p for p in folder.rglob('*') if p.is_file())
+   47:     entries={}
+   48:     for file in sorted(files):
+   49:         rel=file.relative_to(ROOT).as_posix()
+   50:         if file.resolve()==output or any(x in file.parts for x in ['__pycache__','temporary','fixtures']) or file.suffix in ['.pyc','.part'] or file.name.endswith('.pem'):
+   51:             continue
+   52:         if 'execution' in file.parts:
+   53:             command_path = next((parent/'command.json' for parent in file.parents if (parent/'command.json').is_file()), None)
+   54:             if command_path and 'finished_at_utc' not in json.loads(command_path.read_text(encoding='utf-8')):
+   55:                 continue  # The currently recording manifest step is not yet immutable.
+   56:         entries[rel]={'bytes':file.stat().st_size,'sha256':sha256(file)}
+   57:     write_json(output,{'created_at_utc':utcnow(),'root':str(ROOT),'scope':scopes,'exclusions':['.git','historical evidence/audit unless explicitly selected','channel checkpoints/data','spool copy/tracker','temporary/fixtures','pycache/part','public temporary CA bundle','active execution step','manifest itself and later verification reports'],'files':entries})
+   58:     result=verify(output)
+   59:     print(json.dumps(result,ensure_ascii=False,indent=2))
+   60:     return 0 if result['status']=='PASS' else 1
+   61: 
+   62: 
+   63: if __name__=='__main__':
+   64:     raise SystemExit(main())
+
+FILE scripts/download_dataset.py
+    1: """Download immutable local snapshot; preserve source ZIP and license README."""
+    2: import argparse
+    3: import json
+    4: import shutil
+    5: import ssl
+    6: import urllib.request
+    7: import zipfile
+    8: from pathlib import Path
+    9: from common import sha256, utcnow, write_json
+   10: 
+   11: URL = 'https://files.grouplens.org/datasets/movielens/ml-latest-small.zip'
+   12: 
+   13: 
+   14: def download(raw, ca_file=None):
+   15:     raw = Path(raw)
+   16:     raw.mkdir(parents=True, exist_ok=True)
+   17:     archive = raw / 'ml-latest-small.zip'
+   18:     manifest = raw / 'download_manifest.json'
+   19:     if manifest.exists():
+   20:         saved = json.loads(manifest.read_text(encoding='utf-8'))
+   21:         if not archive.exists() or sha256(archive) != saved['sha256']:
+   22:             raise ValueError('Existing snapshot checksum mismatch; use a NEW raw directory')
+   23:         for name, digest in saved['files_sha256'].items():
+   24:             if sha256(raw / name) != digest:
+   25:                 raise ValueError('Raw file modified: ' + name)
+   26:         print(json.dumps(saved, ensure_ascii=False, indent=2))
+   27:         return saved
+   28:     if archive.exists() or (raw / 'ml-latest-small').exists():
+   29:         raise FileExistsError('Incomplete/untracked raw snapshot; choose a new --raw directory')
+   30:     part = raw / 'download.zip.part'
+   31:     if part.exists():
+   32:         raise FileExistsError(part)
+   33:     context = ssl.create_default_context(cafile=ca_file)
+   34:     with urllib.request.urlopen(URL, context=context, timeout=120) as response, part.open('xb') as out:
+   35:         shutil.copyfileobj(response, out)
+   36:     with zipfile.ZipFile(part) as z:
+   37:         if z.testzip() is not None:
+   38:             raise ValueError('ZIP CRC check failed')
+   39:         expected = {f'ml-latest-small/{x}' for x in ['README.txt', 'movies.csv', 'ratings.csv', 'tags.csv', 'links.csv']}
+   40:         if not expected.issubset(z.namelist()):
+   41:             raise ValueError('Unexpected ZIP contents')
+   42:         # Extract ONLY explicit files: never trust archive path traversal.
+   43:         for name in sorted(expected):
+   44:             target = raw / name
+   45:             target.parent.mkdir(parents=True, exist_ok=True)
+   46:             with z.open(name) as source, target.open('xb') as out:
+   47:                 shutil.copyfileobj(source, out)
+   48:     part.rename(archive)
+   49:     result = {'dataset': 'MovieLens latest-small', 'source_url': 'https://grouplens.org/datasets/movielens/latest/',
+   50:               'download_url': URL, 'downloaded_at_utc': utcnow(), 'tls_verified': True,
+   51:               'sha256': sha256(archive), 'archive_bytes': archive.stat().st_size,
+   52:               'license_file': 'ml-latest-small/README.txt',
+   53:               'files_sha256': {n: sha256(raw / n) for n in sorted(expected)}}
+   54:     write_json(manifest, result)
+   55:     print(json.dumps(result, ensure_ascii=False, indent=2))
+   56:     return result
+   57: 
+   58: 
+   59: if __name__ == '__main__':
+   60:     p = argparse.ArgumentParser(description=__doc__)
+   61:     p.add_argument('--raw', default='data/raw')
+   62:     p.add_argument('--ca-file', help='Optional trusted PEM CA bundle; TLS verification stays enabled')
+   63:     a = p.parse_args()
+   64:     download(a.raw, a.ca_file)
+
+FILE scripts/generate_logs.py
+    1: """Stream complete, coherent sessions. Synthetic data, not real behavior."""
+    2: import argparse
+    3: import bisect
+    4: import csv
+    5: import hashlib
+    6: import itertools
+    7: import json
+    8: import random
+    9: import uuid
+   10: from collections import Counter
+   11: from datetime import timedelta, timezone
+   12: from pathlib import Path
+   13: from common import parse_time, sha256, write_json
+   14: 
+   15: LOCAL = timezone(timedelta(hours=7))
+   16: 
+   17: 
+   18: def cdf(weights):
+   19:     return list(itertools.accumulate(weights))
+   20: 
+   21: 
+   22: def pick(rng, cumulative):
+   23:     return bisect.bisect_right(cumulative, rng.random() * cumulative[-1])
+   24: 
+   25: 
+   26: def generate(movies, output, events=1000000, users=1000, start='2026-09-01T00:00:00+07:00',
+   27:              end='2026-10-01T00:00:00+07:00', seed=42, run_id=None):
+   28:     output = Path(output)
+   29:     start_dt, end_dt = parse_time(start), parse_time(end)
+   30:     if events < 1 or users < 1 or end_dt - start_dt < timedelta(hours=6):
+   31:         raise ValueError('events/users must be positive and time range must be at least 6 hours')
+   32:     if output.exists() or output.with_suffix(output.suffix + '.manifest.json').exists():
+   33:         raise FileExistsError(output)
+   34:     with open(movies, encoding='utf-8', newline='') as f:
+   35:         ids = [int(r['movieId']) for r in csv.DictReader(f)]
+   36:     if not ids or len(ids) != len(set(ids)):
+   37:         raise ValueError('Movie IDs must be nonempty and unique')
+   38:     identity = {'movies_sha256': sha256(movies), 'events': events, 'users': users,
+   39:                 'start': start_dt.isoformat(), 'end': end_dt.isoformat(), 'seed': seed,
+   40:                 'generator_version': 1}
+   41:     run_id = run_id or hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()[:20]
+   42:     namespace = uuid.uuid5(uuid.NAMESPACE_URL, 'movie-log-bigdata:' + run_id)
+   43:     rng = random.Random(seed)
+   44:     rng.shuffle(ids)  # Popularity is synthetic, independent of ID/year and original ratings.
+   45:     movie_cdf = cdf([1 / (rank + 1) ** 0.85 for rank in range(len(ids))])
+   46:     user_order = list(range(1, users + 1))
+   47:     rng.shuffle(user_order)
+   48:     user_cdf = cdf([1 / (rank + 1) ** 0.65 for rank in range(users)])
+   49:     runtime = {mid: 3600 + (int(hashlib.sha256(f'{seed}:{mid}'.encode()).hexdigest()[:8], 16) % 121) * 60 for mid in ids}
+   50:     latest_start = end_dt - timedelta(hours=4)
+   51:     hours, weights = [], []
+   52:     cursor = start_dt.replace(minute=0, second=0, microsecond=0)
+   53:     while cursor <= latest_start:
+   54:         lo, hi = max(cursor, start_dt), min(cursor + timedelta(hours=1), latest_start)
+   55:         seconds = int((hi - lo).total_seconds())
+   56:         if seconds > 0:
+   57:             hour = cursor.astimezone(LOCAL).hour
+   58:             hours.append((lo, seconds))
+   59:             weights.append(seconds * (5 if 19 <= hour <= 23 else 0.5 if hour < 6 else 1.5))
+   60:         cursor += timedelta(hours=1)
+   61:     hour_cdf = cdf(weights)
+   62:     # Store occupied intervals per user; reject overlaps instead of inventing concurrent viewing.
+   63:     busy = {u: [] for u in user_order}
+   64:     counters, hour_counts, user_counts, movie_counts = Counter(), Counter(), Counter(), Counter()
+   65:     output.parent.mkdir(parents=True, exist_ok=True)
+   66:     partial = output.with_suffix(output.suffix + '.part')
+   67:     written = sessions = 0
+   68:     with partial.open('x', encoding='utf-8', newline='\n') as f:
+   69:         while written < events:
+   70:             left = events - written
+   71:             mid = ids[pick(rng, movie_cdf)]
+   72:             duration = runtime[mid]
+   73:             if left < 3 or rng.random() < 0.15:
+   74:                 actions = [('view', 0, 0)]
+   75:             else:
+   76:                 complete = rng.random() < 0.55
+   77:                 watched = duration if complete else rng.randint(30, duration - 1)
+   78:                 delay = rng.randint(2, 15)
+   79:                 terminal = 'complete' if complete else 'stop'
+   80:                 if left >= 5 and rng.random() < 0.35:
+   81:                     first = rng.randint(1, watched - 1)
+   82:                     pause = rng.randint(10, 300)
+   83:                     actions = [('view', 0, 0), ('play', delay, 0), ('pause', delay + first, first),
+   84:                                ('play', delay + first + pause, 0), (terminal, delay + watched + pause, watched - first)]
+   85:                 else:
+   86:                     actions = [('view', 0, 0), ('play', delay, 0), (terminal, delay + watched, watched)]
+   87:             span = actions[-1][1] + 1
+   88:             for attempt in range(5000):
+   89:                 uid = user_order[pick(rng, user_cdf)]
+   90:                 lo, seconds = hours[pick(rng, hour_cdf)]
+   91:                 when = lo + timedelta(seconds=rng.randrange(seconds))
+   92:                 until = when + timedelta(seconds=span)
+   93:                 slots = busy[uid]
+   94:                 pos = bisect.bisect_left(slots, (when, when))
+   95:                 if (pos == 0 or slots[pos - 1][1] <= when) and (pos == len(slots) or until <= slots[pos][0]):
+   96:                     slots.insert(pos, (when, until))
+   97:                     break
+   98:             else:
+   99:                 raise ValueError('Time range/user population too crowded; increase --users or time range. Partial file not published.')
+  100:             sessions += 1
+  101:             sid = str(uuid.uuid5(namespace, f'session:{sessions}'))
+  102:             user_counts[str(uid)] += 1
+  103:             movie_counts[str(mid)] += 1
+  104:             hour_counts[str(when.astimezone(LOCAL).hour)] += 1
+  105:             for seq, (action, offset, delta) in enumerate(actions):
+  106:                 event = {'eventId': str(uuid.uuid5(namespace, f'{sessions}:{seq}')), 'userId': f'sim-user-{uid:06d}',
+  107:                          'sessionId': sid, 'movieId': mid, 'action': action,
+  108:                          'timestamp': (when + timedelta(seconds=offset)).isoformat().replace('+00:00', 'Z'),
+  109:                          'watchDuration': delta, 'sequenceNumber': seq, 'runId': run_id,
+  110:                          'isSynthetic': True, 'simulatedMovieDuration': duration, 'durationSource': 'synthetic'}
+  111:                 f.write(json.dumps(event, ensure_ascii=False, separators=(',', ':')) + '\n')
+  112:                 written += 1
+  113:                 counters[action] += 1
+  114:     partial.rename(output)
+  115:     result = {**identity, 'runId': run_id, 'output': str(output), 'sha256': sha256(output),
+  116:               'bytes': output.stat().st_size, 'sessions': sessions, 'actions': dict(counters),
+  117:               'session_start_hour_Asia_Saigon': dict(sorted(hour_counts.items(), key=lambda x: int(x[0]))),
+  118:               'active_users': len(user_counts), 'unique_movies': len(movie_counts),
+  119:               'top_users_sessions': user_counts.most_common(10), 'top_movies_sessions': movie_counts.most_common(10),
+  120:               'status': 'GENERATED_NOT_FLUME_OUTPUT'}
+  121:     write_json(output.with_suffix(output.suffix + '.manifest.json'), result)
+  122:     print(json.dumps(result, ensure_ascii=False, indent=2))
+  123:     return result
+  124: 
+  125: 
+  126: if __name__ == '__main__':
+  127:     p = argparse.ArgumentParser(description=__doc__)
+  128:     p.add_argument('--movies', default='data/processed/movies.csv')
+  129:     p.add_argument('--mode', choices=['demo', 'main'], default='main')
+  130:     p.add_argument('--events', type=int)
+  131:     p.add_argument('--users', type=int, default=1000)
+  132:     p.add_argument('--start', default='2026-09-01T00:00:00+07:00')
+  133:     p.add_argument('--end', default='2026-10-01T00:00:00+07:00')
+  134:     p.add_argument('--seed', type=int, default=42)
+  135:     p.add_argument('--run-id', help='Use a new value for an independent run; same parameters default to reproducible IDs')
+  136:     p.add_argument('--output')
+  137:     a = p.parse_args()
+  138:     generate(a.movies, a.output or f'data/generated/{a.mode}.jsonl',
+  139:              a.events if a.events is not None else (10000 if a.mode == 'demo' else 1000000),
+  140:              a.users, a.start, a.end, a.seed, a.run_id)
+
+FILE scripts/movie_quality.py
+    1: """Read all raw/normalized movie CSV rows without changing the dataset."""
+    2: import csv
+    3: import re
+    4: import unicodedata
+    5: from pathlib import Path
+    6: from common import sha256
+    7: 
+    8: 
+    9: def inspect_movies(path):
+   10:     path = Path(path)
+   11:     ids, issues, rows = set(), [], 0
+   12:     missing_year = no_genres = 0
+   13:     with path.open(encoding='utf-8', errors='strict', newline='') as f:
+   14:         reader = csv.DictReader(f, strict=True)
+   15:         if reader.fieldnames not in [['movieId', 'title', 'genres'], ['movieId', 'title', 'genres', 'releaseYear']]:
+   16:             raise ValueError('Unexpected movie CSV header')
+   17:         normalized = 'releaseYear' in reader.fieldnames
+   18:         for row in reader:
+   19:             rows += 1
+   20:             location = f'{path}:{reader.line_num}'
+   21:             errors = []
+   22:             if None in row or any(v is None for v in row.values()):
+   23:                 errors.append('Malformed CSV field count')
+   24:             else:
+   25:                 try:
+   26:                     mid = int(row['movieId'])
+   27:                     if not 1 <= mid <= 2**63-1:
+   28:                         raise ValueError('movieId outside positive signed long range')
+   29:                     if mid in ids:
+   30:                         errors.append('duplicate movieId')
+   31:                     ids.add(mid)
+   32:                 except ValueError as exc:
+   33:                     errors.append(str(exc))
+   34:                 for key in ['title', 'genres']:
+   35:                     if not row[key].strip():
+   36:                         errors.append('missing ' + key)
+   37:                     if '\ufffd' in row[key] or '\x00' in row[key]:
+   38:                         errors.append('invalid content ' + key)
+   39:                 no_genres += row['genres'] == '(no genres listed)'
+   40:                 if normalized:
+   41:                     year = row['releaseYear']
+   42:                     missing_year += not bool(year)
+   43:                     match = re.search(r'\((\d{4})\)\s*$', row['title'])
+   44:                     expected = int(match.group(1)) if match and 1870 <= int(match.group(1)) <= 2100 else None
+   45:                     try:
+   46:                         actual = int(year) if year else None
+   47:                         if actual != expected:
+   48:                             errors.append('releaseYear does not match documented title rule')
+   49:                     except ValueError:
+   50:                         errors.append('invalid releaseYear')
+   51:                     if row['title'] != unicodedata.normalize('NFC', row['title'].strip()):
+   52:                         errors.append('title not normalized')
+   53:             if errors:
+   54:                 issues.append({'location': location, 'movieId': row.get('movieId'), 'errors': errors})
+   55:     result = {'path': str(path), 'sha256': sha256(path), 'bytes': path.stat().st_size,
+   56:               'rows': rows, 'unique_movie_ids': len(ids), 'error_rows': len(issues),
+   57:               'issues_sample': issues[:20], 'releaseYear_null_allowed': missing_year,
+   58:               'no_genres_listed': no_genres, 'status': 'PASS' if rows and not issues else 'FAIL'}
+   59:     return ids, result
+
+FILE scripts/prepare_movies.py
+    1: """Strict UTF-8 / CSV validation, separate normalized metadata and QA report."""
+    2: import argparse
+    3: import csv
+    4: import json
+    5: import re
+    6: import unicodedata
+    7: from collections import Counter
+    8: from pathlib import Path
+    9: from common import sha256, utcnow, write_json
+   10: 
+   11: 
+   12: def prepare(source, output, report):
+   13:     source, output = Path(source), Path(output)
+   14:     if Path(report).exists():
+   15:         raise FileExistsError('Use a new --report; prior evidence will not be overwritten')
+   16:     if output.exists():
+   17:         raise FileExistsError('Use a new --output; normalized data will not be overwritten')
+   18:     counts = Counter()
+   19:     rows, seen, issues = [], set(), []
+   20:     with source.open(encoding='utf-8', errors='strict', newline='') as f:
+   21:         reader = csv.DictReader(f, strict=True)
+   22:         if reader.fieldnames != ['movieId', 'title', 'genres']:
+   23:             raise ValueError('Unexpected CSV header')
+   24:         for line, row in enumerate(reader, 2):
+   25:             counts['input_rows'] += 1
+   26:             if None in row or any(v is None for v in row.values()):
+   27:                 raise ValueError(f'Malformed CSV row {line}')
+   28:             if any('\ufffd' in v or '\x00' in v for v in row.values()):
+   29:                 raise ValueError(f'Encoding replacement/NUL character on row {line}')
+   30:             try:
+   31:                 mid = int(row['movieId'])
+   32:                 assert mid > 0
+   33:             except (ValueError, AssertionError):
+   34:                 raise ValueError(f'Invalid movieId on row {line}')
+   35:             if mid in seen:
+   36:                 counts['duplicate_movie_ids'] += 1
+   37:                 issues.append({'line': line, 'movieId': mid, 'issue': 'duplicate_movieId'})
+   38:             seen.add(mid)
+   39:             title = unicodedata.normalize('NFC', row['title'].strip())
+   40:             genres = '|'.join(dict.fromkeys(g.strip() for g in row['genres'].split('|') if g.strip()))
+   41:             counts['missing_title'] += not bool(title)
+   42:             counts['missing_genres'] += not bool(genres)
+   43:             counts['no_genres_listed'] += genres == '(no genres listed)'
+   44:             match = re.search(r'\((\d{4})\)\s*$', title)
+   45:             year = int(match.group(1)) if match else None
+   46:             # Fixed, documented range makes cleaning reproducible across dates.
+   47:             if year is not None and not 1870 <= year <= 2100:
+   48:                 year = None
+   49:             if year is None:
+   50:                 counts['missing_or_unparsed_release_year'] += 1
+   51:                 issues.append({'line': line, 'movieId': mid, 'issue': 'releaseYear_unavailable', 'title': title})
+   52:             counts['normalized_rows_changed'] += title != row['title'] or genres != row['genres'] or str(mid) != row['movieId']
+   53:             rows.append({'movieId': mid, 'title': title, 'genres': genres, 'releaseYear': year if year is not None else ''})
+   54:     stats = {k: counts[k] for k in ['input_rows', 'duplicate_movie_ids', 'missing_title', 'missing_genres', 'no_genres_listed', 'missing_or_unparsed_release_year', 'normalized_rows_changed']}
+   55:     stats.update({'source': str(source), 'source_sha256': sha256(source), 'checked_at_utc': utcnow(),
+   56:                   'utf8_decode_errors': 0, 'csv_format_errors': 0, 'issues': issues,
+   57:                   'related_csv_rows': {}})
+   58:     for name in ['ratings', 'tags', 'links']:
+   59:         sibling = source.with_name(name + '.csv')
+   60:         if sibling.exists():
+   61:             with sibling.open(encoding='utf-8', newline='') as f:
+   62:                 stats['related_csv_rows'][name] = sum(1 for _ in csv.DictReader(f, strict=True))
+   63:     if not rows or counts['duplicate_movie_ids'] or counts['missing_title'] or counts['missing_genres']:
+   64:         stats['status'] = 'FAIL'
+   65:         write_json(report, stats)
+   66:         raise ValueError('Fatal data quality errors; inspect QA report')
+   67:     output.parent.mkdir(parents=True, exist_ok=True)
+   68:     with output.open('x', encoding='utf-8', newline='') as f:
+   69:         writer = csv.DictWriter(f, fieldnames=['movieId', 'title', 'genres', 'releaseYear'], lineterminator='\n')
+   70:         writer.writeheader()
+   71:         writer.writerows(rows)
+   72:     stats.update({'status': 'PASS', 'output_rows': len(rows), 'output_sha256': sha256(output)})
+   73:     write_json(report, stats)
+   74:     print(json.dumps(stats, ensure_ascii=False, indent=2))
+   75:     return stats
+   76: 
+   77: 
+   78: if __name__ == '__main__':
+   79:     p = argparse.ArgumentParser(description=__doc__)
+   80:     p.add_argument('--source', default='data/raw/ml-latest-small/movies.csv')
+   81:     p.add_argument('--output', default='data/processed/movies.csv')
+   82:     p.add_argument('--report', default='evidence/dataset_quality.json')
+   83:     a = p.parse_args()
+   84:     prepare(a.source, a.output, a.report)
+
+FILE scripts/run_flume.sh
+    1: #!/usr/bin/env bash
+    2: set -euo pipefail
+    3: mkdir -p /data/spool /data/output /data/channel/checkpoint /data/channel/data /logs
+    4: export FLUME_LOG_DIR=/logs
+    5: exec /opt/flume/bin/flume-ng agent \
+    6:   --name a1 --conf /opt/flume/conf --conf-file /project/config/flume.conf \
+    7:   -Dflume.monitoring.type=http -Dflume.monitoring.port=41414
+
+FILE scripts/run_pipeline.py
+    1: """Real Docker/Flume E2E run with isolated directories and saved evidence."""
+    2: import argparse
+    3: import json
+    4: import os
+    5: import shutil
+    6: import subprocess
+    7: import time
+    8: import uuid
+    9: from pathlib import Path
+   10: from common import sha256, utcnow, write_json
+   11: from validate_pipeline import validate
+   12: 
+   13: ROOT = Path(__file__).resolve().parents[1]
+   14: PIPELINE_FILES = ['Dockerfile', 'compose.yaml', 'config/flume.conf', 'config/flume-env.sh',
+   15:                   'config/log4j2.xml', 'scripts/run_flume.sh', 'scripts/verify_archive.py',
+   16:                   'scripts/run_pipeline.py', 'scripts/validate_pipeline.py', 'scripts/movie_quality.py', 'scripts/common.py']
+   17: 
+   18: 
+   19: def pipeline_hashes():
+   20:     return {p: sha256(ROOT / p) for p in PIPELINE_FILES}
+   21: 
+   22: 
+   23: def run(input_file, timeout=300, demo_proof=None, movies='data/processed/movies.csv'):
+   24:     os.chdir(ROOT)
+   25:     input_file = Path(input_file).resolve()
+   26:     run_id = 'run-' + uuid.uuid4().hex[:12]
+   27:     evidence = ROOT / 'evidence' / run_id
+   28:     evidence.mkdir(parents=True)
+   29:     commands = []
+   30:     state = {'run_id': run_id, 'started_at_utc': utcnow(), 'status': 'NOT_RUN', 'input': str(input_file)}
+   31:     state['source_config_hashes'] = pipeline_hashes()
+   32:     state['movies'] = str(Path(movies).resolve())
+   33:     for name in PIPELINE_FILES:
+   34:         target = evidence / 'source-snapshot' / name
+   35:         target.parent.mkdir(parents=True, exist_ok=True)
+   36:         shutil.copyfile(ROOT / name, target)
+   37:     revision = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
+   38:     state['git_revision'] = revision.stdout.strip() if revision.returncode == 0 else None
+   39:     env = os.environ.copy()
+   40:     run_dir = ROOT / 'data' / 'runs' / run_id
+   41:     log_dir = ROOT / 'logs' / run_id
+   42:     env['RUN_DIR'], env['LOG_DIR'] = run_dir.as_posix(), log_dir.as_posix()
+   43:     base = ['docker', 'compose', '-p', 'movie-' + run_id]
+   44: 
+   45:     def command(args, filename, check=True):
+   46:         record = {'argv': args, 'cwd': str(ROOT), 'started_at_utc': utcnow(), 'log': filename}
+   47:         commands.append(record)
+   48:         with (evidence / filename).open('x', encoding='utf-8') as f:
+   49:             result = subprocess.run(args, env=env, stdout=f, stderr=subprocess.STDOUT, text=True)
+   50:         record.update({'exit_code': result.returncode, 'finished_at_utc': utcnow()})
+   51:         if check and result.returncode:
+   52:             raise RuntimeError(f'Command exited {result.returncode}; inspect {filename}')
+   53:         return result
+   54: 
+   55:     started = False
+   56:     try:
+   57:         initial = validate(input_file, movies, report=evidence / 'input_validation.json')
+   58:         if initial['status'] != 'INPUT_PASS':
+   59:             raise ValueError('Input validation failed')
+   60:         if initial['input']['total'] > 10000:
+   61:             if demo_proof is None:
+   62:                 raise ValueError('Main input requires --demo-proof evidence/<demo-run>/status.json')
+   63:             proof_path = Path(demo_proof)
+   64:             proof = json.loads(proof_path.read_text(encoding='utf-8'))
+   65:             demo_result = json.loads((proof_path.parent / 'reconciliation.json').read_text(encoding='utf-8'))
+   66:             if proof['status'] != 'PASS' or demo_result['status'] != 'PASS' or not 1 <= demo_result['input']['total'] <= 10000:
+   67:                 raise ValueError('Demo proof is not a successful small E2E run')
+   68:             if proof.get('config_sha256') != sha256('config/flume.conf'):
+   69:                 raise ValueError('Config changed since demo; rerun demo')
+   70:             if proof.get('source_config_hashes') != state['source_config_hashes']:
+   71:                 raise ValueError('Pipeline source/image configuration changed since demo; rerun demo')
+   72:         if shutil.which('docker') is None:
+   73:             state['status'] = 'BLOCKED_ENVIRONMENT'
+   74:             raise RuntimeError('Docker executable not found. Install/start Docker Desktop with Linux containers.')
+   75:         version = command(['docker', 'version'], 'docker-version.txt', check=False)
+   76:         if version.returncode:
+   77:             state['status'] = 'BLOCKED_ENVIRONMENT'
+   78:             raise RuntimeError('Docker Engine inaccessible; see docker-version.txt')
+   79:         command(['docker', 'compose', 'version'], 'compose-version.txt')
+   80:         for folder in ['spool', 'output', 'channel/checkpoint', 'channel/data']:
+   81:             (run_dir / folder).mkdir(parents=True)
+   82:         log_dir.mkdir(parents=True)
+   83:         command(base + ['config'], 'compose-resolved.yaml')
+   84:         command(base + ['build', 'flume'], 'build.log')
+   85:         started = True
+   86:         command(base + ['up', '-d'], 'up.log')
+   87:         command(base + ['images'], 'images.txt')
+   88:         command(['docker', 'image', 'inspect', 'movie-log-flume:1.11.0-local'], 'image-inspect.json')
+   89:         command(base + ['exec', '-T', 'flume', 'java', '-version'], 'java-version.txt')
+   90:         command(base + ['exec', '-T', 'flume', '/opt/flume/bin/flume-ng', 'version'], 'flume-version.txt')
+   91:         command(base + ['exec', '-T', 'flume', 'cat', '/opt/flume/bin/flume-ng'], 'launcher-snapshot.sh')
+   92:         command(base + ['exec', '-T', 'flume', 'sh', '-c', 'ps -eo pid,args | grep "org.apache.flume.node.Application" | grep -v grep'], 'jvm-process.txt')
+   93:         command(base + ['exec', '-T', 'flume', 'bash', '-c', 'source /opt/flume/conf/flume-env.sh; java $JAVA_OPTS -XX:+PrintFlagsFinal -version'], 'jvm-effective-flags.txt')
+   94:         command(base + ['exec', '-T', 'flume', 'sh', '-c', 'for i in $(seq 1 60); do curl -fsS http://127.0.0.1:41414/metrics && exit 0; sleep 1; done; exit 1'], 'metrics-start.json')
+   95:         # Copy completely to an ignored temporary name, then atomically rename in SAME directory.
+   96:         staged = run_dir / 'spool' / (uuid.uuid4().hex + '.jsonl')
+   97:         temporary = staged.with_suffix('.tmp')
+   98:         shutil.copyfile(input_file, temporary)
+   99:         temporary.rename(staged)
+  100:         state.update({'input_sha256': sha256(input_file), 'config_sha256': sha256('config/flume.conf'),
+  101:                       'spooled_file': str(staged), 'output_dir': str(run_dir / 'output')})
+  102:         deadline = time.monotonic() + timeout
+  103:         expected = initial['input']['total']
+  104:         drained = False
+  105:         positions = {}
+  106:         progress_at = 0
+  107:         while time.monotonic() < deadline:
+  108:             completed = staged.with_name(staged.name + '.COMPLETED').exists()
+  109:             count = 0
+  110:             for path in (run_dir / 'output').glob('*'):
+  111:                 if path.is_file():
+  112:                     offset, lines = positions.get(path, (0, 0))
+  113:                     with path.open('rb') as f:
+  114:                         f.seek(offset)
+  115:                         for line in f:
+  116:                             if not line.endswith(b'\n'):
+  117:                                 break
+  118:                             offset += len(line)
+  119:                             lines += 1
+  120:                     positions[path] = (offset, lines)
+  121:                     count += lines
+  122:             if time.monotonic() >= progress_at:
+  123:                 with (evidence / 'progress.jsonl').open('a', encoding='utf-8') as f:
+  124:                     f.write(json.dumps({'at_utc': utcnow(), 'spool_completed': completed, 'observed_complete_lines': count, 'expected': expected}) + '\n')
+  125:                 progress_at = time.monotonic() + 10
+  126:             if completed and count >= expected:
+  127:                 drained = True
+  128:                 break
+  129:             time.sleep(2)
+  130:         command(base + ['exec', '-T', 'flume', 'curl', '-fsS', 'http://127.0.0.1:41414/metrics'], 'metrics-final.json', check=False)
+  131:         command(base + ['stop'], 'stop.log')
+  132:         # Keep File Channel on Linux storage for fsync; export its stopped state.
+  133:         command(base + ['cp', 'flume:/data/channel/.', str(run_dir / 'channel')], 'channel-export.log')
+  134:         command(['docker', 'volume', 'inspect', 'movie-' + run_id + '_flume-channel'], 'channel-volume.json')
+  135:         # Reconcile only after sink is stopped and file buffers closed.
+  136:         result = validate(input_file, movies, run_dir / 'output', evidence / 'reconciliation.json')
+  137:         state['spool_completed'] = staged.with_name(staged.name + '.COMPLETED').exists()
+  138:         state['status'] = 'PASS' if drained and state['spool_completed'] and result['status'] == 'PASS' else 'FAIL'
+  139:         if not drained:
+  140:             state['reason'] = 'Timeout waiting for ingestion/drain; reconciliation records actual output'
+  141:         for label, paths in [('input', [input_file]), ('output', sorted((run_dir / 'output').glob('*')))]:
+  142:             sample = []
+  143:             for path in paths:
+  144:                 if path.is_file():
+  145:                     with path.open(encoding='utf-8') as f:
+  146:                         for line in f:
+  147:                             sample.append(line)
+  148:                             if len(sample) == 5:
+  149:                                 break
+  150:                 if len(sample) == 5:
+  151:                     break
+  152:             (evidence / (label + '-sample.jsonl')).write_text(''.join(sample), encoding='utf-8')
+  153:     except Exception as exc:
+  154:         if state['status'] != 'BLOCKED_ENVIRONMENT':
+  155:             state['status'] = 'FAIL'
+  156:         state['reason'] = str(exc)
+  157:     finally:
+  158:         if started:
+  159:             for args, filename in [(base + ['stop'], 'stop-final.log'),
+  160:                                    (base + ['logs', '--no-color', '--timestamps'], 'flume-operational.log'),
+  161:                                    (base + ['down'], 'down.log')]:
+  162:                 try:
+  163:                     command(args, filename, check=False)
+  164:                 except Exception as exc:
+  165:                     state['cleanup_error'] = str(exc)
+  166:         state['finished_at_utc'] = utcnow()
+  167:         write_json(evidence / 'commands.json', {'cwd': str(ROOT), 'environment': {'RUN_DIR': env['RUN_DIR'], 'LOG_DIR': env['LOG_DIR']}, 'commands': commands})
+  168:         write_json(evidence / 'status.json', state)
+  169:     print(json.dumps(state, ensure_ascii=False, indent=2))
+  170:     return state
+  171: 
+  172: 
+  173: if __name__ == '__main__':
+  174:     p = argparse.ArgumentParser(description=__doc__)
+  175:     p.add_argument('--input', default='data/generated/demo.jsonl')
+  176:     p.add_argument('--timeout', type=int, default=300)
+  177:     p.add_argument('--demo-proof')
+  178:     p.add_argument('--movies', default='data/processed/movies.csv')
+  179:     a = p.parse_args()
+  180:     result = run(a.input, a.timeout, a.demo_proof, a.movies)
+  181:     raise SystemExit(0 if result['status'] == 'PASS' else 1)
+
+FILE scripts/spark_parser_regression_test.py
+    1: """Exercise Spark CSV/JSON parsing errors on isolated files, never Sink evidence."""
+    2: import argparse
+    3: import json
+    4: import tempfile
+    5: from pathlib import Path
+    6: from spark_smoke_test import SparkSession, MOVIE_SCHEMA, USER_LOG_SCHEMA
+    7: from pyspark.sql import functions as F
+    8: from pyspark.sql.types import StructType, StructField, StringType
+    9: 
+   10: 
+   11: def main():
+   12:     p = argparse.ArgumentParser(description=__doc__)
+   13:     p.add_argument('--report', required=True)
+   14:     a = p.parse_args()
+   15:     target = Path(a.report)
+   16:     if target.exists():
+   17:         raise FileExistsError(target)
+   18:     spark = (SparkSession.builder.master('local[2]').appName('Week1-Parser-Fixtures')
+   19:              .config('spark.sql.csv.parser.columnPruning.enabled', 'false').getOrCreate())
+   20:     spark.sparkContext.setLogLevel('WARN')
+   21:     results = []
+   22:     try:
+   23:         with tempfile.TemporaryDirectory(prefix='spark-parser-fixture-') as tmp:
+   24:             folder = Path(tmp)
+   25:             movie_file = folder/'invalid.csv'
+   26:             movie_file.write_text('movieId,title,genres,releaseYear\n1,Valid (2001),Drama,2001\ninvalid,Bad (2001),Drama,2001\n', encoding='utf-8')
+   27:             log_file = folder/'invalid.jsonl'
+   28:             valid = {'eventId':'fixture', 'userId':'fixture', 'sessionId':'fixture', 'movieId':1,
+   29:                      'action':'view','timestamp':'2026-09-01T00:00:00Z','watchDuration':0,
+   30:                      'sequenceNumber':0,'runId':'fixture','isSynthetic':True,
+   31:                      'simulatedMovieDuration':3600,'durationSource':'synthetic'}
+   32:             wrong_type = dict(valid, eventId='wrong-type', movieId='not-a-long')
+   33:             log_file.write_text(json.dumps(valid)+'\n{broken json\n'+json.dumps(wrong_type)+'\n', encoding='utf-8')
+   34:             for name, schema, path, expected_rows, expected_bad in [
+   35:                 ('CSV_invalid_integer', MOVIE_SCHEMA, movie_file, 2, 1),
+   36:                 ('JSON_malformed_and_type_error', USER_LOG_SCHEMA, log_file, 3, 2)]:
+   37:                 schema = StructType(list(schema.fields)+[StructField('_corrupt_record', StringType(), True)])
+   38:                 reader = spark.read.schema(schema).option('mode','PERMISSIVE').option('columnNameOfCorruptRecord','_corrupt_record')
+   39:                 frame = (reader.option('header','true').option('escape','"').csv(str(path)) if path.suffix=='.csv' else reader.json(str(path))).cache()
+   40:                 # Collect all fields before querying corrupt-record column (Spark restriction).
+   41:                 rows = [row.asDict() for row in frame.collect()]
+   42:                 bad = sum(row['_corrupt_record'] is not None for row in rows)
+   43:                 null_ids = sum(row['movieId'] is None for row in rows)
+   44:                 passed = len(rows)==expected_rows and bad==expected_bad and null_ids==expected_bad
+   45:                 results.append({'name':name,'rows':len(rows),'malformed_or_type_errors':bad,
+   46:                                 'null_movie_ids':null_ids,'passed':passed,'examples':rows})
+   47:                 frame.unpersist()
+   48:                 if not passed:
+   49:                     raise AssertionError(name)
+   50:     finally:
+   51:         spark.stop()
+   52:         target.parent.mkdir(parents=True,exist_ok=True)
+   53:         target.write_text(json.dumps({'fixture_only':True,'never_flume_evidence':True,
+   54:             'status':'PASS' if len(results)==2 and all(r['passed'] for r in results) else 'FAIL',
+   55:             'tests':results},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+   56:     print('Spark parser fixtures: 2 PASS')
+   57: 
+   58: 
+   59: if __name__=='__main__':
+   60:     main()
+
+FILE scripts/spark_regression_test.py
+    1: """Spark regression fixtures, never Flume output evidence."""
+    2: import argparse
+    3: import copy
+    4: import json
+    5: from pathlib import Path
+    6: from spark_smoke_test import validate_frames, MOVIE_SCHEMA, USER_LOG_SCHEMA, SparkSession
+    7: from pyspark.sql import functions as F
+    8: 
+    9: 
+   10: def main():
+   11:     p=argparse.ArgumentParser(description=__doc__)
+   12:     p.add_argument('--report',required=True)
+   13:     a=p.parse_args()
+   14:     target=Path(a.report)
+   15:     if target.exists():
+   16:         raise FileExistsError(target)
+   17:     spark=(SparkSession.builder.master('local[2]').appName('Week1-Spark-Regression-Fixtures').config('spark.sql.session.timeZone','UTC').config('spark.sql.shuffle.partitions','2').getOrCreate())
+   18:     spark.sparkContext.setLogLevel('WARN')
+   19:     tests=[]
+   20:     movies=[{'movieId':1,'title':'Fixture (2001)','genres':'Drama','releaseYear':2001}]
+   21:     events=[{'eventId':f'fixture-{i}','userId':f'user-{i}','sessionId':f'session-{i}','movieId':1,'action':'view','timestamp':'2026-09-01T00:00:00Z','watchDuration':0,'sequenceNumber':0,'runId':'fixture','isSynthetic':True,'simulatedMovieDuration':3600,'durationSource':'synthetic'} for i in range(6)]
+   22:     def run(name, ms, es, expected_error=None, null_schema=False):
+   23:         from pyspark.sql.types import StructType,StructField
+   24:         schema=StructType([StructField(f.name,f.dataType,True) for f in USER_LOG_SCHEMA]) if null_schema else USER_LOG_SCHEMA
+   25:         result=validate_frames(spark,spark.createDataFrame(ms,MOVIE_SCHEMA),spark.createDataFrame(es,schema),len(ms),len(es),'2026-09-01T00:00:00Z','2026-10-01T00:00:00Z')
+   26:         passed=result['status']=='PASS' if expected_error is None else result['status']=='FAIL' and result['errors'][expected_error]>0
+   27:         tests.append({'name':name,'passed':passed,'result':result})
+   28:         if not passed:
+   29:             raise AssertionError(name)
+   30:     try:
+   31:         run('valid_fixture',movies,events)
+   32:         bad=copy.deepcopy(events); bad[5]['movieId']=999
+   33:         run('orphan_beyond_first_five',movies,bad,'orphan_movie_events')
+   34:         bad=copy.deepcopy(events); bad[5]['timestamp']='invalid'
+   35:         run('invalid_timestamp',movies,bad,'log_timestamp_parse')
+   36:         bad=copy.deepcopy(events); bad[5]['userId']=None
+   37:         run('required_null',movies,bad,'log_required_null',True)
+   38:         run('duplicate_movie_metadata',movies+movies,events,'movie_duplicate_ids')
+   39:         bad=copy.deepcopy(events); bad[5]['eventId']=bad[0]['eventId']
+   40:         run('conflicting_event_id',movies,bad,'log_conflicting_ids')
+   41:         bad=copy.deepcopy(events); bad[5]['watchDuration']=-1
+   42:         run('negative_duration',movies,bad,'log_duration')
+   43:     finally:
+   44:         spark.stop()
+   45:         target.parent.mkdir(parents=True,exist_ok=True)
+   46:         target.write_text(json.dumps({'fixture_only':True,'never_flume_evidence':True,'tests':tests,'status':'PASS' if len(tests)==7 and all(x['passed'] for x in tests) else 'FAIL'},ensure_ascii=False,indent=2,default=str)+'\n',encoding='utf-8')
+   47:     print('Spark regression fixtures:',len(tests),'PASS')
+   48: 
+   49: 
+   50: if __name__=='__main__':
+   51:     main()
+
+FILE scripts/spark_smoke_test.py
+    1: """Validate every field of actual Flume Sink output with reusable Spark schemas."""
+    2: import argparse
+    3: import json
+    4: import platform
+    5: import sys
+    6: from functools import reduce
+    7: from pathlib import Path
+    8: 
+    9: ROOT = Path(__file__).resolve().parents[1]
+   10: sys.path.insert(0, str(ROOT))
+   11: from src.schemas import MOVIE_SCHEMA, USER_LOG_SCHEMA
+   12: from pyspark import __version__ as pyspark_version
+   13: from pyspark.sql import SparkSession, Window
+   14: from pyspark.sql import functions as F
+   15: from pyspark.sql.types import StructField, StringType, LongType
+   16: 
+   17: 
+   18: def validate_frames(spark, movies, logs, expected_movies, expected_logs, start, end):
+   19:     """Actions touch every field. Fixture calls do not claim Flume provenance."""
+   20:     movies = movies.withColumn('_file', F.input_file_name()).cache()
+   21:     logs = logs.withColumn('_file', F.input_file_name()).withColumn('eventTime', F.to_timestamp('timestamp')).cache()
+   22:     errors, examples = {}, {}
+   23:     def check(name, frame, condition):
+   24:         bad = frame.filter(condition)
+   25:         errors[name] = bad.count()
+   26:         if errors[name]:
+   27:             examples[name] = [r.asDict(recursive=True) for r in bad.limit(10).collect()]
+   28:     movie_counts = movies.agg(F.count('*').alias('rows'), F.countDistinct('movieId').alias('unique_ids'), F.sum(F.col('releaseYear').isNull().cast('long')).alias('releaseYear_null_allowed')).first().asDict()
+   29:     required_movies = [f.name for f in MOVIE_SCHEMA if not f.nullable]
+   30:     check('movie_required_null', movies, reduce(lambda a,b:a|b, [F.col(k).isNull() for k in required_movies]))
+   31:     check('movie_empty_title_or_genres', movies, (F.trim('title')=='') | (F.trim('genres')==''))
+   32:     check('movie_invalid_id_or_year', movies, (F.col('movieId')<=0) | (F.col('releaseYear').isNotNull() & ~F.col('releaseYear').between(1870,2100)))
+   33:     if '_corrupt_record' in movies.columns:
+   34:         check('movie_malformed_csv', movies, F.col('_corrupt_record').isNotNull())
+   35:     duplicates = movies.groupBy('movieId').count().filter(F.col('count')>1)
+   36:     errors['movie_duplicate_ids'] = duplicates.count()
+   37:     if errors['movie_duplicate_ids']:
+   38:         examples['movie_duplicate_ids'] = [r.asDict() for r in duplicates.limit(10).collect()]
+   39:     required_logs = [f.name for f in USER_LOG_SCHEMA if not f.nullable]
+   40:     check('log_required_null', logs, reduce(lambda a,b:a|b,[F.col(k).isNull() for k in required_logs]))
+   41:     check('log_empty_identity', logs, reduce(lambda a,b:a|b,[F.trim(k)=='' for k in ['eventId','sessionId','userId','runId']]))
+   42:     if '_corrupt_record' in logs.columns:
+   43:         check('log_malformed_json', logs, F.col('_corrupt_record').isNotNull())
+   44:     check('log_timestamp_parse', logs, F.col('eventTime').isNull() | ~F.col('timestamp').rlike(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'))
+   45:     check('log_timestamp_range', logs, (F.col('eventTime')<F.to_timestamp(F.lit(start))) | (F.col('eventTime')>=F.to_timestamp(F.lit(end))))
+   46:     check('log_action', logs, ~F.col('action').isin('view','play','pause','stop','complete'))
+   47:     check('log_duration', logs, (F.col('watchDuration')<0) | (F.col('watchDuration')>F.col('simulatedMovieDuration')) | (F.col('action').isin('view','play') & (F.col('watchDuration')!=0)) | (F.col('action').isin('pause','stop','complete') & (F.col('watchDuration')<=0)))
+   48:     check('log_integer_ranges', logs, (F.col('movieId')<=0) | (F.col('sequenceNumber')<0) | ~F.col('simulatedMovieDuration').between(3600,10800))
+   49:     check('log_provenance', logs, (F.col('isSynthetic')!=True) | (F.col('durationSource')!='synthetic'))
+   50:     payload = F.to_json(F.struct(*[F.col(f.name) for f in USER_LOG_SCHEMA]))
+   51:     duplicate_ids = logs.groupBy('eventId').agg(F.count('*').alias('rows'), F.countDistinct(payload).alias('payloads')).filter(F.col('rows')>1)
+   52:     errors['log_duplicate_ids'] = duplicate_ids.count()
+   53:     errors['log_conflicting_ids'] = duplicate_ids.filter(F.col('payloads')>1).count()
+   54:     if errors['log_duplicate_ids']:
+   55:         examples['log_duplicate_ids'] = [r.asDict() for r in duplicate_ids.limit(10).collect()]
+   56:     orphan = logs.join(movies.select('movieId').distinct(), 'movieId', 'left_anti')
+   57:     errors['orphan_movie_events'] = orphan.count()
+   58:     if errors['orphan_movie_events']:
+   59:         examples['orphan_movie_events'] = [r.asDict() for r in orphan.limit(10).collect()]
+   60:     errors['movie_count_mismatch'] = int(movie_counts['rows']!=expected_movies)
+   61:     log_counts = logs.agg(F.count('*').alias('rows'), F.countDistinct('eventId').alias('unique_event_ids'), F.countDistinct('userId').alias('users'), F.countDistinct('movieId').alias('movies'), F.countDistinct('sessionId').alias('sessions'), F.min('timestamp').alias('timestamp_min'), F.max('timestamp').alias('timestamp_max'), F.sum('watchDuration').alias('watch_seconds'), F.sum(F.length(payload)).alias('materialized_payload_characters')).first().asDict()
+   62:     errors['log_count_mismatch'] = int(log_counts['rows']!=expected_logs)
+   63:     errors['join_key_type_mismatch'] = int(not isinstance(movies.schema['movieId'].dataType,LongType) or not isinstance(logs.schema['movieId'].dataType,LongType))
+   64:     actions = {r['action']:r['count'] for r in logs.groupBy('action').count().collect()}
+   65:     win = Window.partitionBy('runId','sessionId').orderBy('sequenceNumber')
+   66:     ordered = logs.withColumn('_seq',F.row_number().over(win)-1).withColumn('_previousTime',F.lag('eventTime').over(win)).withColumn('_previousAction',F.lag('action').over(win))
+   67:     check('session_sequence_or_time',ordered,(F.col('sequenceNumber')!=F.col('_seq')) | (F.col('_previousTime').isNotNull() & (F.col('eventTime')<=F.col('_previousTime'))))
+   68:     check('session_segment_duration',ordered,F.col('action').isin('pause','stop','complete') & ((F.col('_previousAction')!='play') | (F.col('watchDuration') != (F.col('eventTime').cast('long')-F.col('_previousTime').cast('long')))))
+   69:     sessions = logs.groupBy('runId','sessionId').agg(F.countDistinct('userId').alias('users'),F.countDistinct('movieId').alias('movies'),F.countDistinct('simulatedMovieDuration').alias('runtimes'))
+   70:     errors['session_identity'] = sessions.filter((F.col('users')!=1)|(F.col('movies')!=1)|(F.col('runtimes')!=1)).count()
+   71:     movies.unpersist()
+   72:     logs.unpersist()
+   73:     return {'status':'PASS' if not any(errors.values()) else 'FAIL','expected_movies':expected_movies,'expected_logs':expected_logs,'movies':movie_counts,'logs':log_counts,'actions':actions,'errors':errors,'examples':examples,'timestamp_timezone':'UTC'}
+   74: 
+   75: 
+   76: def main():
+   77:     p=argparse.ArgumentParser(description=__doc__)
+   78:     p.add_argument('--movies-path',default='data/processed/movies.csv')
+   79:     p.add_argument('--movie-report',required=True,help='Measured prepare_movies QA JSON')
+   80:     p.add_argument('--run-evidence',required=True,help='Evidence directory of actual PASS Flume run')
+   81:     p.add_argument('--report',required=True,help='NEW JSON report path')
+   82:     args=p.parse_args()
+   83:     report_path=Path(args.report)
+   84:     if report_path.exists():
+   85:         raise FileExistsError(report_path)
+   86:     evidence=Path(args.run_evidence)
+   87:     status=json.loads((evidence/'status.json').read_text(encoding='utf-8'))
+   88:     rec=json.loads((evidence/'reconciliation.json').read_text(encoding='utf-8'))
+   89:     movie_qa=json.loads(Path(args.movie_report).read_text(encoding='utf-8'))
+   90:     if status['status']!='PASS' or rec['status']!='PASS' or movie_qa['status']!='PASS':
+   91:         raise ValueError('Requires verified movies and actual PASS Flume run')
+   92:     sys.path.insert(0,str(ROOT/'scripts'))
+   93:     from common import sha256,utcnow
+   94:     if sha256(args.movies_path)!=rec['movies_sha256'] or movie_qa['output_sha256']!=rec['movies_sha256']:
+   95:         raise ValueError('Movie snapshot differs from reconciliation')
+   96:     sink=ROOT/'data'/'runs'/status['run_id']/'output'
+   97:     actual=[]
+   98:     for file in rec['output_files']:
+   99:         filename=file['path'].replace('\\','/').rsplit('/',1)[-1]
+  100:         path=sink/filename
+  101:         if path.stat().st_size!=file['bytes'] or sha256(path)!=file['sha256']:
+  102:             raise ValueError('Sink file changed: '+str(path))
+  103:         actual.append(path)
+  104:     if {p.name for p in sink.iterdir() if p.is_file() and not p.name.startswith('.')}!={p.name for p in actual}:
+  105:         raise ValueError('Sink directory contains unreported files')
+  106:     manifest_path=ROOT/'data'/'generated'/(status['input'].replace('\\','/').rsplit('/',1)[-1]+'.manifest.json')
+  107:     manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+  108:     if manifest['sha256']!=rec['input_sha256'] or manifest['events']!=rec['input']['total']:
+  109:         raise ValueError('Input manifest differs from reconciliation')
+  110:     spark=None
+  111:     result={'status':'FAIL','started_at_utc':utcnow(),'run_id':status['run_id'],'sink_files':len(actual),'sink_bytes':sum(x.stat().st_size for x in actual),'source_hashes':{'schema':sha256(ROOT/'src/schemas.py'),'smoke':sha256(__file__)}}
+  112:     try:
+  113:         spark=(SparkSession.builder.appName('MovieLog-Week1-FullValidation').master('local[2]').config('spark.sql.session.timeZone','UTC').config('spark.sql.shuffle.partitions','8').config('spark.sql.csv.parser.columnPruning.enabled','false').getOrCreate())
+  114:         spark.sparkContext.setLogLevel('WARN')
+  115:         result['runtime']={'spark':spark.version,'pyspark':pyspark_version,'python':sys.version,'python_executable':sys.executable,'java':spark._jvm.System.getProperty('java.version'),'os':platform.platform(),'host_or_container':'Docker Spark container','master':spark.sparkContext.master}
+  116:         result['basic_action_count']=spark.range(5).count()
+  117:         if result['basic_action_count']!=5:
+  118:             raise ValueError('Spark basic action failed')
+  119:         # Copy the reusable schemas; do not mutate module globals with StructType.add.
+  120:         from pyspark.sql.types import StructType
+  121:         movie_schema=StructType(list(MOVIE_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])
+  122:         log_schema=StructType(list(USER_LOG_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])
+  123:         movies=spark.read.option('header','true').option('encoding','UTF-8').option('escape','"').option('mode','PERMISSIVE').option('columnNameOfCorruptRecord','_corrupt_record').schema(movie_schema).csv(args.movies_path)
+  124:         logs=spark.read.option('encoding','UTF-8').option('mode','PERMISSIVE').option('columnNameOfCorruptRecord','_corrupt_record').schema(log_schema).json([str(p) for p in actual if p.stat().st_size])
+  125:         result.update(validate_frames(spark,movies,logs,movie_qa['output_rows'],rec['output']['total'],manifest['start'],manifest['end']))
+  126:     except Exception as exc:
+  127:         result.update(status='FAIL',error=str(exc))
+  128:         raise
+  129:     finally:
+  130:         if spark is not None:
+  131:             spark.stop()
+  132:         result['finished_at_utc']=utcnow()
+  133:         report_path.parent.mkdir(parents=True,exist_ok=True)
+  134:         report_path.write_text(json.dumps(result,ensure_ascii=False,indent=2,default=str)+'\n',encoding='utf-8')
+  135:         print(json.dumps(result,ensure_ascii=True,indent=2,default=str))
+  136:     return 0 if result['status']=='PASS' else 1
+  137: 
+  138: 
+  139: if __name__=='__main__':
+  140:     raise SystemExit(main())
+
+FILE scripts/validate_pipeline.py
+    1: """Streaming JSONL checks + on-disk SQLite reconciliation. Never simulates Flume."""
+    2: import argparse
+    3: import csv
+    4: import hashlib
+    5: import json
+    6: import sqlite3
+    7: import tempfile
+    8: from collections import Counter
+    9: from pathlib import Path
+   10: from common import parse_time, sha256, utcnow, write_json
+   11: from movie_quality import inspect_movies
+   12: 
+   13: REQUIRED = {'eventId', 'userId', 'sessionId', 'movieId', 'action', 'timestamp', 'watchDuration',
+   14:             'sequenceNumber', 'isSynthetic', 'simulatedMovieDuration', 'durationSource', 'runId'}
+   15: 
+   16: 
+   17: def validate(input_path, movies, output_dir=None, report='evidence/validation.json'):
+   18:     if Path(report).exists():
+   19:         raise FileExistsError('Use a new report path; prior evidence will not be overwritten')
+   20:     input_path = Path(input_path)
+   21:     if not input_path.is_file():
+   22:         raise FileNotFoundError(input_path)
+   23:     mids, movie_quality = inspect_movies(movies)
+   24:     stats = {'checked_at_utc': utcnow(), 'mode': 'input_only' if output_dir is None else 'pipeline_reconciliation',
+   25:              'input_sha256': sha256(input_path), 'movies_sha256': sha256(movies), 'movies_quality': movie_quality, 'errors_sample': []}
+   26:     with tempfile.TemporaryDirectory(prefix='movie-validate-') as tmp:
+   27:         db = sqlite3.connect(str(Path(tmp) / 'validation.sqlite'))
+   28:         db.execute('PRAGMA cache_size=-16384')
+   29:         db.execute('CREATE TABLE events (side TEXT, id TEXT, payload TEXT, sid TEXT, seq INT, PRIMARY KEY(side,id))')
+   30:         db.execute('CREATE TABLE sessions (uid TEXT, start TEXT, end TEXT)')
+   31:         counts = {s: Counter() for s in ['input', 'output']}
+   32: 
+   33:         def error(side, location, message):
+   34:             counts[side]['invalid'] += 1
+   35:             counts[side]['error:' + str(message)] += 1
+   36:             if len(stats['errors_sample']) < 20:
+   37:                 stats['errors_sample'].append({'side': side, 'location': location, 'error': str(message)})
+   38: 
+   39:         def ingest(path, side):
+   40:             with path.open('rb') as f:
+   41:                 for number, line in enumerate(f, 1):
+   42:                     counts[side]['total'] += 1
+   43:                     try:
+   44:                         if not line.endswith(b'\n'):
+   45:                             raise ValueError('Missing newline / potentially truncated event')
+   46:                         decoded = line.decode('utf-8', errors='strict')
+   47:                         if len(decoded.rstrip('\r\n')) > 16384:
+   48:                             raise ValueError('Event exceeds Flume LINE maxLineLength')
+   49:                         e = json.loads(decoded)
+   50:                         if not isinstance(e, dict) or not REQUIRED.issubset(e):
+   51:                             raise ValueError('Missing required fields')
+   52:                         for k in ['eventId', 'sessionId', 'userId', 'runId']:
+   53:                             if not isinstance(e[k], str) or not e[k]:
+   54:                                 raise ValueError('Invalid ' + k)
+   55:                         for k in ['movieId', 'watchDuration', 'sequenceNumber', 'simulatedMovieDuration']:
+   56:                             if type(e[k]) is not int or not 0 <= e[k] <= 2**63-1:
+   57:                                 raise ValueError('Invalid integer ' + k)
+   58:                         if e['movieId'] not in mids:
+   59:                             raise ValueError('Unknown movieId')
+   60:                         if e['action'] not in ['view', 'play', 'pause', 'stop', 'complete']:
+   61:                             raise ValueError('Unknown action')
+   62:                         if e['action'] in ['view', 'play'] and e['watchDuration'] != 0:
+   63:                             raise ValueError('view/play must have zero watchDuration')
+   64:                         if not e['timestamp'].endswith('Z'):
+   65:                             raise ValueError('Timestamp must use UTC Z')
+   66:                         parse_time(e['timestamp'])
+   67:                         if e['isSynthetic'] is not True or e['durationSource'] != 'synthetic' or not 3600 <= e['simulatedMovieDuration'] <= 10800:
+   68:                             raise ValueError('Missing synthetic provenance')
+   69:                         payload = json.dumps(e, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
+   70:                         counts[side]['valid'] += 1
+   71:                         previous = db.execute('SELECT payload FROM events WHERE side=? AND id=?', (side, e['eventId'])).fetchone()
+   72:                         if previous:
+   73:                             counts[side]['duplicates'] += 1
+   74:                             if previous[0] != payload:
+   75:                                 counts[side]['conflicting_ids'] += 1
+   76:                         else:
+   77:                             db.execute('INSERT INTO events VALUES(?,?,?,?,?)', (side, e['eventId'], payload, e['sessionId'], e['sequenceNumber']))
+   78:                             counts[side]['unique'] += 1
+   79:                             counts[side]['action:' + e['action']] += 1
+   80:                             counts[side]['watch_seconds'] += e['watchDuration']
+   81:                     except (ValueError, TypeError, KeyError, AttributeError, UnicodeError) as exc:
+   82:                         error(side, f'{path}:{number}', exc)
+   83:                     if number % 10000 == 0:
+   84:                         db.commit()
+   85: 
+   86:         ingest(input_path, 'input')
+   87:         paths = [] if output_dir is None else sorted(p for p in Path(output_dir).glob('*') if p.is_file() and not p.name.startswith('.'))
+   88:         for path in paths:
+   89:             ingest(path, 'output')
+   90:         db.commit()
+   91:         db.execute('CREATE INDEX session_order ON events(side,sid,seq)')
+   92:         # Validate input session semantics independent of physical order of the JSONL.
+   93:         # Output is checked for identical canonical payload by eventId below.
+   94:         prior_sid, group = None, []
+   95:         session_errors, valid_sessions = 0, 0
+   96:         def check_session(g):
+   97:             nonlocal session_errors, valid_sessions
+   98:             try:
+   99:                 first = g[0]
+  100:                 if first['action'] != 'view':
+  101:                     raise ValueError('Session must begin with view')
+  102:                 expected, playing, watched, previous_time = 0, False, 0, None
+  103:                 previous_action = None
+  104:                 for e in g:
+  105:                     if any(e[k] != first[k] for k in ['movieId', 'userId', 'runId', 'simulatedMovieDuration']):
+  106:                         raise ValueError('Session identity/runtime changed')
+  107:                     if e['sequenceNumber'] != expected:
+  108:                         raise ValueError('Missing/duplicate sequenceNumber')
+  109:                     t = parse_time(e['timestamp'])
+  110:                     if previous_time is not None and t <= previous_time:
+  111:                         raise ValueError('Non-increasing session timestamp')
+  112:                     action = e['action']
+  113:                     if expected == 0:
+  114:                         if action != 'view':
+  115:                             raise ValueError('Missing initial view')
+  116:                     elif action == 'play':
+  117:                         if playing or previous_action not in ['view', 'pause']:
+  118:                             raise ValueError('Invalid play transition')
+  119:                         playing = True
+  120:                     elif action in ['pause', 'stop', 'complete']:
+  121:                         if not playing or e['watchDuration'] != int((t - previous_time).total_seconds()):
+  122:                             raise ValueError('Invalid duration/transition from play')
+  123:                         playing = False
+  124:                         if action in ['stop', 'complete'] and expected != len(g) - 1:
+  125:                             raise ValueError('Events after terminal action')
+  126:                     else:
+  127:                         raise ValueError('Repeated view')
+  128:                     watched += e['watchDuration']
+  129:                     expected += 1
+  130:                     previous_time, previous_action = t, action
+  131:                 if len(g) != 1 and g[-1]['action'] not in ['stop', 'complete']:
+  132:                     raise ValueError('Unfinished session')
+  133:                 if watched > first['simulatedMovieDuration'] or (g[-1]['action'] == 'complete' and watched != first['simulatedMovieDuration']):
+  134:                     raise ValueError('Invalid completion/runtime total')
+  135:                 if g[-1]['action'] == 'stop' and watched >= first['simulatedMovieDuration']:
+  136:                     raise ValueError('stop must occur before complete')
+  137:                 db.execute('INSERT INTO sessions VALUES(?,?,?)', (first['userId'], first['timestamp'], g[-1]['timestamp']))
+  138:                 valid_sessions += 1
+  139:             except ValueError as exc:
+  140:                 session_errors += 1
+  141:                 if len(stats['errors_sample']) < 20:
+  142:                     stats['errors_sample'].append({'sessionId': g[0]['sessionId'], 'error': str(exc)})
+  143:         for sid, payload in db.execute("SELECT sid,payload FROM events WHERE side='input' ORDER BY sid,seq"):
+  144:             if prior_sid is not None and sid != prior_sid:
+  145:                 check_session(group)
+  146:                 group = []
+  147:             group.append(json.loads(payload))
+  148:             prior_sid = sid
+  149:         if group:
+  150:             check_session(group)
+  151:         overlap, previous_uid, previous_end = 0, None, None
+  152:         for uid, start, end in db.execute('SELECT uid,start,end FROM sessions ORDER BY uid,start'):
+  153:             if uid == previous_uid and start <= previous_end:
+  154:                 overlap += 1
+  155:             previous_end = max(end, previous_end) if uid == previous_uid else end
+  156:             previous_uid = uid
+  157:         stats.update({'session_errors': session_errors, 'valid_sessions': valid_sessions, 'user_overlap_errors': overlap})
+  158:         for side in counts:
+  159:             stats[side] = {k: counts[side][k] for k in ['total', 'valid', 'unique', 'duplicates', 'conflicting_ids', 'invalid']}
+  160:             stats[side]['error_counts'] = {k[6:]: v for k, v in counts[side].items() if k.startswith('error:')}
+  161:             stats[side]['actions'] = {k[7:]: v for k, v in counts[side].items() if k.startswith('action:')}
+  162:             stats[side]['watch_seconds'] = counts[side]['watch_seconds']
+  163:             row = db.execute("SELECT count(DISTINCT json_extract(payload,'$.userId')),count(DISTINCT json_extract(payload,'$.movieId')),count(DISTINCT sid),min(json_extract(payload,'$.timestamp')),max(json_extract(payload,'$.timestamp')) FROM events WHERE side=?", (side,)).fetchone()
+  164:             stats[side].update(dict(zip(['users','movies','sessions','timestamp_min','timestamp_max'],row)))
+  165:         stats['output_files'] = []
+  166:         for p in paths:
+  167:             size = p.stat().st_size
+  168:             with p.open('rb') as f:
+  169:                 if size:
+  170:                     f.seek(-1, 2)
+  171:                     final_newline = f.read(1) == b'\n'
+  172:                 else:
+  173:                     final_newline = None
+  174:             stats['output_files'].append({'path': str(p), 'bytes': size, 'sha256': sha256(p), 'empty': size == 0, 'final_newline': final_newline})
+  175:         stats['output_file_summary'] = {'files': len(paths), 'bytes': sum(x['bytes'] for x in stats['output_files']), 'empty_files': sum(x['empty'] for x in stats['output_files']), 'missing_final_newline_files': sum(x['final_newline'] is False for x in stats['output_files'])}
+  176:         missing = db.execute("SELECT count(*) FROM events i LEFT JOIN events o ON o.side='output' AND i.id=o.id WHERE i.side='input' AND o.id IS NULL").fetchone()[0]
+  177:         extra = db.execute("SELECT count(*) FROM events o LEFT JOIN events i ON i.side='input' AND i.id=o.id WHERE o.side='output' AND i.id IS NULL").fetchone()[0]
+  178:         changed = db.execute("SELECT count(*) FROM events i JOIN events o ON i.id=o.id AND o.side='output' WHERE i.side='input' AND i.payload<>o.payload").fetchone()[0]
+  179:         stats.update({'missing_event_ids': missing if output_dir is not None else None,
+  180:                       'unexpected_event_ids': extra if output_dir is not None else None,
+  181:                       'changed_payloads': changed if output_dir is not None else None})
+  182:         manifest_path = input_path.with_suffix(input_path.suffix + '.manifest.json')
+  183:         manifest_errors = []
+  184:         if manifest_path.exists():
+  185:             manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+  186:             if manifest['events'] != stats['input']['total'] or manifest['sha256'] != stats['input_sha256']:
+  187:                 manifest_errors.append('Input count/hash differs from manifest')
+  188:             for (payload,) in db.execute("SELECT payload FROM events WHERE side='input'"):
+  189:                 e = json.loads(payload)
+  190:                 if not parse_time(manifest['start']) <= parse_time(e['timestamp']) < parse_time(manifest['end']):
+  191:                     manifest_errors.append('Timestamp outside requested range')
+  192:                     break
+  193:         stats['manifest_errors'] = manifest_errors
+  194:         failed = movie_quality['status'] != 'PASS' or not stats['input']['total'] or session_errors or overlap or manifest_errors or any(sum(counts[s][k] for k in ['invalid', 'duplicates', 'conflicting_ids']) for s in counts)
+  195:         if output_dir is not None:
+  196:             failed = failed or not paths or missing or extra or changed
+  197:         stats['status'] = 'FAIL' if failed else ('INPUT_PASS' if output_dir is None else 'PASS')
+  198:         stats['semantics'] = 'Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review.'
+  199:         db.close()
+  200:     write_json(report, stats)
+  201:     print(json.dumps(stats, ensure_ascii=False, indent=2))
+  202:     return stats
+  203: 
+  204: 
+  205: if __name__ == '__main__':
+  206:     p = argparse.ArgumentParser(description=__doc__)
+  207:     p.add_argument('--input', required=True)
+  208:     p.add_argument('--movies', default='data/processed/movies.csv')
+  209:     group = p.add_mutually_exclusive_group(required=True)
+  210:     group.add_argument('--output-dir')
+  211:     group.add_argument('--input-only', action='store_true')
+  212:     p.add_argument('--report', default='evidence/validation.json')
+  213:     a = p.parse_args()
+  214:     result = validate(a.input, a.movies, a.output_dir, a.report)
+  215:     raise SystemExit(1 if result['status'] == 'FAIL' else 0)
+
+FILE scripts/verify_archive.py
+    1: """Accept Apache SHA512 formats; fail closed if checksum is absent/ambiguous."""
+    2: import hashlib
+    3: import re
+    4: import sys
+    5: from pathlib import Path
+    6: 
+    7: digests = re.findall(r'(?<![0-9a-fA-F])[0-9a-fA-F]{128}(?![0-9a-fA-F])', Path(sys.argv[2]).read_text())
+    8: if len(digests) != 1:
+    9:     raise SystemExit('Expected exactly one SHA512 digest from Apache')
+   10: h = hashlib.sha512()
+   11: with open(sys.argv[1], 'rb') as f:
+   12:     for block in iter(lambda: f.read(1024 * 1024), b''):
+   13:         h.update(block)
+   14: if h.hexdigest().lower() != digests[0].lower():
+   15:     raise SystemExit('Archive SHA512 MISMATCH')
+   16: print('Apache Flume archive SHA512 verified:', h.hexdigest())
+
+FILE src/__init__.py
+    1: """Source package for movie log big data analysis."""
+
+FILE src/schemas.py
+    1: """Official Spark schemas for Movie metadata and User Behavior Logs.
+    2: 
+    3: Designed for Week 1 validation and reusable for Week 2 processing.
+    4: """
+    5: from pyspark.sql.types import (
+    6:     StructType,
+    7:     StructField,
+    8:     StringType,
+    9:     LongType,
+   10:     IntegerType,
+   11:     BooleanType,
+   12: )
+   13: 
+   14: # 1. Movie Dataset Schema
+   15: # Source: data/processed/movies.csv (Metadata phim)
+   16: MOVIE_SCHEMA = StructType([
+   17:     StructField("movieId", LongType(), nullable=False),
+   18:     StructField("title", StringType(), nullable=False),
+   19:     StructField("genres", StringType(), nullable=False),
+   20:     StructField("releaseYear", IntegerType(), nullable=True),
+   21: ])
+   22: 
+   23: # 2. User Behavior Log Schema
+   24: # Source: Apache Flume Output JSONL (Log hành vi người dùng)
+   25: USER_LOG_SCHEMA = StructType([
+   26:     StructField("eventId", StringType(), nullable=False),
+   27:     StructField("userId", StringType(), nullable=False),
+   28:     StructField("sessionId", StringType(), nullable=False),
+   29:     StructField("movieId", LongType(), nullable=False),
+   30:     StructField("action", StringType(), nullable=False),
+   31:     StructField("timestamp", StringType(), nullable=False),
+   32:     StructField("watchDuration", LongType(), nullable=False),
+   33:     StructField("sequenceNumber", LongType(), nullable=False),
+   34:     StructField("runId", StringType(), nullable=False),
+   35:     StructField("isSynthetic", BooleanType(), nullable=False),
+   36:     StructField("simulatedMovieDuration", LongType(), nullable=False),
+   37:     StructField("durationSource", StringType(), nullable=False),
+   38: ])
+
+FILE tests/test_project.py
+    1: """Unit/integration tests use temporary fixtures, NOT Flume output evidence."""
+    2: import contextlib
+    3: import csv
+    4: import io
+    5: import json
+    6: from pathlib import Path
+    7: import sys
+    8: import tempfile
+    9: import unittest
+   10: 
+   11: sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+   12: from generate_logs import generate
+   13: from prepare_movies import prepare
+   14: from validate_pipeline import validate
+   15: 
+   16: 
+   17: class ProjectTests(unittest.TestCase):
+   18:     def setUp(self):
+   19:         self.temp = tempfile.TemporaryDirectory()
+   20:         self.root = Path(self.temp.name)
+   21:         self.movies = self.root / 'movies.csv'
+   22:         self.movies.write_text('movieId,title,genres\n1,Phim Việt (2001),Drama\n2,No year,(no genres listed)\n3,Series (2000–2001),Comedy\n', encoding='utf-8')
+   23:         self.output = self.root / 'events.jsonl'
+   24:         self.sink = self.root / 'mock-sink'
+   25:         self.sink.mkdir()
+   26:         self.quiet = contextlib.redirect_stdout(io.StringIO())
+   27:         self.quiet.__enter__()
+   28: 
+   29:     def tearDown(self):
+   30:         self.quiet.__exit__(None, None, None)
+   31:         self.temp.cleanup()
+   32: 
+   33:     def make(self, n=101):
+   34:         generate(self.movies, self.output, events=n, users=100)
+   35:         return self.output.read_text(encoding='utf-8').splitlines()
+   36: 
+   37:     def check(self, output_dir=None):
+   38:         return validate(self.output, self.movies, output_dir, self.root / 'report.json')
+   39: 
+   40:     def test_normalization_preserves_missing_year(self):
+   41:         normalized = self.root / 'normalized.csv'
+   42:         result = prepare(self.movies, normalized, self.root / 'quality.json')
+   43:         self.assertEqual(result['missing_or_unparsed_release_year'], 2)
+   44:         with normalized.open(encoding='utf-8', newline='') as f:
+   45:             self.assertEqual(next(csv.DictReader(f))['releaseYear'], '2001')
+   46: 
+   47:     def test_duplicate_movies_rejected(self):
+   48:         with self.movies.open('a', encoding='utf-8') as f:
+   49:             f.write('1,Duplicate,Drama\n')
+   50:         with self.assertRaises(ValueError):
+   51:             prepare(self.movies, self.root / 'normalized.csv', self.root / 'quality.json')
+   52: 
+   53:     def test_invalid_utf8_rejected(self):
+   54:         self.movies.write_bytes(b'movieId,title,genres\n1,\xff,Drama\n')
+   55:         with self.assertRaises(UnicodeDecodeError):
+   56:             prepare(self.movies, self.root / 'normalized.csv', self.root / 'quality.json')
+   57: 
+   58:     def test_exact_counts_boundaries_and_sessions(self):
+   59:         for n in [1, 2, 3, 4, 5, 17, 10000]:
+   60:             path = self.root / f'events-{n}.jsonl'
+   61:             generate(self.movies, path, events=n, users=1000)
+   62:             result = validate(path, self.movies, report=self.root / f'report-{n}.json')
+   63:             self.assertEqual(result['status'], 'INPUT_PASS')
+   64:             self.assertEqual(result['input']['total'], n)
+   65: 
+   66:     def test_seed_reproducibility(self):
+   67:         self.make()
+   68:         other = self.root / 'repeat.jsonl'
+   69:         generate(self.movies, other, events=101, users=100)
+   70:         self.assertEqual(self.output.read_bytes(), other.read_bytes())
+   71: 
+   72:     def test_output_protection(self):
+   73:         self.make()
+   74:         with self.assertRaises(FileExistsError):
+   75:             generate(self.movies, self.output, events=101, users=100)
+   76: 
+   77:     def test_mock_reordered_output_matches(self):
+   78:         rows = self.make()
+   79:         (self.sink / 'part').write_text('\n'.join(reversed(rows)) + '\n', encoding='utf-8')
+   80:         self.assertEqual(self.check(self.sink)['status'], 'PASS')
+   81: 
+   82:     def test_missing_duplicate_invalid_and_mutated_detected(self):
+   83:         rows = self.make()
+   84:         changed = json.loads(rows[2])
+   85:         changed['userId'] = 'tampered'
+   86:         (self.sink / 'part').write_text('\n'.join([rows[0], rows[0], json.dumps(changed)] + rows[3:] + ['not json']) + '\n', encoding='utf-8')
+   87:         result = self.check(self.sink)
+   88:         self.assertEqual(result['status'], 'FAIL')
+   89:         self.assertEqual(result['missing_event_ids'], 1)
+   90:         self.assertEqual(result['output']['duplicates'], 1)
+   91:         self.assertEqual(result['output']['invalid'], 1)
+   92:         self.assertEqual(result['changed_payloads'], 1)
+   93: 
+   94:     def test_empty_sink_never_passes(self):
+   95:         self.make()
+   96:         self.assertEqual(self.check(self.sink)['status'], 'FAIL')
+   97: 
+   98:     def test_unknown_movie_rejected(self):
+   99:         rows = self.make()
+  100:         event = json.loads(rows[0])
+  101:         event['movieId'] = 99999999
+  102:         rows[0] = json.dumps(event)
+  103:         (self.sink / 'part').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+  104:         self.assertEqual(self.check(self.sink)['output']['invalid'], 1)
+  105: 
+  106:     def test_duration_tampering_rejected(self):
+  107:         rows = self.make()
+  108:         for i, row in enumerate(rows):
+  109:             event = json.loads(row)
+  110:             if event['action'] in ['pause', 'stop', 'complete']:
+  111:                 event['watchDuration'] += 1
+  112:                 rows[i] = json.dumps(event)
+  113:                 break
+  114:         self.output.write_text('\n'.join(rows) + '\n', encoding='utf-8')
+  115:         self.assertGreater(self.check()['session_errors'], 0)
+  116: 
+  117:     def test_naive_timezone_rejected(self):
+  118:         with self.assertRaises(ValueError):
+  119:             generate(self.movies, self.output, events=10, start='2026-09-01T00:00:00')
+  120: 
+  121:     def test_missing_genres_rejected(self):
+  122:         self.movies.write_text('movieId,title,genres\n1,Fixture (2001),\n', encoding='utf-8')
+  123:         with self.assertRaises(ValueError):
+  124:             prepare(self.movies, self.root / 'normalized.csv', self.root / 'quality.json')
+  125: 
+  126:     def test_validator_checks_duplicate_movie_ids(self):
+  127:         self.make()
+  128:         with self.movies.open('a', encoding='utf-8') as f:
+  129:             f.write('1,Duplicate,Drama\n')
+  130:         result = self.check()
+  131:         self.assertEqual(result['status'], 'FAIL')
+  132:         self.assertEqual(result['movies_quality']['error_rows'], 1)
+  133: 
+  134:     def test_validator_reports_empty_roll_file(self):
+  135:         rows = self.make()
+  136:         (self.sink / 'part').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+  137:         (self.sink / 'empty').write_bytes(b'')
+  138:         result = self.check(self.sink)
+  139:         self.assertEqual(result['status'], 'PASS')
+  140:         self.assertEqual(result['output_file_summary']['empty_files'], 1)
+  141: 
+  142:     def test_truncated_event_rejected(self):
+  143:         rows = self.make()
+  144:         (self.sink / 'part').write_text('\n'.join(rows), encoding='utf-8')
+  145:         result = self.check(self.sink)
+  146:         self.assertEqual(result['status'], 'FAIL')
+  147:         self.assertEqual(result['output_file_summary']['missing_final_newline_files'], 1)
+  148: 
+  149:     def test_integer_overflow_rejected(self):
+  150:         rows = self.make()
+  151:         event = json.loads(rows[0])
+  152:         event['sequenceNumber'] = 2**63
+  153:         rows[0] = json.dumps(event)
+  154:         self.output.write_text('\n'.join(rows)+'\n', encoding='utf-8')
+  155:         self.assertEqual(self.check()['input']['invalid'], 1)
+  156: 
+  157:     def test_validation_evidence_not_overwritten(self):
+  158:         self.make()
+  159:         self.check()
+  160:         with self.assertRaises(FileExistsError):
+  161:             self.check()
+  162: 
+  163: 
+  164: if __name__ == '__main__':
+  165:     unittest.main(verbosity=2)
+
+FILE config/flume-env.sh
+    1: #!/usr/bin/env bash
+    2: # flume-ng sets its default JAVA_OPTS before sourcing this file.
+    3: export JAVA_OPTS="${FLUME_HEAP_OPTS:--Xms128m -Xmx512m} -XX:+PrintFlagsFinal"
+    4: export FLUME_JAVA_OPTS="${FLUME_JAVA_OPTS:-} -Dlog4j.configurationFile=/opt/flume/conf/log4j2.xml"
+
+FILE config/flume.conf
+    1: # All paths are inside the Linux container, backed by RUN_DIR on the host.
+    2: a1.sources = r1
+    3: a1.channels = c1
+    4: a1.sinks = k1
+    5: a1.sources.r1.type = spooldir
+    6: a1.sources.r1.spoolDir = /data/spool
+    7: a1.sources.r1.channels = c1
+    8: a1.sources.r1.fileSuffix = .COMPLETED
+    9: a1.sources.r1.deletePolicy = never
+   10: a1.sources.r1.includePattern = ^.*[.]jsonl$
+   11: a1.sources.r1.ignorePattern = ^.*[.]tmp$
+   12: a1.sources.r1.deserializer = LINE
+   13: a1.sources.r1.deserializer.maxLineLength = 16384
+   14: a1.sources.r1.inputCharset = UTF-8
+   15: a1.sources.r1.decodeErrorPolicy = FAIL
+   16: a1.sources.r1.batchSize = 500
+   17: a1.channels.c1.type = file
+   18: a1.channels.c1.checkpointDir = /data/channel/checkpoint
+   19: a1.channels.c1.dataDirs = /data/channel/data
+   20: a1.channels.c1.capacity = 1000000
+   21: a1.channels.c1.transactionCapacity = 1000
+   22: a1.channels.c1.minimumRequiredSpace = 104857600
+   23: a1.sinks.k1.type = file_roll
+   24: a1.sinks.k1.channel = c1
+   25: a1.sinks.k1.sink.directory = /data/output
+   26: a1.sinks.k1.sink.pathManager.extension = jsonl
+   27: a1.sinks.k1.sink.rollInterval = 10
+   28: a1.sinks.k1.sink.batchSize = 500
+   29: a1.sinks.k1.sink.serializer = TEXT
+   30: a1.sinks.k1.sink.serializer.appendNewline = true
+
+FILE config/log4j2.xml
+    1: <?xml version="1.0" encoding="UTF-8"?>
+    2: <Configuration status="WARN">
+    3:   <Appenders>
+    4:     <Console name="Console" target="SYSTEM_OUT">
+    5:       <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c - %m%n"/>
+    6:     </Console>
+    7:     <File name="AgentFile" fileName="/logs/flume.log" append="true">
+    8:       <PatternLayout pattern="%d{ISO8601} %-5p [%t] %c - %m%n"/>
+    9:     </File>
+   10:   </Appenders>
+   11:   <Loggers>
+   12:     <Root level="info">
+   13:       <AppenderRef ref="Console"/>
+   14:       <AppenderRef ref="AgentFile"/>
+   15:     </Root>
+   16:   </Loggers>
+   17: </Configuration>
+
+FILE docs/architecture_decision_pending.md
+    1: # Quyết định kiến trúc cần nhóm xác nhận
+    2: 
+    3: Chuẩn bị ngày 11/10/2026 cho đợt triển khai lại Tuần 1. Đây là đề xuất kỹ thuật; **chưa có xác nhận của các thành viên**.
+    4: 
+    5: - Metadata MovieLens được giữ raw, chuẩn hóa riêng và đưa trực tiếp vào Spark qua movieId.
+    6: - Behavior log là synthetic, timestamp UTC Z, watchDuration là giây phát sinh từ play gần nhất.
+    7: - Log qua Flume 1.11.0: spooldir → File Channel → File Roll Sink → filesystem local bind mount theo run.
+    8: - Spark dùng container `apache/spark:3.5.1`, schema trong `src/schemas.py`, kiểm toàn bộ Sink output.
+    9: - Dashboard và phân tích chuyên sâu thuộc giai đoạn tiếp theo; HDFS chưa nằm trong phạm vi nghiệm thu Tuần 1.
+   10: - Mỗi run có vùng spool/channel/output/log/evidence riêng; kiểm conflicts và dedup trước phân tích. Một lần PASS không bảo đảm exactly-once.
+   11: 
+   12: Điều kiện chốt: nhóm xác nhận vai trò công nghệ, đường dẫn bàn giao, schema/units, phiên bản runtime đã đo và phân công. Lưu ngày/người xác nhận hoặc liên kết bằng chứng họp/phê duyệt. Không điền thay nhóm hoặc suy diễn phê duyệt từ tài liệu này.
+
+FILE docs/data_quality_report.md
+    1: # Chất lượng dữ liệu sau lượt kiểm lại
+    2: 
+    3: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+    4: 
+    5: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+    6: |---|---|---:|---:|---:|
+    7: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+    8: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+    9: 
+   10: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   11: 
+   12: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+   13: 
+   14: Movies được đọc bằng CSV parser UTF-8 strict, header/field count/positive signed long ID/title/genres/year/NFC kiểm toàn bộ. 9.742 ID phân biệt, 0 lỗi; 13 năm null và 34 nhãn `(no genres listed)` giữ nguyên; 11 dòng được chuẩn hóa trong file riêng, raw không sửa. Ratings 100.836, tags 3.683, links 9.742 đo bằng CSV parser, chưa phân tích ratings/tags.
+   15: 
+   16: Spark báo cáo từng loại lỗi và ví dụ eventId/_file khi lỗi; streaming validator có path:dòng. Không có ví dụ lỗi trong lô PASS vì mọi counter bằng 0, không tạo ví dụ giả. Trên fixture có lỗi, assertions yêu cầu phát hiện orphan ngoài 5 dòng đầu, parse timestamp/null, metadata trùng, eventId xung đột, duration âm, malformed CSV/JSON/type; các fixture luôn được ghi rõ không phải Flume.
+   17: 
+   18: Watch duration main: 1,458,785,357 giây; 303,052 phiên, 1,000 user, 9,740 phim. UTC từ 2026-08-31T17:00:04Z đến 2026-09-30T15:58:22Z. Không có lỗi phiên, sequence, completion hoặc overlap trên full reconciliation độc lập. File rolling rỗng không là event lỗi; tất cả file có bytes được parse và kiểm newline.
+   19: 
+   20: Tuần 2: kiểm eventId conflict trước dedup (không coi dropDuplicates bảo đảm exactly-once), xử lý year null thành nhóm unknown, split/explode genres, chuyển UTC sang Asia/Ho_Chi_Minh để thống kê giờ. Các thống kê phản ánh mô phỏng, không phải sở thích người xem thật.
+
+FILE docs/dataset_description.md
+    1: # Dataset phim
+    2: 
+    3: Nguồn: **MovieLens latest-small**, GroupLens, University of Minnesota.
+    4: 
+    5: - Trang nguồn: https://grouplens.org/datasets/movielens/latest/
+    6: - Tải: https://files.grouplens.org/datasets/movielens/ml-latest-small.zip
+    7: - Điều kiện sử dụng: https://files.grouplens.org/datasets/movielens/ml-latest-small-README.html
+    8: - Tải thực tế: **11/10/2026, 22:20:20 giờ Việt Nam** (15:20:20 UTC).
+    9: - ZIP: 978.202 byte; SHA256 `696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436`.
+   10: - Manifest máy đọc: `data/raw/download_manifest.json`. Giấy phép đầy đủ: `data/raw/ml-latest-small/README.txt`.
+   11: 
+   12: README snapshot ghi được sinh ngày 26/09/2018; đây là tập phát triển có thể thay đổi theo thời gian; hash snapshot giúp tái lập bản đã dùng. Không lấy số lượng trên website làm kết quả kiểm thử: bảng sau được đếm trực tiếp bằng CSV parser trên bản tải.
+   13: 
+   14: | File gốc | Số bản ghi, không tính header | Trường |
+   15: |---|---:|---|
+   16: | movies.csv | 9.742 | movieId, title, genres |
+   17: | ratings.csv | 100.836 | userId, movieId, rating, timestamp |
+   18: | tags.csv | 3.683 | userId, movieId, tag, timestamp |
+   19: | links.csv | 9.742 | movieId, imdbId, tmdbId |
+   20: 
+   21: CSV UTF-8, dấu phân cách phẩy, tiêu đề có dấu phẩy được quote. Phải dùng CSV parser, không `split(',')`. Genres phân tách bằng `|`.
+   22: 
+   23: | Trường chuẩn hóa | Kiểu khi đọc ở Spark | Ý nghĩa |
+   24: |---|---|---|
+   25: | movieId | long, không null | Khóa phim từ MovieLens |
+   26: | title | string | Giữ tên và hậu tố năm, bỏ khoảng trắng ngoài, Unicode NFC |
+   27: | genres | string | Danh sách nhãn ngăn bởi `|`; giữ `(no genres listed)` |
+   28: | releaseYear | integer, có thể null | Năm trích từ hậu tố `(YYYY)` cuối title |
+   29: 
+   30: Quy tắc năm: regex `\((\d{4})\)\s*$`, chỉ nhận khoảng 1870–2100. Không khớp, ngoài khoảng hoặc dạng năm kéo dài `(2006–2007)` → ô rỗng/null; không đoán, không lấy năm hiện tại. Title gốc vẫn được giữ để truy vết. Dataset không có runtime phim, không tự suy ra runtime từ title hay năm.
+   31: 
+   32: Kết quả QA: 0 ID trùng, 0 title trống, 0 genres trống, 34 giá trị `(no genres listed)`, 13 releaseYear rỗng, 11 dòng có thay đổi bởi chuẩn hóa. 0 lỗi giải mã UTF-8 và 0 lỗi cấu trúc CSV phát hiện. Đọc UTF-8 strict và kiểm ký tự thay thế/NUL không bảo đảm phát hiện mọi lỗi nội dung hay mọi trường hợp mojibake. Danh sách 13 phim và hash output nằm trong `evidence/recheck-20261011-221710/dataset_quality.json`.
+   33: 
+   34: Raw không sửa. Bản chuẩn hóa riêng vẫn có 9.742 dòng; không bỏ các phim thiếu năm/thể loại. Nếu ID trùng, title hoặc genres thiếu, script dừng để xử lý nguồn thay vì âm thầm chọn một dòng. Genres rỗng làm kiểm tra FAIL; không bịa nhãn mới. Chuỗi genres trùng trong một phim được loại trùng và giữ thứ tự.
+   35: 
+   36: Ba loại dữ liệu cần phân biệt: metadata mô tả phim; rating có sẵn phản ánh đánh giá người dùng MovieLens; JSONL của dự án là hành vi **mô phỏng**, không chuyển rating thành lượt play/watch. ID `sim-user-*` không liên quan userId trong ratings.csv. Ratings/tags chỉ được giữ nguyên và thống kê, chưa làm phân tích.
+   37: 
+   38: Sử dụng cho đồ án học tập, ghi nhận nguồn GroupLens; không ngụ ý được trường/nhóm nghiên cứu bảo trợ. Bản phân phối lại và biến đổi phải giữ điều kiện của nguồn; mục đích thương mại cần xin phép theo README. Trích dẫn: F. Maxwell Harper và Joseph A. Konstan (2015), *The MovieLens Datasets: History and Context*, DOI https://doi.org/10.1145/2827872. Giữ README gốc cùng dataset khi bàn giao.
+
+FILE docs/flume_pipeline.md
+    1: # Cấu hình và vận hành Flume
+    2: 
+    3: Lựa chọn cục bộ: Spooling Directory Source → File Channel → File Roll Sink, agent `a1`. Xem `config/flume.conf`, `Dockerfile`, `compose.yaml`, `scripts/run_flume.sh`, `scripts/run_pipeline.py`.
+    4: 
+    5: Source đọc file đã đóng; channel đệm trên đĩa; sink ghi event body vào file output. `LINE` đọc một event mỗi dòng, `TEXT` thêm newline và không chèn header vào JSON. Không có interceptor đổi payload. Schema ứng dụng được validator kiểm trước và sau vận chuyển; Flume không tự hiểu các trường JSON.
+    6: 
+    7: | Đường dẫn trong container | Host khi dùng runner | Vai trò |
+    8: |---|---|---|
+    9: | /project/config/flume.conf | Được COPY vào image lúc build | Cấu hình agent |
+   10: | /data/spool | data/runs/<run-id>/spool | Input bất biến, tracker và `.COMPLETED` |
+   11: | /data/channel/checkpoint | volume Linux riêng; export data/runs/<run-id>/channel/checkpoint | Trạng thái File Channel |
+   12: | /data/channel/data | volume Linux riêng; export data/runs/<run-id>/channel/data | Nhật ký channel |
+   13: | /data/output | data/runs/<run-id>/output | JSONL cho PySpark |
+   14: | /logs | logs/<run-id> | Log INFO vận hành của agent qua log4j2.xml |
+   15: 
+   16: Console log luôn được runner thu bằng `docker compose logs --no-color --timestamps` vào `evidence/<run-id>/flume-operational.log`. Không coi file channel hoặc log vận hành là dữ liệu hành vi. Compose mặc định ngoài runner dùng `./data` và `./logs`; runner truyền mount riêng cho từng lần.
+   17: 
+   18: Source nhận `.jsonl`, bỏ qua `.tmp`, batch 500; transactionCapacity channel 1.000 đáp ứng batch source/sink. Channel capacity 1.000.000 event là trần hàng đợi, không phải yêu cầu nạp đủ một triệu trong RAM. Chừa ít nhất 100 MB theo minimumRequiredSpace; nên chừa nhiều hơn cho thực nghiệm. Sink batch 500, roll mỗi 10 giây. File rỗng do roll được đo bytes/hash/empty và giữ nguyên; không chứa event. Event phải nhỏ hơn giới hạn LINE 16.384 ký tự.
+   19: 
+   20: Runner copy vào tên `.tmp` trong spool, đóng xong mới rename cùng thư mục; không ghi thêm, sửa hay tái sử dụng tên file source đã thấy. Không kéo-thả file đang ghi vào spool. File `.COMPLETED` được giữ làm dấu tiếp nhận, nhưng chỉ báo source đã xử lý chứ chưa chứng minh sink đã ghi đủ.
+   21: 
+   22: Flume 1.11.0 được tải từ Apache archive, Docker build kiểm SHA512 trước giải nén. Không dùng image Flume bên thứ ba không rõ nguồn. Java base image là Temurin chính thức. Image ID/build/launcher đúng Flume 1.11.0 được lưu từng run. `flume-ng` đặt default JAVA_OPTS trước source flume-env.sh; vì vậy cấu hình heap trong config/flume-env.sh. Agent ghi PrintFlagsFinal và ps args, đo MaxHeapSize 536.870.912 byte. log4j2.xml ghi INFO ra console và /logs/flume.log; HTTP metrics port 41414 không publish ra host.
+   23: 
+   24: ## Đọc kết quả kiểm thử
+   25: 
+   26: Runner đợi source hoàn tất và số dòng sink đạt số input, dừng container rồi validator đối chiếu: JSON, kiểu dữ liệu, trường bắt buộc, khóa movieId, số dòng, eventId duy nhất, trùng ID, xung đột cùng ID, event thiếu/thừa, payload bị thay đổi. Validator kiểm chuỗi trạng thái/giây xem/thời gian theo phiên trên input; output phải khớp payload từng eventId. So sánh bỏ qua thứ tự key JSON và thứ tự file output.
+   27: 
+   28: `PASS` cho một lần đối chiếu không phải cam kết **exactly-once**. Thử lại sau lỗi có thể tạo event trùng. File Channel giúp phục hồi nhưng không biến mọi sink thành giao dịch exactly-once với filesystem. `eventId` là khóa nhận diện lại; downstream kiểm xung đột rồi khử trùng. Chưa thử kill/restart hay lỗi đĩa, nên không có kết luận về phục hồi thực tế.
+   29: 
+   30: ## Nếu sau này bắt buộc HDFS
+   31: 
+   32: Giữ source/channel và thay sink bằng HDFS Sink trong cấu hình mới: cần cluster thật, NameNode URI, quyền ghi, Hadoop client/config tương thích và mạng giữa container với cluster. Dùng DataStream + text serializer để giữ JSON Lines; cấu hình đường dẫn/roll rồi kiểm lại pipeline độc lập. Không chỉ đổi `/data/output` thành chuỗi `hdfs://...` trên File Roll Sink. HDFS chưa triển khai trong tuần này; không có dữ liệu nào được chứng nhận đã lưu HDFS.
+   33: 
+   34: Nguồn tra cứu: [Flume User Guide](https://flume.apache.org/FlumeUserGuide), [bản phân phối chính thức](https://flume.apache.org/download.html), [danh sách tag Temurin](https://github.com/docker-library/official-images/blob/master/library/eclipse-temurin). Đã kiểm lại ngày 11/10/2026; launcher snapshot lấy từ image thực tế.
+   35: 
+   36: 
+   37: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+   38: 
+   39: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+   40: |---|---|---:|---:|---:|
+   41: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+   42: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+   43: 
+   44: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   45: 
+   46: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+
+FILE docs/log_schema.md
+    1: # Log hành vi mô phỏng
+    2: 
+    3: JSON Lines UTF-8, mỗi event một dòng kết thúc bằng LF, không BOM. Event timestamp dùng ISO 8601 UTC (`Z`). Giờ cao điểm được chọn theo UTC+07:00/Asia/Saigon. Không yêu cầu các phiên khác nhau được sắp xếp theo thời gian trong file; trong mỗi phiên luôn đúng thứ tự.
+    4: 
+    5: | Trường | Kiểu JSON | Ràng buộc |
+    6: |---|---|---|
+    7: | eventId | string | UUID v5 từ run + phiên + vị trí; duy nhất trong lô |
+    8: | userId | string | `sim-user-000001`… trong tập user giả lập |
+    9: | sessionId | string | UUID v5; một user, một phim, một chuỗi hành vi |
+   10: | movieId | integer | Tồn tại trong movies.csv chuẩn hóa |
+   11: | action | string | view / play / pause / stop / complete |
+   12: | timestamp | string | UTC Z, tăng nghiêm ngặt theo sequenceNumber trong phiên |
+   13: | watchDuration | integer >=0 | **Số giây xem mới phát sinh từ play gần nhất**, không phải tổng lũy kế |
+   14: | sequenceNumber | integer >=0 | Bắt đầu 0, tăng 1 trong phiên |
+   15: | runId | string | Định danh lần mô phỏng; mặc định từ hash các tham số |
+   16: | isSynthetic | boolean | Luôn true |
+   17: | simulatedMovieDuration | integer | 3.600–10.800 giây, giả lập cố định theo movieId + seed |
+   18: | durationSource | string | Luôn `synthetic`; không phải runtime lấy từ MovieLens |
+   19: 
+   20: ## Trạng thái và thời lượng
+   21: 
+   22: | Action | watchDuration | Ý nghĩa |
+   23: |---|---:|---|
+   24: | view | 0 | Mở trang/chi tiết phim, có thể rời đi mà không play |
+   25: | play | 0 | Bắt đầu hoặc tiếp tục xem; không cộng lại đoạn trước |
+   26: | pause | Thời gian từ play vừa trước đến pause | Đóng một đoạn xem |
+   27: | stop | Thời gian từ play vừa trước đến stop | Kết thúc sớm; tổng phiên < runtime mô phỏng |
+   28: | complete | Thời gian từ play vừa trước đến complete | Tổng phiên bằng runtime mô phỏng |
+   29: 
+   30: Chuỗi sinh: `view`; `view → play → stop/complete`; hoặc `view → play → pause → play → stop/complete`. Thời gian chờ trước play và thời gian pause không tính xem. Không có seek, tua nhanh, nhiều tab đồng thời hoặc phiên qua nhiều phim trong mô hình này. Sau khử trùng eventId, cộng watchDuration trên toàn bộ event của phiên là tổng thời gian xem.
+   31: 
+   32: Ví dụ diễn giải (không phải bằng chứng Flume): xem 120 giây → pause ghi 120; chờ 30 giây → play ghi 0; xem thêm 180 giây → stop ghi 180. Tổng xem 300 giây, không phải 420 hay 330 giây.
+   33: 
+   34: ## Phân bố và tái lập
+   35: 
+   36: Các phim được shuffle bằng seed rồi gán trọng số rank^-0,85. User được shuffle rồi gán trọng số rank^-0,65. Không dùng số rating để giả vờ mô phỏng phản ánh thực tế. Chọn giờ bắt đầu với trọng số 5 cho 19–23h, 0,5 cho 0–5h, 1,5 cho các giờ khác, nhân số giây hợp lệ trong khung giờ. Dự trữ bốn giờ cuối khoảng để phiên không vượt biên. Lịch sử phiên theo user dùng để loại các khoảng chồng nhau; điều này có thể làm phân bố thực tế lệch khỏi trọng số ban đầu khi dữ liệu dày.
+   37: 
+   38: Xấp xỉ 15% phiên chỉ view; phiên đã play có xác suất complete 55%, và xác suất có pause 35% nếu ngân sách event cho phép. Đây là tham số mô hình, không phải tỷ lệ đo từ người dùng. Nếu còn 1–2 event cuối, tạo phiên view-only để giữ đúng số lượng mà không cắt dở phiên. Một phần user/phim có thể không được chọn; `--users` là kích thước tập user, không ép tất cả phải hoạt động.
+   39: 
+   40: RAM không chứa một triệu JSON event: ghi từng phiên tối đa 5 event ra `.part`, sau hoàn tất mới rename. Chỉ giữ metadata, trọng số, bộ đếm và khoảng thời gian phiên để chống chồng lấn; bộ nhớ phần lịch tăng theo số phiên, không hằng số. Validator lưu eventId/payload vào SQLite tạm trên đĩa, cache 16 MB. Cần đủ đĩa tạm khi kiểm tra dữ liệu lớn; lô main một triệu event đã chạy và được đo tại `evidence/run-aa6b9eb58dca/reconciliation.json`.
+   41: 
+   42: Cùng dataset/seed/tham số tái tạo cùng eventId: một bản chạy lại không được nhập như hành vi mới. Nếu muốn lô độc lập, chỉ định `--run-id` khác. Nếu ghép demo và main, có thể có cùng user và khoảng ngày: chọn riêng dataset/lần chạy cho phân tích, không mặc nhiên coi chúng là một lịch sử người dùng liên tục.
+   43: 
+   44: Kết quả demo: 10.000 event, 3.058 phiên; view 3.058, play 3.471, pause 904, stop 1.177, complete 1.390. Có 861 user hoạt động trong tập 1.000 user và 1.664 phim được chọn. Số play gồm cả resume; số phiên thực sự bắt đầu xem là 2.567. Kiểm tra input không phát hiện ID trùng, phiên sai hoặc phiên chồng nhau.
+   45: 
+   46: 
+   47: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+   48: 
+   49: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+   50: |---|---|---:|---:|---:|
+   51: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+   52: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+   53: 
+   54: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   55: 
+   56: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+
+FILE docs/movie_schema.md
+    1: # Schema metadata phim
+    2: 
+    3: Nguồn local: `data/processed/movies.csv`, chuẩn hóa riêng từ MovieLens; raw giữ nguyên. Metadata không đi qua Flume. CSV UTF-8 strict, delimiter phẩy, header và quote CSV chuẩn; title có dấu phẩy dùng parser, `escape='"'` với Spark để đọc double quote.
+    4: 
+    5: | Field | Spark type | Nullable | Ràng buộc |
+    6: |---|---|---|---|
+    7: | movieId | LongType | false | Số dương <= 2^63-1, không trùng, join key |
+    8: | title | StringType | false | Không rỗng, Unicode NFC, bỏ khoảng trắng ngoài |
+    9: | genres | StringType | false | Không rỗng, nhãn phân cách bằng `\|`; giữ `(no genres listed)` |
+   10: | releaseYear | IntegerType | true | Hậu tố `(YYYY)` cuối title, 1870–2100; không xác định để null |
+   11: 
+   12: Schema tái sử dụng: `from src.schemas import MOVIE_SCHEMA`. 9.742 phim/ID unique; 13 null releaseYear hợp lệ, 34 `(no genres listed)`; không bỏ các dòng đó. Nullable=false là hợp đồng, Spark reader có thể vẫn tạo null; job kiểm riêng tất cả null bắt buộc, malformed, duplicate và range. Ví dụ đọc đầy đủ trong `scripts/spark_smoke_test.py`, kết quả QA trong `evidence/recheck-20261011-221710/dataset_quality.json` và Spark reports cùng thư mục.
+
+FILE docs/presentation_script.md
+    1: # Bài nói về kết quả kiểm lại 11/10/2026
+    2: 
+    3: Project dùng MovieLens latest-small của GroupLens: parser đếm 9.742 phim, metadata gồm movieId/title/genres, thêm releaseYear từ hậu tố năm; 13 phim để null vì không xác định được. ZIP, CSV gốc và giấy phép được giữ nguyên, bản chuẩn hóa riêng có SHA256.
+    4: 
+    5: Log là synthetic, không phải hành vi thu từ người dùng thật. Bộ main có một triệu sự kiện, 303,052 phiên, 1,000 user và 9,740 phim. watchDuration ghi giây mới phát sinh từ play; xem 120 giây, pause, xem 180 giây thì tổng là 300 giây. Runtime phim cũng được ghi rõ mô phỏng.
+    6: 
+    7: Flume 1.11.0 chạy trên Docker: spooldir Source nhận file đã đóng, File Channel đệm trên volume Linux riêng, File Roll Sink ghi JSONL ra filesystem local. Demo run-aefc814b0b5f đã đạt trước khi chạy main run-aa6b9eb58dca. Đối chiếu toàn bộ eventId và canonical payload cho main thấy đủ một triệu sự kiện, không mất/thừa/trùng/xung đột/đổi payload. JVM agent ghi heap tối đa 512 MiB, log thể hiện đầy đủ thành phần/counter.
+    8: 
+    9: Spark/PySpark 3.5.1 đã tạo SparkSession và action thật, đọc metadata cùng chính Sink main, kiểm mọi field, timestamp UTC, null/duplicate và full orphan join. Các bộ kiểm đều đạt; file rolling rỗng được đo riêng. Không suy exactly-once hoặc phục hồi lỗi từ lần chạy này.
+   10: 
+   11: Dữ liệu đủ để Tuần 2 phân tích lượt xem, thời gian xem, phim/thể loại và giờ hoạt động; dashboard chưa triển khai. Về nghiệm thu nhóm, vẫn thiếu xác nhận kiến trúc TV2-06 nên chưa tuyên bố hoàn thành đầy đủ Tuần 1. Tất cả kết luận liên kết tới audit và bằng chứng mới; lịch sử FAIL/BLOCKED được giữ nguyên.
+
+FILE docs/system_architecture.md
+    1: # Kiến trúc hệ thống — Hệ thống thu thập và phân tích log xem phim
+    2: 
+    3: Đề tài: **“Phân tích dữ liệu phim và log hành vi người dùng trên hệ thống xem phim”**
+    4: 
+    5: ---
+    6: 
+    7: ## 1. Định hướng công nghệ và vai trò các thành phần
+    8: 
+    9: Hệ thống được thiết kế theo đúng định hướng công nghệ trọng tâm của đồ án môn học Nhập môn Big Data:
+   10: 
+   11: ### A. Apache Flume — Công nghệ trọng tâm / Cốt lõi của đồ án
+   12: * **Vai trò trung tâm**: Đóng vai trò là thành phần cốt lõi của luồng thu thập và vận chuyển dữ liệu log hành vi người dùng (User Behavior Log).
+   13: * **Cơ chế hoạt động**: Hoạt động theo kiến trúc chuẩn:
+   14:   $$\text{Input Log} \longrightarrow \text{Source (spooldir)} \longrightarrow \text{Channel (file)} \longrightarrow \text{Sink (file\_roll)} \longrightarrow \text{Storage JSONL}$$
+   15: * **Nhiệm vụ**: Đảm bảo log được tiếp nhận tin cậy, đệm bền vững trên đĩa; chưa kiểm thử phục hồi sự cố, và xuất ra các tệp JSON Lines ổn định phục vụ xử lý phía sau.
+   16: 
+   17: ### B. Các công nghệ hỗ trợ
+   18: 1. **Docker / Docker Compose**:
+   19:    * Đóng vai trò hỗ trợ đóng gói môi trường, quản lý tài nguyên và đảm bảo tính tái lập (reproducibility) trên các hệ điều hành khác nhau của sinh viên và giảng viên.
+   20: 2. **Spark / PySpark**:
+   21:    * Đóng vai trò **downstream** (phía sau luồng thu thập). Spark chỉ được sử dụng sau khi Apache Flume đã thu thập và kết xuất log thành công. Spark kiểm tra chất lượng, làm sạch dữ liệu, biến đổi và thực hiện các phép tính phân tích. *Spark không phải là công nghệ chính/trọng tâm của đồ án.*
+   22: 3. **MovieLens Dataset**:
+   23:    * Là tập dữ liệu metadata tĩnh mô tả thông tin phim (tên, thể loại, năm phát hành). **MovieLens không cần và không đi qua Apache Flume**, được lưu trực tiếp vào kho lưu trữ để Spark kết hợp (join) với log hành vi.
+   24: 4. **Dashboard**:
+   25:    * Chỉ đóng vai trò trực quan hóa kết quả phân tích cuối cùng ở giai đoạn sau.
+   26: 
+   27: ---
+   28: 
+   29: ## 2. Sơ đồ kiến trúc luồng dữ liệu (Data Flow Architecture)
+   30: 
+   31: ```text
+   32: +------------------------+
+   33: |   MovieLens Dataset    | (Metadata tĩnh)
+   34: +------------------------+
+   35:            |
+   36:            v
+   37:   [prepare_movies.py]
+   38:            |
+   39:            v
+   40: +------------------------+
+   41: |       movies.csv       | ----------------------------------+
+   42: +------------------------+                                   |
+   43:                                                              |
+   44: +------------------------+                                   |
+   45: | User Behavior Log Gen  | (Mô phỏng hành vi xem phim)       |
+   46: +------------------------+                                   |
+   47:            |                                                 |
+   48:            v                                                 |
+   49:      Raw JSONL Logs                                          |
+   50:            |                                                 |
+   51:            v                                                 |
+   52: ======================================================       |
+   53: ||           APACHE FLUME PIPELINE (TRỌNG TÂM)      ||       |
+   54: ||                                                  ||       |
+   55: ||  [Source: spooldir]                              ||       |
+   56: ||     Quét thư mục spool, nạp atomic, đuôi COMPLETED||      |
+   57: ||           |                                      ||       |
+   58: ||           v                                      ||       |
+   59: ||  [Channel: file]                                 ||       |
+   60: ||     Đệm bền vững trên đĩa (checkpoint & data)    ||       |
+   61: ||           |                                      ||       |
+   62: ||           v                                      ||       |
+   63: ||  [Sink: file_roll]                               ||       |
+   64: ||     Cắt lô JSON Lines mỗi 10s (TEXT serializer)  ||       |
+   65: ======================================================       |
+   66:            |                                                 |
+   67:            v                                                 |
+   68: +------------------------+                                   |
+   69: | Storage / Output JSONL | ----------------------------------+
+   70: +------------------------+                                   |
+   71:                                                              v
+   72:                                              +-------------------------------+
+   73:                                              |       SPARK / PYSPARK         |
+   74:                                              |  - Tuần 1: Schema & Validation|
+   75:                                              |  - Tuần 2: Cleaning & Analysis|
+   76:                                              +-------------------------------+
+   77:                                                              |
+   78:                                                              v
+   79:                                              +-------------------------------+
+   80:                                              |   Kết quả phân tích (CSV)     |
+   81:                                              +-------------------------------+
+   82:                                                              |
+   83:                                                              v
+   84:                                              +-------------------------------+
+   85:                                              |           DASHBOARD           |
+   86:                                              |     (Trực quan hóa Tuần 2)    |
+   87:                                              +-------------------------------+
+   88: ```
+   89: 
+   90: ---
+   91: 
+   92: ## 3. Kiến trúc Container Docker
+   93: 
+   94: Hệ thống được module hóa thành các service độc lập qua Docker Compose:
+   95: 
+   96: 1. **Service `flume`**:
+   97:    * Image: `movie-log-flume:1.11.0-local` (OpenJDK JRE 8 + Apache Flume 1.11.0).
+   98:    * Volume: Runner bind spool/output/log riêng theo run; File Channel dùng named volume Linux riêng theo Compose project, được xuất về host sau stop.
+   99:    * Trách nhiệm: Thu thập log và ghi output JSON Lines vào `./data/runs/<run-id>/output/`.
+  100: 
+  101: 2. **Service `spark`** (Tích hợp Tuần 1):
+  102:    * Image: `apache/spark:3.5.1` (OpenJDK 11.0.22 + Python 3.8.10 + PySpark 3.5.1).
+  103:    * Volume: Mount thư mục dự án vào `/project`.
+  104:    * Trách nhiệm: Đọc `movies.csv` và output JSONL của Flume để xác thực schema, kiểm tra chất lượng dữ liệu và kiểm thử liên kết khóa `movieId`.
+  105: 
+  106: *Hai service hoạt động với các phiên bản Java độc lập (Flume dùng Java 8, Spark dùng Java 11), không xung đột môi trường và đảm bảo tính cô lập hoàn toàn.*
+  107: 
+  108: 
+  109: Ngày kiểm thực tế 11/10/2026: Flume và Spark QA đã chạy; phân tích/dashboard là Tuần 2. Chưa có bằng chứng nhóm phê duyệt kiến trúc; xem `docs/architecture_decision_pending.md`.
+
+FILE docs/user_log_schema.md
+    1: # Schema log hành vi
+    2: 
+    3: Sink thật hiện tại: `data/runs/run-aa6b9eb58dca/output/` (main) và `data/runs/run-aefc814b0b5f/output/` (demo). JSON Lines UTF-8/LF, 12 trường; không dùng generated input thay Sink. Tái sử dụng `from src.schemas import USER_LOG_SCHEMA`, không khai báo schema bản sao.
+    4: 
+    5: | Field | Spark type | Nullable | Ý nghĩa/ràng buộc |
+    6: |---|---|---|---|
+    7: | eventId | StringType | false | ID event; duy nhất trong lô, UUID v5 tái lập |
+    8: | userId | StringType | false | User synthetic, không liên quan ratings.userId |
+    9: | sessionId | StringType | false | Một user/phim/phiên |
+   10: | movieId | LongType | false | Khóa ngoại dương, <=2^63-1, tồn tại trong movies |
+   11: | action | StringType | false | view/play/pause/stop/complete |
+   12: | timestamp | StringType | false | ISO UTC YYYY-MM-DDTHH:MM:SSZ; parse sang TimestampType UTC |
+   13: | watchDuration | LongType | false | Giây mới phát sinh; view/play=0, pause/stop/complete>0 |
+   14: | sequenceNumber | LongType | false | Bắt đầu 0, tăng 1 trong phiên, <=2^63-1 |
+   15: | runId | StringType | false | ID lô mô phỏng; khác ID run vận chuyển Flume |
+   16: | isSynthetic | BooleanType | false | true |
+   17: | simulatedMovieDuration | LongType | false | 3600–10800 giây, cố định theo movieId+seed |
+   18: | durationSource | StringType | false | synthetic |
+   19: 
+   20: Các string định danh không rỗng. Nullable=false không tự cưỡng chế reader; kiểm null riêng. Timestamp ban đầu StringType, job dùng to_timestamp, kiểm thất bại parse và khoảng thời gian trên toàn lô. Thứ tự vật lý giữa phiên/file không bảo đảm; sort trong phiên bằng sequenceNumber. Quy tắc transition, thời lượng/completion và chống chồng giờ user trong `docs/log_schema.md`, generator và streaming validator. Spark đọc/quét mọi field, kiểm duplicate/conflict và left anti join toàn log. UUID lặp lại khi cùng seed/tham số; không mô tả duy nhất toàn cục qua nhiều lần nhập.
+   21: 
+   22: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+   23: 
+   24: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+   25: |---|---|---:|---:|---:|
+   26: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+   27: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+   28: 
+   29: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   30: 
+   31: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+
+FILE docs/week1_member2_report.md
+    1: # Báo cáo Tuần 1 — kiểm chứng downstream
+    2: 
+    3: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+    4: 
+    5: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+    6: |---|---|---:|---:|---:|
+    7: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+    8: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+    9: 
+   10: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   11: 
+   12: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+   13: 
+   14: Host Windows 10 build 19045 dùng Python 3.12.14 thật tại `C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; alias WindowsApps không dùng. Docker Desktop 4.88.1, Client/Engine 29.7.2, Compose v5.4.0, context desktop-linux, Linux containers, 4 CPU / 7,486 GiB Docker memory. Flume 1.11.0 chạy Temurin Java 1.8.0_504; agent thực ghi InitialHeapSize 134.217.728 và MaxHeapSize 536.870.912 byte. Spark/PySpark 3.5.1, Python 3.8.10, Java 11.0.22, master local[2], driver 2 GiB trong `apache/spark:3.5.1`. Host không cần PySpark/Java; scripts host dùng stdlib. Phiên bản/digest thực đo nằm trong execution logs và image-inspect; tag có thể thay đổi nên giữ image ID/digest khi bàn giao.
+   15: 
+   16: Job `scripts/spark_smoke_test.py` áp schema chính, cache và materialize canonical payload tất cả fields; count movies/log so với snapshot/run, null bắt buộc, malformed CSV/JSON, timestamp parse/range UTC, action/duration/provenance, metadata uniqueness, eventId duplicate/conflict và full left anti join. Kiểm sequence/time/segment duration/session identity toàn log; streaming validator bổ sung full transition/completion/user overlap. Hai lớp QA độc lập đọc dữ liệu thật; không drop/filter lỗi để PASS.
+   17: 
+   18: SparkSession local[2] và spark.range(5).count()=5 đã chạy; stdout/stderr/argv/cwd/UTC/exit 0 trong audit execution. 7 fixture nghiệp vụ và 2 fixture parser phát hiện lỗi có chủ đích, tách khỏi output Flume. Timestamp string chuyển sang TimestampType UTC; releaseYear nullable=true (13) được chấp nhận. Ở Tuần 2 kiểm xung đột trước dedup, join theo Long movieId, phân tích và dashboard; chưa triển khai các sản phẩm Tuần 2.
+
+FILE docs/week1_report.md
+    1: # Báo cáo Tuần 1 cập nhật sau thực thi
+    2: 
+    3: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+    4: 
+    5: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+    6: |---|---|---:|---:|---:|
+    7: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+    8: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+    9: 
+   10: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   11: 
+   12: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+   13: 
+   14: Host Windows 10 build 19045 dùng Python 3.12.14 thật tại `C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; alias WindowsApps không dùng. Docker Desktop 4.88.1, Client/Engine 29.7.2, Compose v5.4.0, context desktop-linux, Linux containers, 4 CPU / 7,486 GiB Docker memory. Flume 1.11.0 chạy Temurin Java 1.8.0_504; agent thực ghi InitialHeapSize 134.217.728 và MaxHeapSize 536.870.912 byte. Spark/PySpark 3.5.1, Python 3.8.10, Java 11.0.22, master local[2], driver 2 GiB trong `apache/spark:3.5.1`. Host không cần PySpark/Java; scripts host dùng stdlib. Phiên bản/digest thực đo nằm trong execution logs và image-inspect; tag có thể thay đổi nên giữ image ID/digest khi bàn giao.
+   15: 
+   16: 18 unit tests host và 9 kiểm thử Spark fixture đạt. Fixture không phải Sink evidence. Toàn bộ source/config/tests/docs cuối được đọc lại, dữ liệu toàn lô được đối chiếu độc lập, manifest kiểm bytes/SHA256. Xác nhận kiến trúc nhóm vẫn thiếu: TV2-06 ĐẠT MỘT PHẦN. Báo cáo này ghi kết quả tự động kiểm lại, không xác nhận thay đóng góp hoặc phê duyệt của cá nhân.
+
+FILE docs/week2_handoff.md
+    1: # Bàn giao dữ liệu cho Tuần 2
+    2: 
+    3: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+    4: 
+    5: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+    6: |---|---|---:|---:|---:|
+    7: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+    8: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+    9: 
+   10: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+   11: 
+   12: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+   13: 
+   14: Metadata: `data/processed/movies.csv`. Lô phân tích: `data/runs/run-aa6b9eb58dca/output/`; demo không gộp vào main. Dùng MOVIE_SCHEMA/USER_LOG_SCHEMA từ `src/schemas.py`: movieId hai bên LongType, sequenceNumber LongType, timestamp StringType chuyển TimestampType UTC, duration LongType đơn vị giây mới phát sinh. ReleaseYear IntegerType nullable; các field còn lại không null theo hợp đồng và được kiểm riêng.
+   15: 
+   16: ```python
+   17: from src.schemas import MOVIE_SCHEMA, USER_LOG_SCHEMA
+   18: from pyspark.sql import functions as F
+   19: spark.conf.set('spark.sql.session.timeZone', 'UTC')
+   20: movies = spark.read.option('header', True).option('escape', '"').schema(MOVIE_SCHEMA).csv('data/processed/movies.csv')
+   21: events = spark.read.schema(USER_LOG_SCHEMA).json('data/runs/run-aa6b9eb58dca/output/*.jsonl')
+   22: events = events.withColumn('eventTime', F.to_timestamp('timestamp'))
+   23: # Kiểm null/orphan và eventId conflict trước dedup trong job downstream.
+   24: joined = events.join(movies, 'movieId', 'left')
+   25: ```
+   26: 
+   27: Job QA đầy đủ `scripts/spark_smoke_test.py` đã đọc chính Sink này bằng Spark thật; mẫu trên không thay QA. Bàn giao raw/license, processed, generated manifests, Sink/log/evidence và source theo manifest; data Git ignore vẫn có local. SHA256 từng file Sink và bytes trong reconciliation/manifest. Spool copy, channel/checkpoint không dùng làm dataset cho Spark.
+   28: 
+   29: | Phân tích Tuần 2 | Định nghĩa |
+   30: |---|---|
+   31: | Lượt xem chi tiết | Đếm action=view |
+   32: | Phiên bắt đầu xem | Count distinct (runId,sessionId) có play; không đếm resume là lượt mới |
+   33: | Thời gian xem | SUM(watchDuration), không cộng runtime |
+   34: | Hoàn thành | Phiên complete / phiên có play, mẫu số 0 -> null |
+   35: | Phim phổ biến | Nhóm movieId rồi join title |
+   36: | Thể loại | Split genres theo `\|`, explode; nhiều thể loại có thể làm tổng tăng, ghi rõ cách tính |
+   37: | Giờ hoạt động | UTC -> Asia/Ho_Chi_Minh trước hour |
+   38: 
+   39: Timestamp/min/max/actions/users/movies/sessions/watch seconds và thống kê giờ bắt đầu trong manifest input và reconciliation. User/phim có trọng số; không suy chúng đại diện người dùng thật. HDFS, dashboard, job phân tích chuyên sâu và phục hồi lỗi chưa thực hiện, không thuộc nghiệm thu Tuần 1. Nhóm vẫn cần xác nhận kiến trúc theo `docs/architecture_decision_pending.md`.

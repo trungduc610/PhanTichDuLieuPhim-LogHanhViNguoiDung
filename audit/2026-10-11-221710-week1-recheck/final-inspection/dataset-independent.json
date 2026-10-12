@@ -1,0 +1,72 @@
+{
+  "checked_at_utc": "2026-10-11T16:15:25.699505+00:00",
+  "csv_parser": "Python csv.reader strict UTF-8, all records",
+  "raw_csv": [
+    {
+      "path": "data/raw/ml-latest-small/links.csv",
+      "header": [
+        "movieId",
+        "imdbId",
+        "tmdbId"
+      ],
+      "rows": 9742,
+      "bad_field_count": 0,
+      "bytes": 197979,
+      "sha256": "97ad18e4e56a09363c65676b6cb3482ce3e2cea2372a24620c1599c843325f31"
+    },
+    {
+      "path": "data/raw/ml-latest-small/movies.csv",
+      "header": [
+        "movieId",
+        "title",
+        "genres"
+      ],
+      "rows": 9742,
+      "bad_field_count": 0,
+      "bytes": 494431,
+      "sha256": "5a5f32dd9bb3797b8e728a1b98958789d2b13f294a69fdfbc5727f8a9611aa07"
+    },
+    {
+      "path": "data/raw/ml-latest-small/ratings.csv",
+      "header": [
+        "userId",
+        "movieId",
+        "rating",
+        "timestamp"
+      ],
+      "rows": 100836,
+      "bad_field_count": 0,
+      "bytes": 2483723,
+      "sha256": "aa289ca83157595d0df6aea1be6a4ded676ddc4385472e8313a8ed9805352646"
+    },
+    {
+      "path": "data/raw/ml-latest-small/tags.csv",
+      "header": [
+        "userId",
+        "movieId",
+        "tag",
+        "timestamp"
+      ],
+      "rows": 3683,
+      "bad_field_count": 0,
+      "bytes": 118660,
+      "sha256": "92a9f8bb7916dceef6151209845788c3643f794dfa79d1feaec7121b5960399d"
+    }
+  ],
+  "processed_movies": {
+    "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\processed\\movies.csv",
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "bytes": 533347,
+    "rows": 9742,
+    "unique_movie_ids": 9742,
+    "error_rows": 0,
+    "issues_sample": [],
+    "releaseYear_null_allowed": 13,
+    "no_genres_listed": 34,
+    "status": "PASS"
+  },
+  "zip_bytes": 978202,
+  "zip_sha256": "696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436",
+  "license_sha256": "63d22ac138e80fae37021797ed8e1b9424b5239dc576a137422adf783ae3f404",
+  "status": "PASS"
+}
