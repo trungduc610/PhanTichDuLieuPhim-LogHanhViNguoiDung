@@ -9,7 +9,7 @@ Repository: [trungduc610/PhanTichDuLieuPhim-LogHanhViNguoiDung](https://github.c
 - README, tài liệu dataset/schema/pipeline, báo cáo nghiệm thu Tuần 1 và TV1 Tuần 2, hợp đồng tích hợp TV2, sơ đồ kiến trúc và điều kiện xác nhận nhóm chưa có.
 - Bằng chứng nhẹ trong các audit/evidence lịch sử: JSON, log văn bản, command records, source snapshots, manifest, samples synthetic nhỏ và ảnh UI thực. Giữ nguyên cả FAIL/BLOCKED, các lỗi verifier và kết quả sửa lại; không công bố chỉ các PASS.
 
-Staging dùng danh sách đường dẫn cụ thể đã kiểm kích thước/nội dung/bí mật, không dùng `git add .` hoặc `git add -A`. Tệp mới được chọn không vượt 2 MiB/tệp; không có file lớn trên 50 MiB đang tracked cần xử lý. Danh sách kiểm tra trước thêm tài liệu này gồm 1.017 tệp, 5.388.802 byte; tài liệu này bổ sung một tệp. Tổng staged thực tế và SHA commit được ghi trong audit công bố local, và file list cuối có thể xem bằng `git show --stat` trên branch.
+Staging dùng danh sách đường dẫn cụ thể đã kiểm kích thước/nội dung/bí mật, không dùng `git add .` hoặc `git add -A`. Tệp mới được chọn không vượt 2 MiB/tệp; không có file lớn trên 50 MiB đang tracked cần xử lý. Phạm vi cuối gồm 1.021 tệp thay đổi so với main, khoảng 5,40 MB byte local: lượt đầu 1.018 tệp, sau đó bổ sung ba `source-snapshot/Dockerfile` của các run Flume và cập nhật tài liệu này bằng commit tiếp theo. Không viết lại commit đã push. Tổng staged thực tế và SHA commit được ghi trong audit công bố local; xem toàn bộ file list bằng `git diff --stat main...codex/week2-tv1-hdfs`.
 
 ## Dữ liệu và bằng chứng giữ local
 
