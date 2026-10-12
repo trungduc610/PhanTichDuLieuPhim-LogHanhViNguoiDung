@@ -1,1 +1,3 @@
-# Python >=3.10; standard library only. No pip dependencies.
+# Host download/generation/validator/runner/tests: Python >=3.10, standard library.
+# Spark jobs: apache/spark:3.5.1 from compose.yaml bundles PySpark 3.5.1,
+# Python 3.8.10 and Java 11.0.22 (measured 2026-10-11). No host pip install needed.

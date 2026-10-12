@@ -1,0 +1,32 @@
+[
+    {
+        "Id":  6136,
+        "CPU":  688.390625,
+        "WorkingSet64":  40964096,
+        "StartTime":  "\/Date(1791733444234)\/"
+    },
+    {
+        "Id":  13484,
+        "CPU":  0.265625,
+        "WorkingSet64":  21057536,
+        "StartTime":  "\/Date(1791733443884)\/"
+    },
+    {
+        "Id":  18108,
+        "CPU":  0.359375,
+        "WorkingSet64":  21184512,
+        "StartTime":  "\/Date(1791734553803)\/"
+    }
+]
+[
+    {
+        "FullName":  "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\temporary\\movie-validate-ek375l2e\\validation.sqlite",
+        "Length":  1135017984,
+        "LastWriteTimeUtc":  "\/Date(1791734444404)\/"
+    },
+    {
+        "FullName":  "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\temporary\\movie-validate-ek375l2e\\validation.sqlite-journal",
+        "Length":  9728,
+        "LastWriteTimeUtc":  "\/Date(1791734463549)\/"
+    }
+]

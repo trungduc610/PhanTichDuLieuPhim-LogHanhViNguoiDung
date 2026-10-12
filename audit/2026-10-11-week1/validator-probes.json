@@ -1,0 +1,17 @@
+{
+  "fixture_only": true,
+  "never_flume_evidence": true,
+  "source": "supplemental_checks.py",
+  "movies_rows": 2,
+  "movies_unique_ids": 1,
+  "empty_sink_files": 1,
+  "validator_status": "PASS",
+  "validator_output": {
+    "total": 1,
+    "unique": 1,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "observation": "Validator collapses movieIds into a set and does not reject/report empty sink files separately. Separate movie quality checks are necessary; empty roll files can be normal but should be inventoried."
+}

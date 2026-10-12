@@ -1,0 +1,52 @@
+ M .dockerignore
+ M Dockerfile
+ M README.md
+ M compose.yaml
+ M docs/data_quality_report.md
+ M docs/dataset_description.md
+ M docs/flume_pipeline.md
+ M docs/log_schema.md
+ M docs/movie_schema.md
+ M docs/presentation_script.md
+ M docs/system_architecture.md
+ M docs/user_log_schema.md
+ M docs/week1_member2_report.md
+ M docs/week1_report.md
+ M docs/week2_handoff.md
+ M requirements.txt
+ M scripts/check_environment.py
+ M scripts/prepare_movies.py
+ M scripts/run_flume.sh
+ M scripts/run_pipeline.py
+ M scripts/spark_smoke_test.py
+ M scripts/validate_pipeline.py
+ M tests/test_project.py
+?? audit/
+?? compose.hdfs.yaml
+?? config/flume-env.sh
+?? config/hdfs/
+?? config/log4j2.xml
+?? docs/architecture_decision_pending.md
+?? docs/week2_system_architecture.md
+?? docs/week2_tv1_hdfs_report.md
+?? docs/week2_tv2_hdfs_handoff.md
+?? evidence/recheck-20261011-221710/
+?? evidence/run-8ceda3a1111e/
+?? evidence/run-aa6b9eb58dca/
+?? evidence/run-aefc814b0b5f/
+?? evidence/week2-hdfs/
+?? scripts/create_delivery_manifest.py
+?? scripts/create_hdfs_manifest.py
+?? scripts/hdfs_common.py
+?? scripts/hdfs_guard_tests.py
+?? scripts/hdfs_hash_verify.py
+?? scripts/hdfs_io.py
+?? scripts/hdfs_restart_verify.py
+?? scripts/hdfs_service.sh
+?? scripts/hdfs_source.py
+?? scripts/movie_quality.py
+?? scripts/run_hdfs.py
+?? scripts/spark_hdfs_validate.py
+?? scripts/spark_parser_regression_test.py
+?? scripts/spark_regression_test.py
+?? tests/test_hdfs_properties.py

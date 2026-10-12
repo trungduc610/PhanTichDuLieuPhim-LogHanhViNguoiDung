@@ -1,0 +1,7 @@
+#Mon Oct 12 07:25:13 UTC 2026
+storageID=DS-530f74f7-1ee4-4b04-8596-ee4b071e22da
+clusterID=hdfs-385a18d3f03a
+cTime=0
+datanodeUuid=666ed85c-0aa5-4e50-bc0c-70fa7a4d9b23
+storageType=DATA_NODE
+layoutVersion=-57

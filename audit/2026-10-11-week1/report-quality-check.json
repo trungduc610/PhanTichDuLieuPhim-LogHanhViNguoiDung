@@ -1,0 +1,17 @@
+{
+  "tasks": 22,
+  "products": 11,
+  "sections": "A-G",
+  "citations_checked": 213,
+  "status_counts": {
+    "ĐẠT": 7,
+    "ĐẠT MỘT PHẦN": 11,
+    "CHƯA ĐẠT": 1,
+    "CHƯA THỂ XÁC MINH": 3
+  },
+  "baseline_files": 131,
+  "baseline_changed": [],
+  "only_audit_changes": true,
+  "citation_line_separator": "LF",
+  "report_utf8": true
+}

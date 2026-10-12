@@ -1,0 +1,40 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "run",
+    "--rm",
+    "spark",
+    "--driver-memory",
+    "2g",
+    "scripts/spark_hdfs_validate.py",
+    "--source-manifest",
+    "evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json",
+    "--hdfs-verification",
+    "evidence/week2-hdfs/hdfs-385a18d3f03a/content-after-restart.json",
+    "--report",
+    "evidence/week2-hdfs/hdfs-385a18d3f03a/spark-hdfs.json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-12T07:53:37.679787+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "os": "Windows-10-10.0.19045-SP0",
+  "environment": {
+    "DOCKER_HOST": null,
+    "DOCKER_CONTEXT": null,
+    "DOCKER_CONFIG": null,
+    "RUN_DIR": null,
+    "LOG_DIR": null,
+    "TMP": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\temporary",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\execution\\spark-hdfs-599fc32f\\stdout.txt",
+  "stderr_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\execution\\spark-hdfs-599fc32f\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-12T07:55:37.141647+00:00"
+}

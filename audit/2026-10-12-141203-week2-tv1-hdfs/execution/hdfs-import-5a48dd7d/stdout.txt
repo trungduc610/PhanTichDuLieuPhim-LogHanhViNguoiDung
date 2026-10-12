@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-10-12T07:30:58.213858+00:00",
+  "hdfs_run_id": "hdfs-385a18d3f03a",
+  "source_manifest_sha256": "ab6e60dfd5185229f7244cfcd581d868d3b128c5c68150a393b5b7ca249119d7",
+  "source_hashes": {
+    "scripts/hdfs_io.py": "531830b6d80a5b4f6b4dcd1ff5ad202c480ed0ffa9ffd8be57fe40d1b6d3ad6b",
+    "scripts/hdfs_common.py": "8e8feea5fab0c1bc6b4a20ad5af86804f0afb6c1f6c00ada94ed771f52a72896",
+    "scripts/common.py": "246ee962b07d43e9b9beafb1918ce1a35b88d9ee9f30ea03e0a70232068706b0"
+  },
+  "issues": [],
+  "missing_files": [],
+  "unexpected_files": [],
+  "live_datanodes": true,
+  "safe_mode_off": true,
+  "fsck_healthy": true,
+  "totals": {
+    "movies": 9742,
+    "logs": 1000000,
+    "log_bytes": 343339148,
+    "duplicate_ids": 0,
+    "invalid_records": 0
+  },
+  "unique_event_ids": 1000000,
+  "total_bytes": 343872495,
+  "finished_at_utc": "2026-10-12T07:41:46.476479+00:00"
+}

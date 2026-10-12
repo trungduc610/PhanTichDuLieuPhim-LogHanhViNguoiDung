@@ -1,137 +1,18 @@
-# Báo cáo Tuần 1 — Thành viên 2
+# Báo cáo Tuần 1 — kiểm chứng downstream
 
-**Người thực hiện**: Thành viên 2 (Kỹ sư Dữ liệu PySpark Downstream).  
-**Đề tài**: “Phân tích dữ liệu phim và log hành vi người dùng trên hệ thống xem phim”.  
-**Trọng tâm công nghệ của đồ án**: **Apache Flume** là công nghệ cốt lõi của luồng thu thập log; Spark/PySpark đóng vai trò hạ tầng hỗ trợ phía sau (downstream) để kiểm tra, làm sạch và phân tích dữ liệu sau khi Flume đã kết xuất thành công.
+Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
 
----
+| Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+|---|---|---:|---:|---:|
+| Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+| Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
 
-## 1. Dữ liệu đầu vào
+Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
 
-### Movie Dataset (Metadata phim):
-* **Đường dẫn**: `data/processed/movies.csv`
-* **Nguồn**: MovieLens Latest Small (GroupLens, Đại học Minnesota).
-* **Số lượng bản ghi**: 9.742 phim.
-* **Định dạng**: CSV (UTF-8, delimiter `,`).
-* **Đặc điểm**: Dữ liệu metadata tĩnh, độc lập và **không đi qua Apache Flume**.
+Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
 
-### User Behavior Log (Log hành vi người dùng):
-* **Đường dẫn chính thức**: `data/runs/run-f63c810e9d8d/output/*.jsonl` (254 files) và tập demo `data/runs/run-a9b3a8a26afb/output/*.jsonl` (4 files).
-* **Trạng thái thu thập**: Đã đi qua trọn vẹn pipeline Apache Flume (`spooldir` Source → `file` Channel → `file_roll` Sink).
-* **Số lượng bản ghi**: 1.000.000 events (tập chính) và 10.000 events (tập demo).
-* **Định dạng**: JSON Lines (UTF-8, mỗi dòng một JSON object hợp lệ kết thúc bằng `\n`).
+Host Windows 10 build 19045 dùng Python 3.12.14 thật tại `C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; alias WindowsApps không dùng. Docker Desktop 4.88.1, Client/Engine 29.7.2, Compose v5.4.0, context desktop-linux, Linux containers, 4 CPU / 7,486 GiB Docker memory. Flume 1.11.0 chạy Temurin Java 1.8.0_504; agent thực ghi InitialHeapSize 134.217.728 và MaxHeapSize 536.870.912 byte. Spark/PySpark 3.5.1, Python 3.8.10, Java 11.0.22, master local[2], driver 2 GiB trong `apache/spark:3.5.1`. Host không cần PySpark/Java; scripts host dùng stdlib. Phiên bản/digest thực đo nằm trong execution logs và image-inspect; tag có thể thay đổi nên giữ image ID/digest khi bàn giao.
 
----
+Job `scripts/spark_smoke_test.py` áp schema chính, cache và materialize canonical payload tất cả fields; count movies/log so với snapshot/run, null bắt buộc, malformed CSV/JSON, timestamp parse/range UTC, action/duration/provenance, metadata uniqueness, eventId duplicate/conflict và full left anti join. Kiểm sequence/time/segment duration/session identity toàn log; streaming validator bổ sung full transition/completion/user overlap. Hai lớp QA độc lập đọc dữ liệu thật; không drop/filter lỗi để PASS.
 
-## 2. Schema Movie (Đặc tả PySpark)
-
-File đặc tả chi tiết: `docs/movie_schema.md` và mã nguồn tái sử dụng: `src/schemas.py`.
-
-| Field | Spark Type | Nullable | Ý nghĩa |
-|---|---|---|---|
-| `movieId` | `LongType` | `false` | Khóa chính của phim (Primary Key, dùng làm join key) |
-| `title` | `StringType` | `false` | Tên phim kèm năm phát hành nếu có |
-| `genres` | `StringType` | `false` | Danh sách thể loại phim ngăn cách bằng `\|` |
-| `releaseYear` | `IntegerType` | `true` | Năm phát hành trích xuất từ tiêu đề (13 phim để null hợp lệ) |
-
----
-
-## 3. Schema User Behavior Log (Đặc tả PySpark)
-
-File đặc tả chi tiết: `docs/user_log_schema.md` và mã nguồn tái sử dụng: `src/schemas.py`.
-
-| Field | Spark Type | Nullable | Ý nghĩa |
-|---|---|---|---|
-| `eventId` | `StringType` | `false` | Định danh duy nhất toàn cục của sự kiện (UUID v5) |
-| `userId` | `StringType` | `false` | Mã người dùng (`sim-user-XXXXXX`) |
-| `sessionId` | `StringType` | `false` | Mã phiên xem phim (UUID v5) |
-| `movieId` | `LongType` | `false` | Mã phim tương tác (khóa ngoại liên kết với `movies.csv`) |
-| `action` | `StringType` | `false` | Hành vi (`view`, `play`, `pause`, `stop`, `complete`) |
-| `timestamp` | `StringType` | `false` | Thời điểm phát sinh sự kiện ISO 8601 UTC (`...Z`) |
-| `watchDuration` | `LongType` | `false` | Số giây xem mới phát sinh từ lượt play gần nhất (nguyên `>= 0`) |
-| `sequenceNumber` | `LongType` | `false` | Thứ tự bước thực hiện trong phiên (tăng từ 0) |
-| `runId` | `StringType` | `false` | Mã định danh lô mô phỏng |
-| `isSynthetic` | `BooleanType` | `false` | Cờ dữ liệu mô phỏng (`true`) |
-| `simulatedMovieDuration` | `LongType` | `false` | Thời lượng phim giả lập (3.600 - 10.800 giây) |
-| `durationSource` | `StringType` | `false` | Nguồn thời lượng (`"synthetic"`) |
-
----
-
-## 4. Khóa liên kết (Join Key)
-
-* **Join Key**: `movieId` (`movies.movieId = user_log.movieId`).
-* **Kiểu dữ liệu**: Cùng kiểu `LongType` (64-bit signed integer).
-* **Tính toàn vẹn**:
-  * `movies.movieId`: 100% Unique (9.742 giá trị phân biệt, 0 null).
-  * `user_log.movieId`: 100% giá trị trong log đều tồn tại trong `movies.csv` (0 orphan records).
-* **Bản số quan hệ (Cardinality)**:
-  * Movie Dataset: **1**
-  * User Behavior Log: **N**
-  * Quan hệ **1 → N** (Một phim có thể có nhiều lượt tương tác hành vi từ người dùng).
-
----
-
-## 5. Data Quality (Chất lượng dữ liệu)
-
-Báo cáo đầy đủ: `docs/data_quality_report.md`.
-
-* **Kiểm tra cấu trúc CSV & JSON**: 100% hợp lệ, không có malformed JSON, không lỗi UTF-8/BOM.
-* **Missing & Null Values**: 0 null ở các trường bắt buộc; 13 giá trị null ở `releaseYear` được ghi nhận đúng theo dữ liệu gốc.
-* **Duplicates**: 0 duplicate ở `movieId`, 0 duplicate `eventId` trong lô chạy Flume.
-* **Logic nghiệp vụ**: `watchDuration >= 0` (0 âm), phân bố action hợp lý, timestamp tăng đơn điệu theo sequence trong phiên.
-* **Chuyển tiếp Tuần 2**: Dữ liệu sẵn sàng để Tuần 2 thực hiện idempotent deduplication, convert timezone và explode genres.
-
----
-
-## 6. Kiến trúc hệ thống
-
-```text
-MovieLens Dataset ──> prepare_movies.py ──> movies.csv (Metadata tĩnh)
-                                                 │
-                                                 ▼
-User Log Gen ──> Flume (Source -> Channel -> Sink) ──> Storage Output JSONL
-                                                           │
-                                                           ▼
-                                                Spark / PySpark (Docker)
-                                                           │
-                                                           ▼
-                                                Cleaning & Analysis (Tuần 2)
-                                                           │
-                                                           ▼
-                                                Dashboard (Trực quan hóa)
-```
-
----
-
-## 7. Môi trường Spark/PySpark
-
-* **Docker Engine**: Docker Desktop 4.93.0 / Docker Engine 29.8.1
-* **Docker Compose**: v5.5.1
-* **Spark Service**: `apache/spark:3.5.1` (tích hợp trong `compose.yaml` qua profile `spark`)
-* **Spark Version**: Apache Spark 3.5.1
-* **PySpark Version**: 3.5.1
-* **Java Version trong Spark Container**: Eclipse Temurin OpenJDK 11.0.22 (độc lập với Java 8 của Flume)
-* **Python Version trong Spark Container**: Python 3.8.10
-
----
-
-## 8. Kiểm thử Spark (Smoke Test)
-
-Lệnh thực thi:
-```bash
-docker compose run --rm spark scripts/spark_smoke_test.py
-```
-
-Kết quả kiểm thử thực tế:
-* **SparkSession**: **PASS** (khởi tạo thành công local master với 1GB driver memory).
-* **spark.range(5)**: **PASS** (thực thi DataFrame cơ bản thành công).
-* **movies.csv Read**: **PASS** (đọc đủ 9.742 bản ghi, áp dụng thành công `MOVIE_SCHEMA`).
-* **Flume Output Read**: **PASS** (đọc đủ 1.000.000 bản ghi từ 254 files JSONL qua `USER_LOG_SCHEMA`).
-* **Schema Validation**: **PASS** (12 trường khớp chính xác kiểu dữ liệu).
-* **movieId Join Validation**: **PASS** (thực hiện phép nối mẫu 5 dòng giữa log và movies thành công, khớp chính xác tên phim và thể loại).
-
----
-
-## 9. Kết luận
-
-Môi trường Spark/PySpark đã sẵn sàng cho Tuần 2. Movie dataset và output Flume có schema rõ ràng, khóa `movieId` tương thích 100% và có thể sử dụng cho Data Cleaning, Transformation và Analysis ở giai đoạn tiếp theo.
+SparkSession local[2] và spark.range(5).count()=5 đã chạy; stdout/stderr/argv/cwd/UTC/exit 0 trong audit execution. 7 fixture nghiệp vụ và 2 fixture parser phát hiện lỗi có chủ đích, tách khỏi output Flume. Timestamp string chuyển sang TimestampType UTC; releaseYear nullable=true (13) được chấp nhận. Ở Tuần 2 kiểm xung đột trước dedup, join theo Long movieId, phân tích và dashboard; chưa triển khai các sản phẩm Tuần 2.

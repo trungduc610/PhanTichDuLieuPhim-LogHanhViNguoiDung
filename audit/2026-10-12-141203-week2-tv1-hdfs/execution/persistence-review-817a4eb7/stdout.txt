@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-12T07:53:32.853069+00:00",
+  "run_id": "hdfs-385a18d3f03a",
+  "reviewed_original_report": "evidence/week2-hdfs/hdfs-385a18d3f03a/persistence.json",
+  "original_report_sha256": "6d44209cfabd937c506d76b1f7a34fd1acbde51701a74ceac51210610edadbd0",
+  "verification_source_sha256": "ea194992f88199e2dbb2857eef07910af32bfba29643f2e24fba63c93adaf4ac",
+  "all_storage_properties_unchanged": true,
+  "before_properties": {
+    "namenode": {
+      "namespaceID": "1182174077",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "1791789899789",
+      "storageType": "NAME_NODE",
+      "blockpoolID": "BP-1738312168-172.18.0.2-1791789899789",
+      "layoutVersion": "-66"
+    },
+    "datanode": {
+      "storageID": "DS-530f74f7-1ee4-4b04-8596-ee4b071e22da",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "0",
+      "datanodeUuid": "666ed85c-0aa5-4e50-bc0c-70fa7a4d9b23",
+      "storageType": "DATA_NODE",
+      "layoutVersion": "-57"
+    }
+  },
+  "after_properties": {
+    "namenode": {
+      "namespaceID": "1182174077",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "1791789899789",
+      "storageType": "NAME_NODE",
+      "blockpoolID": "BP-1738312168-172.18.0.2-1791789899789",
+      "layoutVersion": "-66"
+    },
+    "datanode": {
+      "storageID": "DS-530f74f7-1ee4-4b04-8596-ee4b071e22da",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "0",
+      "datanodeUuid": "666ed85c-0aa5-4e50-bc0c-70fa7a4d9b23",
+      "storageType": "DATA_NODE",
+      "layoutVersion": "-57"
+    }
+  },
+  "content_report": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-hdfs\\hdfs-385a18d3f03a\\content-after-restart.json",
+  "format_marker_count": 1,
+  "reuse_markers": 2,
+  "raw_version_text_unchanged": false,
+  "note": "Original FAIL retained. Only timestamp comments changed; all properties and actual data bytes/counts were compared. No second restart or reformat was needed."
+}

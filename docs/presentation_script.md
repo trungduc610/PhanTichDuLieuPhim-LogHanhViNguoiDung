@@ -1,17 +1,11 @@
-# Bài nói 2–3 phút
+# Bài nói về kết quả kiểm lại 11/10/2026
 
-Em là Nhan Tử Mạnh, phụ trách chuẩn bị dữ liệu và phần thu thập log trong tuần một của đề tài phân tích phim và hành vi người dùng.
+Project dùng MovieLens latest-small của GroupLens: parser đếm 9.742 phim, metadata gồm movieId/title/genres, thêm releaseYear từ hậu tố năm; 13 phim để null vì không xác định được. ZIP, CSV gốc và giấy phép được giữ nguyên, bản chuẩn hóa riêng có SHA256.
 
-Về dữ liệu phim, em chọn MovieLens latest-small của GroupLens vì có nguồn công khai, tải lại được và có điều kiện sử dụng rõ ràng. Sau khi tải, em đếm trực tiếp được 9.742 phim. Mỗi phim có movieId, title và genres. Em giữ nguyên dữ liệu gốc và tạo một bản chuẩn hóa riêng. Năm phát hành được lấy từ hậu tố trong tên phim; 13 phim không có định dạng năm phù hợp được để trống, không tự đoán. Rating có sẵn là đánh giá người dùng, khác với log hành vi em tạo.
+Log là synthetic, không phải hành vi thu từ người dùng thật. Bộ main có một triệu sự kiện, 303,052 phiên, 1,000 user và 9,740 phim. watchDuration ghi giây mới phát sinh từ play; xem 120 giây, pause, xem 180 giây thì tổng là 300 giây. Runtime phim cũng được ghi rõ mô phỏng.
 
-Log của em là dữ liệu mô phỏng phục vụ học tập, mỗi dòng là một sự kiện JSON. Sự kiện có người dùng, phiên, mã phim, hành động và thời gian UTC. Các hành động đi theo diễn biến: mở thông tin, bắt đầu xem, có thể tạm dừng rồi tiếp tục, cuối cùng dừng hoặc xem hết. Em dùng trọng số để một số phim phổ biến hơn và buổi tối có nhiều phiên hơn. Thời lượng phim được giả lập và có trường đánh dấu rõ.
+Flume 1.11.0 chạy trên Docker: spooldir Source nhận file đã đóng, File Channel đệm trên volume Linux riêng, File Roll Sink ghi JSONL ra filesystem local. Demo run-aefc814b0b5f đã đạt trước khi chạy main run-aa6b9eb58dca. Đối chiếu toàn bộ eventId và canonical payload cho main thấy đủ một triệu sự kiện, không mất/thừa/trùng/xung đột/đổi payload. JVM agent ghi heap tối đa 512 MiB, log thể hiện đầy đủ thành phần/counter.
 
-Điểm cần chú ý là watchDuration ghi số giây xem mới phát sinh, không phải tổng thời gian lũy kế. Ví dụ xem 120 giây rồi tạm dừng, sau đó xem thêm 180 giây thì hai event ghi 120 và 180. Sau khi loại bản ghi trùng theo eventId, tổng là 300 giây.
+Spark/PySpark 3.5.1 đã tạo SparkSession và action thật, đọc metadata cùng chính Sink main, kiểm mọi field, timestamp UTC, null/duplicate và full orphan join. Các bộ kiểm đều đạt; file rolling rỗng được đo riêng. Không suy exactly-once hoặc phục hồi lỗi từ lần chạy này.
 
-Pipeline được cấu hình gồm Source, Channel và Sink. Source đọc các file log đã ghi hoàn tất trong thư mục spool. File Channel đệm event trên đĩa. File Roll Sink ghi từng JSON event ra filesystem cục bộ để nhóm PySpark đọc ở tuần sau. Đây chưa phải HDFS. Em chỉ chuyển file vào spool sau khi đóng xong và không sửa file đã được Flume nhận.
-
-Kết quả em đã kiểm chứng là demo 10.000 event, 3.058 phiên, không phát hiện ID trùng hay lỗi logic phiên; 12 kiểm thử Python đều đạt. Tuy nhiên, máy thực nghiệm hiện thiếu Docker và Java, WSL báo lỗi quyền, nên em chưa chạy được Flume và chưa có output sink để đối chiếu. Em đã bàn giao runner tự lưu log và báo cáo để hoàn tất bước này trên máy có Docker. Em không dùng kết quả kiểm tra input để khẳng định pipeline đã thành công.
-
-Ngay cả khi chạy thành công, em chỉ kết luận về số liệu quan sát được của lần chạy đó, không khẳng định exactly-once. Tuần hai sẽ kiểm xung đột và khử trùng eventId trước khi join movieId và tính số phiên xem, tổng thời gian xem, tỷ lệ hoàn thành.
-
-**Sau khi thực nghiệm E2E thật:** thay đoạn hạn chế bằng số input, output, unique, thiếu và trùng từ reconciliation; chỉ nói “không phát hiện trùng trong lần chạy này” nếu báo cáo thực sự ghi 0.
+Dữ liệu đủ để Tuần 2 phân tích lượt xem, thời gian xem, phim/thể loại và giờ hoạt động; dashboard chưa triển khai. Về nghiệm thu nhóm, vẫn thiếu xác nhận kiến trúc TV2-06 nên chưa tuyên bố hoàn thành đầy đủ Tuần 1. Tất cả kết luận liên kết tới audit và bằng chứng mới; lịch sử FAIL/BLOCKED được giữ nguyên.

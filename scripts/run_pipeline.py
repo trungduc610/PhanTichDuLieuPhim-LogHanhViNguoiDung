@@ -11,9 +11,16 @@ from common import sha256, utcnow, write_json
 from validate_pipeline import validate
 
 ROOT = Path(__file__).resolve().parents[1]
+PIPELINE_FILES = ['Dockerfile', 'compose.yaml', 'config/flume.conf', 'config/flume-env.sh',
+                  'config/log4j2.xml', 'scripts/run_flume.sh', 'scripts/verify_archive.py',
+                  'scripts/run_pipeline.py', 'scripts/validate_pipeline.py', 'scripts/movie_quality.py', 'scripts/common.py']
 
 
-def run(input_file, timeout=300, demo_proof=None):
+def pipeline_hashes():
+    return {p: sha256(ROOT / p) for p in PIPELINE_FILES}
+
+
+def run(input_file, timeout=300, demo_proof=None, movies='data/processed/movies.csv'):
     os.chdir(ROOT)
     input_file = Path(input_file).resolve()
     run_id = 'run-' + uuid.uuid4().hex[:12]
@@ -21,6 +28,14 @@ def run(input_file, timeout=300, demo_proof=None):
     evidence.mkdir(parents=True)
     commands = []
     state = {'run_id': run_id, 'started_at_utc': utcnow(), 'status': 'NOT_RUN', 'input': str(input_file)}
+    state['source_config_hashes'] = pipeline_hashes()
+    state['movies'] = str(Path(movies).resolve())
+    for name in PIPELINE_FILES:
+        target = evidence / 'source-snapshot' / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / name, target)
+    revision = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
+    state['git_revision'] = revision.stdout.strip() if revision.returncode == 0 else None
     env = os.environ.copy()
     run_dir = ROOT / 'data' / 'runs' / run_id
     log_dir = ROOT / 'logs' / run_id
@@ -28,16 +43,18 @@ def run(input_file, timeout=300, demo_proof=None):
     base = ['docker', 'compose', '-p', 'movie-' + run_id]
 
     def command(args, filename, check=True):
-        commands.append(args)
-        with (evidence / filename).open('w', encoding='utf-8') as f:
+        record = {'argv': args, 'cwd': str(ROOT), 'started_at_utc': utcnow(), 'log': filename}
+        commands.append(record)
+        with (evidence / filename).open('x', encoding='utf-8') as f:
             result = subprocess.run(args, env=env, stdout=f, stderr=subprocess.STDOUT, text=True)
+        record.update({'exit_code': result.returncode, 'finished_at_utc': utcnow()})
         if check and result.returncode:
             raise RuntimeError(f'Command exited {result.returncode}; inspect {filename}')
         return result
 
     started = False
     try:
-        initial = validate(input_file, 'data/processed/movies.csv', report=evidence / 'input_validation.json')
+        initial = validate(input_file, movies, report=evidence / 'input_validation.json')
         if initial['status'] != 'INPUT_PASS':
             raise ValueError('Input validation failed')
         if initial['input']['total'] > 10000:
@@ -50,21 +67,31 @@ def run(input_file, timeout=300, demo_proof=None):
                 raise ValueError('Demo proof is not a successful small E2E run')
             if proof.get('config_sha256') != sha256('config/flume.conf'):
                 raise ValueError('Config changed since demo; rerun demo')
+            if proof.get('source_config_hashes') != state['source_config_hashes']:
+                raise ValueError('Pipeline source/image configuration changed since demo; rerun demo')
         if shutil.which('docker') is None:
             state['status'] = 'BLOCKED_ENVIRONMENT'
             raise RuntimeError('Docker executable not found. Install/start Docker Desktop with Linux containers.')
-        command(['docker', 'version'], 'docker-version.txt')
+        version = command(['docker', 'version'], 'docker-version.txt', check=False)
+        if version.returncode:
+            state['status'] = 'BLOCKED_ENVIRONMENT'
+            raise RuntimeError('Docker Engine inaccessible; see docker-version.txt')
         command(['docker', 'compose', 'version'], 'compose-version.txt')
         for folder in ['spool', 'output', 'channel/checkpoint', 'channel/data']:
             (run_dir / folder).mkdir(parents=True)
         log_dir.mkdir(parents=True)
         command(base + ['config'], 'compose-resolved.yaml')
-        command(base + ['build'], 'build.log')
+        command(base + ['build', 'flume'], 'build.log')
         started = True
         command(base + ['up', '-d'], 'up.log')
         command(base + ['images'], 'images.txt')
+        command(['docker', 'image', 'inspect', 'movie-log-flume:1.11.0-local'], 'image-inspect.json')
         command(base + ['exec', '-T', 'flume', 'java', '-version'], 'java-version.txt')
         command(base + ['exec', '-T', 'flume', '/opt/flume/bin/flume-ng', 'version'], 'flume-version.txt')
+        command(base + ['exec', '-T', 'flume', 'cat', '/opt/flume/bin/flume-ng'], 'launcher-snapshot.sh')
+        command(base + ['exec', '-T', 'flume', 'sh', '-c', 'ps -eo pid,args | grep "org.apache.flume.node.Application" | grep -v grep'], 'jvm-process.txt')
+        command(base + ['exec', '-T', 'flume', 'bash', '-c', 'source /opt/flume/conf/flume-env.sh; java $JAVA_OPTS -XX:+PrintFlagsFinal -version'], 'jvm-effective-flags.txt')
+        command(base + ['exec', '-T', 'flume', 'sh', '-c', 'for i in $(seq 1 60); do curl -fsS http://127.0.0.1:41414/metrics && exit 0; sleep 1; done; exit 1'], 'metrics-start.json')
         # Copy completely to an ignored temporary name, then atomically rename in SAME directory.
         staged = run_dir / 'spool' / (uuid.uuid4().hex + '.jsonl')
         temporary = staged.with_suffix('.tmp')
@@ -75,20 +102,38 @@ def run(input_file, timeout=300, demo_proof=None):
         deadline = time.monotonic() + timeout
         expected = initial['input']['total']
         drained = False
+        positions = {}
+        progress_at = 0
         while time.monotonic() < deadline:
             completed = staged.with_name(staged.name + '.COMPLETED').exists()
             count = 0
             for path in (run_dir / 'output').glob('*'):
                 if path.is_file():
+                    offset, lines = positions.get(path, (0, 0))
                     with path.open('rb') as f:
-                        count += sum(1 for line in f if line.endswith(b'\n'))
+                        f.seek(offset)
+                        for line in f:
+                            if not line.endswith(b'\n'):
+                                break
+                            offset += len(line)
+                            lines += 1
+                    positions[path] = (offset, lines)
+                    count += lines
+            if time.monotonic() >= progress_at:
+                with (evidence / 'progress.jsonl').open('a', encoding='utf-8') as f:
+                    f.write(json.dumps({'at_utc': utcnow(), 'spool_completed': completed, 'observed_complete_lines': count, 'expected': expected}) + '\n')
+                progress_at = time.monotonic() + 10
             if completed and count >= expected:
                 drained = True
                 break
             time.sleep(2)
+        command(base + ['exec', '-T', 'flume', 'curl', '-fsS', 'http://127.0.0.1:41414/metrics'], 'metrics-final.json', check=False)
         command(base + ['stop'], 'stop.log')
+        # Keep File Channel on Linux storage for fsync; export its stopped state.
+        command(base + ['cp', 'flume:/data/channel/.', str(run_dir / 'channel')], 'channel-export.log')
+        command(['docker', 'volume', 'inspect', 'movie-' + run_id + '_flume-channel'], 'channel-volume.json')
         # Reconcile only after sink is stopped and file buffers closed.
-        result = validate(input_file, 'data/processed/movies.csv', run_dir / 'output', evidence / 'reconciliation.json')
+        result = validate(input_file, movies, run_dir / 'output', evidence / 'reconciliation.json')
         state['spool_completed'] = staged.with_name(staged.name + '.COMPLETED').exists()
         state['status'] = 'PASS' if drained and state['spool_completed'] and result['status'] == 'PASS' else 'FAIL'
         if not drained:
@@ -130,6 +175,7 @@ if __name__ == '__main__':
     p.add_argument('--input', default='data/generated/demo.jsonl')
     p.add_argument('--timeout', type=int, default=300)
     p.add_argument('--demo-proof')
+    p.add_argument('--movies', default='data/processed/movies.csv')
     a = p.parse_args()
-    result = run(a.input, a.timeout, a.demo_proof)
+    result = run(a.input, a.timeout, a.demo_proof, a.movies)
     raise SystemExit(0 if result['status'] == 'PASS' else 1)

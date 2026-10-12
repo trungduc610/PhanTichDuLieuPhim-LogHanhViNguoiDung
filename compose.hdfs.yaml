@@ -1,0 +1,49 @@
+services:
+  namenode:
+    image: apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144
+    user: "0:0"
+    hostname: namenode
+    init: true
+    stop_grace_period: 60s
+    environment:
+      HADOOP_CONF_DIR: /project/config/hdfs
+      HADOOP_HEAPSIZE_MAX: "512"
+      HDFS_RUN_ID: ${HDFS_RUN_ID:?Use run_hdfs.py or the saved run context}
+    entrypoint: ["bash", "/project/scripts/hdfs_service.sh", "namenode"]
+    volumes:
+      - .:/project:ro
+      - namenode:/hdfs/name
+    tmpfs: [/data]
+    ports:
+      - "127.0.0.1:${HDFS_WEB_PORT:-19870}:9870"
+  datanode:
+    image: apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144
+    user: "0:0"
+    hostname: datanode
+    init: true
+    stop_grace_period: 60s
+    environment:
+      HADOOP_CONF_DIR: /project/config/hdfs
+      HADOOP_HEAPSIZE_MAX: "512"
+      HDFS_RUN_ID: ${HDFS_RUN_ID:?Use a saved run context}
+    entrypoint: ["bash", "/project/scripts/hdfs_service.sh", "datanode"]
+    volumes:
+      - .:/project:ro
+      - datanode:/hdfs/data
+    tmpfs: [/data]
+    depends_on: [namenode]
+  spark:
+    image: apache/spark:3.5.1
+    profiles: [spark]
+    working_dir: /project
+    environment:
+      HADOOP_CONF_DIR: /project/config/hdfs
+      HADOOP_USER_NAME: root
+      PYTHONDONTWRITEBYTECODE: "1"
+    volumes:
+      - .:/project
+    entrypoint: ["/opt/spark/bin/spark-submit"]
+    command: ["scripts/spark_hdfs_validate.py", "--help"]
+volumes:
+  namenode:
+  datanode:

@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "config"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:49.815771+00:00",
+  "exit_code": 0,
+  "output": "name: phantichdulieuphim-loghanhvinguoidung\nservices:\n  flume:\n    build:\n      context: C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\n      dockerfile: Dockerfile\n    image: movie-log-flume:1.11.0-local\n    init: true\n    networks:\n      default: null\n    stop_grace_period: 1m0s\n    volumes:\n      - type: bind\n        source: C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\n        target: /data\n        bind: {}\n      - type: bind\n        source: C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\logs\n        target: /logs\n        bind: {}\nnetworks:\n  default:\n    name: phantichdulieuphim-loghanhvinguoidung_default\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\n"
+}

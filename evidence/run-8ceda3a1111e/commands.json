@@ -1,0 +1,291 @@
+{
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "environment": {
+    "RUN_DIR": "C:/Users/User/Documents/GitHub/PhanTichDuLieuPhim-LogHanhViNguoiDung/data/runs/run-8ceda3a1111e",
+    "LOG_DIR": "C:/Users/User/Documents/GitHub/PhanTichDuLieuPhim-LogHanhViNguoiDung/logs/run-8ceda3a1111e"
+  },
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "version"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:09.163523+00:00",
+      "log": "docker-version.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:09.832172+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "version"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:09.832192+00:00",
+      "log": "compose-version.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:10.814968+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "config"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:10.839969+00:00",
+      "log": "compose-resolved.yaml",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:12.426741+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "build",
+        "flume"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:12.426741+00:00",
+      "log": "build.log",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:31.182515+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "up",
+        "-d"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:31.182515+00:00",
+      "log": "up.log",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:49.857441+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "images"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:49.857441+00:00",
+      "log": "images.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:53.072649+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "movie-log-flume:1.11.0-local"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:53.072649+00:00",
+      "log": "image-inspect.json",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:53.975985+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "exec",
+        "-T",
+        "flume",
+        "java",
+        "-version"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:53.975985+00:00",
+      "log": "java-version.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:56.240143+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "exec",
+        "-T",
+        "flume",
+        "/opt/flume/bin/flume-ng",
+        "version"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:56.240143+00:00",
+      "log": "flume-version.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:35:58.938589+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "exec",
+        "-T",
+        "flume",
+        "cat",
+        "/opt/flume/bin/flume-ng"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:35:58.938589+00:00",
+      "log": "launcher-snapshot.sh",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:36:00.805254+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "exec",
+        "-T",
+        "flume",
+        "sh",
+        "-c",
+        "ps -eo pid,args | grep \"org.apache.flume.node.Application\" | grep -v grep"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:36:00.805254+00:00",
+      "log": "jvm-process.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:36:03.474376+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "exec",
+        "-T",
+        "flume",
+        "bash",
+        "-c",
+        "source /opt/flume/conf/flume-env.sh; java $JAVA_OPTS -XX:+PrintFlagsFinal -version"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:36:03.474376+00:00",
+      "log": "jvm-effective-flags.txt",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:36:05.637712+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "exec",
+        "-T",
+        "flume",
+        "sh",
+        "-c",
+        "for i in $(seq 1 60); do curl -fsS http://127.0.0.1:41414/metrics && exit 0; sleep 1; done; exit 1"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:36:05.637712+00:00",
+      "log": "metrics-start.json",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:36:09.244800+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "exec",
+        "-T",
+        "flume",
+        "curl",
+        "-fsS",
+        "http://127.0.0.1:41414/metrics"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:37:40.744695+00:00",
+      "log": "metrics-final.json",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:37:41.164293+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "stop"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:37:41.164293+00:00",
+      "log": "stop.log",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:37:41.961807+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "stop"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:37:46.718175+00:00",
+      "log": "stop-final.log",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:37:49.110808+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "logs",
+        "--no-color",
+        "--timestamps"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:37:49.110808+00:00",
+      "log": "flume-operational.log",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:37:49.735476+00:00"
+    },
+    {
+      "argv": [
+        "docker",
+        "compose",
+        "-p",
+        "movie-run-8ceda3a1111e",
+        "down"
+      ],
+      "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+      "started_at_utc": "2026-10-11T15:37:49.735476+00:00",
+      "log": "down.log",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-11T15:37:50.752136+00:00"
+    }
+  ]
+}

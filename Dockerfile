@@ -11,7 +11,9 @@ RUN python3 /tmp/verify_archive.py flume.tar.gz flume.sha512 \
     && tar -xzf flume.tar.gz -C /opt/flume --strip-components=1 \
     && rm -rf /tmp/flume-download
 ENV FLUME_HOME=/opt/flume
-ENV JAVA_OPTS="-Xms128m -Xmx512m"
+ENV FLUME_HEAP_OPTS="-Xms128m -Xmx512m"
+COPY config/flume-env.sh /opt/flume/conf/flume-env.sh
+COPY config/log4j2.xml /opt/flume/conf/log4j2.xml
 COPY config/flume.conf /project/config/flume.conf
 COPY scripts/run_flume.sh /project/scripts/run_flume.sh
 RUN chmod +x /project/scripts/run_flume.sh

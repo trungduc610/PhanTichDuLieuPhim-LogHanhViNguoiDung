@@ -1,0 +1,70 @@
+[
+    {
+        "Id": "sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94",
+        "RepoTags": [
+            "apache/spark:3.5.1"
+        ],
+        "RepoDigests": [
+            "apache/spark@sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2024-02-29T03:10:09.065306711Z",
+        "Config": {
+            "User": "spark",
+            "Env": [
+                "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US:en",
+                "LC_ALL=en_US.UTF-8",
+                "JAVA_VERSION=jdk-11.0.22+7",
+                "SPARK_TGZ_URL=https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz",
+                "SPARK_TGZ_ASC_URL=https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz.asc",
+                "GPG_KEY=FD3E84942E5E6106235A1D25BD356A9F8740E4FF",
+                "SPARK_HOME=/opt/spark"
+            ],
+            "Entrypoint": [
+                "/opt/entrypoint.sh"
+            ],
+            "WorkingDir": "/opt/spark/work-dir",
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "20.04"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 535191709,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:28da0445c4497f3ecb56288bd74d91ed1ff6f86578d1d0f6f9cb2781915163b1",
+                "sha256:280a35f8a8e51d852025d3abcbe2f4c114cdac749182d5fef3fa1a4090c9651c",
+                "sha256:b03e66cb04daa54c8c9417728b78d19e535d677074e144583b418ab55986f887",
+                "sha256:5a552a1e1b0bb876b3cc62630170f4bebef8e869f0da26c4292275cea3ccd850",
+                "sha256:278b866edee309e22d1334df12d2d5665adf6293a896760af43eae218316d012",
+                "sha256:5e80c961328a7e6f72adba0dd4761816aa1ad9689f955fb5d623933d5f64b7cc",
+                "sha256:ce30fa221df2e81104dc7938c619dbca4c54929a83e051af58ce6e3ef26af808",
+                "sha256:c2c203c35a04ca154648a5e0ae3e4a7b241595831bb24da78d47bdf5e83a5ec0",
+                "sha256:84083b64bd5b64054131536ea79fd80a28e052a0200a54460c1dc4ba91e80042",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:c56019f8ceb0282ff819cd6115f41c90d693b081b3f2b9b955dd2fa7b8019347"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-11T15:37:13.353510485Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+            "digest": "sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94",
+            "size": 685
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "docker.io/apache/spark"
+                }
+            ]
+        }
+    }
+]

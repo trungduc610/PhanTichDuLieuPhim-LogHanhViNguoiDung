@@ -5,11 +5,11 @@ Nguồn: **MovieLens latest-small**, GroupLens, University of Minnesota.
 - Trang nguồn: https://grouplens.org/datasets/movielens/latest/
 - Tải: https://files.grouplens.org/datasets/movielens/ml-latest-small.zip
 - Điều kiện sử dụng: https://files.grouplens.org/datasets/movielens/ml-latest-small-README.html
-- Tải thực tế: **03/10/2026, 15:51:21 giờ Việt Nam** (08:51:21 UTC).
+- Tải thực tế: **11/10/2026, 22:20:20 giờ Việt Nam** (15:20:20 UTC).
 - ZIP: 978.202 byte; SHA256 `696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436`.
 - Manifest máy đọc: `data/raw/download_manifest.json`. Giấy phép đầy đủ: `data/raw/ml-latest-small/README.txt`.
 
-Đây là tập phát triển có thể thay đổi theo thời gian; hash snapshot giúp tái lập bản đã dùng. Không lấy số lượng trên website làm kết quả kiểm thử: bảng sau được đếm trực tiếp bằng CSV parser trên bản tải.
+README snapshot ghi được sinh ngày 26/09/2018; đây là tập phát triển có thể thay đổi theo thời gian; hash snapshot giúp tái lập bản đã dùng. Không lấy số lượng trên website làm kết quả kiểm thử: bảng sau được đếm trực tiếp bằng CSV parser trên bản tải.
 
 | File gốc | Số bản ghi, không tính header | Trường |
 |---|---:|---|
@@ -29,9 +29,9 @@ CSV UTF-8, dấu phân cách phẩy, tiêu đề có dấu phẩy được quote
 
 Quy tắc năm: regex `\((\d{4})\)\s*$`, chỉ nhận khoảng 1870–2100. Không khớp, ngoài khoảng hoặc dạng năm kéo dài `(2006–2007)` → ô rỗng/null; không đoán, không lấy năm hiện tại. Title gốc vẫn được giữ để truy vết. Dataset không có runtime phim, không tự suy ra runtime từ title hay năm.
 
-Kết quả QA: 0 ID trùng, 0 title trống, 0 genres trống, 34 giá trị `(no genres listed)`, 13 releaseYear rỗng, 11 dòng có thay đổi bởi chuẩn hóa. 0 lỗi giải mã UTF-8 và 0 lỗi cấu trúc CSV phát hiện. Đọc UTF-8 strict và kiểm ký tự thay thế/NUL không bảo đảm phát hiện mọi lỗi nội dung hay mọi trường hợp mojibake. Danh sách 13 phim và hash output nằm trong `evidence/dataset_quality.json`.
+Kết quả QA: 0 ID trùng, 0 title trống, 0 genres trống, 34 giá trị `(no genres listed)`, 13 releaseYear rỗng, 11 dòng có thay đổi bởi chuẩn hóa. 0 lỗi giải mã UTF-8 và 0 lỗi cấu trúc CSV phát hiện. Đọc UTF-8 strict và kiểm ký tự thay thế/NUL không bảo đảm phát hiện mọi lỗi nội dung hay mọi trường hợp mojibake. Danh sách 13 phim và hash output nằm trong `evidence/recheck-20261011-221710/dataset_quality.json`.
 
-Raw không sửa. Bản chuẩn hóa riêng vẫn có 9.742 dòng; không bỏ các phim thiếu năm/thể loại. Nếu ID trùng hoặc title thiếu, script dừng để xử lý nguồn thay vì âm thầm chọn một dòng. Genres rỗng được thống kê, không bịa nhãn mới. Chuỗi genres trùng trong một phim được loại trùng và giữ thứ tự.
+Raw không sửa. Bản chuẩn hóa riêng vẫn có 9.742 dòng; không bỏ các phim thiếu năm/thể loại. Nếu ID trùng, title hoặc genres thiếu, script dừng để xử lý nguồn thay vì âm thầm chọn một dòng. Genres rỗng làm kiểm tra FAIL; không bịa nhãn mới. Chuỗi genres trùng trong một phim được loại trùng và giữ thứ tự.
 
 Ba loại dữ liệu cần phân biệt: metadata mô tả phim; rating có sẵn phản ánh đánh giá người dùng MovieLens; JSONL của dự án là hành vi **mô phỏng**, không chuyển rating thành lượt play/watch. ID `sim-user-*` không liên quan userId trong ratings.csv. Ratings/tags chỉ được giữ nguyên và thống kê, chưa làm phân tích.
 

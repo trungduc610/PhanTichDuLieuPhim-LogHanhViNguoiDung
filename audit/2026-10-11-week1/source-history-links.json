@@ -1,0 +1,20 @@
+{
+  "current_config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+  "historical_config_hashes": [
+    "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116"
+  ],
+  "manifest_exact_source_matches": [
+    "config/flume.conf",
+    "scripts/check_environment.py",
+    "scripts/common.py",
+    "scripts/download_dataset.py",
+    "scripts/generate_logs.py",
+    "scripts/prepare_movies.py",
+    "scripts/run_flume.sh",
+    "scripts/run_pipeline.py",
+    "scripts/validate_pipeline.py",
+    "scripts/verify_archive.py",
+    "tests/test_project.py"
+  ],
+  "git_tracked_files": 131
+}

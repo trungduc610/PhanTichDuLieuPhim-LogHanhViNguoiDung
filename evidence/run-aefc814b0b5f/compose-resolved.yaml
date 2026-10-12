@@ -1,0 +1,30 @@
+name: movie-run-aefc814b0b5f
+services:
+  flume:
+    build:
+      context: C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung
+      dockerfile: Dockerfile
+    image: movie-log-flume:1.11.0-local
+    init: true
+    networks:
+      default: null
+    stop_grace_period: 1m0s
+    volumes:
+      - type: bind
+        source: C:/Users/User/Documents/GitHub/PhanTichDuLieuPhim-LogHanhViNguoiDung/data/runs/run-aefc814b0b5f
+        target: /data
+        bind: {}
+      - type: volume
+        source: flume-channel
+        target: /data/channel
+        volume: {}
+      - type: bind
+        source: C:/Users/User/Documents/GitHub/PhanTichDuLieuPhim-LogHanhViNguoiDung/logs/run-aefc814b0b5f
+        target: /logs
+        bind: {}
+networks:
+  default:
+    name: movie-run-aefc814b0b5f_default
+volumes:
+  flume-channel:
+    name: movie-run-aefc814b0b5f_flume-channel

@@ -1,0 +1,894 @@
+flume-1  | 2026-10-11T15:49:54.247829230Z Info: Sourcing environment configuration script /opt/flume/conf/flume-env.sh
+flume-1  | 2026-10-11T15:49:54.264000392Z Info: Including Hive libraries found via () for Hive access
+flume-1  | 2026-10-11T15:49:54.264403135Z + exec /opt/java/openjdk/bin/java -Xms128m -Xmx512m -XX:+PrintFlagsFinal -Dlog4j.configurationFile=/opt/flume/conf/log4j2.xml -Dflume.monitoring.type=http -Dflume.monitoring.port=41414 -cp '/opt/flume/conf:/opt/flume/lib/*:/lib/*' -Djava.library.path= org.apache.flume.node.Application --name a1 --conf-file /project/config/flume.conf
+flume-1  | 2026-10-11T15:49:54.558702491Z [Global flags]
+flume-1  | 2026-10-11T15:49:54.558738095Z      intx ActiveProcessorCount                      = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.558743496Z     uintx AdaptiveSizeDecrementScaleFactor          = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.558747596Z     uintx AdaptiveSizeMajorGCDecayTimeScale         = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.558751897Z     uintx AdaptiveSizePausePolicy                   = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.558755797Z     uintx AdaptiveSizePolicyCollectionCostMargin    = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.558759997Z     uintx AdaptiveSizePolicyInitializingSteps       = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.558764098Z     uintx AdaptiveSizePolicyOutputInterval          = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.558767998Z     uintx AdaptiveSizePolicyWeight                  = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.558772299Z     uintx AdaptiveSizeThroughPutPolicy              = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.558776399Z     uintx AdaptiveTimeWeight                        = 25                                  {product}
+flume-1  | 2026-10-11T15:49:54.558780300Z      bool AdjustConcurrency                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558784500Z      bool AggressiveHeap                            = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558788501Z      bool AggressiveOpts                            = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558792701Z      intx AliasLevel                                = 3                                   {C2 product}
+flume-1  | 2026-10-11T15:49:54.558796601Z      bool AlignVector                               = false                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.558800902Z      intx AllocateInstancePrefetchLines             = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.558804802Z      intx AllocatePrefetchDistance                  = 192                                 {product}
+flume-1  | 2026-10-11T15:49:54.558809003Z      intx AllocatePrefetchInstr                     = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.558813003Z      intx AllocatePrefetchLines                     = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.558817104Z      intx AllocatePrefetchStepSize                  = 64                                  {product}
+flume-1  | 2026-10-11T15:49:54.558840606Z      intx AllocatePrefetchStyle                     = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.558845207Z      bool AllowJNIEnvProxy                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558849307Z      bool AllowNonVirtualCalls                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558853308Z      bool AllowParallelDefineClass                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558857308Z      bool AllowUserSignalHandlers                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558861108Z      bool AlwaysActAsServerClassMachine             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558865409Z      bool AlwaysCompileLoopMethods                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558869109Z      bool AlwaysLockClassLoader                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558873310Z      bool AlwaysPreTouch                            = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558877510Z      bool AlwaysRestoreFPU                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558881411Z      bool AlwaysTenure                              = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558885711Z      bool AssertOnSuspendWaitFailure                = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558889712Z      bool AssumeMP                                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558893812Z      intx AutoBoxCacheMax                           = 128                                 {C2 product}
+flume-1  | 2026-10-11T15:49:54.558897812Z     uintx AutoGCSelectPauseMillis                   = 5000                                {product}
+flume-1  | 2026-10-11T15:49:54.558901913Z      intx BCEATraceLevel                            = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.558905913Z      intx BackEdgeThreshold                         = 100000                              {pd product}
+flume-1  | 2026-10-11T15:49:54.558910014Z      bool BackgroundCompilation                     = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.558914214Z     uintx BaseFootPrintEstimate                     = 268435456                           {product}
+flume-1  | 2026-10-11T15:49:54.558917915Z      intx BiasedLockingBulkRebiasThreshold          = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.558922515Z      intx BiasedLockingBulkRevokeThreshold          = 40                                  {product}
+flume-1  | 2026-10-11T15:49:54.558926616Z      intx BiasedLockingDecayTime                    = 25000                               {product}
+flume-1  | 2026-10-11T15:49:54.558930616Z      intx BiasedLockingStartupDelay                 = 4000                                {product}
+flume-1  | 2026-10-11T15:49:54.558934616Z      bool BindGCTaskThreadsToCPUs                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558943417Z      bool BlockLayoutByFrequency                    = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.558947718Z      intx BlockLayoutMinDiamondPercentage           = 20                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.558951818Z      bool BlockLayoutRotateLoops                    = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.558955819Z      bool BranchOnRegister                          = false                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.558959819Z      bool BytecodeVerificationLocal                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.558963620Z      bool BytecodeVerificationRemote                = true                                {product}
+flume-1  | 2026-10-11T15:49:54.558967820Z      bool C1OptimizeVirtualCallProfiling            = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.558971821Z      bool C1ProfileBranches                         = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.558975821Z      bool C1ProfileCalls                            = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.558979921Z      bool C1ProfileCheckcasts                       = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.558983922Z      bool C1ProfileInlinedCalls                     = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.558988022Z      bool C1ProfileVirtualCalls                     = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.558992123Z      bool C1UpdateMethodData                        = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.558996423Z      intx CICompilerCount                          := 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.559000224Z      bool CICompilerCountPerCPU                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559004224Z      bool CITime                                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559009225Z      bool CMSAbortSemantics                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559013425Z     uintx CMSAbortablePrecleanMinWorkPerIteration   = 100                                 {product}
+flume-1  | 2026-10-11T15:49:54.559017426Z      intx CMSAbortablePrecleanWaitMillis            = 100                                 {manageable}
+flume-1  | 2026-10-11T15:49:54.559021526Z     uintx CMSBitMapYieldQuantum                     = 10485760                            {product}
+flume-1  | 2026-10-11T15:49:54.559025526Z     uintx CMSBootstrapOccupancy                     = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.559029627Z      bool CMSClassUnloadingEnabled                  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559033627Z     uintx CMSClassUnloadingMaxInterval              = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559037428Z      bool CMSCleanOnEnter                           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559045129Z      bool CMSCompactWhenClearAllSoftRefs            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559049229Z     uintx CMSConcMarkMultiple                       = 32                                  {product}
+flume-1  | 2026-10-11T15:49:54.559053229Z      bool CMSConcurrentMTEnabled                    = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559057230Z     uintx CMSCoordinatorYieldSleepCount             = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.559061330Z      bool CMSDumpAtPromotionFailure                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559065231Z      bool CMSEdenChunksRecordAlways                 = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559069331Z     uintx CMSExpAvgFactor                           = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.559073432Z      bool CMSExtrapolateSweep                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559077332Z     uintx CMSFullGCsBeforeCompaction                = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559081432Z     uintx CMSIncrementalDutyCycle                   = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.559085533Z     uintx CMSIncrementalDutyCycleMin                = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559089633Z      bool CMSIncrementalMode                        = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559093734Z     uintx CMSIncrementalOffset                      = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559098234Z      bool CMSIncrementalPacing                      = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559102535Z     uintx CMSIncrementalSafetyFactor                = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.559106635Z     uintx CMSIndexedFreeListReplenish               = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.559110636Z      intx CMSInitiatingOccupancyFraction            = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.559282754Z     uintx CMSIsTooFullPercentage                    = 98                                  {product}
+flume-1  | 2026-10-11T15:49:54.559295056Z    double CMSLargeCoalSurplusPercent                = 0.950000                            {product}
+flume-1  | 2026-10-11T15:49:54.559299756Z    double CMSLargeSplitSurplusPercent               = 1.000000                            {product}
+flume-1  | 2026-10-11T15:49:54.559303957Z      bool CMSLoopWarn                               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559307657Z     uintx CMSMaxAbortablePrecleanLoops              = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559311958Z      intx CMSMaxAbortablePrecleanTime               = 5000                                {product}
+flume-1  | 2026-10-11T15:49:54.559315958Z     uintx CMSOldPLABMax                             = 1024                                {product}
+flume-1  | 2026-10-11T15:49:54.559330760Z     uintx CMSOldPLABMin                             = 16                                  {product}
+flume-1  | 2026-10-11T15:49:54.559335260Z     uintx CMSOldPLABNumRefills                      = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.559339261Z     uintx CMSOldPLABReactivityFactor                = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.559343361Z      bool CMSOldPLABResizeQuicker                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559347361Z     uintx CMSOldPLABToleranceFactor                 = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.559351362Z      bool CMSPLABRecordAlways                       = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559355162Z     uintx CMSParPromoteBlocksToClaim                = 16                                  {product}
+flume-1  | 2026-10-11T15:49:54.559359363Z      bool CMSParallelInitialMarkEnabled             = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559363363Z      bool CMSParallelRemarkEnabled                  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559367564Z      bool CMSParallelSurvivorRemarkEnabled          = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559371564Z     uintx CMSPrecleanDenominator                    = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.559375665Z     uintx CMSPrecleanIter                           = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.559379765Z     uintx CMSPrecleanNumerator                      = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.559383765Z      bool CMSPrecleanRefLists1                      = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559388566Z      bool CMSPrecleanRefLists2                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559392766Z      bool CMSPrecleanSurvivors1                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559397067Z      bool CMSPrecleanSurvivors2                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559401267Z     uintx CMSPrecleanThreshold                      = 1000                                {product}
+flume-1  | 2026-10-11T15:49:54.559404968Z      bool CMSPrecleaningEnabled                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559408968Z      bool CMSPrintChunksInDump                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559412769Z      bool CMSPrintEdenSurvivorChunks                = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559416769Z      bool CMSPrintObjectsInDump                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559420769Z     uintx CMSRemarkVerifyVariant                    = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.559424970Z      bool CMSReplenishIntermediate                  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559432771Z     uintx CMSRescanMultiple                         = 32                                  {product}
+flume-1  | 2026-10-11T15:49:54.559437071Z     uintx CMSSamplingGrain                          = 16384                               {product}
+flume-1  | 2026-10-11T15:49:54.559440972Z      bool CMSScavengeBeforeRemark                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559444972Z     uintx CMSScheduleRemarkEdenPenetration          = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.559449273Z     uintx CMSScheduleRemarkEdenSizeThreshold        = 2097152                             {product}
+flume-1  | 2026-10-11T15:49:54.559453073Z     uintx CMSScheduleRemarkSamplingRatio            = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.559457073Z    double CMSSmallCoalSurplusPercent                = 1.050000                            {product}
+flume-1  | 2026-10-11T15:49:54.559461074Z    double CMSSmallSplitSurplusPercent               = 1.100000                            {product}
+flume-1  | 2026-10-11T15:49:54.559465074Z      bool CMSSplitIndexedFreeListBlocks             = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559469075Z      intx CMSTriggerInterval                        = -1                                  {manageable}
+flume-1  | 2026-10-11T15:49:54.559475975Z     uintx CMSTriggerRatio                           = 80                                  {product}
+flume-1  | 2026-10-11T15:49:54.559480076Z      intx CMSWaitDuration                           = 2000                                {manageable}
+flume-1  | 2026-10-11T15:49:54.559484176Z     uintx CMSWorkQueueDrainThreshold                = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.559488077Z      bool CMSYield                                  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559491877Z     uintx CMSYieldSleepCount                        = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559496178Z     uintx CMSYoungGenPerWorker                      = 67108864                            {pd product}
+flume-1  | 2026-10-11T15:49:54.559499978Z     uintx CMS_FLSPadding                            = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.559504079Z     uintx CMS_FLSWeight                             = 75                                  {product}
+flume-1  | 2026-10-11T15:49:54.559508079Z     uintx CMS_SweepPadding                          = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.559512079Z     uintx CMS_SweepTimerThresholdMillis             = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.559516080Z     uintx CMS_SweepWeight                           = 75                                  {product}
+flume-1  | 2026-10-11T15:49:54.559519880Z      bool CheckEndorsedAndExtDirs                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559523881Z      bool CheckJNICalls                             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559527881Z      bool ClassUnloading                            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559552384Z      bool ClassUnloadingWithConcurrentMark          = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559573486Z      intx ClearFPUAtPark                            = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559578487Z      bool ClipInlining                              = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559582687Z     uintx CodeCacheExpansionSize                    = 65536                               {pd product}
+flume-1  | 2026-10-11T15:49:54.559586487Z     uintx CodeCacheMinimumFreeSpace                 = 512000                              {product}
+flume-1  | 2026-10-11T15:49:54.559590488Z      bool CollectGen0First                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559594388Z      bool CompactFields                             = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559598189Z      intx CompilationPolicyChoice                   = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.559602189Z ccstrlist CompileCommand                            =                                     {product}
+flume-1  | 2026-10-11T15:49:54.559606190Z     ccstr CompileCommandFile                        =                                     {product}
+flume-1  | 2026-10-11T15:49:54.559610290Z ccstrlist CompileOnly                               =                                     {product}
+flume-1  | 2026-10-11T15:49:54.559614291Z      intx CompileThreshold                          = 10000                               {pd product}
+flume-1  | 2026-10-11T15:49:54.559618091Z      bool CompilerThreadHintNoPreempt               = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559621991Z      intx CompilerThreadPriority                    = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.559625992Z      intx CompilerThreadStackSize                   = 0                                   {pd product}
+flume-1  | 2026-10-11T15:49:54.559629992Z     uintx CompressedClassSpaceSize                  = 1073741824                          {product}
+flume-1  | 2026-10-11T15:49:54.559633893Z     uintx ConcGCThreads                             = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559637993Z      intx ConditionalMoveLimit                      = 3                                   {C2 pd product}
+flume-1  | 2026-10-11T15:49:54.559642094Z      intx ContendedPaddingWidth                     = 128                                 {product}
+flume-1  | 2026-10-11T15:49:54.559646294Z      bool ConvertSleepToYield                       = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.559650094Z      bool ConvertYieldToSleep                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559654695Z      bool CrashOnOutOfMemoryError                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559658695Z      bool CreateMinidumpOnCrash                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559662796Z      bool CriticalJNINatives                        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559671297Z      bool DTraceAllocProbes                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559676097Z      bool DTraceMethodProbes                        = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559679998Z      bool DTraceMonitorProbes                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559684198Z      bool Debugging                                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559687899Z     uintx DefaultMaxRAMFraction                     = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.559691899Z      intx DefaultThreadPriority                     = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.559696199Z      intx DeferPollingPageLoopCount                 = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.559700000Z      intx DeferThrSuspendLoopCount                  = 4000                                {product}
+flume-1  | 2026-10-11T15:49:54.559788209Z      bool DeoptimizeRandom                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559796510Z      bool DisableAttachMechanism                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559800711Z      bool DisableExplicitGC                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559805011Z      bool DisplayVMOutputToStderr                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559809012Z      bool DisplayVMOutputToStdout                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559812812Z      bool DoEscapeAnalysis                          = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.559816813Z      bool DontCompileHugeMethods                    = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559820813Z      bool DontYieldALot                             = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.559824913Z     ccstr DumpLoadedClassList                       =                                     {product}
+flume-1  | 2026-10-11T15:49:54.559829014Z      bool DumpReplayDataOnError                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559833014Z      bool DumpSharedSpaces                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559837015Z      bool EagerXrunInit                             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559840815Z      intx EliminateAllocationArraySizeLimit         = 64                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.559860917Z      bool EliminateAllocations                      = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.559864118Z      bool EliminateAutoBox                          = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.559866818Z      bool EliminateLocks                            = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.559875019Z      bool EliminateNestedLocks                      = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.559879219Z      intx EmitSync                                  = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559882920Z      bool EnableContended                           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559886620Z      bool EnableTracing                             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559962428Z     uintx ErgoHeapSizeLimit                         = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.559969229Z     ccstr ErrorFile                                 =                                     {product}
+flume-1  | 2026-10-11T15:49:54.559973230Z      bool ErrorFileToStderr                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559976830Z      bool ErrorFileToStdout                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559980730Z     ccstr ErrorReportServer                         =                                     {product}
+flume-1  | 2026-10-11T15:49:54.559984131Z    double EscapeAnalysisTimeout                     = 20.000000                           {C2 product}
+flume-1  | 2026-10-11T15:49:54.559988031Z      bool EstimateArgEscape                         = true                                {product}
+flume-1  | 2026-10-11T15:49:54.559991432Z      bool ExitOnOutOfMemoryError                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.559995032Z      bool ExplicitGCInvokesConcurrent               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560048638Z      bool ExplicitGCInvokesConcurrentAndUnloadsClasses  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560056539Z      bool ExtendedDTraceProbes                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560060539Z     ccstr ExtraSharedClassListFile                  =                                     {product}
+flume-1  | 2026-10-11T15:49:54.560064340Z      bool FLSAlwaysCoalesceLarge                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560098643Z     uintx FLSCoalescePolicy                         = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.560104044Z    double FLSLargestBlockCoalesceProximity          = 0.990000                            {product}
+flume-1  | 2026-10-11T15:49:54.560107944Z      bool FailOverToOldVerifier                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.560111445Z      bool FastTLABRefill                            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.560115145Z      intx FenceInstruction                          = 0                                   {ARCH product}
+flume-1  | 2026-10-11T15:49:54.560141348Z      intx FieldsAllocationStyle                     = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.560155149Z      bool FilterSpuriousWakeups                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.560185853Z      bool FlightRecorder                            = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560189953Z     ccstr FlightRecorderOptions                     =                                     {product}
+flume-1  | 2026-10-11T15:49:54.560193054Z      bool ForceNUMA                                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560196154Z      bool ForceTimeHighResolution                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560199354Z      intx FreqInlineSize                            = 325                                 {pd product}
+flume-1  | 2026-10-11T15:49:54.560202555Z    double G1ConcMarkStepDurationMillis              = 10.000000                           {product}
+flume-1  | 2026-10-11T15:49:54.560379974Z     uintx G1ConcRSHotCardLimit                      = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.560390575Z     uintx G1ConcRSLogCacheSize                      = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.560394375Z      intx G1ConcRefinementGreenZone                 = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560397876Z      intx G1ConcRefinementRedZone                   = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560401276Z      intx G1ConcRefinementServiceIntervalMillis     = 300                                 {product}
+flume-1  | 2026-10-11T15:49:54.560404577Z     uintx G1ConcRefinementThreads                   = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560408277Z      intx G1ConcRefinementThresholdStep             = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560411777Z      intx G1ConcRefinementYellowZone                = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560415178Z     uintx G1ConfidencePercent                       = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.560418178Z     uintx G1HeapRegionSize                          = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560421178Z     uintx G1HeapWastePercent                        = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.560424179Z     uintx G1MixedGCCountTarget                      = 8                                   {product}
+flume-1  | 2026-10-11T15:49:54.560427179Z      intx G1RSetRegionEntries                       = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560430179Z     uintx G1RSetScanBlockSize                       = 64                                  {product}
+flume-1  | 2026-10-11T15:49:54.560433080Z      intx G1RSetSparseRegionEntries                 = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560436280Z      intx G1RSetUpdatingPauseTimePercent            = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.560439280Z      intx G1RefProcDrainInterval                    = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.560442781Z     uintx G1ReservePercent                          = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.560455782Z     uintx G1SATBBufferEnqueueingThresholdPercent    = 60                                  {product}
+flume-1  | 2026-10-11T15:49:54.560460383Z      intx G1SATBBufferSize                          = 1024                                {product}
+flume-1  | 2026-10-11T15:49:54.560464983Z      intx G1UpdateBufferSize                        = 256                                 {product}
+flume-1  | 2026-10-11T15:49:54.560550593Z      bool G1UseAdaptiveConcRefinement               = true                                {product}
+flume-1  | 2026-10-11T15:49:54.560561194Z     uintx GCDrainStackTargetSize                    = 64                                  {product}
+flume-1  | 2026-10-11T15:49:54.560683307Z     uintx GCHeapFreeLimit                           = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.560695008Z     uintx GCLockerEdenExpansionPercent              = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.560703709Z      bool GCLockerInvokesConcurrent                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560712210Z     uintx GCLogFileSize                             = 8192                                {product}
+flume-1  | 2026-10-11T15:49:54.560720911Z     uintx GCPauseIntervalMillis                     = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.560724511Z     uintx GCTaskTimeStampEntries                    = 200                                 {product}
+flume-1  | 2026-10-11T15:49:54.560750514Z     uintx GCTimeLimit                               = 98                                  {product}
+flume-1  | 2026-10-11T15:49:54.560758515Z     uintx GCTimeRatio                               = 99                                  {product}
+flume-1  | 2026-10-11T15:49:54.560764116Z     uintx HeapBaseMinAddress                        = 2147483648                          {pd product}
+flume-1  | 2026-10-11T15:49:54.560768116Z      bool HeapDumpAfterFullGC                       = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.560905631Z      bool HeapDumpBeforeFullGC                      = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.560916932Z      bool HeapDumpOnOutOfMemoryError                = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.560921333Z     ccstr HeapDumpPath                              =                                     {manageable}
+flume-1  | 2026-10-11T15:49:54.560925633Z     uintx HeapFirstMaximumCompactionCount           = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.560929734Z     uintx HeapMaximumCompactionInterval             = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.560933734Z     uintx HeapSizePerGCThread                       = 87241520                            {product}
+flume-1  | 2026-10-11T15:49:54.560937835Z      bool IgnoreEmptyClassPaths                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560941835Z      bool IgnoreUnrecognizedVMOptions               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.560945936Z     uintx IncreaseFirstTierCompileThresholdAt       = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.560960737Z      bool IncrementalInline                         = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.560965138Z     uintx InitialBootClassLoaderMetaspaceSize       = 4194304                             {product}
+flume-1  | 2026-10-11T15:49:54.560968438Z     uintx InitialCodeCacheSize                      = 2555904                             {pd product}
+flume-1  | 2026-10-11T15:49:54.560975339Z     uintx InitialHeapSize                          := 134217728                           {product}
+flume-1  | 2026-10-11T15:49:54.560983740Z     uintx InitialRAMFraction                        = 64                                  {product}
+flume-1  | 2026-10-11T15:49:54.560992241Z    double InitialRAMPercentage                      = 1.562500                            {product}
+flume-1  | 2026-10-11T15:49:54.561001142Z     uintx InitialSurvivorRatio                      = 8                                   {product}
+flume-1  | 2026-10-11T15:49:54.561005042Z     uintx InitialTenuringThreshold                  = 7                                   {product}
+flume-1  | 2026-10-11T15:49:54.561008142Z     uintx InitiatingHeapOccupancyPercent            = 45                                  {product}
+flume-1  | 2026-10-11T15:49:54.561011243Z      bool Inline                                    = true                                {product}
+flume-1  | 2026-10-11T15:49:54.561014443Z     ccstr InlineDataFile                            =                                     {product}
+flume-1  | 2026-10-11T15:49:54.561018443Z      intx InlineSmallCode                           = 2000                                {pd product}
+flume-1  | 2026-10-11T15:49:54.561021744Z      bool InlineSynchronizedMethods                 = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.561024944Z      bool InsertMemBarAfterArraycopy                = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.561028045Z      intx InteriorEntryAlignment                    = 16                                  {C2 pd product}
+flume-1  | 2026-10-11T15:49:54.561031245Z      intx InterpreterProfilePercentage              = 33                                  {product}
+flume-1  | 2026-10-11T15:49:54.561034645Z      bool JNIDetachReleasesMonitors                 = true                                {product}
+flume-1  | 2026-10-11T15:49:54.561037646Z      bool JavaMonitorsInStackTrace                  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.561041046Z      intx JavaPriority10_To_OSPriority              = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561044246Z      intx JavaPriority1_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561047747Z      intx JavaPriority2_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561050847Z      intx JavaPriority3_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561072049Z      intx JavaPriority4_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561075750Z      intx JavaPriority5_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561085251Z      intx JavaPriority6_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561088551Z      intx JavaPriority7_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.561091951Z      intx JavaPriority8_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.562815139Z      intx JavaPriority9_To_OSPriority               = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.562848043Z      bool LIRFillDelaySlots                         = false                               {C1 pd product}
+flume-1  | 2026-10-11T15:49:54.562873346Z     uintx LargePageHeapSizeThreshold                = 134217728                           {product}
+flume-1  | 2026-10-11T15:49:54.562879446Z     uintx LargePageSizeInBytes                      = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.562882847Z      bool LazyBootClassLoader                       = true                                {product}
+flume-1  | 2026-10-11T15:49:54.562885947Z      intx LiveNodeCountInliningCutoff               = 40000                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.562888847Z      bool LoadExecStackDllInVMThread                = true                                {product}
+flume-1  | 2026-10-11T15:49:54.562892048Z      bool LogJFR                                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.562895048Z      intx LoopMaxUnroll                             = 16                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.562897748Z      intx LoopOptsCount                             = 43                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.562900748Z      intx LoopUnrollLimit                           = 60                                  {C2 pd product}
+flume-1  | 2026-10-11T15:49:54.562904049Z      intx LoopUnrollMin                             = 4                                   {C2 product}
+flume-1  | 2026-10-11T15:49:54.562907049Z      bool LoopUnswitching                           = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.562909949Z      bool ManagementServer                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.562912950Z     uintx MarkStackSize                             = 4194304                             {product}
+flume-1  | 2026-10-11T15:49:54.562915850Z     uintx MarkStackSizeMax                          = 536870912                           {product}
+flume-1  | 2026-10-11T15:49:54.562918950Z     uintx MarkSweepAlwaysCompactCount               = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.562922151Z     uintx MarkSweepDeadRatio                        = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.562927651Z      intx MaxBCEAEstimateLevel                      = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.562930752Z      intx MaxBCEAEstimateSize                       = 150                                 {product}
+flume-1  | 2026-10-11T15:49:54.562936252Z     uintx MaxDirectMemorySize                       = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.562954754Z      bool MaxFDLimit                                = true                                {product}
+flume-1  | 2026-10-11T15:49:54.562959155Z     uintx MaxGCMinorPauseMillis                     = 18446744073709551615                    {product}
+flume-1  | 2026-10-11T15:49:54.562962055Z     uintx MaxGCPauseMillis                          = 18446744073709551615                    {product}
+flume-1  | 2026-10-11T15:49:54.562964955Z     uintx MaxHeapFreeRatio                          = 100                                 {manageable}
+flume-1  | 2026-10-11T15:49:54.562967856Z     uintx MaxHeapSize                              := 536870912                           {product}
+flume-1  | 2026-10-11T15:49:54.562970656Z      intx MaxInlineLevel                            = 9                                   {product}
+flume-1  | 2026-10-11T15:49:54.562973756Z      intx MaxInlineSize                             = 35                                  {product}
+flume-1  | 2026-10-11T15:49:54.562976757Z      intx MaxJNILocalCapacity                       = 65536                               {product}
+flume-1  | 2026-10-11T15:49:54.567091605Z      intx MaxJavaStackTraceDepth                    = 1024                                {product}
+flume-1  | 2026-10-11T15:49:54.567120408Z      intx MaxJumpTableSize                          = 65000                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.567126309Z      intx MaxJumpTableSparseness                    = 5                                   {C2 product}
+flume-1  | 2026-10-11T15:49:54.567129709Z      intx MaxLabelRootDepth                         = 1100                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567133310Z      intx MaxLoopPad                                = 11                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.567136810Z     uintx MaxMetaspaceExpansion                     = 5451776                             {product}
+flume-1  | 2026-10-11T15:49:54.567141110Z     uintx MaxMetaspaceFreeRatio                     = 70                                  {product}
+flume-1  | 2026-10-11T15:49:54.567144411Z     uintx MaxMetaspaceSize                          = 18446744073709547520                    {product}
+flume-1  | 2026-10-11T15:49:54.567152112Z     uintx MaxNewSize                               := 178782208                           {product}
+flume-1  | 2026-10-11T15:49:54.567156012Z      intx MaxNodeLimit                              = 75000                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.567159312Z  uint64_t MaxRAM                                    = 137438953472                        {pd product}
+flume-1  | 2026-10-11T15:49:54.567164113Z     uintx MaxRAMFraction                            = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.567167113Z    double MaxRAMPercentage                          = 25.000000                           {product}
+flume-1  | 2026-10-11T15:49:54.567170414Z      intx MaxRecursiveInlineLevel                   = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.567173414Z     uintx MaxTenuringThreshold                      = 15                                  {product}
+flume-1  | 2026-10-11T15:49:54.567176614Z      intx MaxTrivialSize                            = 6                                   {product}
+flume-1  | 2026-10-11T15:49:54.567193216Z      intx MaxVectorSize                             = 32                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.567197216Z     uintx MetaspaceSize                             = 21807104                            {pd product}
+flume-1  | 2026-10-11T15:49:54.567200717Z      bool MethodFlushing                            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567203917Z     uintx MinHeapDeltaBytes                        := 524288                              {product}
+flume-1  | 2026-10-11T15:49:54.567209318Z     uintx MinHeapFreeRatio                          = 0                                   {manageable}
+flume-1  | 2026-10-11T15:49:54.567212618Z      intx MinInliningThreshold                      = 250                                 {product}
+flume-1  | 2026-10-11T15:49:54.567215418Z      intx MinJumpTableSize                          = 10                                  {C2 pd product}
+flume-1  | 2026-10-11T15:49:54.567218619Z     uintx MinMetaspaceExpansion                     = 339968                              {product}
+flume-1  | 2026-10-11T15:49:54.567222119Z     uintx MinMetaspaceFreeRatio                     = 40                                  {product}
+flume-1  | 2026-10-11T15:49:54.567225320Z     uintx MinRAMFraction                            = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.567228220Z    double MinRAMPercentage                          = 50.000000                           {product}
+flume-1  | 2026-10-11T15:49:54.567231220Z     uintx MinSurvivorRatio                          = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.567237721Z     uintx MinTLABSize                               = 2048                                {product}
+flume-1  | 2026-10-11T15:49:54.567242221Z      intx MonitorBound                              = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567245322Z      bool MonitorInUseLists                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567248022Z      intx MultiArrayExpandLimit                     = 6                                   {C2 product}
+flume-1  | 2026-10-11T15:49:54.567252623Z      bool MustCallLoadClassInternal                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567260123Z     uintx NUMAChunkResizeWeight                     = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.567264424Z     uintx NUMAInterleaveGranularity                 = 2097152                             {product}
+flume-1  | 2026-10-11T15:49:54.567269224Z     uintx NUMAPageScanRate                          = 256                                 {product}
+flume-1  | 2026-10-11T15:49:54.567273825Z     uintx NUMASpaceResizeRate                       = 1073741824                          {product}
+flume-1  | 2026-10-11T15:49:54.567280626Z      bool NUMAStats                                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567283826Z     ccstr NativeMemoryTracking                      = off                                 {product}
+flume-1  | 2026-10-11T15:49:54.567287026Z      bool NeedsDeoptSuspend                         = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.567297527Z      bool NeverActAsServerClassMachine              = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.567302228Z      bool NeverTenure                               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567305328Z     uintx NewRatio                                  = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.567308429Z     uintx NewSize                                  := 44564480                            {product}
+flume-1  | 2026-10-11T15:49:54.567311329Z     uintx NewSizeThreadIncrease                     = 5320                                {pd product}
+flume-1  | 2026-10-11T15:49:54.567314229Z      intx NmethodSweepActivity                      = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.567317430Z      intx NmethodSweepCheckInterval                 = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.567320330Z      intx NmethodSweepFraction                      = 16                                  {product}
+flume-1  | 2026-10-11T15:49:54.567323330Z      intx NodeLimitFudgeFactor                      = 2000                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567326231Z     uintx NumberOfGCLogFiles                        = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567329031Z      intx NumberOfLoopInstrToAlign                  = 4                                   {C2 product}
+flume-1  | 2026-10-11T15:49:54.567332031Z      intx ObjectAlignmentInBytes                    = 8                                   {lp64_product}
+flume-1  | 2026-10-11T15:49:54.567335132Z     uintx OldPLABSize                               = 1024                                {product}
+flume-1  | 2026-10-11T15:49:54.567338432Z     uintx OldPLABWeight                             = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.567341232Z     uintx OldSize                                  := 89653248                            {product}
+flume-1  | 2026-10-11T15:49:54.567344433Z      bool OmitStackTraceInFastThrow                 = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567347533Z ccstrlist OnError                                   =                                     {product}
+flume-1  | 2026-10-11T15:49:54.567350533Z ccstrlist OnOutOfMemoryError                        =                                     {product}
+flume-1  | 2026-10-11T15:49:54.567353433Z      intx OnStackReplacePercentage                  = 140                                 {pd product}
+flume-1  | 2026-10-11T15:49:54.567356534Z      bool OptimizeFill                              = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567359934Z      bool OptimizePtrCompare                        = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567365235Z      bool OptimizeStringConcat                      = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567368635Z      bool OptoBundling                              = false                               {C2 pd product}
+flume-1  | 2026-10-11T15:49:54.567371835Z      intx OptoLoopAlignment                         = 16                                  {pd product}
+flume-1  | 2026-10-11T15:49:54.567382037Z      bool OptoScheduling                            = false                               {C2 pd product}
+flume-1  | 2026-10-11T15:49:54.567386037Z     uintx PLABWeight                                = 75                                  {product}
+flume-1  | 2026-10-11T15:49:54.567389137Z      bool PSChunkLargeArrays                        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567392138Z      intx ParGCArrayScanChunk                       = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.567395038Z     uintx ParGCDesiredObjsFromOverflowList          = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.567398038Z      bool ParGCTrimOverflow                         = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567400939Z      bool ParGCUseLocalOverflow                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567404139Z     uintx ParallelGCBufferWastePct                  = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.567407239Z     uintx ParallelGCThreads                         = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.567410340Z      bool ParallelGCVerbose                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567413340Z     uintx ParallelOldDeadWoodLimiterMean            = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.567416140Z     uintx ParallelOldDeadWoodLimiterStdDev          = 80                                  {product}
+flume-1  | 2026-10-11T15:49:54.567419141Z      bool ParallelRefProcBalancingEnabled           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567422141Z      bool ParallelRefProcEnabled                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567425141Z      bool PartialPeelAtUnsignedTests                = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567428342Z      bool PartialPeelLoop                           = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567431542Z      intx PartialPeelNewPhiDelta                    = 0                                   {C2 product}
+flume-1  | 2026-10-11T15:49:54.567435442Z     uintx PausePadding                              = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.567438743Z      intx PerBytecodeRecompilationCutoff            = 200                                 {product}
+flume-1  | 2026-10-11T15:49:54.567441743Z      intx PerBytecodeTrapLimit                      = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.567444843Z      intx PerMethodRecompilationCutoff              = 400                                 {product}
+flume-1  | 2026-10-11T15:49:54.567447844Z      intx PerMethodTrapLimit                        = 100                                 {product}
+flume-1  | 2026-10-11T15:49:54.567451044Z      bool PerfAllowAtExitRegistration               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567453744Z      bool PerfBypassFileSystemCheck                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567464346Z      intx PerfDataMemorySize                        = 32768                               {product}
+flume-1  | 2026-10-11T15:49:54.567468246Z      intx PerfDataSamplingInterval                  = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.567471446Z     ccstr PerfDataSaveFile                          =                                     {product}
+flume-1  | 2026-10-11T15:49:54.567474547Z      bool PerfDataSaveToFile                        = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567477547Z      bool PerfDisableSharedMem                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567482848Z      intx PerfMaxStringConstLength                  = 1024                                {product}
+flume-1  | 2026-10-11T15:49:54.567490648Z      intx PreInflateSpin                            = 10                                  {pd product}
+flume-1  | 2026-10-11T15:49:54.567498649Z      bool PreferContainerQuotaForCPUCount           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567502050Z      bool PreferInterpreterNativeStubs              = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.567505650Z      intx PrefetchCopyIntervalInBytes               = 576                                 {product}
+flume-1  | 2026-10-11T15:49:54.567514651Z      intx PrefetchFieldsAhead                       = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.567519352Z      intx PrefetchScanIntervalInBytes               = 576                                 {product}
+flume-1  | 2026-10-11T15:49:54.567522552Z      bool PreserveAllAnnotations                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567526552Z      bool PreserveFramePointer                      = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.567529853Z     uintx PretenureSizeThreshold                    = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567532953Z      bool PrintAdaptiveSizePolicy                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567535953Z      bool PrintCMSInitiationStatistics              = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567542154Z      intx PrintCMSStatistics                        = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567548155Z      bool PrintClassHistogram                       = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567551255Z      bool PrintClassHistogramAfterFullGC            = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567554055Z      bool PrintClassHistogramBeforeFullGC           = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567556756Z      bool PrintCodeCache                            = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567559556Z      bool PrintCodeCacheOnCompilation               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567562356Z      bool PrintCommandLineFlags                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567571157Z      bool PrintCompilation                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567574458Z      bool PrintConcurrentLocks                      = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567577458Z      intx PrintFLSCensus                            = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567581358Z      intx PrintFLSStatistics                        = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567591559Z      bool PrintFlagsFinal                          := true                                {product}
+flume-1  | 2026-10-11T15:49:54.567598560Z      bool PrintFlagsInitial                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567601761Z      bool PrintGC                                   = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567604761Z      bool PrintGCApplicationConcurrentTime          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567607861Z      bool PrintGCApplicationStoppedTime             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567610862Z      bool PrintGCCause                              = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567614762Z      bool PrintGCDateStamps                         = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567617862Z      bool PrintGCDetails                            = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567620863Z      bool PrintGCID                                 = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567623763Z      bool PrintGCTaskTimeStamps                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567626663Z      bool PrintGCTimeStamps                         = false                               {manageable}
+flume-1  | 2026-10-11T15:49:54.567630564Z      bool PrintHeapAtGC                             = false                               {product rw}
+flume-1  | 2026-10-11T15:49:54.567636064Z      bool PrintHeapAtGCExtended                     = false                               {product rw}
+flume-1  | 2026-10-11T15:49:54.567643965Z      bool PrintHeapAtSIGBREAK                       = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567650766Z      bool PrintJNIGCStalls                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567653966Z      bool PrintJNIResolving                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567656767Z      bool PrintOldPLAB                              = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567659567Z      bool PrintOopAddress                           = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567662567Z      bool PrintPLAB                                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567665467Z      bool PrintParallelOldGCPhaseTimes              = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567674068Z      bool PrintPromotionFailure                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567677569Z      bool PrintReferenceGC                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567680469Z      bool PrintSafepointStatistics                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567683569Z      intx PrintSafepointStatisticsCount             = 300                                 {product}
+flume-1  | 2026-10-11T15:49:54.567687170Z      intx PrintSafepointStatisticsTimeout           = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.567690170Z      bool PrintSharedArchiveAndExit                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567695371Z      bool PrintSharedDictionary                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567698571Z      bool PrintSharedSpaces                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567701471Z      bool PrintStringDeduplicationStatistics        = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567704372Z      bool PrintStringTableStatistics                = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567707572Z      bool PrintTLAB                                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567710772Z      bool PrintTenuringDistribution                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567713873Z      bool PrintTieredEvents                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567716873Z      bool PrintVMOptions                            = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567719873Z      bool PrintVMQWaitTime                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567722774Z      bool PrintWarnings                             = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567725774Z     uintx ProcessDistributionStride                 = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.567731275Z      bool ProfileInterpreter                        = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.567760278Z      bool ProfileIntervals                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567769579Z      intx ProfileIntervalsTicks                     = 100                                 {product}
+flume-1  | 2026-10-11T15:49:54.567776780Z      intx ProfileMaturityPercentage                 = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.567779880Z      bool ProfileVM                                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567782680Z      bool ProfilerPrintByteCodeStatistics           = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567785381Z      bool ProfilerRecordPC                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567794282Z     uintx PromotedPadding                           = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.567797682Z     uintx QueuedAllocationWarningCount              = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567801482Z     uintx RTMRetryCount                             = 5                                   {ARCH product}
+flume-1  | 2026-10-11T15:49:54.567804683Z      bool RangeCheckElimination                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567807583Z      intx ReadPrefetchInstr                         = 0                                   {ARCH product}
+flume-1  | 2026-10-11T15:49:54.567810383Z      bool ReassociateInvariants                     = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567816184Z      bool ReduceBulkZeroing                         = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567823485Z      bool ReduceFieldZeroing                        = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567831286Z      bool ReduceInitialCardMarks                    = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567838086Z      bool ReduceSignalUsage                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567840987Z      intx RefDiscoveryPolicy                        = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567843987Z      bool ReflectionWrapResolutionErrors            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567846787Z      bool RegisterFinalizersAtInit                  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567849688Z      bool RelaxAccessControlCheck                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567852788Z     ccstr ReplayDataFile                            =                                     {product}
+flume-1  | 2026-10-11T15:49:54.567855788Z      bool RequireSharedSpaces                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567858689Z     uintx ReservedCodeCacheSize                     = 251658240                           {pd product}
+flume-1  | 2026-10-11T15:49:54.567861589Z      bool ResizeOldPLAB                             = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567864389Z      bool ResizePLAB                                = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567867389Z      bool ResizeTLAB                                = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.567870390Z      bool RestoreMXCSROnJNICalls                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567873490Z      bool RestrictContended                         = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567876490Z      bool RewriteBytecodes                          = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.567880291Z      bool RewriteFrequentPairs                      = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.567894492Z      intx SafepointPollOffset                       = 256                                 {C1 pd product}
+flume-1  | 2026-10-11T15:49:54.567900293Z      intx SafepointSpinBeforeYield                  = 2000                                {product}
+flume-1  | 2026-10-11T15:49:54.567903993Z      bool SafepointTimeout                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567907094Z      intx SafepointTimeoutDelay                     = 10000                               {product}
+flume-1  | 2026-10-11T15:49:54.567910094Z      bool ScavengeBeforeFullGC                      = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567912994Z      intx SelfDestructTimer                         = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.567915695Z     uintx SharedBaseAddress                         = 34359738368                         {product}
+flume-1  | 2026-10-11T15:49:54.567918395Z     ccstr SharedClassListFile                       =                                     {product}
+flume-1  | 2026-10-11T15:49:54.567921495Z     uintx SharedMiscCodeSize                        = 122880                              {product}
+flume-1  | 2026-10-11T15:49:54.567924596Z     uintx SharedMiscDataSize                        = 4194304                             {product}
+flume-1  | 2026-10-11T15:49:54.567927396Z     uintx SharedReadOnlySize                        = 16777216                            {product}
+flume-1  | 2026-10-11T15:49:54.567940797Z     uintx SharedReadWriteSize                       = 16777216                            {product}
+flume-1  | 2026-10-11T15:49:54.567944098Z      bool ShowMessageBoxOnError                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567947498Z      intx SoftRefLRUPolicyMSPerMB                   = 1000                                {product}
+flume-1  | 2026-10-11T15:49:54.567950699Z      bool SpecialEncodeISOArray                     = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567953699Z      bool SplitIfBlocks                             = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.567956799Z      intx StackRedPages                             = 1                                   {pd product}
+flume-1  | 2026-10-11T15:49:54.567960300Z      intx StackShadowPages                          = 20                                  {pd product}
+flume-1  | 2026-10-11T15:49:54.567963700Z      bool StackTraceInThrowable                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.567967700Z      intx StackYellowPages                          = 2                                   {pd product}
+flume-1  | 2026-10-11T15:49:54.567970801Z      bool StartAttachListener                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567973901Z     ccstr StartFlightRecording                      =                                     {product}
+flume-1  | 2026-10-11T15:49:54.567977001Z      intx StarvationMonitorInterval                 = 200                                 {product}
+flume-1  | 2026-10-11T15:49:54.567980302Z      bool StressLdcRewrite                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.567989803Z     uintx StringDeduplicationAgeThreshold           = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.567993403Z     uintx StringTableSize                           = 60013                               {product}
+flume-1  | 2026-10-11T15:49:54.567997104Z      bool SuppressFatalErrorMessage                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568000704Z     uintx SurvivorPadding                           = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.568004204Z     uintx SurvivorRatio                             = 8                                   {product}
+flume-1  | 2026-10-11T15:49:54.568007305Z      intx SuspendRetryCount                         = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.568010805Z      intx SuspendRetryDelay                         = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.568014105Z      intx SyncFlags                                 = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568017406Z     ccstr SyncKnobs                                 =                                     {product}
+flume-1  | 2026-10-11T15:49:54.568020606Z      intx SyncVerbose                               = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568023807Z     uintx TLABAllocationWeight                      = 35                                  {product}
+flume-1  | 2026-10-11T15:49:54.568027207Z     uintx TLABRefillWasteFraction                   = 64                                  {product}
+flume-1  | 2026-10-11T15:49:54.568030607Z     uintx TLABSize                                  = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568033908Z      bool TLABStats                                 = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568037108Z     uintx TLABWasteIncrement                        = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.568040808Z     uintx TLABWasteTargetPercent                    = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.568043909Z     uintx TargetPLABWastePct                        = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.568047009Z     uintx TargetSurvivorRatio                       = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.568050109Z     uintx TenuredGenerationSizeIncrement            = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.568053310Z     uintx TenuredGenerationSizeSupplement           = 80                                  {product}
+flume-1  | 2026-10-11T15:49:54.568056510Z     uintx TenuredGenerationSizeSupplementDecay      = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.568059910Z      intx ThreadPriorityPolicy                      = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568063311Z      bool ThreadPriorityVerbose                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568066611Z     uintx ThreadSafetyMargin                        = 52428800                            {product}
+flume-1  | 2026-10-11T15:49:54.568074812Z      intx ThreadStackSize                           = 1024                                {pd product}
+flume-1  | 2026-10-11T15:49:54.568078712Z     uintx ThresholdTolerance                        = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.568082213Z      intx Tier0BackedgeNotifyFreqLog                = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.568085913Z      intx Tier0InvokeNotifyFreqLog                  = 7                                   {product}
+flume-1  | 2026-10-11T15:49:54.568089614Z      intx Tier0ProfilingStartPercentage             = 200                                 {product}
+flume-1  | 2026-10-11T15:49:54.568092914Z      intx Tier23InlineeNotifyFreqLog                = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.568096214Z      intx Tier2BackEdgeThreshold                    = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568099815Z      intx Tier2BackedgeNotifyFreqLog                = 14                                  {product}
+flume-1  | 2026-10-11T15:49:54.568102915Z      intx Tier2CompileThreshold                     = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568106115Z      intx Tier2InvokeNotifyFreqLog                  = 11                                  {product}
+flume-1  | 2026-10-11T15:49:54.568109416Z      intx Tier3BackEdgeThreshold                    = 60000                               {product}
+flume-1  | 2026-10-11T15:49:54.568112516Z      intx Tier3BackedgeNotifyFreqLog                = 13                                  {product}
+flume-1  | 2026-10-11T15:49:54.568116417Z      intx Tier3CompileThreshold                     = 2000                                {product}
+flume-1  | 2026-10-11T15:49:54.568119617Z      intx Tier3DelayOff                             = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.568122717Z      intx Tier3DelayOn                              = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.568126118Z      intx Tier3InvocationThreshold                  = 200                                 {product}
+flume-1  | 2026-10-11T15:49:54.568129618Z      intx Tier3InvokeNotifyFreqLog                  = 10                                  {product}
+flume-1  | 2026-10-11T15:49:54.568132918Z      intx Tier3LoadFeedback                         = 5                                   {product}
+flume-1  | 2026-10-11T15:49:54.568136119Z      intx Tier3MinInvocationThreshold               = 100                                 {product}
+flume-1  | 2026-10-11T15:49:54.568139419Z      intx Tier4BackEdgeThreshold                    = 40000                               {product}
+flume-1  | 2026-10-11T15:49:54.568143120Z      intx Tier4CompileThreshold                     = 15000                               {product}
+flume-1  | 2026-10-11T15:49:54.568146520Z      intx Tier4InvocationThreshold                  = 5000                                {product}
+flume-1  | 2026-10-11T15:49:54.568150120Z      intx Tier4LoadFeedback                         = 3                                   {product}
+flume-1  | 2026-10-11T15:49:54.568153621Z      intx Tier4MinInvocationThreshold               = 600                                 {product}
+flume-1  | 2026-10-11T15:49:54.568161422Z      bool TieredCompilation                         = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.568165122Z      intx TieredCompileTaskTimeout                  = 50                                  {product}
+flume-1  | 2026-10-11T15:49:54.568168722Z      intx TieredRateUpdateMaxTime                   = 25                                  {product}
+flume-1  | 2026-10-11T15:49:54.568172323Z      intx TieredRateUpdateMinTime                   = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.568175523Z      intx TieredStopAtLevel                         = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.568178923Z      bool TimeLinearScan                            = false                               {C1 product}
+flume-1  | 2026-10-11T15:49:54.568182324Z      bool TraceBiasedLocking                        = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568185624Z      bool TraceClassLoading                         = false                               {product rw}
+flume-1  | 2026-10-11T15:49:54.568189725Z      bool TraceClassLoadingPreorder                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568193225Z      bool TraceClassPaths                           = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568196725Z      bool TraceClassResolution                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568200226Z      bool TraceClassUnloading                       = false                               {product rw}
+flume-1  | 2026-10-11T15:49:54.568203826Z      bool TraceDynamicGCThreads                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568207427Z      bool TraceExceptions                           = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568210927Z      bool TraceGen0Time                             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568214527Z      bool TraceGen1Time                             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568218128Z     ccstr TraceJVMTI                                =                                     {product}
+flume-1  | 2026-10-11T15:49:54.568221728Z      bool TraceLoaderConstraints                    = false                               {product rw}
+flume-1  | 2026-10-11T15:49:54.568224828Z      bool TraceMetadataHumongousAllocation          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568228029Z      bool TraceMonitorInflation                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568231129Z      bool TraceParallelOldGCTasks                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568234229Z      intx TraceRedefineClasses                      = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568237530Z      bool TraceSafepointCleanupTime                 = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568240730Z      bool TraceSuspendWaitFailures                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568248531Z      intx TrackedInitializationLimit                = 50                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.568252031Z      bool TransmitErrorReport                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568255132Z      bool TrapBasedNullChecks                       = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.568258332Z      bool TrapBasedRangeChecks                      = false                               {C2 pd product}
+flume-1  | 2026-10-11T15:49:54.568261532Z      intx TypeProfileArgsLimit                      = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.568265633Z     uintx TypeProfileLevel                          = 111                                 {pd product}
+flume-1  | 2026-10-11T15:49:54.568268933Z      intx TypeProfileMajorReceiverPercent           = 90                                  {C2 product}
+flume-1  | 2026-10-11T15:49:54.568272234Z      intx TypeProfileParmsLimit                     = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.568275734Z      intx TypeProfileWidth                          = 2                                   {product}
+flume-1  | 2026-10-11T15:49:54.568279034Z      intx UnguardOnExecutionViolation               = 0                                   {product}
+flume-1  | 2026-10-11T15:49:54.568282535Z      bool UnlinkSymbolsALot                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568285935Z      bool UnlockCommercialFeatures                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568289435Z      bool Use486InstrsOnly                          = false                               {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568292936Z      bool UseAES                                    = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568296536Z      bool UseAESIntrinsics                          = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568300037Z      intx UseAVX                                    = 2                                   {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568303537Z      bool UseAdaptiveGCBoundary                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568307037Z      bool UseAdaptiveGenerationSizePolicyAtMajorCollection  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568310738Z      bool UseAdaptiveGenerationSizePolicyAtMinorCollection  = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568314238Z      bool UseAdaptiveNUMAChunkSizing                = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568317438Z      bool UseAdaptiveSizeDecayMajorGCCost           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568320839Z      bool UseAdaptiveSizePolicy                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568324139Z      bool UseAdaptiveSizePolicyFootprintGoal        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568327540Z      bool UseAdaptiveSizePolicyWithSystemGC         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568335040Z      bool UseAddressNop                             = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568342041Z      bool UseAltSigs                                = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568345742Z      bool UseAutoGCSelectPolicy                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568349342Z      bool UseBMI1Instructions                       = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568352942Z      bool UseBMI2Instructions                       = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568356543Z      bool UseBiasedLocking                          = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568359843Z      bool UseBimorphicInlining                      = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568363444Z      bool UseBoundThreads                           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568366644Z      bool UseCLMUL                                  = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568369944Z      bool UseCMSBestFit                             = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568373345Z      bool UseCMSCollectionPassing                   = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568376645Z      bool UseCMSCompactAtFullCollection             = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568379745Z      bool UseCMSInitiatingOccupancyOnly             = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568382846Z      bool UseCRC32Intrinsics                        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568385946Z      bool UseCodeCacheFlushing                      = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568392347Z      bool UseCompiler                               = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568395847Z      bool UseCompilerSafepoints                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568399247Z      bool UseCompressedClassPointers               := true                                {lp64_product}
+flume-1  | 2026-10-11T15:49:54.568402548Z      bool UseCompressedOops                        := true                                {lp64_product}
+flume-1  | 2026-10-11T15:49:54.568405748Z      bool UseConcMarkSweepGC                        = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568408848Z      bool UseCondCardMark                           = false                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.568512860Z      bool UseContainerSupport                       = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568524261Z      bool UseCountLeadingZerosInstruction           = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568528461Z      bool UseCountTrailingZerosInstruction          = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568541463Z      bool UseCountedLoopSafepoints                  = false                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.568545863Z      bool UseCounterDecay                           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568549364Z      bool UseDivMod                                 = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568553264Z      bool UseDynamicNumberOfGCThreads               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568559865Z      bool UseFPUForSpilling                         = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568563565Z      bool UseFastAccessorMethods                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568567366Z      bool UseFastEmptyMethods                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568571366Z      bool UseFastJNIAccessors                       = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568575267Z      bool UseFastStosb                              = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568579467Z      bool UseG1GC                                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568583067Z      bool UseGCLogFileRotation                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568586668Z      bool UseGCOverheadLimit                        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568591068Z      bool UseGCTaskAffinity                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568594669Z      bool UseGHASHIntrinsics                        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568598269Z      bool UseHeavyMonitors                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568601469Z      bool UseHugeTLBFS                              = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568604670Z      bool UseInlineCaches                           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568610470Z      bool UseInterpreter                            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568614571Z      bool UseJumpTables                             = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568618471Z      bool UseLWPSynchronization                     = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568622072Z      bool UseLargePages                             = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.568625672Z      bool UseLargePagesInMetaspace                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568629272Z      bool UseLargePagesIndividualAllocation         = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.568633273Z      bool UseLegacyJNINameEscaping                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568642574Z      bool UseLinuxPosixThreadCPUClocks              = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568647374Z      bool UseLockedTracing                          = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568651175Z      bool UseLoopCounter                            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568655075Z      bool UseLoopInvariantCodeMotion                = true                                {C1 product}
+flume-1  | 2026-10-11T15:49:54.568658676Z      bool UseLoopPredicate                          = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568662676Z      bool UseMathExactIntrinsics                    = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568666477Z      bool UseMaximumCompactionOnSystemGC            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.568670177Z      bool UseMembar                                 = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.568674177Z      bool UseMontgomeryMultiplyIntrinsic            = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568678578Z      bool UseMontgomerySquareIntrinsic              = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568682678Z      bool UseMulAddIntrinsic                        = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568686279Z      bool UseMultiplyToLenIntrinsic                 = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568689479Z      bool UseNUMA                                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568694180Z      bool UseNUMAInterleaving                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568699080Z      bool UseNewLongLShift                          = false                               {ARCH product}
+flume-1  | 2026-10-11T15:49:54.568702780Z      bool UseOSErrorReporting                       = false                               {pd product}
+flume-1  | 2026-10-11T15:49:54.568706281Z      bool UseOnStackReplacement                     = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.568709981Z      bool UseOnlyInlinedBimorphic                   = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568713682Z      bool UseOprofile                               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.568717082Z      bool UseOptoBiasInlining                       = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.568720982Z      bool UsePSAdaptiveSurvivorSizePolicy           = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571514287Z      bool UseParNewGC                               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571543490Z      bool UseParallelGC                            := true                                {product}
+flume-1  | 2026-10-11T15:49:54.571548390Z      bool UseParallelOldGC                          = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571575993Z      bool UsePerfData                               = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571583794Z      bool UsePopCountInstruction                    = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571591795Z      bool UseRDPCForConstantTableBase               = false                               {C2 product}
+flume-1  | 2026-10-11T15:49:54.571599896Z      bool UseRTMDeopt                               = false                               {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571607897Z      bool UseRTMLocking                             = false                               {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571615898Z      bool UseSHA                                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571623899Z      bool UseSHA1Intrinsics                         = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571629999Z      bool UseSHA256Intrinsics                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571635900Z      bool UseSHA512Intrinsics                       = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571641701Z      bool UseSHM                                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571644701Z      intx UseSSE                                    = 4                                   {product}
+flume-1  | 2026-10-11T15:49:54.571647701Z      bool UseSSE42Intrinsics                        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571652702Z      bool UseSerialGC                               = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571660703Z      bool UseSharedSpaces                           = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571668604Z      bool UseSignalChaining                         = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571676604Z      bool UseSquareToLenIntrinsic                   = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.571684605Z      bool UseStoreImmI16                            = false                               {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571692606Z      bool UseStringDeduplication                    = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571702607Z      bool UseSuperWord                              = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.571708508Z      bool UseTLAB                                   = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.571712808Z      bool UseThreadPriorities                       = true                                {pd product}
+flume-1  | 2026-10-11T15:49:54.571720109Z      bool UseTransparentHugePages                   = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571728010Z      bool UseTypeProfile                            = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571753313Z      bool UseTypeSpeculation                        = true                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.571769114Z      bool UseUnalignedLoadStores                    = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571777015Z      bool UseVMInterruptibleIO                      = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571784616Z      bool UseXMMForArrayCopy                        = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571827021Z      bool UseXmmI2D                                 = false                               {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571835722Z      bool UseXmmI2F                                 = false                               {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571845023Z      bool UseXmmLoadAndClearUpper                   = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571850323Z      bool UseXmmRegToRegMoveAll                     = true                                {ARCH product}
+flume-1  | 2026-10-11T15:49:54.571853824Z      bool VMThreadHintNoPreempt                     = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571857124Z      intx VMThreadPriority                          = -1                                  {product}
+flume-1  | 2026-10-11T15:49:54.571859924Z      intx VMThreadStackSize                         = 1024                                {pd product}
+flume-1  | 2026-10-11T15:49:54.571862625Z      intx ValueMapInitialSize                       = 11                                  {C1 product}
+flume-1  | 2026-10-11T15:49:54.571866125Z      intx ValueMapMaxLoopSize                       = 8                                   {C1 product}
+flume-1  | 2026-10-11T15:49:54.571868825Z      intx ValueSearchLimit                          = 1000                                {C2 product}
+flume-1  | 2026-10-11T15:49:54.571871826Z      bool VerifyMergedCPBytecodes                   = true                                {product}
+flume-1  | 2026-10-11T15:49:54.571877626Z      bool VerifySharedSpaces                        = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571884127Z      intx WorkAroundNPTLTimedWaitHang               = 1                                   {product}
+flume-1  | 2026-10-11T15:49:54.571888827Z     uintx YoungGenerationSizeIncrement              = 20                                  {product}
+flume-1  | 2026-10-11T15:49:54.571892228Z     uintx YoungGenerationSizeSupplement             = 80                                  {product}
+flume-1  | 2026-10-11T15:49:54.571895328Z     uintx YoungGenerationSizeSupplementDecay        = 8                                   {product}
+flume-1  | 2026-10-11T15:49:54.571898229Z     uintx YoungPLABSize                             = 4096                                {product}
+flume-1  | 2026-10-11T15:49:54.571900929Z      bool ZeroTLAB                                  = false                               {product}
+flume-1  | 2026-10-11T15:49:54.571903629Z      intx hashCode                                  = 5                                   {product}
+flume-1  | 2026-10-11T15:49:59.972457571Z 2026-10-11T15:49:59,956 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.005970921Z 2026-10-11T15:50:00,005 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.011565031Z 2026-10-11T15:50:00,011 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.015752087Z 2026-10-11T15:50:00,015 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.034707851Z 2026-10-11T15:50:00,034 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.049948912Z 2026-10-11T15:50:00,049 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.065576214Z 2026-10-11T15:50:00,065 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.082497957Z 2026-10-11T15:50:00,082 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.086621906Z 2026-10-11T15:50:00,086 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.089640135Z 2026-10-11T15:50:00,088 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:c1
+flume-1  | 2026-10-11T15:50:00.100289195Z 2026-10-11T15:50:00,099 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:c1
+flume-1  | 2026-10-11T15:50:00.103152007Z 2026-10-11T15:50:00,102 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.106786502Z 2026-10-11T15:50:00,106 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.112766354Z 2026-10-11T15:50:00,112 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:c1
+flume-1  | 2026-10-11T15:50:00.114450537Z 2026-10-11T15:50:00,114 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:c1
+flume-1  | 2026-10-11T15:50:00.115943700Z 2026-10-11T15:50:00,115 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.117450164Z 2026-10-11T15:50:00,117 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.119464783Z 2026-10-11T15:50:00,118 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:c1
+flume-1  | 2026-10-11T15:50:00.120311176Z 2026-10-11T15:50:00,119 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.121684925Z 2026-10-11T15:50:00,121 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.123110480Z 2026-10-11T15:50:00,122 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Added sinks: k1 Agent: a1
+flume-1  | 2026-10-11T15:50:00.124557638Z 2026-10-11T15:50:00,124 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.127796091Z 2026-10-11T15:50:00,125 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.129182342Z 2026-10-11T15:50:00,128 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.131066447Z 2026-10-11T15:50:00,130 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:r1
+flume-1  | 2026-10-11T15:50:00.131872135Z 2026-10-11T15:50:00,131 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:c1
+flume-1  | 2026-10-11T15:50:00.133289789Z 2026-10-11T15:50:00,132 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Processing:k1
+flume-1  | 2026-10-11T15:50:00.134650237Z 2026-10-11T15:50:00,134 WARN  [main] org.apache.flume.conf.FlumeConfiguration - Agent configuration for 'a1' has no configfilters.
+flume-1  | 2026-10-11T15:50:00.160700175Z 2026-10-11T15:50:00,160 INFO  [main] org.apache.flume.conf.FlumeConfiguration - Post-validation flume configuration contains configuration for agents: [a1]
+flume-1  | 2026-10-11T15:50:00.163535584Z 2026-10-11T15:50:00,162 INFO  [main] org.apache.flume.node.AbstractConfigurationProvider - Creating channels
+flume-1  | 2026-10-11T15:50:00.182734775Z 2026-10-11T15:50:00,182 INFO  [main] org.apache.flume.channel.DefaultChannelFactory - Creating instance of channel c1 type file
+flume-1  | 2026-10-11T15:50:00.220859428Z 2026-10-11T15:50:00,217 INFO  [main] org.apache.flume.node.AbstractConfigurationProvider - Created channel c1
+flume-1  | 2026-10-11T15:50:00.228980012Z 2026-10-11T15:50:00,227 INFO  [main] org.apache.flume.source.DefaultSourceFactory - Creating instance of source r1, type spooldir
+flume-1  | 2026-10-11T15:50:00.277152559Z 2026-10-11T15:50:00,276 INFO  [main] org.apache.flume.sink.DefaultSinkFactory - Creating instance of sink: k1, type: file_roll
+flume-1  | 2026-10-11T15:50:00.303533733Z 2026-10-11T15:50:00,303 INFO  [main] org.apache.flume.node.AbstractConfigurationProvider - Channel c1 connected to [r1, k1]
+flume-1  | 2026-10-11T15:50:00.304917283Z 2026-10-11T15:50:00,304 INFO  [main] org.apache.flume.node.Application - Initializing components
+flume-1  | 2026-10-11T15:50:00.308360858Z 2026-10-11T15:50:00,307 INFO  [main] org.apache.flume.node.Application - Starting new configuration:{ sourceRunners:{r1=EventDrivenSourceRunner: { source:Spool Directory source r1: { spoolDir: /data/spool } }} sinkRunners:{k1=SinkRunner: { policy:org.apache.flume.sink.DefaultSinkProcessor@4bb33f74 counterGroup:{ name:null counters:{} } }} channels:{c1=FileChannel c1 { dataDirs: [/data/channel/data] }} }
+flume-1  | 2026-10-11T15:50:00.310601302Z 2026-10-11T15:50:00,309 INFO  [main] org.apache.flume.node.Application - Starting Channel c1
+flume-1  | 2026-10-11T15:50:00.331893922Z 2026-10-11T15:50:00,331 INFO  [main] org.apache.flume.node.Application - Waiting for channel: c1 to start. Sleeping for 500 ms
+flume-1  | 2026-10-11T15:50:00.333365882Z 2026-10-11T15:50:00,332 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.FileChannel - Starting FileChannel c1 { dataDirs: [/data/channel/data] }...
+flume-1  | 2026-10-11T15:50:00.338305420Z 2026-10-11T15:50:00,337 INFO  [lifecycleSupervisor-1-0] org.apache.flume.instrumentation.MonitoredCounterGroup - Monitored counter group for type: CHANNEL, name: c1: Successfully registered new MBean.
+flume-1  | 2026-10-11T15:50:00.343031335Z 2026-10-11T15:50:00,342 INFO  [lifecycleSupervisor-1-0] org.apache.flume.instrumentation.MonitoredCounterGroup - Component type: CHANNEL, name: c1 started
+flume-1  | 2026-10-11T15:50:00.377328371Z 2026-10-11T15:50:00,376 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Encryption is not enabled
+flume-1  | 2026-10-11T15:50:00.381252898Z 2026-10-11T15:50:00,380 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Replay started
+flume-1  | 2026-10-11T15:50:00.384958602Z 2026-10-11T15:50:00,384 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Found NextFileID 0, from []
+flume-1  | 2026-10-11T15:50:00.449641947Z 2026-10-11T15:50:00,449 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.EventQueueBackingStoreFile - Preallocated /data/channel/checkpoint/checkpoint to 8008232 for capacity 1000000
+flume-1  | 2026-10-11T15:50:00.453993721Z 2026-10-11T15:50:00,453 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.EventQueueBackingStoreFileV3 - Starting up with /data/channel/checkpoint/checkpoint and /data/channel/checkpoint/checkpoint.meta
+flume-1  | 2026-10-11T15:50:00.659946854Z 2026-10-11T15:50:00,659 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.FlumeEventQueue - QueueSet population inserting 0 took 0
+flume-1  | 2026-10-11T15:50:00.671213581Z 2026-10-11T15:50:00,670 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Last Checkpoint Sun Oct 11 15:50:00 UTC 2026, queue depth = 0
+flume-1  | 2026-10-11T15:50:00.678568382Z 2026-10-11T15:50:00,678 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Replaying logs with v2 replay logic
+flume-1  | 2026-10-11T15:50:00.683701941Z 2026-10-11T15:50:00,683 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.ReplayHandler - Starting replay of []
+flume-1  | 2026-10-11T15:50:00.684931075Z 2026-10-11T15:50:00,684 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.ReplayHandler - read: 0, put: 0, take: 0, rollback: 0, commit: 0, skip: 0, eventCount:0
+flume-1  | 2026-10-11T15:50:00.686474043Z 2026-10-11T15:50:00,686 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.FlumeEventQueue - Search Count = 0, Search Time = 0, Copy Count = 0, Copy Time = 0
+flume-1  | 2026-10-11T15:50:00.701525883Z 2026-10-11T15:50:00,700 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Rolling /data/channel/data
+flume-1  | 2026-10-11T15:50:00.702796421Z 2026-10-11T15:50:00,702 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Roll start /data/channel/data
+flume-1  | 2026-10-11T15:50:00.719233412Z 2026-10-11T15:50:00,718 INFO  [lifecycleSupervisor-1-0] org.apache.flume.tools.DirectMemoryUtils - Unable to get maxDirectMemory from VM: NoSuchMethodException: sun.misc.VM.maxDirectMemory(null)
+flume-1  | 2026-10-11T15:50:00.723670795Z 2026-10-11T15:50:00,723 INFO  [lifecycleSupervisor-1-0] org.apache.flume.tools.DirectMemoryUtils - Direct Memory Allocation:  Allocation = 1048576, Allocated = 0, MaxDirectMemorySize = 477626368, Remaining = 477626368
+flume-1  | 2026-10-11T15:50:00.852056446Z 2026-10-11T15:50:00,851 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.LogFile - Opened /data/channel/data/log-1
+flume-1  | 2026-10-11T15:50:00.869149658Z 2026-10-11T15:50:00,868 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Roll end
+flume-1  | 2026-10-11T15:50:00.871408158Z 2026-10-11T15:50:00,870 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.EventQueueBackingStoreFile - Start checkpoint for /data/channel/checkpoint/checkpoint, elements to sync = 0
+flume-1  | 2026-10-11T15:50:00.892639037Z 2026-10-11T15:50:00,892 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.EventQueueBackingStoreFile - Updating checkpoint metadata: logWriteOrderID: 1791733800701, queueSize: 0, queueHead: 0
+flume-1  | 2026-10-11T15:50:00.954219086Z 2026-10-11T15:50:00,953 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.Log - Updated checkpoint for file: /data/channel/data/log-1 position: 0 logWriteOrderID: 1791733800701
+flume-1  | 2026-10-11T15:50:00.959625564Z 2026-10-11T15:50:00,958 INFO  [lifecycleSupervisor-1-0] org.apache.flume.channel.file.FileChannel - Queue Size after replay: 0 [channel=c1]
+flume-1  | 2026-10-11T15:50:00.962583026Z 2026-10-11T15:50:00,961 INFO  [main] org.apache.flume.node.Application - Starting Sink k1
+flume-1  | 2026-10-11T15:50:00.966300655Z 2026-10-11T15:50:00,965 INFO  [lifecycleSupervisor-1-0] org.apache.flume.sink.RollingFileSink - Starting org.apache.flume.sink.RollingFileSink{name:k1, channel:c1}...
+flume-1  | 2026-10-11T15:50:00.966348759Z 2026-10-11T15:50:00,965 INFO  [main] org.apache.flume.node.Application - Starting Source r1
+flume-1  | 2026-10-11T15:50:00.976001913Z 2026-10-11T15:50:00,975 INFO  [lifecycleSupervisor-1-0] org.apache.flume.instrumentation.MonitoredCounterGroup - Monitored counter group for type: SINK, name: k1: Successfully registered new MBean.
+flume-1  | 2026-10-11T15:50:00.983296058Z 2026-10-11T15:50:00,982 INFO  [lifecycleSupervisor-1-0] org.apache.flume.instrumentation.MonitoredCounterGroup - Component type: SINK, name: k1 started
+flume-1  | 2026-10-11T15:50:00.989273087Z 2026-10-11T15:50:00,984 INFO  [lifecycleSupervisor-1-1] org.apache.flume.source.SpoolDirectorySource - SpoolDirectorySource source starting with directory: /data/spool
+flume-1  | 2026-10-11T15:50:00.995501738Z 2026-10-11T15:50:00,994 INFO  [lifecycleSupervisor-1-0] org.apache.flume.sink.RollingFileSink - RollingFileSink k1 started.
+flume-1  | 2026-10-11T15:50:01.114684884Z 2026-10-11T15:50:01,114 INFO  [main] org.eclipse.jetty.util.log - Logging initialized @6685ms to org.eclipse.jetty.util.log.Slf4jLog
+flume-1  | 2026-10-11T15:50:01.189328689Z 2026-10-11T15:50:01,188 INFO  [lifecycleSupervisor-1-1] org.apache.flume.instrumentation.MonitoredCounterGroup - Monitored counter group for type: SOURCE, name: r1: Successfully registered new MBean.
+flume-1  | 2026-10-11T15:50:01.194921384Z 2026-10-11T15:50:01,194 INFO  [lifecycleSupervisor-1-1] org.apache.flume.instrumentation.MonitoredCounterGroup - Component type: SOURCE, name: r1 started
+flume-1  | 2026-10-11T15:50:01.542322123Z 2026-10-11T15:50:01,541 INFO  [main] org.eclipse.jetty.server.Server - jetty-9.4.41.v20210516; built: 2021-05-16T23:56:28.993Z; git: 98607f93c7833e7dc59489b13f3cb0a114fb9f4c; jvm 1.8.0_504-b01
+flume-1  | 2026-10-11T15:50:01.699786355Z 2026-10-11T15:50:01,699 INFO  [main] org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@46cdf8bd{HTTP/1.1, (http/1.1)}{0.0.0.0:41414}
+flume-1  | 2026-10-11T15:50:01.712480379Z 2026-10-11T15:50:01,711 INFO  [main] org.eclipse.jetty.server.Server - Started @7307ms
+flume-1  | 2026-10-11T15:50:30.373565994Z 2026-10-11T15:50:30,373 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Start checkpoint for /data/channel/checkpoint/checkpoint, elements to sync = 294000
+flume-1  | 2026-10-11T15:50:30.396858273Z 2026-10-11T15:50:30,396 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Updating checkpoint metadata: logWriteOrderID: 1791734244737, queueSize: 145143, queueHead: 148855
+flume-1  | 2026-10-11T15:50:30.477267676Z 2026-10-11T15:50:30,476 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.Log - Updated checkpoint for file: /data/channel/data/log-1 position: 120714153 logWriteOrderID: 1791734244737
+flume-1  | 2026-10-11T15:51:00.481659159Z 2026-10-11T15:51:00,480 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Start checkpoint for /data/channel/checkpoint/checkpoint, elements to sync = 448143
+flume-1  | 2026-10-11T15:51:00.493119134Z 2026-10-11T15:51:00,492 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Updating checkpoint metadata: logWriteOrderID: 1791734708222, queueSize: 288292, queueHead: 308706
+flume-1  | 2026-10-11T15:51:00.542671548Z 2026-10-11T15:51:00,542 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.Log - Updated checkpoint for file: /data/channel/data/log-1 position: 245157496 logWriteOrderID: 1791734708222
+flume-1  | 2026-10-11T15:51:30.558496307Z 2026-10-11T15:51:30,558 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Start checkpoint for /data/channel/checkpoint/checkpoint, elements to sync = 604792
+flume-1  | 2026-10-11T15:51:30.569253192Z 2026-10-11T15:51:30,568 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Updating checkpoint metadata: logWriteOrderID: 1791735314225, queueSize: 463500, queueHead: 523498
+flume-1  | 2026-10-11T15:51:30.620949587Z 2026-10-11T15:51:30,620 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.Log - Updated checkpoint for file: /data/channel/data/log-1 position: 405850006 logWriteOrderID: 1791735314225
+flume-1  | 2026-10-11T15:51:31.430830808Z 2026-10-11T15:51:31,430 INFO  [pool-4-thread-1] org.apache.flume.client.avro.ReliableSpoolingFileEventReader - Last read took us just up to a file boundary. Rolling to the next file, if there is one.
+flume-1  | 2026-10-11T15:51:31.439260337Z 2026-10-11T15:51:31,438 INFO  [pool-4-thread-1] org.apache.flume.client.avro.ReliableSpoolingFileEventReader - Preparing to move file /data/spool/13111e3ae6344e8494876863ebd2fbcb.jsonl to /data/spool/13111e3ae6344e8494876863ebd2fbcb.jsonl.COMPLETED
+flume-1  | 2026-10-11T15:52:00.619611769Z 2026-10-11T15:52:00,619 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Start checkpoint for /data/channel/checkpoint/checkpoint, elements to sync = 283892
+flume-1  | 2026-10-11T15:52:00.668207546Z 2026-10-11T15:52:00,667 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Updating checkpoint metadata: logWriteOrderID: 1791735598685, queueSize: 205608, queueHead: 794390
+flume-1  | 2026-10-11T15:52:00.741581315Z 2026-10-11T15:52:00,741 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.Log - Updated checkpoint for file: /data/channel/data/log-1 position: 422038388 logWriteOrderID: 1791735598685
+flume-1  | 2026-10-11T15:52:30.745454252Z 2026-10-11T15:52:30,740 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Start checkpoint for /data/channel/checkpoint/checkpoint, elements to sync = 205608
+flume-1  | 2026-10-11T15:52:30.782878754Z 2026-10-11T15:52:30,782 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.EventQueueBackingStoreFile - Updating checkpoint metadata: logWriteOrderID: 1791735804706, queueSize: 0, queueHead: 999998
+flume-1  | 2026-10-11T15:52:30.833893546Z 2026-10-11T15:52:30,833 INFO  [Log-BackgroundWorker-c1] org.apache.flume.channel.file.Log - Updated checkpoint for file: /data/channel/data/log-1 position: 430483148 logWriteOrderID: 1791735804706
+flume-1  | 2026-10-11T15:52:31.118516441Z 2026-10-11T15:52:31,117 INFO  [agent-shutdown-hook] org.apache.flume.node.Application - Shutting down configuration: { sourceRunners:{r1=EventDrivenSourceRunner: { source:Spool Directory source r1: { spoolDir: /data/spool } }} sinkRunners:{k1=SinkRunner: { policy:org.apache.flume.sink.DefaultSinkProcessor@4bb33f74 counterGroup:{ name:null counters:{runner.backoffs.consecutive=2, runner.backoffs=5} } }} channels:{c1=FileChannel c1 { dataDirs: [/data/channel/data] }} }
+flume-1  | 2026-10-11T15:52:31.121390256Z 2026-10-11T15:52:31,120 INFO  [agent-shutdown-hook] org.apache.flume.node.Application - Stopping Source r1
+flume-1  | 2026-10-11T15:52:31.126565324Z 2026-10-11T15:52:31,123 INFO  [agent-shutdown-hook] org.apache.flume.lifecycle.LifecycleSupervisor - Stopping component: EventDrivenSourceRunner: { source:Spool Directory source r1: { spoolDir: /data/spool } }
+flume-1  | 2026-10-11T15:52:31.129753673Z 2026-10-11T15:52:31,128 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Component type: SOURCE, name: r1 stopped
+flume-1  | 2026-10-11T15:52:31.132082828Z 2026-10-11T15:52:31,131 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. source.start.time == 1791733801194
+flume-1  | 2026-10-11T15:52:31.133493683Z 2026-10-11T15:52:31,132 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. source.stop.time == 1791733951128
+flume-1  | 2026-10-11T15:52:31.135250576Z 2026-10-11T15:52:31,134 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.append-batch.accepted == 2000
+flume-1  | 2026-10-11T15:52:31.136833849Z 2026-10-11T15:52:31,136 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.append-batch.received == 2000
+flume-1  | 2026-10-11T15:52:31.138437525Z 2026-10-11T15:52:31,137 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.append.accepted == 0
+flume-1  | 2026-10-11T15:52:31.147011265Z 2026-10-11T15:52:31,139 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.append.received == 0
+flume-1  | 2026-10-11T15:52:31.147049669Z 2026-10-11T15:52:31,140 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.channel.write.fail == 0
+flume-1  | 2026-10-11T15:52:31.150733473Z 2026-10-11T15:52:31,147 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.event.read.fail == 0
+flume-1  | 2026-10-11T15:52:31.151576665Z 2026-10-11T15:52:31,151 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.events.accepted == 1000000
+flume-1  | 2026-10-11T15:52:31.153303654Z 2026-10-11T15:52:31,152 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.events.received == 1000000
+flume-1  | 2026-10-11T15:52:31.155744822Z 2026-10-11T15:52:31,153 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.generic.processing.fail == 0
+flume-1  | 2026-10-11T15:52:31.158475621Z 2026-10-11T15:52:31,157 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SOURCE, name: r1. src.open-connection.count == 0
+flume-1  | 2026-10-11T15:52:31.159529037Z 2026-10-11T15:52:31,159 INFO  [agent-shutdown-hook] org.apache.flume.source.SpoolDirectorySource - SpoolDir source r1 stopped. Metrics: SOURCE:r1{src.events.accepted=1000000, src.open-connection.count=0, src.append.received=0, src.channel.write.fail=0, src.append-batch.received=2000, src.generic.processing.fail=0, src.append-batch.accepted=2000, src.append.accepted=0, src.events.received=1000000, src.event.read.fail=0}
+flume-1  | 2026-10-11T15:52:31.162163825Z 2026-10-11T15:52:31,161 INFO  [agent-shutdown-hook] org.apache.flume.node.Application - Stopping Sink k1
+flume-1  | 2026-10-11T15:52:31.163251445Z 2026-10-11T15:52:31,162 INFO  [agent-shutdown-hook] org.apache.flume.lifecycle.LifecycleSupervisor - Stopping component: SinkRunner: { policy:org.apache.flume.sink.DefaultSinkProcessor@4bb33f74 counterGroup:{ name:null counters:{runner.backoffs.consecutive=2, runner.backoffs=5} } }
+flume-1  | 2026-10-11T15:52:31.166498701Z 2026-10-11T15:52:31,165 INFO  [agent-shutdown-hook] org.apache.flume.sink.RollingFileSink - RollingFile sink k1 stopping...
+flume-1  | 2026-10-11T15:52:31.167363695Z 2026-10-11T15:52:31,166 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Component type: SINK, name: k1 stopped
+flume-1  | 2026-10-11T15:52:31.170517641Z 2026-10-11T15:52:31,168 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.start.time == 1791733800982
+flume-1  | 2026-10-11T15:52:31.170547744Z 2026-10-11T15:52:31,169 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.stop.time == 1791733951166
+flume-1  | 2026-10-11T15:52:31.172268233Z 2026-10-11T15:52:31,171 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.batch.complete == 0
+flume-1  | 2026-10-11T15:52:31.173170532Z 2026-10-11T15:52:31,172 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.batch.empty == 0
+flume-1  | 2026-10-11T15:52:31.178602627Z 2026-10-11T15:52:31,174 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.batch.underflow == 0
+flume-1  | 2026-10-11T15:52:31.178644132Z 2026-10-11T15:52:31,175 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.channel.read.fail == 0
+flume-1  | 2026-10-11T15:52:31.178651833Z 2026-10-11T15:52:31,177 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.connection.closed.count == 14
+flume-1  | 2026-10-11T15:52:31.179121584Z 2026-10-11T15:52:31,178 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.connection.creation.count == 15
+flume-1  | 2026-10-11T15:52:31.180322516Z 2026-10-11T15:52:31,179 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.connection.failed.count == 0
+flume-1  | 2026-10-11T15:52:31.181417636Z 2026-10-11T15:52:31,181 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.event.drain.attempt == 1000000
+flume-1  | 2026-10-11T15:52:31.182474552Z 2026-10-11T15:52:31,182 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.event.drain.sucess == 1000000
+flume-1  | 2026-10-11T15:52:31.183556870Z 2026-10-11T15:52:31,183 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: SINK, name: k1. sink.event.write.fail == 0
+flume-1  | 2026-10-11T15:52:31.187536606Z 2026-10-11T15:52:31,186 INFO  [agent-shutdown-hook] org.apache.flume.sink.RollingFileSink - RollingFile sink k1 stopped. Event metrics: SINK:k1{sink.batch.underflow=0, sink.event.write.fail=0, sink.connection.failed.count=0, sink.channel.read.fail=0, sink.connection.closed.count=15, sink.event.drain.attempt=1000000, sink.batch.complete=0, sink.event.drain.sucess=1000000, sink.connection.creation.count=15, sink.batch.empty=0}
+flume-1  | 2026-10-11T15:52:31.190339414Z 2026-10-11T15:52:31,189 INFO  [agent-shutdown-hook] org.apache.flume.node.Application - Stopping Channel c1
+flume-1  | 2026-10-11T15:52:31.192574259Z 2026-10-11T15:52:31,192 INFO  [agent-shutdown-hook] org.apache.flume.lifecycle.LifecycleSupervisor - Stopping component: FileChannel c1 { dataDirs: [/data/channel/data] }
+flume-1  | 2026-10-11T15:52:31.194002315Z 2026-10-11T15:52:31,193 INFO  [agent-shutdown-hook] org.apache.flume.channel.file.FileChannel - Stopping FileChannel c1 { dataDirs: [/data/channel/data] }...
+flume-1  | 2026-10-11T15:52:31.197548504Z 2026-10-11T15:52:31,196 INFO  [agent-shutdown-hook] org.apache.flume.channel.file.EventQueueBackingStoreFile - Start checkpoint for /data/channel/checkpoint/checkpoint, elements to sync = 0
+flume-1  | 2026-10-11T15:52:31.234133414Z 2026-10-11T15:52:31,233 INFO  [agent-shutdown-hook] org.apache.flume.channel.file.EventQueueBackingStoreFile - Updating checkpoint metadata: logWriteOrderID: 1791735804707, queueSize: 0, queueHead: 999998
+flume-1  | 2026-10-11T15:52:31.250683728Z 2026-10-11T15:52:31,250 INFO  [agent-shutdown-hook] org.apache.flume.channel.file.Log - Updated checkpoint for file: /data/channel/data/log-1 position: 430483148 logWriteOrderID: 1791735804707
+flume-1  | 2026-10-11T15:52:31.252067779Z Attempting to shutdown background worker.
+flume-1  | 2026-10-11T15:52:31.252134587Z 2026-10-11T15:52:31,251 INFO  [agent-shutdown-hook] org.apache.flume.channel.file.Log - Attempting to shutdown background worker.
+flume-1  | 2026-10-11T15:52:31.254613658Z 2026-10-11T15:52:31,253 INFO  [agent-shutdown-hook] org.apache.flume.channel.file.LogFile - Closing /data/channel/data/log-1
+flume-1  | 2026-10-11T15:52:31.257765604Z 2026-10-11T15:52:31,257 INFO  [agent-shutdown-hook] org.apache.flume.channel.file.LogFile - Closing RandomReader /data/channel/data/log-1
+flume-1  | 2026-10-11T15:52:31.268526483Z 2026-10-11T15:52:31,268 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Component type: CHANNEL, name: c1 stopped
+flume-1  | 2026-10-11T15:52:31.269521592Z 2026-10-11T15:52:31,269 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.start.time == 1791733800342
+flume-1  | 2026-10-11T15:52:31.271046259Z 2026-10-11T15:52:31,270 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.stop.time == 1791733951268
+flume-1  | 2026-10-11T15:52:31.272289896Z 2026-10-11T15:52:31,271 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.capacity == 1000000
+flume-1  | 2026-10-11T15:52:31.274855977Z 2026-10-11T15:52:31,274 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.current.size == 0
+flume-1  | 2026-10-11T15:52:31.276286934Z 2026-10-11T15:52:31,275 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.event.put.attempt == 1000000
+flume-1  | 2026-10-11T15:52:31.278033925Z 2026-10-11T15:52:31,277 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.event.put.success == 1000000
+flume-1  | 2026-10-11T15:52:31.279209354Z 2026-10-11T15:52:31,278 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.event.take.attempt == 1000005
+flume-1  | 2026-10-11T15:52:31.280352979Z 2026-10-11T15:52:31,279 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.event.take.success == 1000000
+flume-1  | 2026-10-11T15:52:31.281591115Z 2026-10-11T15:52:31,281 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.file.checkpoint.backup.write.error == 0
+flume-1  | 2026-10-11T15:52:31.282663833Z 2026-10-11T15:52:31,282 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.file.checkpoint.write.error == 0
+flume-1  | 2026-10-11T15:52:31.283828260Z 2026-10-11T15:52:31,283 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.file.event.put.error == 0
+flume-1  | 2026-10-11T15:52:31.285198510Z 2026-10-11T15:52:31,284 INFO  [agent-shutdown-hook] org.apache.flume.instrumentation.MonitoredCounterGroup - Shutdown Metric for type: CHANNEL, name: c1. channel.file.event.take.error == 0
+flume-1  | 2026-10-11T15:52:31.298033417Z 2026-10-11T15:52:31,297 INFO  [agent-shutdown-hook] org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@46cdf8bd{HTTP/1.1, (http/1.1)}{0.0.0.0:41414}
+flume-1  | 2026-10-11T15:52:31.307322035Z 2026-10-11T15:52:31,305 INFO  [agent-shutdown-hook] org.apache.flume.lifecycle.LifecycleSupervisor - Stopping lifecycle supervisor 30

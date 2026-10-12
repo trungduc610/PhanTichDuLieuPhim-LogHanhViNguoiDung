@@ -1,0 +1,98 @@
+FSCK started by root (auth:SIMPLE) from /172.18.0.3 for path /movie-log at Mon Oct 12 08:10:41 UTC 2026
+
+/movie-log <dir>
+/movie-log/processed <dir>
+/movie-log/raw <dir>
+/movie-log/raw/movies <dir>
+/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a <dir>
+/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv 533347 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741825_1001 len=533347 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs <dir>
+/movie-log/raw/user_logs/run-aa6b9eb58dca <dir>
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a <dir>
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-1.jsonl 4463241 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741826_1002 len=4463241 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-10.jsonl 33132563 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741827_1003 len=33132563 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-11.jsonl 30213917 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741828_1004 len=30213917 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-12.jsonl 29183763 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741829_1005 len=29183763 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-13.jsonl 27810781 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741830_1006 len=27810781 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-14.jsonl 25063177 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741831_1007 len=25063177 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-15.jsonl 16995792 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741832_1008 len=16995792 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-2.jsonl 23690281 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741833_1009 len=23690281 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-3.jsonl 23862302 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741834_1010 len=23862302 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-4.jsonl 15792847 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741835_1011 len=15792847 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-5.jsonl 16308520 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741836_1012 len=16308520 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-6.jsonl 23175894 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741837_1013 len=23175894 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-7.jsonl 24892171 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741838_1014 len=24892171 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-8.jsonl 24032718 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741839_1015 len=24032718 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/1791733800297-9.jsonl 24721181 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1738312168-172.18.0.2-1791789899789:blk_1073741840_1016 len=24721181 Live_repl=1  [DatanodeInfoWithStorage[172.18.0.2:9866,DS-530f74f7-1ee4-4b04-8596-ee4b071e22da,DISK]]
+
+/movie-log/results <dir>
+
+Status: HEALTHY
+ Number of data-nodes:	1
+ Number of racks:		1
+ Total dirs:			9
+ Total symlinks:		0
+
+Replicated Blocks:
+ Total size:	343872495 B
+ Total files:	16
+ Total blocks (validated):	16 (avg. block size 21492030 B)
+ Minimally replicated blocks:	16 (100.0 %)
+ Over-replicated blocks:	0 (0.0 %)
+ Under-replicated blocks:	0 (0.0 %)
+ Mis-replicated blocks:		0 (0.0 %)
+ Default replication factor:	1
+ Average block replication:	1.0
+ Missing blocks:		0
+ Corrupt blocks:		0
+ Missing replicas:		0 (0.0 %)
+ Blocks queued for replication:	0
+
+Erasure Coded Block Groups:
+ Total size:	0 B
+ Total files:	0
+ Total block groups (validated):	0
+ Minimally erasure-coded block groups:	0
+ Over-erasure-coded block groups:	0
+ Under-erasure-coded block groups:	0
+ Unsatisfactory placement block groups:	0
+ Average block group size:	0.0
+ Missing block groups:		0
+ Corrupt block groups:		0
+ Missing internal blocks:	0
+ Blocks queued for replication:	0
+FSCK ended at Mon Oct 12 08:10:41 UTC 2026 in 13 milliseconds
+
+
+The filesystem under path '/movie-log' is HEALTHY

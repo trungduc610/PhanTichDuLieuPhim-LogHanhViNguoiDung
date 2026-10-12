@@ -1,0 +1,10 @@
+{"at_utc": "2026-10-11T15:36:09.294658+00:00", "spool_completed": false, "observed_complete_lines": 0, "expected": 10000}
+{"at_utc": "2026-10-11T15:36:19.323820+00:00", "spool_completed": false, "observed_complete_lines": 0, "expected": 10000}
+{"at_utc": "2026-10-11T15:36:29.490089+00:00", "spool_completed": false, "observed_complete_lines": 253, "expected": 10000}
+{"at_utc": "2026-10-11T15:36:39.721538+00:00", "spool_completed": false, "observed_complete_lines": 414, "expected": 10000}
+{"at_utc": "2026-10-11T15:36:49.959073+00:00", "spool_completed": false, "observed_complete_lines": 615, "expected": 10000}
+{"at_utc": "2026-10-11T15:37:00.093942+00:00", "spool_completed": false, "observed_complete_lines": 1414, "expected": 10000}
+{"at_utc": "2026-10-11T15:37:10.263489+00:00", "spool_completed": false, "observed_complete_lines": 2460, "expected": 10000}
+{"at_utc": "2026-10-11T15:37:20.467211+00:00", "spool_completed": true, "observed_complete_lines": 3914, "expected": 10000}
+{"at_utc": "2026-10-11T15:37:30.580890+00:00", "spool_completed": true, "observed_complete_lines": 7207, "expected": 10000}
+{"at_utc": "2026-10-11T15:37:40.744695+00:00", "spool_completed": true, "observed_complete_lines": 10000, "expected": 10000}

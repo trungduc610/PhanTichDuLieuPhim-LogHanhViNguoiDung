@@ -11,6 +11,8 @@ from common import sha256, utcnow, write_json
 
 def prepare(source, output, report):
     source, output = Path(source), Path(output)
+    if Path(report).exists():
+        raise FileExistsError('Use a new --report; prior evidence will not be overwritten')
     if output.exists():
         raise FileExistsError('Use a new --output; normalized data will not be overwritten')
     counts = Counter()
@@ -58,7 +60,7 @@ def prepare(source, output, report):
         if sibling.exists():
             with sibling.open(encoding='utf-8', newline='') as f:
                 stats['related_csv_rows'][name] = sum(1 for _ in csv.DictReader(f, strict=True))
-    if not rows or counts['duplicate_movie_ids'] or counts['missing_title']:
+    if not rows or counts['duplicate_movie_ids'] or counts['missing_title'] or counts['missing_genres']:
         stats['status'] = 'FAIL'
         write_json(report, stats)
         raise ValueError('Fatal data quality errors; inspect QA report')

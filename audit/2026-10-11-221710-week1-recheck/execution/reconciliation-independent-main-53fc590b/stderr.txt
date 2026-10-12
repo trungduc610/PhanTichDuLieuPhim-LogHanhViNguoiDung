@@ -1,0 +1,6 @@
+ Network movie-independent-221710_default Creating 
+ Network movie-independent-221710_default Creating 
+ Network movie-independent-221710_default Created 
+ Network movie-independent-221710_default Created 
+ Container movie-independent-221710-spark-run-6c7106988cc5 Creating 
+ Container movie-independent-221710-spark-run-6c7106988cc5 Created 

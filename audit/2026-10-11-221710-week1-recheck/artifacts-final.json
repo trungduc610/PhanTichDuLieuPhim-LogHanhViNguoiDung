@@ -1,0 +1,522 @@
+{
+  "checked_at_utc": "2026-10-11T16:28:55.583649+00:00",
+  "status": "PASS",
+  "report": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\bao-cao-nghiem-thu-tuan-1-recheck.md",
+  "report_sha256": "038ba1a6b82a45c69248a573f1e670b8c2427c0969a64bab3256348a7f48106b",
+  "source_files_unchanged": 39,
+  "artifact_references": [
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 16,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 59,
+      "target": "src/schemas.py",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 65,
+      "target": "data/raw/",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 65,
+      "target": "data/processed/",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 65,
+      "target": "data/generated/",
+      "exists": true
+    },
+    {
+      "source": "README.md",
+      "line": 65,
+      "target": "data/runs/run-aa6b9eb58dca/output/",
+      "exists": true
+    },
+    {
+      "source": "docs/architecture_decision_pending.md",
+      "line": 8,
+      "target": "src/schemas.py",
+      "exists": true
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "docs/data_quality_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dataset_description.md",
+      "line": 10,
+      "target": "data/raw/download_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/dataset_description.md",
+      "line": 10,
+      "target": "data/raw/ml-latest-small/README.txt",
+      "exists": true
+    },
+    {
+      "source": "docs/dataset_description.md",
+      "line": 32,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 3,
+      "target": "config/flume.conf",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 3,
+      "target": "scripts/run_flume.sh",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 3,
+      "target": "scripts/run_pipeline.py",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "docs/flume_pipeline.md",
+      "line": 46,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 40,
+      "target": "evidence/run-aa6b9eb58dca/reconciliation.json",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "docs/log_schema.md",
+      "line": 56,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/movie_schema.md",
+      "line": 3,
+      "target": "data/processed/movies.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/movie_schema.md",
+      "line": 12,
+      "target": "scripts/spark_smoke_test.py",
+      "exists": true
+    },
+    {
+      "source": "docs/movie_schema.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/system_architecture.md",
+      "line": 109,
+      "target": "docs/architecture_decision_pending.md",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 3,
+      "target": "data/runs/run-aa6b9eb58dca/output/",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 3,
+      "target": "data/runs/run-aefc814b0b5f/output/",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 20,
+      "target": "docs/log_schema.md",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "docs/user_log_schema.md",
+      "line": 31,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_member2_report.md",
+      "line": 16,
+      "target": "scripts/spark_smoke_test.py",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "docs/week1_report.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "evidence/run-aefc814b0b5f/",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "evidence/run-aa6b9eb58dca/",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-demo.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/spark-main.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/dataset_quality.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 12,
+      "target": "evidence/recheck-20261011-221710/delivery_manifest.json",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 14,
+      "target": "data/processed/movies.csv",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 14,
+      "target": "data/runs/run-aa6b9eb58dca/output/",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 14,
+      "target": "src/schemas.py",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 27,
+      "target": "scripts/spark_smoke_test.py",
+      "exists": true
+    },
+    {
+      "source": "docs/week2_handoff.md",
+      "line": 39,
+      "target": "docs/architecture_decision_pending.md",
+      "exists": true
+    }
+  ],
+  "matrix_rows": 22,
+  "products": 11,
+  "spark_final_source_checks": [
+    {
+      "run": "run-aefc814b0b5f",
+      "status": "PASS"
+    },
+    {
+      "run": "run-aa6b9eb58dca",
+      "status": "PASS"
+    }
+  ],
+  "manifest_files": 344,
+  "manifest_bytes": 703890394,
+  "manifest_verify": {
+    "status": "PASS",
+    "files_checked": 344,
+    "issues": [],
+    "checked_at_utc": "2026-10-11T16:28:54.884943+00:00"
+  },
+  "issues": []
+}

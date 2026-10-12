@@ -8,19 +8,21 @@ import tempfile
 from collections import Counter
 from pathlib import Path
 from common import parse_time, sha256, utcnow, write_json
+from movie_quality import inspect_movies
 
 REQUIRED = {'eventId', 'userId', 'sessionId', 'movieId', 'action', 'timestamp', 'watchDuration',
             'sequenceNumber', 'isSynthetic', 'simulatedMovieDuration', 'durationSource', 'runId'}
 
 
 def validate(input_path, movies, output_dir=None, report='evidence/validation.json'):
+    if Path(report).exists():
+        raise FileExistsError('Use a new report path; prior evidence will not be overwritten')
     input_path = Path(input_path)
     if not input_path.is_file():
         raise FileNotFoundError(input_path)
-    with open(movies, encoding='utf-8', newline='') as f:
-        mids = {int(r['movieId']) for r in csv.DictReader(f)}
+    mids, movie_quality = inspect_movies(movies)
     stats = {'checked_at_utc': utcnow(), 'mode': 'input_only' if output_dir is None else 'pipeline_reconciliation',
-             'input_sha256': sha256(input_path), 'movies_sha256': sha256(movies), 'errors_sample': []}
+             'input_sha256': sha256(input_path), 'movies_sha256': sha256(movies), 'movies_quality': movie_quality, 'errors_sample': []}
     with tempfile.TemporaryDirectory(prefix='movie-validate-') as tmp:
         db = sqlite3.connect(str(Path(tmp) / 'validation.sqlite'))
         db.execute('PRAGMA cache_size=-16384')
@@ -30,6 +32,7 @@ def validate(input_path, movies, output_dir=None, report='evidence/validation.js
 
         def error(side, location, message):
             counts[side]['invalid'] += 1
+            counts[side]['error:' + str(message)] += 1
             if len(stats['errors_sample']) < 20:
                 stats['errors_sample'].append({'side': side, 'location': location, 'error': str(message)})
 
@@ -50,7 +53,7 @@ def validate(input_path, movies, output_dir=None, report='evidence/validation.js
                             if not isinstance(e[k], str) or not e[k]:
                                 raise ValueError('Invalid ' + k)
                         for k in ['movieId', 'watchDuration', 'sequenceNumber', 'simulatedMovieDuration']:
-                            if type(e[k]) is not int or e[k] < 0:
+                            if type(e[k]) is not int or not 0 <= e[k] <= 2**63-1:
                                 raise ValueError('Invalid integer ' + k)
                         if e['movieId'] not in mids:
                             raise ValueError('Unknown movieId')
@@ -61,9 +64,10 @@ def validate(input_path, movies, output_dir=None, report='evidence/validation.js
                         if not e['timestamp'].endswith('Z'):
                             raise ValueError('Timestamp must use UTC Z')
                         parse_time(e['timestamp'])
-                        if e['isSynthetic'] is not True or e['durationSource'] != 'synthetic' or e['simulatedMovieDuration'] <= 0:
+                        if e['isSynthetic'] is not True or e['durationSource'] != 'synthetic' or not 3600 <= e['simulatedMovieDuration'] <= 10800:
                             raise ValueError('Missing synthetic provenance')
                         payload = json.dumps(e, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
+                        counts[side]['valid'] += 1
                         previous = db.execute('SELECT payload FROM events WHERE side=? AND id=?', (side, e['eventId'])).fetchone()
                         if previous:
                             counts[side]['duplicates'] += 1
@@ -72,6 +76,8 @@ def validate(input_path, movies, output_dir=None, report='evidence/validation.js
                         else:
                             db.execute('INSERT INTO events VALUES(?,?,?,?,?)', (side, e['eventId'], payload, e['sessionId'], e['sequenceNumber']))
                             counts[side]['unique'] += 1
+                            counts[side]['action:' + e['action']] += 1
+                            counts[side]['watch_seconds'] += e['watchDuration']
                     except (ValueError, TypeError, KeyError, AttributeError, UnicodeError) as exc:
                         error(side, f'{path}:{number}', exc)
                     if number % 10000 == 0:
@@ -150,8 +156,23 @@ def validate(input_path, movies, output_dir=None, report='evidence/validation.js
             previous_uid = uid
         stats.update({'session_errors': session_errors, 'valid_sessions': valid_sessions, 'user_overlap_errors': overlap})
         for side in counts:
-            stats[side] = {k: counts[side][k] for k in ['total', 'unique', 'duplicates', 'conflicting_ids', 'invalid']}
-        stats['output_files'] = [{'path': str(p), 'bytes': p.stat().st_size, 'sha256': sha256(p)} for p in paths]
+            stats[side] = {k: counts[side][k] for k in ['total', 'valid', 'unique', 'duplicates', 'conflicting_ids', 'invalid']}
+            stats[side]['error_counts'] = {k[6:]: v for k, v in counts[side].items() if k.startswith('error:')}
+            stats[side]['actions'] = {k[7:]: v for k, v in counts[side].items() if k.startswith('action:')}
+            stats[side]['watch_seconds'] = counts[side]['watch_seconds']
+            row = db.execute("SELECT count(DISTINCT json_extract(payload,'$.userId')),count(DISTINCT json_extract(payload,'$.movieId')),count(DISTINCT sid),min(json_extract(payload,'$.timestamp')),max(json_extract(payload,'$.timestamp')) FROM events WHERE side=?", (side,)).fetchone()
+            stats[side].update(dict(zip(['users','movies','sessions','timestamp_min','timestamp_max'],row)))
+        stats['output_files'] = []
+        for p in paths:
+            size = p.stat().st_size
+            with p.open('rb') as f:
+                if size:
+                    f.seek(-1, 2)
+                    final_newline = f.read(1) == b'\n'
+                else:
+                    final_newline = None
+            stats['output_files'].append({'path': str(p), 'bytes': size, 'sha256': sha256(p), 'empty': size == 0, 'final_newline': final_newline})
+        stats['output_file_summary'] = {'files': len(paths), 'bytes': sum(x['bytes'] for x in stats['output_files']), 'empty_files': sum(x['empty'] for x in stats['output_files']), 'missing_final_newline_files': sum(x['final_newline'] is False for x in stats['output_files'])}
         missing = db.execute("SELECT count(*) FROM events i LEFT JOIN events o ON o.side='output' AND i.id=o.id WHERE i.side='input' AND o.id IS NULL").fetchone()[0]
         extra = db.execute("SELECT count(*) FROM events o LEFT JOIN events i ON i.side='input' AND i.id=o.id WHERE o.side='output' AND i.id IS NULL").fetchone()[0]
         changed = db.execute("SELECT count(*) FROM events i JOIN events o ON i.id=o.id AND o.side='output' WHERE i.side='input' AND i.payload<>o.payload").fetchone()[0]
@@ -170,7 +191,7 @@ def validate(input_path, movies, output_dir=None, report='evidence/validation.js
                     manifest_errors.append('Timestamp outside requested range')
                     break
         stats['manifest_errors'] = manifest_errors
-        failed = not stats['input']['total'] or session_errors or overlap or manifest_errors or any(sum(counts[s][k] for k in ['invalid', 'duplicates', 'conflicting_ids']) for s in counts)
+        failed = movie_quality['status'] != 'PASS' or not stats['input']['total'] or session_errors or overlap or manifest_errors or any(sum(counts[s][k] for k in ['invalid', 'duplicates', 'conflicting_ids']) for s in counts)
         if output_dir is not None:
             failed = failed or not paths or missing or extra or changed
         stats['status'] = 'FAIL' if failed else ('INPUT_PASS' if output_dir is None else 'PASS')

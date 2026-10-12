@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-12-141203-week2-tv1-hdfs\check_final.py", line 105, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\audit\2026-10-12-141203-week2-tv1-hdfs\check_final.py", line 68, in main
+    assert refused['status']=='FAIL' and 'exist' in refused['error'].lower()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

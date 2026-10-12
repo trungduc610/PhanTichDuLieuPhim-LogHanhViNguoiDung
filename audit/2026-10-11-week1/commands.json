@@ -1,0 +1,157 @@
+[
+  {
+    "argv": [
+      "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:34.330765+00:00",
+    "exit_code": 0,
+    "output": "bcb28b7fac0c9d260af0e6acb121947f991355f8\n"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:34.669766+00:00",
+    "exit_code": 0,
+    "output": "?? audit/2026-10-11-week1/commands.json\n?? audit/2026-10-11-week1/git-revision.json\n?? audit/2026-10-11-week1/run_audit.py\n"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "ls-files"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:35.141306+00:00",
+    "exit_code": 0,
+    "output": ".dockerignore\n.gitattributes\n.gitignore\nDockerfile\nREADME.md\ncompose.yaml\nconfig/flume.conf\ndata/channel/.gitkeep\ndata/generated/.gitkeep\ndata/output/.gitkeep\ndata/processed/.gitkeep\ndata/raw/.gitkeep\ndata/runs/.gitkeep\ndata/spool/.gitkeep\ndocs/data_quality_report.md\ndocs/dataset_description.md\ndocs/flume_pipeline.md\ndocs/log_schema.md\ndocs/movie_schema.md\ndocs/presentation_script.md\ndocs/system_architecture.md\ndocs/user_log_schema.md\ndocs/week1_member2_report.md\ndocs/week1_report.md\ndocs/week2_handoff.md\nevidence/README.md\nevidence/dataset_quality.json\nevidence/delivery_manifest.json\nevidence/demo_input_validation.json\nevidence/environment.json\nevidence/execution_commands.md\nevidence/input-sample.jsonl\nevidence/main-input-validation.json\nevidence/pipeline_attempt.txt\nevidence/run-558d55e8a73f/build.log\nevidence/run-558d55e8a73f/commands.json\nevidence/run-558d55e8a73f/compose-resolved.yaml\nevidence/run-558d55e8a73f/compose-version.txt\nevidence/run-558d55e8a73f/docker-version.txt\nevidence/run-558d55e8a73f/down.log\nevidence/run-558d55e8a73f/flume-operational.log\nevidence/run-558d55e8a73f/flume-version.txt\nevidence/run-558d55e8a73f/images.txt\nevidence/run-558d55e8a73f/input-sample.jsonl\nevidence/run-558d55e8a73f/input_validation.json\nevidence/run-558d55e8a73f/java-version.txt\nevidence/run-558d55e8a73f/output-sample.jsonl\nevidence/run-558d55e8a73f/reconciliation.json\nevidence/run-558d55e8a73f/status.json\nevidence/run-558d55e8a73f/stop-final.log\nevidence/run-558d55e8a73f/stop.log\nevidence/run-558d55e8a73f/up.log\nevidence/run-62b191534ce6/commands.json\nevidence/run-62b191534ce6/input_validation.json\nevidence/run-62b191534ce6/status.json\nevidence/run-8309c89de03e/build.log\nevidence/run-8309c89de03e/compose-resolved.yaml\nevidence/run-8309c89de03e/compose-version.txt\nevidence/run-8309c89de03e/docker-version.txt\nevidence/run-8309c89de03e/input_validation.json\nevidence/run-a16e0fb65471/build.log\nevidence/run-a16e0fb65471/commands.json\nevidence/run-a16e0fb65471/compose-resolved.yaml\nevidence/run-a16e0fb65471/compose-version.txt\nevidence/run-a16e0fb65471/docker-version.txt\nevidence/run-a16e0fb65471/down.log\nevidence/run-a16e0fb65471/flume-operational.log\nevidence/run-a16e0fb65471/flume-version.txt\nevidence/run-a16e0fb65471/images.txt\nevidence/run-a16e0fb65471/input-sample.jsonl\nevidence/run-a16e0fb65471/input_validation.json\nevidence/run-a16e0fb65471/java-version.txt\nevidence/run-a16e0fb65471/output-sample.jsonl\nevidence/run-a16e0fb65471/reconciliation.json\nevidence/run-a16e0fb65471/status.json\nevidence/run-a16e0fb65471/stop-final.log\nevidence/run-a16e0fb65471/stop.log\nevidence/run-a16e0fb65471/up.log\nevidence/run-a9b3a8a26afb/build.log\nevidence/run-a9b3a8a26afb/commands.json\nevidence/run-a9b3a8a26afb/compose-resolved.yaml\nevidence/run-a9b3a8a26afb/compose-version.txt\nevidence/run-a9b3a8a26afb/docker-version.txt\nevidence/run-a9b3a8a26afb/down.log\nevidence/run-a9b3a8a26afb/flume-operational.log\nevidence/run-a9b3a8a26afb/flume-version.txt\nevidence/run-a9b3a8a26afb/images.txt\nevidence/run-a9b3a8a26afb/input-sample.jsonl\nevidence/run-a9b3a8a26afb/input_validation.json\nevidence/run-a9b3a8a26afb/java-version.txt\nevidence/run-a9b3a8a26afb/output-sample.jsonl\nevidence/run-a9b3a8a26afb/reconciliation.json\nevidence/run-a9b3a8a26afb/status.json\nevidence/run-a9b3a8a26afb/stop-final.log\nevidence/run-a9b3a8a26afb/stop.log\nevidence/run-a9b3a8a26afb/up.log\nevidence/run-f63c810e9d8d/build.log\nevidence/run-f63c810e9d8d/commands.json\nevidence/run-f63c810e9d8d/compose-resolved.yaml\nevidence/run-f63c810e9d8d/compose-version.txt\nevidence/run-f63c810e9d8d/docker-version.txt\nevidence/run-f63c810e9d8d/down.log\nevidence/run-f63c810e9d8d/flume-operational.log\nevidence/run-f63c810e9d8d/flume-version.txt\nevidence/run-f63c810e9d8d/images.txt\nevidence/run-f63c810e9d8d/input-sample.jsonl\nevidence/run-f63c810e9d8d/input_validation.json\nevidence/run-f63c810e9d8d/java-version.txt\nevidence/run-f63c810e9d8d/output-sample.jsonl\nevidence/run-f63c810e9d8d/reconciliation.json\nevidence/run-f63c810e9d8d/status.json\nevidence/run-f63c810e9d8d/stop-final.log\nevidence/run-f63c810e9d8d/stop.log\nevidence/run-f63c810e9d8d/up.log\nevidence/static_checks.json\nevidence/tests.txt\nlogs/.gitkeep\nrequirements.txt\nscripts/check_environment.py\nscripts/common.py\nscripts/download_dataset.py\nscripts/generate_logs.py\nscripts/prepare_movies.py\nscripts/run_flume.sh\nscripts/run_pipeline.py\nscripts/spark_smoke_test.py\nscripts/validate_pipeline.py\nscripts/verify_archive.py\nsrc/__init__.py\nsrc/schemas.py\ntests/test_project.py\n"
+  },
+  {
+    "argv": [
+      "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:39.529179+00:00",
+    "exit_code": 0,
+    "output": "test_duplicate_movies_rejected (test_project.ProjectTests.test_duplicate_movies_rejected) ... ok\r\ntest_duration_tampering_rejected (test_project.ProjectTests.test_duration_tampering_rejected) ... ok\r\ntest_empty_sink_never_passes (test_project.ProjectTests.test_empty_sink_never_passes) ... ok\r\ntest_exact_counts_boundaries_and_sessions (test_project.ProjectTests.test_exact_counts_boundaries_and_sessions) ... ok\r\ntest_invalid_utf8_rejected (test_project.ProjectTests.test_invalid_utf8_rejected) ... ok\r\ntest_missing_duplicate_invalid_and_mutated_detected (test_project.ProjectTests.test_missing_duplicate_invalid_and_mutated_detected) ... ok\r\ntest_mock_reordered_output_matches (test_project.ProjectTests.test_mock_reordered_output_matches) ... ok\r\ntest_naive_timezone_rejected (test_project.ProjectTests.test_naive_timezone_rejected) ... ok\r\ntest_normalization_preserves_missing_year (test_project.ProjectTests.test_normalization_preserves_missing_year) ... ok\r\ntest_output_protection (test_project.ProjectTests.test_output_protection) ... ok\r\ntest_seed_reproducibility (test_project.ProjectTests.test_seed_reproducibility) ... ok\r\ntest_unknown_movie_rejected (test_project.ProjectTests.test_unknown_movie_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 12 tests in 6.187s\r\n\r\nOK\r\n"
+  },
+  {
+    "argv": [
+      "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "scripts/spark_smoke_test.py"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:47.193244+00:00",
+    "exit_code": 1,
+    "output": "Traceback (most recent call last):\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\scripts\\spark_smoke_test.py\", line 20, in <module>\r\n    from src.schemas import MOVIE_SCHEMA, USER_LOG_SCHEMA\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\src\\schemas.py\", line 5, in <module>\r\n    from pyspark.sql.types import (\r\nModuleNotFoundError: No module named 'pyspark'\r\n"
+  },
+  {
+    "argv": [
+      "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "scripts/validate_pipeline.py",
+      "--input",
+      "data/generated/demo.jsonl",
+      "--input-only",
+      "--report",
+      "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-week1\\demo-recheck.json"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:47.537835+00:00",
+    "exit_code": 1,
+    "output": "Traceback (most recent call last):\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\scripts\\validate_pipeline.py\", line 193, in <module>\r\n    result = validate(a.input, a.movies, a.output_dir, a.report)\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\scripts\\validate_pipeline.py\", line 19, in validate\r\n    raise FileNotFoundError(input_path)\r\nFileNotFoundError: data\\generated\\demo.jsonl\r\n"
+  },
+  {
+    "argv": [
+      "java",
+      "-version"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:48.339442+00:00",
+    "exit_code": null,
+    "error": "[WinError 2] The system cannot find the file specified",
+    "reason": "executable_not_found"
+  },
+  {
+    "argv": [
+      "docker",
+      "version"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:48.365446+00:00",
+    "exit_code": 1,
+    "output": "Client:\n Version:           29.7.2\n API version:       1.55\n Go version:        go1.26.5\n Git commit:        a7dcaa6\n Built:             Wed Aug  5 18:31:33 2026\n OS/Arch:           windows/amd64\n Context:           default\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified.\n"
+  },
+  {
+    "argv": [
+      "docker",
+      "compose",
+      "version"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:48.831680+00:00",
+    "exit_code": 0,
+    "output": "Docker Compose version v5.4.0\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\n"
+  },
+  {
+    "argv": [
+      "docker",
+      "compose",
+      "config"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:49.815771+00:00",
+    "exit_code": 0,
+    "output": "name: phantichdulieuphim-loghanhvinguoidung\nservices:\n  flume:\n    build:\n      context: C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\n      dockerfile: Dockerfile\n    image: movie-log-flume:1.11.0-local\n    init: true\n    networks:\n      default: null\n    stop_grace_period: 1m0s\n    volumes:\n      - type: bind\n        source: C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\n        target: /data\n        bind: {}\n      - type: bind\n        source: C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\logs\n        target: /logs\n        bind: {}\nnetworks:\n  default:\n    name: phantichdulieuphim-loghanhvinguoidung_default\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\n"
+  },
+  {
+    "argv": [
+      "docker",
+      "image",
+      "ls",
+      "--no-trunc"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:51.025638+00:00",
+    "exit_code": 1,
+    "output": "WARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified.\n"
+  },
+  {
+    "argv": [
+      "docker",
+      "ps",
+      "-a",
+      "--no-trunc"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:51.383711+00:00",
+    "exit_code": 1,
+    "output": "WARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified.\n"
+  },
+  {
+    "argv": [
+      "C:\\Program Files\\Git\\cmd\\git.EXE",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "started_at_utc": "2026-10-11T14:44:51.577599+00:00",
+    "exit_code": 0,
+    "output": "?? audit/2026-10-11-week1/artifact-presence.json\n?? audit/2026-10-11-week1/commands.json\n?? audit/2026-10-11-week1/compose-config-current.json\n?? audit/2026-10-11-week1/compose-version-current.json\n?? audit/2026-10-11-week1/dataset-validation-attempt.json\n?? audit/2026-10-11-week1/docker-containers-current.json\n?? audit/2026-10-11-week1/docker-images-current.json\n?? audit/2026-10-11-week1/docker-version-current.json\n?? audit/2026-10-11-week1/environment-current.json\n?? audit/2026-10-11-week1/git-before.json\n?? audit/2026-10-11-week1/git-revision.json\n?? audit/2026-10-11-week1/git-tracked.json\n?? audit/2026-10-11-week1/historical-evidence-review.json\n?? audit/2026-10-11-week1/inventory.json\n?? audit/2026-10-11-week1/java-host.json\n?? audit/2026-10-11-week1/manifest-comparison.json\n?? audit/2026-10-11-week1/numbered-project-files.txt\n?? audit/2026-10-11-week1/repository-instructions.json\n?? audit/2026-10-11-week1/run_audit.py\n?? audit/2026-10-11-week1/spark-host-attempt.json\n?? audit/2026-10-11-week1/syntax.json\n?? audit/2026-10-11-week1/tests-current.json\n"
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "service_script_sha256": "b52f82d5019c36273ca61644fcfada9bfb3dfcabde992ae515ee0e8df2a00a7e",
+  "tests": [
+    {
+      "name": "nonempty_unformatted",
+      "passed": true,
+      "exit_code": 1,
+      "commands": "evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\nonempty_unformatted-09514f74",
+      "fixture_only": true,
+      "never_flume_evidence": true
+    },
+    {
+      "name": "wrong_cluster",
+      "passed": true,
+      "exit_code": 1,
+      "commands": "evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\wrong_cluster-575134dd",
+      "fixture_only": true,
+      "never_flume_evidence": true
+    },
+    {
+      "name": "invalid_role",
+      "passed": true,
+      "exit_code": 1,
+      "commands": "evidence\\week2-hdfs\\hdfs-385a18d3f03a\\commands\\invalid_role-2b3b94fa",
+      "fixture_only": true,
+      "never_flume_evidence": true
+    }
+  ],
+  "note": "Every test uses its own disposable tmpfs, never the actual NameNode/DataNode volumes."
+}

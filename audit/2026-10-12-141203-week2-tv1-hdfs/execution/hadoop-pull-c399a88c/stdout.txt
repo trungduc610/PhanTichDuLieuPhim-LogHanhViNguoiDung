@@ -1,0 +1,71 @@
+3.3.6: Pulling from apache/hadoop
+782cc61249e1: Pulling fs layer
+a3de4f0aebed: Pulling fs layer
+93cf21fbbef2: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+08af2d7d7ec2: Pulling fs layer
+086c6a12104a: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+69f233e6e030: Pulling fs layer
+34a986ee3c28: Pulling fs layer
+e8adfb95322d: Pulling fs layer
+126875c5019e: Pulling fs layer
+b08b5eed2a97: Pulling fs layer
+36b23ba8b2ef: Pulling fs layer
+95cfbfe67739: Pulling fs layer
+8ba884070f61: Pulling fs layer
+6503fca807cb: Pulling fs layer
+c5d7a7dfd1ec: Pulling fs layer
+13a0fd9e312b: Pulling fs layer
+62371aa21ed7: Pulling fs layer
+73bf0366d627: Pulling fs layer
+a99f0329f9e1: Pulling fs layer
+c778ba593b2f: Pulling fs layer
+ba46f110af16: Pulling fs layer
+4f4fb700ef54: Already exists
+34a986ee3c28: Download complete
+a3de4f0aebed: Download complete
+ba46f110af16: Download complete
+086c6a12104a: Download complete
+e8adfb95322d: Download complete
+08af2d7d7ec2: Download complete
+69f233e6e030: Download complete
+b08b5eed2a97: Download complete
+93cf21fbbef2: Download complete
+13a0fd9e312b: Download complete
+95cfbfe67739: Download complete
+6503fca807cb: Download complete
+62371aa21ed7: Download complete
+782cc61249e1: Download complete
+126875c5019e: Download complete
+73bf0366d627: Download complete
+a99f0329f9e1: Download complete
+8ba884070f61: Download complete
+8ba884070f61: Pull complete
+93cf21fbbef2: Pull complete
+36b23ba8b2ef: Download complete
+c778ba593b2f: Download complete
+c778ba593b2f: Pull complete
+782cc61249e1: Pull complete
+62371aa21ed7: Pull complete
+a99f0329f9e1: Pull complete
+a3de4f0aebed: Pull complete
+126875c5019e: Pull complete
+95cfbfe67739: Pull complete
+e8adfb95322d: Pull complete
+73bf0366d627: Pull complete
+086c6a12104a: Pull complete
+08af2d7d7ec2: Pull complete
+13a0fd9e312b: Pull complete
+34a986ee3c28: Pull complete
+b08b5eed2a97: Pull complete
+36b23ba8b2ef: Pull complete
+6503fca807cb: Pull complete
+4f4fb700ef54: Pull complete
+c5d7a7dfd1ec: Download complete
+69f233e6e030: Pull complete
+c5d7a7dfd1ec: Pull complete
+ba46f110af16: Pull complete
+Digest: sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144
+Status: Downloaded newer image for apache/hadoop:3.3.6
+docker.io/apache/hadoop:3.3.6

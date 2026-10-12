@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-10-11T16:15:27.694556+00:00",
+  "runs": [
+    {
+      "run": "run-aefc814b0b5f",
+      "status": "PASS",
+      "source_hash_errors": [],
+      "sink_hash_errors": [],
+      "unexpected_files": [],
+      "actual_agent_max_heap_bytes": [
+        "536870912"
+      ],
+      "counters": {
+        "accepted": 10000,
+        "put": 10000,
+        "take": 10000,
+        "sink": 10000,
+        "channel_remaining": 0
+      },
+      "nonzero_commands": [],
+      "sink_file_summary": {
+        "files": 3,
+        "bytes": 3433123,
+        "empty_files": 1,
+        "missing_final_newline_files": 0
+      }
+    },
+    {
+      "run": "run-aa6b9eb58dca",
+      "status": "PASS",
+      "source_hash_errors": [],
+      "sink_hash_errors": [],
+      "unexpected_files": [],
+      "actual_agent_max_heap_bytes": [
+        "536870912"
+      ],
+      "counters": {
+        "accepted": 1000000,
+        "put": 1000000,
+        "take": 1000000,
+        "sink": 1000000,
+        "channel_remaining": 0
+      },
+      "nonzero_commands": [],
+      "sink_file_summary": {
+        "files": 15,
+        "bytes": 343339148,
+        "empty_files": 0,
+        "missing_final_newline_files": 0
+      }
+    }
+  ],
+  "status": "PASS"
+}

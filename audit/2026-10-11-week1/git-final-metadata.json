@@ -1,0 +1,45 @@
+{
+  "status": {
+    "argv": [
+      "git",
+      "status",
+      "--porcelain=v1",
+      "--untracked-files=all"
+    ],
+    "exit_code": 0,
+    "stdout": "?? audit/2026-10-11-week1/artifact-presence.json\n?? audit/2026-10-11-week1/bao-cao-nghiem-thu-tuan-1.md\n?? audit/2026-10-11-week1/commands.json\n?? audit/2026-10-11-week1/compose-config-current.json\n?? audit/2026-10-11-week1/compose-version-current.json\n?? audit/2026-10-11-week1/dataset-validation-attempt.json\n?? audit/2026-10-11-week1/docker-containers-current.json\n?? audit/2026-10-11-week1/docker-images-current.json\n?? audit/2026-10-11-week1/docker-version-current.json\n?? audit/2026-10-11-week1/environment-current.json\n?? audit/2026-10-11-week1/finalize_report.py\n?? audit/2026-10-11-week1/fixtures/validator-probes/input.jsonl\n?? audit/2026-10-11-week1/fixtures/validator-probes/mock-sink/copied-fixture.jsonl\n?? audit/2026-10-11-week1/fixtures/validator-probes/mock-sink/empty.jsonl\n?? audit/2026-10-11-week1/fixtures/validator-probes/movies.csv\n?? audit/2026-10-11-week1/fixtures/validator-probes/validator-report.json\n?? audit/2026-10-11-week1/git-after.json\n?? audit/2026-10-11-week1/git-before.json\n?? audit/2026-10-11-week1/git-final-metadata.json\n?? audit/2026-10-11-week1/git-revision.json\n?? audit/2026-10-11-week1/git-tracked.json\n?? audit/2026-10-11-week1/historical-evidence-review.json\n?? audit/2026-10-11-week1/historical-summary.json\n?? audit/2026-10-11-week1/inventory.json\n?? audit/2026-10-11-week1/java-host.json\n?? audit/2026-10-11-week1/manifest-comparison.json\n?? audit/2026-10-11-week1/numbered-project-files.txt\n?? audit/2026-10-11-week1/preservation.json\n?? audit/2026-10-11-week1/refresh_read_index.py\n?? audit/2026-10-11-week1/report-quality-check.json\n?? audit/2026-10-11-week1/report.template.md\n?? audit/2026-10-11-week1/repository-instructions.json\n?? audit/2026-10-11-week1/run_audit.py\n?? audit/2026-10-11-week1/sample-measurements.json\n?? audit/2026-10-11-week1/source-history-links.json\n?? audit/2026-10-11-week1/spark-host-attempt.json\n?? audit/2026-10-11-week1/supplemental_checks.py\n?? audit/2026-10-11-week1/syntax.json\n?? audit/2026-10-11-week1/task-statuses.json\n?? audit/2026-10-11-week1/tests-current.json\n?? audit/2026-10-11-week1/validator-probes.json\n",
+    "stderr": ""
+  },
+  "log": {
+    "argv": [
+      "git",
+      "log",
+      "-3",
+      "--format=%H %aI %s"
+    ],
+    "exit_code": 0,
+    "stdout": "bcb28b7fac0c9d260af0e6acb121947f991355f8 2026-10-04T19:59:32+07:00 Initial commit\n",
+    "stderr": ""
+  },
+  "autocrlf": {
+    "argv": [
+      "git",
+      "config",
+      "--get",
+      "core.autocrlf"
+    ],
+    "exit_code": 0,
+    "stdout": "true\n",
+    "stderr": ""
+  },
+  "branch": {
+    "argv": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "exit_code": 0,
+    "stdout": "main\n",
+    "stderr": ""
+  }
+}

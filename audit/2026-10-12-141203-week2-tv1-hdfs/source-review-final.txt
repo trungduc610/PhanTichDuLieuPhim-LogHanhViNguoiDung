@@ -1,0 +1,1264 @@
+
+### compose.hdfs.yaml
+0001: services:
+0002:   namenode:
+0003:     image: apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144
+0004:     user: "0:0"
+0005:     hostname: namenode
+0006:     init: true
+0007:     stop_grace_period: 60s
+0008:     environment:
+0009:       HADOOP_CONF_DIR: /project/config/hdfs
+0010:       HADOOP_HEAPSIZE_MAX: "512"
+0011:       HDFS_RUN_ID: ${HDFS_RUN_ID:?Use run_hdfs.py or the saved run context}
+0012:     entrypoint: ["bash", "/project/scripts/hdfs_service.sh", "namenode"]
+0013:     volumes:
+0014:       - .:/project:ro
+0015:       - namenode:/hdfs/name
+0016:     tmpfs: [/data]
+0017:     ports:
+0018:       - "127.0.0.1:${HDFS_WEB_PORT:-19870}:9870"
+0019:   datanode:
+0020:     image: apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144
+0021:     user: "0:0"
+0022:     hostname: datanode
+0023:     init: true
+0024:     stop_grace_period: 60s
+0025:     environment:
+0026:       HADOOP_CONF_DIR: /project/config/hdfs
+0027:       HADOOP_HEAPSIZE_MAX: "512"
+0028:       HDFS_RUN_ID: ${HDFS_RUN_ID:?Use a saved run context}
+0029:     entrypoint: ["bash", "/project/scripts/hdfs_service.sh", "datanode"]
+0030:     volumes:
+0031:       - .:/project:ro
+0032:       - datanode:/hdfs/data
+0033:     tmpfs: [/data]
+0034:     depends_on: [namenode]
+0035:   spark:
+0036:     image: apache/spark:3.5.1
+0037:     profiles: [spark]
+0038:     working_dir: /project
+0039:     environment:
+0040:       HADOOP_CONF_DIR: /project/config/hdfs
+0041:       HADOOP_USER_NAME: root
+0042:       PYTHONDONTWRITEBYTECODE: "1"
+0043:     volumes:
+0044:       - .:/project
+0045:     entrypoint: ["/opt/spark/bin/spark-submit"]
+0046:     command: ["scripts/spark_hdfs_validate.py", "--help"]
+0047: volumes:
+0048:   namenode:
+0049:   datanode:
+
+### config/hdfs/core-site.xml
+0001: <?xml version="1.0"?>
+0002: <configuration>
+0003:   <property><name>fs.defaultFS</name><value>hdfs://namenode:9000</value></property>
+0004:   <property><name>hadoop.tmp.dir</name><value>/tmp/movie-hadoop</value></property>
+0005: </configuration>
+
+### config/hdfs/hdfs-site.xml
+0001: <?xml version="1.0"?>
+0002: <configuration>
+0003:   <property><name>dfs.namenode.name.dir</name><value>file:///hdfs/name</value></property>
+0004:   <property><name>dfs.datanode.data.dir</name><value>file:///hdfs/data</value></property>
+0005:   <property><name>dfs.replication</name><value>1</value></property>
+0006:   <property><name>dfs.blocksize</name><value>134217728</value></property>
+0007:   <property><name>dfs.namenode.rpc-address</name><value>namenode:9000</value></property>
+0008:   <property><name>dfs.namenode.rpc-bind-host</name><value>0.0.0.0</value></property>
+0009:   <property><name>dfs.namenode.http-address</name><value>0.0.0.0:9870</value></property>
+0010:   <property><name>dfs.datanode.hostname</name><value>datanode</value></property>
+0011:   <property><name>dfs.datanode.address</name><value>0.0.0.0:9866</value></property>
+0012:   <property><name>dfs.datanode.ipc.address</name><value>0.0.0.0:9867</value></property>
+0013:   <property><name>dfs.datanode.http.address</name><value>0.0.0.0:9864</value></property>
+0014:   <property><name>dfs.client.use.datanode.hostname</name><value>true</value></property>
+0015:   <property><name>dfs.datanode.use.datanode.hostname</name><value>true</value></property>
+0016: </configuration>
+
+### config/hdfs/log4j.properties
+0001: hadoop.root.logger=INFO,console
+0002: log4j.rootLogger=${hadoop.root.logger}
+0003: log4j.appender.console=org.apache.log4j.ConsoleAppender
+0004: log4j.appender.console.Target=System.err
+0005: log4j.appender.console.layout=org.apache.log4j.PatternLayout
+0006: log4j.appender.console.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c - %m%n
+
+### docs/week2_handoff.md
+0001: # Bàn giao dữ liệu cho Tuần 2
+0002: 
+0003: Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
+0004: 
+0005: | Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+0006: |---|---|---:|---:|---:|
+0007: | Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+0008: | Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+0009: 
+0010: Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+0011: 
+0012: Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+0013: 
+0014: Metadata: `data/processed/movies.csv`. Lô phân tích: `data/runs/run-aa6b9eb58dca/output/`; demo không gộp vào main. Dùng MOVIE_SCHEMA/USER_LOG_SCHEMA từ `src/schemas.py`: movieId hai bên LongType, sequenceNumber LongType, timestamp StringType chuyển TimestampType UTC, duration LongType đơn vị giây mới phát sinh. ReleaseYear IntegerType nullable; các field còn lại không null theo hợp đồng và được kiểm riêng.
+0015: 
+0016: ```python
+0017: from src.schemas import MOVIE_SCHEMA, USER_LOG_SCHEMA
+0018: from pyspark.sql import functions as F
+0019: spark.conf.set('spark.sql.session.timeZone', 'UTC')
+0020: movies = spark.read.option('header', True).option('escape', '"').schema(MOVIE_SCHEMA).csv('data/processed/movies.csv')
+0021: events = spark.read.schema(USER_LOG_SCHEMA).json('data/runs/run-aa6b9eb58dca/output/*.jsonl')
+0022: events = events.withColumn('eventTime', F.to_timestamp('timestamp'))
+0023: # Kiểm null/orphan và eventId conflict trước dedup trong job downstream.
+0024: joined = events.join(movies, 'movieId', 'left')
+0025: ```
+0026: 
+0027: Job QA đầy đủ `scripts/spark_smoke_test.py` đã đọc chính Sink này bằng Spark thật; mẫu trên không thay QA. Bàn giao raw/license, processed, generated manifests, Sink/log/evidence và source theo manifest; data Git ignore vẫn có local. SHA256 từng file Sink và bytes trong reconciliation/manifest. Spool copy, channel/checkpoint không dùng làm dataset cho Spark.
+0028: 
+0029: | Phân tích Tuần 2 | Định nghĩa |
+0030: |---|---|
+0031: | Lượt xem chi tiết | Đếm action=view |
+0032: | Phiên bắt đầu xem | Count distinct (runId,sessionId) có play; không đếm resume là lượt mới |
+0033: | Thời gian xem | SUM(watchDuration), không cộng runtime |
+0034: | Hoàn thành | Phiên complete / phiên có play, mẫu số 0 -> null |
+0035: | Phim phổ biến | Nhóm movieId rồi join title |
+0036: | Thể loại | Split genres theo `\|`, explode; nhiều thể loại có thể làm tổng tăng, ghi rõ cách tính |
+0037: | Giờ hoạt động | UTC -> Asia/Ho_Chi_Minh trước hour |
+0038: 
+0039: Timestamp/min/max/actions/users/movies/sessions/watch seconds và thống kê giờ bắt đầu trong manifest input và reconciliation. User/phim có trọng số; không suy chúng đại diện người dùng thật. HDFS, dashboard, job phân tích chuyên sâu và phục hồi lỗi chưa thực hiện, không thuộc nghiệm thu Tuần 1. Nhóm vẫn cần xác nhận kiến trúc theo `docs/architecture_decision_pending.md`.
+
+### docs/week2_system_architecture.md
+0001: # Kiến trúc hệ thống sau bổ sung HDFS
+0002: 
+0003: Snapshot triển khai: `hdfs-385a18d3f03a`, ngày 12/10/2026. Sơ đồ mô tả đúng đường dữ liệu đã chạy; nhánh nét đứt là công việc tiếp theo.
+0004: 
+0005: ```mermaid
+0006: flowchart TD
+0007:     M[MovieLens raw và license bảo toàn] --> N[Metadata chuẩn hóa movies.csv]
+0008:     N --> HM[HDFS raw/movies theo snapshot]
+0009:     G[Synthetic behavior logs] --> F[Apache Flume run-aa6b9eb58dca]
+0010:     F --> S[Filesystem Sink thật: 15 parts]
+0011:     S --> U[Import và đối chiếu toàn lô]
+0012:     U --> HL[HDFS raw/user_logs theo run và import]
+0013:     HM --> Q[Spark 3.5.1 đọc hdfs URI và QA toàn lô]
+0014:     HL --> Q
+0015:     Q -. bước tiếp theo .-> P[TV2 tiền xử lý và phân tích]
+0016:     P -. ghi tương lai .-> O[HDFS processed và results đã tạo, hiện trống]
+0017:     P -. bước tiếp theo .-> K[K-Means và Dashboard]
+0018: ```
+0019: 
+0020: | Thành phần | Trạng thái trong lượt này | Bằng chứng |
+0021: |---|---|---|
+0022: | MovieLens → normalized metadata | ĐẠT, kế thừa nguồn đã kiểm lại | `source_manifest.json`, metadata SHA256 |
+0023: | Generated → Flume → filesystem Sink | ĐẠT, run Tuần 1 được xác minh lại; không chạy lại main | `evidence/run-aa6b9eb58dca/reconciliation.json` |
+0024: | Import → HDFS | ĐẠT, 1 NameNode + 1 DataNode, replication 1 | `content-import.json`, `content-after-restart.json` |
+0025: | HDFS → Spark QA | ĐẠT, 9.742 phim + 1.000.000 events, mọi nhóm lỗi 0 | `spark-hdfs.json` |
+0026: | Tiền xử lý chuyên sâu/phân tích/K-Means/dashboard | CHƯA THỂ XÁC MINH, thuộc công việc tiếp theo và chưa chạy | Không có kết quả giả định |
+0027: 
+0028: Metadata và logs gặp nhau ở Spark thông qua LongType movieId; full left anti join hiện không có orphan event. Log là synthetic; simulatedMovieDuration không phải runtime thực tế của MovieLens. Flume chưa được đổi sang HDFS Sink; upload filesystem → HDFS là bước riêng, có source manifest, chống ghi đè và đối chiếu bytes/hash/count.
+0029: 
+0030: HDFS URI sử dụng `namenode:9000` và DataNode `datanode` trong network `movie-hdfs-385a18d3f03a_default`. Named volumes cùng project giữ metadata và blocks. UI host là `http://127.0.0.1:19870`; Spark chạy trong cùng network. Một máy, một DataNode, replication 1 không có HA/dự phòng. Chưa nhận xác nhận kiến trúc của nhóm hoặc xác nhận tích hợp TV2; sơ đồ là trạng thái triển khai đã kiểm chứng của TV1.
+0031: 
+0032: Tài liệu cấu hình, schema, commands và điều kiện truy cập: [Hợp đồng TV2](week2_tv2_hdfs_handoff.md). Cơ sở lý thuyết và số liệu: [Chương HDFS](week2_tv1_hdfs_report.md).
+
+### docs/week2_tv1_hdfs_report.md
+0001: # Lưu trữ phân tán bằng HDFS — TV1 Tuần 2
+0002: 
+0003: Nhan Tử Mạnh — đề tài “Phân tích dữ liệu phim và log hành vi người dùng”. Thực nghiệm ngày 12/10/2026; thời gian máy được lưu theo UTC, giờ Việt Nam bằng UTC+7. Phạm vi chương này là HDFS và kiểm thử tích hợp Spark; chưa thực hiện tiền xử lý chuyên sâu, phân tích, K-Means hoặc dashboard.
+0004: 
+0005: ## 1. Cơ sở lý thuyết
+0006: 
+0007: HDFS là hệ thống tệp phân tán của Hadoop, tổ chức dữ liệu thành các block trên các DataNode. NameNode quản lý namespace và ánh xạ tệp–block; DataNode lưu và phục vụ block. Client hỏi NameNode để tìm vị trí, rồi trao đổi dữ liệu với DataNode. Metadata được lưu bền vững thông qua FsImage và EditLog. Replication cho phép lưu nhiều bản block, tùy cấu hình và số DataNode sẵn có. Đây là kiến thức tổng quát; khả năng chịu lỗi phụ thuộc triển khai cụ thể. [Apache HDFS Architecture 3.3.6](https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html).
+0008: 
+0009: Trong đề tài, HDFS cung cấp namespace chung để tách lô nhập khỏi môi trường Spark. Movie metadata và log có thể được đọc bằng URI ổn định trong Docker network. Flume Tuần 1 vẫn thu thập ra filesystem Sink; thao tác nhập HDFS là một bước riêng có manifest và kiểm toàn bộ nội dung. Không mô tả Flume đang trực tiếp ghi HDFS. Cách sử dụng client, safe mode, quản trị và Web UI được đối chiếu với [HDFS User Guide](https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html).
+0010: 
+0011: ## 2. Cấu hình thực nghiệm đã chạy
+0012: 
+0013: | Thành phần | Giá trị thực tế |
+0014: |---|---|
+0015: | Compose riêng | `compose.hdfs.yaml`; project `movie-hdfs-385a18d3f03a` |
+0016: | Hadoop server | Apache Hadoop 3.3.6, Java 1.8.0_212 |
+0017: | Image server | `apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144` |
+0018: | Runtime Spark | `apache/spark:3.5.1`; Spark/PySpark 3.5.1; Hadoop client 3.3.4 |
+0019: | Java/Python Spark | Java 11.0.22; Python 3.8.10 |
+0020: | NameNode RPC | `hdfs://namenode:9000` trong Docker network riêng |
+0021: | DataNode | hostname `datanode`; transfer 9866, IPC 9867, HTTP 9864 |
+0022: | UI host | [NameNode](http://127.0.0.1:19870/dfshealth.html#tab-overview), chỉ bind loopback |
+0023: | Storage | hai named volume riêng, `/hdfs/name`, `/hdfs/data` |
+0024: | Replication/block size | 1; 134.217.728 byte (128 MiB) |
+0025: | Resources | máy khoảng 16,6 GB RAM; trước Docker còn 7,6 GB RAM và khoảng 70 GB đĩa C: |
+0026: 
+0027: Image được kiểm publisher Apache Software Foundation tại [Docker Hub Apache Hadoop](https://hub.docker.com/r/apache/hadoop), pull rồi kiểm digest, version, Java và entrypoint thực tế. Không suy hành vi từ tên biến môi trường của image: entrypoint được thay bằng `scripts/hdfs_service.sh`, cấu hình XML gắn read-only vào container. Service chỉ format volume NameNode mới, trống; từ chối volume không trống chưa format hoặc cluster ID khác. Restart đọc lại metadata có cùng cluster ID. Không dùng `-force` hoặc xóa volume.
+0028: 
+0029: Hadoop client 3.3.4 trong Spark kết nối thật tới server 3.3.6. Đây là kết quả đã đo cho job hiện tại; chính sách tương thích minor cùng major được tham khảo tại [Hadoop Compatibility](https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/Compatibility.html). Không suy ra mọi API hoặc bản nâng cấp đều đã kiểm thử.
+0030: 
+0031: ## 3. Nguồn dữ liệu và namespace
+0032: 
+0033: Nguồn Tuần 1 được xác minh lại trước nhập: manifest 344 tệp còn khớp, status và reconciliation thuộc `run-aa6b9eb58dca`, toàn bộ 15 part Sink thật có bytes/hash đúng. Expected count được đóng băng trong `source_manifest.json`, không lấy từ count Spark đang đọc.
+0034: 
+0035: | Dữ liệu | Nguồn local | Đích HDFS |
+0036: |---|---|---|
+0037: | Metadata chuẩn hóa | `data/processed/movies.csv` | `hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv` |
+0038: | Output Sink thật | `data/runs/run-aa6b9eb58dca/output/` | `hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a/` |
+0039: 
+0040: `raw/movies` là vùng tiếp nhận metadata đã chuẩn hóa từ upstream, không phải bản ZIP MovieLens nguyên thủy. ZIP, CSV raw, README/license gốc vẫn được bảo toàn ở local. Các thư mục `/movie-log/processed` và `/movie-log/results` đã tạo và đang để trống, dành cho bước tiếp theo. `generated/main.jsonl` chỉ được kiểm hash để nối lineage tới run Flume; không được upload thay Sink. Cả 15 part đều không rỗng; không có part bị bỏ qua.
+0041: 
+0042: ## 4. Nhập và kiểm toàn lô
+0043: 
+0044: `hdfs_io.py` tạo namespace rồi thử tồn tại từng đích; dùng `hdfs dfs -put` không có `-f`. Nếu có đích sẵn, chương trình dừng trước ghi. Các lệnh shell `-ls -R`, `-du`, `-cat` được đối chiếu với [FileSystem Shell](https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/FileSystemShell.html). Mọi argv, cwd, UTC, exit code và stdout/stderr được lưu riêng.
+0045: 
+0046: Mỗi tệp HDFS được đọc trọn bằng `-cat`, stdout giữ dạng binary; SHA256 được tính trên byte gốc, không đổi newline/encoding. Metadata được đếm bằng CSV parser, các JSONL được parse từng record và kiểm types/provenance/actions/duration. Đây là đối chiếu nội dung toàn bộ, không lấy mẫu hoặc dùng checksum HDFS thay SHA256. Sau restart kiểm toàn bộ lần nữa. Kiểm cuối độc lập bằng Hadoop Java FSDataInputStream → DigestInputStream SHA-256, lưu `final-hdfs-hashes.json`.
+0047: 
+0048: | Phép đo | Kết quả |
+0049: |---|---:|
+0050: | Metadata | 9.742 phim; 533.347 byte |
+0051: | Sink/HDFS log | 15 tệp; 1.000.000 events; 343.339.148 byte |
+0052: | Toàn lô | 16 tệp; 343.872.495 byte |
+0053: | Thiếu/thừa tệp, sai bytes/hash/count | 0 |
+0054: | Invalid JSON/duplicate eventId | 0 / 0 |
+0055: | Metadata SHA256 | `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536` |
+0056: | HDFS blocks | 16; mọi block Live_repl=1 |
+0057: | Corrupt/missing/under-replicated blocks | 0 / 0 / 0 |
+0058: | DataNode live; safe mode | 1; OFF |
+0059: 
+0060: `hdfs fsck /movie-log -files -blocks -locations` trả HEALTHY. Các phép `dfsadmin -report`, safe mode và fsck dựa trên [HDFS Commands](https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html). Mô hình một DataNode/replication 1 không có dự phòng block, HA hoặc khả năng chịu mất máy/volume; HEALTHY chỉ phản ánh trạng thái lô hiện tại.
+0061: 
+0062: ## 5. Spark đọc HDFS thật
+0063: 
+0064: `scripts/spark_hdfs_validate.py` dùng `MOVIE_SCHEMA`, `USER_LOG_SCHEMA` trong `src/schemas.py` và bộ kiểm toàn lô `validate_frames` Tuần 1. Movie ID và log movie ID cùng LongType; `releaseYear` IntegerType có thể null; `sequenceNumber` LongType. Timestamp gốc là chuỗi UTC Z, parse thành `eventTime` TimestampType với session timezone UTC. `watchDuration` là số giây mới phát sinh từ play gần nhất, không phải thời lượng cộng dồn; runtime phim và logs là synthetic.
+0065: 
+0066: Job quan sát `org.apache.hadoop.hdfs.DistributedFileSystem`, URI đúng NameNode, `input_file_name()` đúng metadata và đủ 15 part HDFS. `local_fallback=false`. Đọc PERMISSIVE có `_corrupt_record`, CSV `header=true`, UTF-8, quote/escape `"`; không dựa riêng `nullable=False` để khẳng định hợp lệ.
+0067: 
+0068: Spark từ 07:53:44 đến 07:55:36 UTC ngày 12/10/2026 đã chạy action thật và materialize toàn bộ fields. Kết quả 9.742 phim, 1.000.000 events; 23 nhóm lỗi đều 0, gồm malformed/null/type/action/duration/provenance/timestamp, duplicate/conflict IDs, orphan join và thứ tự/segment/session. Có 13 releaseYear null hợp lệ, 1.000 users, 9.740 movies xuất hiện trong logs, 303.052 sessions và 1.458.785.357 giây xem. Bằng chứng: `evidence/week2-hdfs/hdfs-385a18d3f03a/spark-hdfs.json`.
+0069: 
+0070: Chuỗi đã chứng minh: generated input hash → reconciliation Flume thật → 15 part Sink hash → HDFS byte hash/count → Spark URI và QA. Không chạy lại Flume một triệu event vì nguồn và bằng chứng không đổi.
+0071: 
+0072: ## 6. Lỗi thực tế, bảo toàn và giới hạn
+0073: 
+0074: Docker Engine ban đầu chưa chạy; giữ các lỗi pipe cùng exit code 1, mở Docker Desktop đã cài rồi kiểm lại. Không cài hệ thống hoặc sửa WSL. Ba fixture container riêng chứng minh từ chối volume không trống chưa format, cluster ID sai và role sai; fixture không được coi là dữ liệu Flume. Phép upload lại namespace hiện hữu dừng exit 1 trước `put`, đúng yêu cầu chống ghi đè.
+0075: 
+0076: Sau restart, bộ kiểm đầu tiên so bytes cả tệp VERSION và báo FAIL vì DataNode cập nhật comment thời gian. Raw VERSION trước/sau, FAIL và hash báo cáo gốc vẫn lưu. Bộ kiểm sửa so sánh tất cả Java properties, chỉ bỏ comment; có regression tests cho thay cluster/storage/layout và duplicate keys. Kết quả `persistence-reviewed.json` đạt: toàn bộ properties và toàn bộ dữ liệu không đổi; chỉ có một marker format, hai marker reuse. Không sửa FAIL lịch sử hoặc format lại.
+0077: 
+0078: 21 host unit tests đạt. Cấu hình/model chỉ demo một máy, authentication simple và service user root trong container; không đổi quyền host. TV2 cần cùng Docker network, không thể dùng hostname container từ host như địa chỉ công khai. Named volumes đang giữ để bàn giao; manifest không xuất blocks/metadata volume thành gói portable.
+0079: 
+0080: ## 7. Hướng tiếp theo và trạng thái phối hợp
+0081: 
+0082: TV2 nhận URI/schema/QA qua `docs/week2_tv2_hdfs_handoff.md`; tiền xử lý/phân tích/K-Means/dashboard là bước tiếp theo. Nếu phát triển môi trường thực, cần thêm DataNode, replication phù hợp, HA, quản lý quyền và giám sát rồi kiểm thử failure scenarios riêng. Chưa có xác nhận TV2 hoặc nhóm; điều kiện xác nhận kiến trúc và phần giới thiệu/cơ sở lý thuyết Tuần 1 vẫn còn thiếu. Chương HDFS đã được viết và nghiệm thu kỹ thuật; không coi việc viết chương này là nhóm đã phê duyệt toàn bộ báo cáo.
+
+### docs/week2_tv2_hdfs_handoff.md
+0001: # Hợp đồng tích hợp HDFS cho TV2
+0002: 
+0003: TV1 bàn giao kỹ thuật ngày 12/10/2026, chưa nhận xác nhận từ TV2. Scope là đọc HDFS và QA; không có sản phẩm tiền xử lý/phân tích/K-Means/dashboard trong lượt này.
+0004: 
+0005: ## 1. Snapshot chính xác
+0006: 
+0007: - Cluster/import ID: `hdfs-385a18d3f03a`.
+0008: - Compose project: `movie-hdfs-385a18d3f03a`.
+0009: - Flume run: `run-aa6b9eb58dca` (event payload runId: `f93ca6901f8554ae127a`).
+0010: - Movies: `hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv`.
+0011: - Logs: `hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a`.
+0012: - Source manifest: `evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json`; SHA256 `ab6e60dfd5185229f7244cfcd581d868d3b128c5c68150a393b5b7ca249119d7`.
+0013: - 16 files, 343.872.495 bytes: metadata 9.742 rows/533.347 bytes, logs 15 parts/1.000.000 events/343.339.148 bytes. Tên/hash/expected_records từng tệp nằm trong manifest; cả 15 part đều không rỗng.
+0014: - Metadata SHA256: `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`.
+0015: 
+0016: Các thư mục `/movie-log/processed`, `/movie-log/results` đã tồn tại, chưa có output phân tích. TV2 nên ghi output vào namespace theo run mới; không sửa raw snapshot đã nghiệm thu. Không đổi expected count theo count quan sát.
+0017: 
+0018: ## 2. Schema và ý nghĩa dữ liệu
+0019: 
+0020: Import trực tiếp `MOVIE_SCHEMA`, `USER_LOG_SCHEMA` từ `src/schemas.py`. Không tự suy schema từ mẫu JSON. Schema đầy đủ đã lưu cả contract và schema thực đọc trong `spark-hdfs.json`.
+0021: 
+0022: | Dataset | Fields/type |
+0023: |---|---|
+0024: | Movies | movieId long; title string; genres string; releaseYear integer nullable |
+0025: | Logs | eventId/userId/sessionId/action/timestamp/runId/durationSource string; movieId/watchDuration/sequenceNumber/simulatedMovieDuration long; isSynthetic boolean |
+0026: 
+0027: 13 releaseYear null hợp lệ; 34 genre `(no genres listed)` giữ nguyên upstream. CSV UTF-8, header=true, quote/escape `"`, hỗ trợ title có dấu phẩy/quote. JSONL một object mỗi dòng. Timestamp UTC Z; parse sang TimestampType với Spark session timezone UTC. `watchDuration` là số giây phát sinh từ play gần nhất, không cộng dồn trong record; các action view/play có duration 0. `isSynthetic=true`, `durationSource=synthetic`; runtime phim synthetic từ 3.600 tới 10.800 giây. Khoảng thời gian event thực: `2026-08-31T17:00:04Z`–`2026-09-30T15:58:22Z`.
+0028: 
+0029: Required fields phải kiểm bằng action dữ liệu, không dựa `nullable=False`. movieId hai phía phải cùng LongType; kiểm malformed CSV/JSON, null/type, IDs trùng/conflict, orphan join, timestamp/action/duration/provenance và sessions. Job TV1 đã kiểm toàn lô, 23 nhóm lỗi đều 0; không fallback file local/generated.
+0030: 
+0031: ## 3. Chạy trong PowerShell tại root project
+0032: 
+0033: Docker Desktop/Engine phải hoạt động ở `desktop-linux`; không sửa WSL hay cấu hình bảo mật. Giữ ID đúng để dùng lại cluster và hai named volume đã kiểm. Lệnh dưới chỉ bật NameNode/DataNode, không bật Flume.
+0034: 
+0035: ```powershell
+0036: $env:HDFS_RUN_ID='hdfs-385a18d3f03a'
+0037: docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a up -d namenode datanode
+0038: docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a ps
+0039: docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a exec -T namenode hdfs dfsadmin -report
+0040: docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a exec -T namenode hdfs dfsadmin -safemode get
+0041: ```
+0042: 
+0043: Kiểm Live datanodes (1), safe mode OFF trước đọc. Không chạy `namenode -format`, `down -v` hoặc `-put -f`. Script service tự từ chối nonempty unformatted volume/cluster khác. ID mới chỉ dành cho triển khai mới bằng `scripts/run_hdfs.py`, không thay ID của cluster hiện hữu.
+0044: 
+0045: Mỗi QA report phải có tên mới. Ví dụ (UUID không chứa dữ liệu cá nhân):
+0046: 
+0047: ```powershell
+0048: $qaId=[guid]::NewGuid().ToString('N')
+0049: docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a --profile spark run --rm --no-deps spark --driver-memory 2g scripts/spark_hdfs_validate.py --source-manifest evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json --hdfs-verification evidence/week2-hdfs/hdfs-385a18d3f03a/content-after-restart.json --report "evidence/week2-hdfs/hdfs-385a18d3f03a/spark-tv2-$qaId.json"
+0050: ```
+0051: 
+0052: Job dùng manifest và PASS content report đúng hash, truy cập HDFS thật; metadata thay đổi sẽ bị bytes/list/QA kiểm. Trước nghiệm thu snapshot mới hoặc khi nghi dữ liệu thay đổi, đọc toàn bộ byte lại:
+0053: 
+0054: ```powershell
+0055: $hashId=[guid]::NewGuid().ToString('N')
+0056: docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a --profile spark run --rm --no-deps spark --driver-memory 1g scripts/hdfs_hash_verify.py --source-manifest evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json --report "evidence/week2-hdfs/hdfs-385a18d3f03a/hashes-tv2-$hashId.json"
+0057: ```
+0058: 
+0059: Không dùng `localhost:9000` từ Spark để chỉ container NameNode khác. Host chỉ có UI loopback 19870; RPC 9000 và DataNode transfer 9866 liên lạc qua Docker network cùng project. Spark container bên ngoài cần join network này, dùng XML config hiện tại và có Hadoop client tương thích; không tự coi chỉ nối RPC là đọc block được.
+0060: 
+0061: ## 4. Bằng chứng và giới hạn
+0062: 
+0063: - `content-import.json`: toàn lô được cat binary, SHA256, CSV/JSON parser kiểm sau upload.
+0064: - `content-after-restart.json`: cùng phép kiểm toàn lô sau restart.
+0065: - `persistence-reviewed.json`: mọi Java metadata properties không đổi; FAIL so comment lịch sử được giữ tại `persistence.json`.
+0066: - `spark-hdfs.json`: Spark 3.5.1/Hadoop client 3.3.4/Java 11.0.22/Python 3.8.10, actual filesystem HDFS, `input_file_name`, full fields và 23 nhóm lỗi 0.
+0067: - `final-hdfs-hashes.json`: kiểm byte/hash độc lập bằng Java Hadoop client trước đóng gói.
+0068: - `screenshots/namenode-full-page.jpg`: screenshot UI thực.
+0069: - `delivery_manifest.json`: scope/exclusions và bytes/SHA256 của tệp local; remote HDFS kiểm riêng bằng job nêu trên. Volumes không nằm trong gói portable.
+0070: 
+0071: HDFS server 3.3.6/Java 1.8.0_212, một DataNode và replication 1, simple authentication, root trong container; môi trường demo một máy, không HA/chịu lỗi hoặc endpoint công khai. Named volumes đang được giữ. Chưa có TV2 xác nhận đã đọc/tích hợp và chưa có phê duyệt nhóm cho kiến trúc hoặc giới thiệu/cơ sở lý thuyết Tuần 1. Những xác nhận đó không được thay bằng QA kỹ thuật của TV1.
+
+### scripts/create_hdfs_manifest.py
+0001: """Freeze a scoped HDFS handoff; local byte verification is separate from remote.
+0002: 
+0003: Only creates NEW manifests/receipts. Never changes the Week 1 manifest.
+0004: """
+0005: import argparse
+0006: import json
+0007: from pathlib import Path
+0008: from common import sha256, utcnow
+0009: from hdfs_common import ROOT, new_json
+0010: 
+0011: 
+0012: def verify(path):
+0013:     manifest=json.loads(Path(path).read_text(encoding='utf-8'))
+0014:     issues=[]
+0015:     for rel,expected in manifest['files'].items():
+0016:         file=(ROOT/rel).resolve()
+0017:         if not file.is_relative_to(ROOT) or not file.is_file():
+0018:             issues.append({'path':rel,'error':'missing or outside project'})
+0019:         elif file.stat().st_size!=expected['bytes'] or sha256(file)!=expected['sha256']:
+0020:             issues.append({'path':rel,'error':'bytes/SHA256 mismatch'})
+0021:     return {'status':'PASS' if not issues else 'FAIL','checked_at_utc':utcnow(),
+0022:             'manifest_sha256':sha256(path),'files_checked':len(manifest['files']),
+0023:             'total_bytes':sum(f['bytes'] for f in manifest['files'].values()),'issues':issues,
+0024:             'remote_note':'This verifies local files only. Re-run hdfs_hash_verify.py for current HDFS bytes; the immutable recorded remote receipt is included in the manifest.'}
+0025: 
+0026: 
+0027: def main():
+0028:     parser=argparse.ArgumentParser(description=__doc__)
+0029:     parser.add_argument('--context')
+0030:     parser.add_argument('--output')
+0031:     parser.add_argument('--verify')
+0032:     parser.add_argument('--receipt')
+0033:     args=parser.parse_args()
+0034:     if args.verify:
+0035:         result=verify(args.verify)
+0036:         if args.receipt:new_json(args.receipt,result)
+0037:         print(json.dumps(result,ensure_ascii=True,indent=2))
+0038:         return 0 if result['status']=='PASS' else 1
+0039:     if not args.context or not args.output:parser.error('--context and --output required')
+0040:     output=Path(args.output).resolve()
+0041:     if output.exists() or not output.is_relative_to(ROOT):raise ValueError('Output must be NEW within project')
+0042:     context=json.loads(Path(args.context).read_text(encoding='utf-8'))
+0043:     evidence=ROOT/context['evidence']
+0044:     remote=json.loads((evidence/'final-hdfs-hashes.json').read_text(encoding='utf-8'))
+0045:     source=json.loads((evidence/'source_manifest.json').read_text(encoding='utf-8'))
+0046:     acceptance=json.loads((evidence/'acceptance_status.json').read_text(encoding='utf-8'))
+0047:     if remote['status']!='PASS' or remote['source_manifest_sha256']!=sha256(evidence/'source_manifest.json') or any(v!='ĐẠT' for v in acceptance['stages'].values()):
+0048:         raise ValueError('Requires verified remote bytes and five completed stages')
+0049:     scopes=['scripts','src','tests','config','docs','data/raw','data/processed','data/generated',
+0050:             'data/runs/run-aa6b9eb58dca/output','evidence/run-aa6b9eb58dca',
+0051:             'evidence/recheck-20261011-221710',context['evidence'],context['audit']]
+0052:     selected={ROOT/n for n in ['README.md','Dockerfile','compose.yaml','compose.hdfs.yaml',
+0053:                   'requirements.txt','.gitignore','.gitattributes','.dockerignore',
+0054:                   'audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md']}
+0055:     for scope in scopes:selected.update(p for p in (ROOT/scope).rglob('*') if p.is_file())
+0056:     entries={}
+0057:     omitted=[]
+0058:     for file in sorted(selected):
+0059:         rel=file.relative_to(ROOT).as_posix()
+0060:         if file==output or any(part in file.parts for part in ['.git','__pycache__','temporary','fixtures']) or file.suffix in ['.pyc','.part'] or file.name.endswith('.pem'):
+0061:             omitted.append(rel);continue
+0062:         if 'execution' in file.parts:
+0063:             owner=next((parent/'command.json' for parent in file.parents if (parent/'command.json').is_file()),None)
+0064:             if owner and 'finished_at_utc' not in json.loads(owner.read_text(encoding='utf-8')):
+0065:                 omitted.append(rel);continue
+0066:         entries[rel]={'bytes':file.stat().st_size,'sha256':sha256(file)}
+0067:     new_json(output,{'created_at_utc':utcnow(),'root':str(ROOT),'run_id':context['run_id'],
+0068:                     'scope':scopes,'selected_root_files':'see exact files keys',
+0069:                     'exclusions':['.git','other run outputs/channel/spool','unselected historical audits/evidence',
+0070:                                   'Docker image layers and live HDFS named-volume metadata/blocks (not a portable volume export)',
+0071:                                   'temporary/fixtures/pycache/part/public temporary CA bundles',
+0072:                                   'active manifest execution step','manifest itself and later verification receipts/commands'],
+0073:                     'omitted_selected_files':omitted,'files':entries,
+0074:                     'remote_hdfs':{'authority':source['authority'],'run_id':source['hdfs_run_id'],
+0075:                                    'verified_at_utc':remote['finished_at_utc'],'method':remote['method'],
+0076:                                    'receipt':context['evidence']+'/final-hdfs-hashes.json',
+0077:                                    'receipt_sha256':sha256(evidence/'final-hdfs-hashes.json'),
+0078:                                    'files':[{**r,'expected_records':s['expected_records']} for r,s in zip(remote['files'],source['files'])]}})
+0079:     result=verify(output)
+0080:     print(json.dumps(result,ensure_ascii=True,indent=2))
+0081:     return 0 if result['status']=='PASS' else 1
+0082: 
+0083: 
+0084: if __name__=='__main__':raise SystemExit(main())
+
+### scripts/hdfs_common.py
+0001: """Week 2 evidence helpers: exclusive reports and exact subprocess records."""
+0002: import json
+0003: import os
+0004: import subprocess
+0005: import uuid
+0006: from pathlib import Path
+0007: from common import utcnow
+0008: 
+0009: ROOT = Path(__file__).resolve().parents[1]
+0010: 
+0011: def new_json(path, value):
+0012:     path=Path(path)
+0013:     path.parent.mkdir(parents=True,exist_ok=True)
+0014:     with path.open('x',encoding='utf-8') as f:
+0015:         json.dump(value,f,ensure_ascii=False,indent=2)
+0016:         f.write('\n')
+0017: 
+0018: class Ledger:
+0019:     def __init__(self,evidence,env=None):
+0020:         self.folder=Path(evidence)/'commands'
+0021:         self.folder.mkdir(parents=True,exist_ok=True)
+0022:         self.env=os.environ.copy()
+0023:         self.env.update(env or {})
+0024:         self.env.update(PYTHONDONTWRITEBYTECODE='1',PYTHONIOENCODING='utf-8')
+0025: 
+0026:     def start(self,argv,label):
+0027:         folder=self.folder/(label+'-'+uuid.uuid4().hex[:8])
+0028:         folder.mkdir()
+0029:         record={'argv':argv,'cwd':str(ROOT),'started_at_utc':utcnow(),
+0030:             'environment':{key:self.env.get(key) for key in ['HDFS_RUN_ID','HDFS_HADOOP_IMAGE','HADOOP_USER_NAME','DOCKER_CONTEXT']},
+0031:             'stdout':str(folder/'stdout.txt'),'stderr':str(folder/'stderr.txt')}
+0032:         new_json(folder/'started.json',record)
+0033:         return folder,record
+0034: 
+0035:     def command(self,argv,label,check=True):
+0036:         folder,record=self.start(argv,label)
+0037:         with (folder/'stdout.txt').open('xb') as out,(folder/'stderr.txt').open('xb') as err:
+0038:             result=subprocess.run(argv,cwd=ROOT,env=self.env,stdout=out,stderr=err)
+0039:         record.update(exit_code=result.returncode,finished_at_utc=utcnow())
+0040:         new_json(folder/'finished.json',record)
+0041:         if check and result.returncode:
+0042:             raise RuntimeError(f'{label} exit {result.returncode}; see {folder}')
+0043:         return result.returncode,(folder/'stdout.txt').read_text(encoding='utf-8',errors='replace'),folder
+0044: 
+0045: def compose(project):
+0046:     return ['docker','compose','-f','compose.hdfs.yaml','-p',project]
+
+### scripts/hdfs_guard_tests.py
+0001: """Isolated container fixtures prove volume guards; never data/Flume evidence."""
+0002: import argparse
+0003: import json
+0004: from pathlib import Path
+0005: from hdfs_common import ROOT,Ledger,new_json
+0006: from common import sha256
+0007: 
+0008: def main():
+0009:     p=argparse.ArgumentParser(description=__doc__)
+0010:     p.add_argument('--evidence',required=True)
+0011:     a=p.parse_args()
+0012:     evidence=Path(a.evidence)
+0013:     ledger=Ledger(evidence)
+0014:     tests=[]
+0015:     cases=[
+0016:        ('nonempty_unformatted','touch /hdfs/name/fixture-marker; bash /project/scripts/hdfs_service.sh namenode','Refusing non-empty unformatted'),
+0017:        ('wrong_cluster','mkdir -p /hdfs/name/current; printf "clusterID=foreign-cluster\\n" > /hdfs/name/current/VERSION; bash /project/scripts/hdfs_service.sh namenode','Cluster ID mismatch'),
+0018:        ('invalid_role','bash /project/scripts/hdfs_service.sh invalid-role','Unknown role')]
+0019:     for name,script,expected in cases:
+0020:         argv=['docker','run','--rm','--user','0:0','--tmpfs','/hdfs/name','--mount',f'type=bind,source={ROOT},target=/project,readonly',
+0021:               '-e','HDFS_RUN_ID=hdfs-000000000000','--entrypoint','bash',
+0022:               'apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144','-c',script]
+0023:         code,text,folder=ledger.command(argv,name,False)
+0024:         passed=code==1 and expected in text and 'FORMAT_NEW_EMPTY_VOLUME' not in text
+0025:         tests.append({'name':name,'passed':passed,'exit_code':code,'commands':str(folder),
+0026:                       'fixture_only':True,'never_flume_evidence':True})
+0027:     new_json(evidence/'guard-tests.json',{'status':'PASS' if all(t['passed'] for t in tests) else 'FAIL',
+0028:         'service_script_sha256':sha256(ROOT/'scripts/hdfs_service.sh'),'tests':tests,
+0029:         'note':'Every test uses its own disposable tmpfs, never the actual NameNode/DataNode volumes.'})
+0030:     print(json.dumps(tests,ensure_ascii=False,indent=2))
+0031:     return 0 if all(t['passed'] for t in tests) else 1
+0032: 
+0033: if __name__=='__main__':raise SystemExit(main())
+
+### scripts/hdfs_hash_verify.py
+0001: """Read every real HDFS byte with Hadoop's Java client and verify SHA256.
+0002: 
+0003: Independent of the CLI/Python line parser used by hdfs_io.py. This check does
+0004: not replace full CSV/JSON parsing and Spark QA; it verifies final remote bytes.
+0005: """
+0006: import argparse
+0007: import json
+0008: import sys
+0009: from pathlib import Path
+0010: 
+0011: ROOT = Path(__file__).resolve().parents[1]
+0012: sys.path.insert(0, str(ROOT/'scripts'))
+0013: from common import sha256, utcnow
+0014: from hdfs_common import new_json
+0015: from pyspark.sql import SparkSession
+0016: 
+0017: 
+0018: def main():
+0019:     parser = argparse.ArgumentParser(description=__doc__)
+0020:     parser.add_argument('--source-manifest', required=True)
+0021:     parser.add_argument('--report', required=True)
+0022:     args = parser.parse_args()
+0023:     if Path(args.report).exists():
+0024:         raise FileExistsError(args.report)
+0025:     source = json.loads(Path(args.source_manifest).read_text(encoding='utf-8'))
+0026:     if source['status'] != 'PASS' or source['authority'] != 'hdfs://namenode:9000':
+0027:         raise ValueError('Requires the verified HDFS manifest')
+0028:     report = {'status': 'FAIL', 'started_at_utc': utcnow(),
+0029:               'hdfs_run_id': source['hdfs_run_id'],
+0030:               'source_manifest_sha256': sha256(args.source_manifest),
+0031:               'verification_source_sha256': sha256(__file__), 'files': [],
+0032:               'method': 'HDFS FSDataInputStream -> Java DigestInputStream SHA-256 -> IOUtils.copyBytes -> nullOutputStream'}
+0033:     spark = None
+0034:     try:
+0035:         spark = (SparkSession.builder.master('local[1]').appName('HDFS-Final-Byte-Verification')
+0036:                  .config('spark.hadoop.fs.defaultFS', source['authority'])
+0037:                  .config('spark.hadoop.dfs.client.use.datanode.hostname', 'true').getOrCreate())
+0038:         spark.sparkContext.setLogLevel('WARN')
+0039:         jvm = spark._jvm
+0040:         fs = jvm.org.apache.hadoop.fs.FileSystem.get(jvm.java.net.URI(source['authority']),
+0041:                                                     spark.sparkContext._jsc.hadoopConfiguration())
+0042:         report['filesystem_class'] = fs.getClass().getName()
+0043:         if report['filesystem_class'] != 'org.apache.hadoop.hdfs.DistributedFileSystem':
+0044:             raise ValueError('Refuses a non-HDFS filesystem')
+0045:         report['hadoop_client'] = jvm.org.apache.hadoop.util.VersionInfo.getVersion()
+0046:         iterator = fs.listFiles(jvm.org.apache.hadoop.fs.Path('/movie-log'), True)
+0047:         listed = set()
+0048:         while iterator.hasNext():
+0049:             listed.add(iterator.next().getPath().toUri().getPath())
+0050:         expected = {f['hdfs_path'] for f in source['files']}
+0051:         report['missing_files'] = sorted(expected-listed)
+0052:         report['unexpected_files'] = sorted(listed-expected)
+0053:         if listed != expected:
+0054:             raise ValueError('Final namespace file list differs')
+0055:         for record in source['files']:
+0056:             uri = source['authority'] + record['hdfs_path']
+0057:             path = jvm.org.apache.hadoop.fs.Path(uri)
+0058:             before = fs.getFileStatus(path)
+0059:             digest = jvm.java.security.MessageDigest.getInstance('SHA-256')
+0060:             stream = jvm.java.security.DigestInputStream(fs.open(path), digest)
+0061:             sink = jvm.java.io.OutputStream.nullOutputStream()
+0062:             try:
+0063:                 jvm.org.apache.hadoop.io.IOUtils.copyBytes(stream, sink, 65536, False)
+0064:             finally:
+0065:                 stream.close()
+0066:                 sink.close()
+0067:             measured = bytes(digest.digest()).hex()
+0068:             after = fs.getFileStatus(path)
+0069:             item = {'uri': uri, 'bytes': after.getLen(), 'sha256': measured,
+0070:                     'replication': after.getReplication(),
+0071:                     'matches_source': measured == record['sha256'] and after.getLen() == record['bytes'],
+0072:                     'unchanged_during_read': before.getLen() == after.getLen() and before.getModificationTime() == after.getModificationTime()}
+0073:             report['files'].append(item)
+0074:             if not item['matches_source'] or not item['unchanged_during_read'] or item['replication'] != 1:
+0075:                 raise ValueError('Final remote bytes/hash/replication changed: ' + uri)
+0076:         report.update(status='PASS', total_bytes=sum(f['bytes'] for f in report['files']), local_fallback=False)
+0077:     except Exception as exc:
+0078:         report['error'] = str(exc)
+0079:     finally:
+0080:         if spark is not None:
+0081:             spark.stop()
+0082:         report['finished_at_utc'] = utcnow()
+0083:         new_json(args.report, report)
+0084:     print(json.dumps(report, ensure_ascii=True, indent=2))
+0085:     return 0 if report['status'] == 'PASS' else 1
+0086: 
+0087: 
+0088: if __name__ == '__main__':
+0089:     raise SystemExit(main())
+
+### scripts/hdfs_io.py
+0001: """Upload without overwrite and independently parse/hash byte streams from HDFS."""
+0002: import argparse
+0003: import csv
+0004: import hashlib
+0005: import io
+0006: import json
+0007: import subprocess
+0008: from pathlib import Path
+0009: from common import sha256,utcnow,parse_time
+0010: from hdfs_common import ROOT,Ledger,new_json,compose
+0011: from validate_pipeline import REQUIRED
+0012: 
+0013: def execute(a):
+0014:     context=json.loads(Path(a.context).read_text(encoding='utf-8'))
+0015:     evidence=ROOT/context['evidence']
+0016:     source=json.loads((evidence/'source_manifest.json').read_text(encoding='utf-8'))
+0017:     target=evidence/(a.label+'.json')
+0018:     if target.exists():raise FileExistsError(target)
+0019:     ledger=Ledger(evidence,{'HDFS_RUN_ID':context['run_id']})
+0020:     base=compose(context['project'])+['exec','-T','namenode','hdfs']
+0021:     result={'status':'FAIL','started_at_utc':utcnow(),'hdfs_run_id':context['run_id'],
+0022:        'source_manifest_sha256':sha256(evidence/'source_manifest.json'),
+0023:        'source_hashes':{name:sha256(ROOT/name) for name in ['scripts/hdfs_io.py','scripts/hdfs_common.py','scripts/common.py']},
+0024:        'files':[],'issues':[]}
+0025:     identities=set()
+0026:     try:
+0027:         if a.upload:
+0028:             for record in source['files']:
+0029:                 local=ROOT/record['local_path']
+0030:                 if sha256(local)!=record['sha256'] or local.stat().st_size!=record['bytes']:
+0031:                     raise ValueError('Local source changed before upload: '+record['local_path'])
+0032:             ledger.command(base+['dfs','-mkdir','-p',*source['directories']],'mkdir-namespace')
+0033:             for record in source['files']:
+0034:                 code,_,_=ledger.command(base+['dfs','-test','-e',record['hdfs_path']],'refuse-existing-target',False)
+0035:                 if code==0:raise FileExistsError(record['hdfs_path'])
+0036:                 ledger.command(base+['dfs','-put','/project/'+record['local_path'],record['hdfs_path']],'put-'+Path(record['local_path']).name)
+0037:             new_json(evidence/'upload_status.json',{'status':'ĐẠT','finished_at_utc':utcnow(),'files':len(source['files']),
+0038:                'source_manifest_sha256':sha256(evidence/'source_manifest.json'),'note':'Upload is complete; content verification is a separate stage.'})
+0039:         _,listing,_=ledger.command(base+['dfs','-ls','-R','/movie-log'],'list-namespace')
+0040:         listed={}
+0041:         for line in listing.splitlines():
+0042:             fields=line.split(None,7)
+0043:             if line.startswith('-') and len(fields)==8:
+0044:                 listed[fields[7]]={'bytes':int(fields[4]),'replication':int(fields[1])}
+0045:         expected={record['hdfs_path']:record for record in source['files']}
+0046:         result['missing_files']=sorted(set(expected)-set(listed))
+0047:         result['unexpected_files']=sorted(set(listed)-set(expected))
+0048:         if result['missing_files'] or result['unexpected_files']:
+0049:             raise ValueError('HDFS file list differs from source manifest')
+0050:         ledger.command(base+['dfs','-du','-s','/movie-log/raw'],'du-raw')
+0051:         _,admin,_=ledger.command(base+['dfsadmin','-report'],'dfsadmin-report')
+0052:         _,safe,_=ledger.command(base+['dfsadmin','-safemode','get'],'safe-mode')
+0053:         _,fsck,_=ledger.command(base+['fsck','/movie-log','-files','-blocks','-locations'],'fsck-files-blocks')
+0054:         result.update(live_datanodes='Live datanodes (1)' in admin,safe_mode_off='Safe mode is OFF' in safe,
+0055:                       fsck_healthy='is HEALTHY' in fsck,fsck_log=fsck)
+0056:         if not result['live_datanodes'] or not result['safe_mode_off'] or not result['fsck_healthy']:
+0057:             raise ValueError('HDFS is not healthy/outside safe mode with one live DataNode')
+0058:         totals={'movies':0,'logs':0,'log_bytes':0,'duplicate_ids':0,'invalid_records':0}
+0059:         samples=[]
+0060:         # Each file is read using hdfs dfs -cat; stdout stays binary (no newline conversion).
+0061:         for record in source['files']:
+0062:             argv=base+['dfs','-cat',record['hdfs_path']]
+0063:             folder,command=ledger.start(argv,'cat-'+Path(record['hdfs_path']).name)
+0064:             digest=hashlib.sha256(); size=rows=0
+0065:             header=None
+0066:             with (folder/'stdout.bin').open('xb') as output,(folder/'stderr.txt').open('xb') as err:
+0067:                 proc=subprocess.Popen(argv,cwd=ROOT,env=ledger.env,stdout=subprocess.PIPE,stderr=err)
+0068:                 for number,line in enumerate(proc.stdout,1):
+0069:                     output.write(line); digest.update(line); size+=len(line)
+0070:                     if number<=3:samples.append({'uri':source['authority']+record['hdfs_path'],'line':number,'text':line.decode('utf-8',errors='strict').rstrip('\n')})
+0071:                     if record['kind']=='logs':
+0072:                         rows+=1
+0073:                         try:
+0074:                             if not line.endswith(b'\n'):raise ValueError('Missing final newline')
+0075:                             event=json.loads(line.decode('utf-8',errors='strict'))
+0076:                             if not isinstance(event,dict) or set(event)!=REQUIRED:raise ValueError('Unexpected log fields')
+0077:                             for key in ['eventId','userId','sessionId','runId','action','timestamp','durationSource']:
+0078:                                 if not isinstance(event[key],str) or not event[key].strip():raise ValueError('Invalid string '+key)
+0079:                             for key in ['movieId','watchDuration','sequenceNumber','simulatedMovieDuration']:
+0080:                                 if type(event[key]) is not int or not 0<=event[key]<=2**63-1:raise ValueError('Invalid integer '+key)
+0081:                             if not event['timestamp'].endswith('Z'):raise ValueError('Timestamp must be UTC Z')
+0082:                             parse_time(event['timestamp'])
+0083:                             if event['isSynthetic'] is not True or event['durationSource']!='synthetic':raise ValueError('Invalid provenance')
+0084:                             if event['action'] not in ['view','play','pause','stop','complete']:raise ValueError('Invalid action')
+0085:                             if not 3600<=event['simulatedMovieDuration']<=10800 or event['watchDuration']>event['simulatedMovieDuration']:raise ValueError('Invalid duration range')
+0086:                             if event['action'] in ['view','play'] and event['watchDuration']!=0:raise ValueError('Invalid view/play duration')
+0087:                             if event['action'] in ['pause','stop','complete'] and event['watchDuration']<=0:raise ValueError('Invalid terminal duration')
+0088:                             if event['eventId'] in identities:totals['duplicate_ids']+=1
+0089:                             identities.add(event['eventId'])
+0090:                         except (ValueError,TypeError,KeyError,UnicodeError) as exc:
+0091:                             totals['invalid_records']+=1
+0092:                             if len(result['issues'])<20:result['issues'].append({'uri':source['authority']+record['hdfs_path'],'line':number,'error':str(exc)})
+0093:                 proc.stdout.close()
+0094:                 code=proc.wait()
+0095:             command.update(exit_code=code,finished_at_utc=utcnow(),stdout=str(folder/'stdout.bin'),stdout_sha256=digest.hexdigest(),stdout_bytes=size)
+0096:             new_json(folder/'finished.json',command)
+0097:             if code:raise RuntimeError('hdfs cat failed: '+record['hdfs_path'])
+0098:             if record['kind']=='movies':
+0099:                 with (folder/'stdout.bin').open(encoding='utf-8',errors='strict',newline='') as f:
+0100:                     reader=csv.DictReader(f,strict=True)
+0101:                     if reader.fieldnames!=['movieId','title','genres','releaseYear']:raise ValueError('Invalid HDFS CSV header')
+0102:                     for row in reader:
+0103:                         if None in row or any(value is None for value in row.values()):raise ValueError('Malformed HDFS CSV')
+0104:                         rows+=1
+0105:             measured={'uri':source['authority']+record['hdfs_path'],'local_path':record['local_path'],
+0106:               'bytes':size,'sha256':digest.hexdigest(),'records':rows,'replication':listed[record['hdfs_path']]['replication'],
+0107:               'empty':size==0,'command':str(folder/'finished.json')}
+0108:             measured['matches_source']=(size==record['bytes']==listed[record['hdfs_path']]['bytes'] and digest.hexdigest()==record['sha256'] and rows==record['expected_records'])
+0109:             result['files'].append(measured)
+0110:             totals[record['kind']]+=rows
+0111:             if record['kind']=='logs':totals['log_bytes']+=size
+0112:             if not measured['matches_source'] or measured['replication']!=1:raise ValueError('HDFS bytes/hash/count/replication mismatch')
+0113:         result.update(totals=totals,unique_event_ids=len(identities),total_bytes=sum(r['bytes'] for r in result['files']))
+0114:         new_json(evidence/(a.label+'-samples.json'),samples)
+0115:         if totals['movies']!=source['expected_movies'] or totals['logs']!=source['expected_logs'] or totals['log_bytes']!=source['expected_log_bytes'] or totals['invalid_records'] or totals['duplicate_ids']:
+0116:             raise ValueError('Full HDFS parsing counts/quality differ from source expectations')
+0117:         result['status']='PASS'
+0118:     except Exception as exc:
+0119:         result['error']=str(exc)
+0120:     result['finished_at_utc']=utcnow()
+0121:     new_json(target,result)
+0122:     print(json.dumps({key:value for key,value in result.items() if key not in ['files','fsck_log']},ensure_ascii=False,indent=2))
+0123:     return 0 if result['status']=='PASS' else 1
+0124: 
+0125: if __name__=='__main__':
+0126:     p=argparse.ArgumentParser(description=__doc__)
+0127:     p.add_argument('--context',required=True)
+0128:     p.add_argument('--upload',action='store_true')
+0129:     p.add_argument('--label',required=True,help='NEW verification report name')
+0130:     raise SystemExit(execute(p.parse_args()))
+
+### scripts/hdfs_restart_verify.py
+0001: """Restart only this run's HDFS services, preserve volumes, verify all content."""
+0002: import argparse
+0003: import json
+0004: import sys
+0005: import time
+0006: from pathlib import Path
+0007: from common import utcnow,sha256
+0008: from hdfs_common import ROOT,Ledger,compose,new_json
+0009: 
+0010: def properties(text):
+0011:     """Compare every VERSION property; Java Properties timestamp comments are not identity."""
+0012:     values={}
+0013:     for line in text.splitlines():
+0014:         if not line.strip() or line.lstrip().startswith(('#','!')):continue
+0015:         key,value=line.split('=',1)
+0016:         if key in values:raise ValueError('Duplicate storage property '+key)
+0017:         values[key]=value
+0018:     return values
+0019: 
+0020: def review(path,evidence):
+0021:     previous=json.loads(Path(path).read_text(encoding='utf-8'))
+0022:     before={key:properties(value) for key,value in previous['before'].items()}
+0023:     after={key:properties(value) for key,value in previous['after'].items()}
+0024:     content=json.loads(Path(previous['content_report']).read_text(encoding='utf-8'))
+0025:     okay=before==after and content['status']=='PASS' and previous['format_marker_count_in_entire_logs']==1 and previous['reuse_markers']==2
+0026:     result={'status':'PASS' if okay else 'FAIL','checked_at_utc':utcnow(),'run_id':previous['run_id'],
+0027:        'reviewed_original_report':str(path),'original_report_sha256':sha256(path),
+0028:        'verification_source_sha256':sha256(__file__),'all_storage_properties_unchanged':before==after,
+0029:        'before_properties':before,'after_properties':after,'content_report':previous['content_report'],
+0030:        'format_marker_count':previous['format_marker_count_in_entire_logs'],'reuse_markers':previous['reuse_markers'],
+0031:        'raw_version_text_unchanged':previous['before']==previous['after'],
+0032:        'note':'Original FAIL retained. Only timestamp comments changed; all properties and actual data bytes/counts were compared. No second restart or reformat was needed.'}
+0033:     new_json(Path(evidence)/'persistence-reviewed.json',result)
+0034:     print(json.dumps(result,ensure_ascii=False,indent=2))
+0035:     return 0 if okay else 1
+0036: 
+0037: def main():
+0038:     p=argparse.ArgumentParser(description=__doc__)
+0039:     p.add_argument('--context',required=True)
+0040:     p.add_argument('--review',help='Review an immutable earlier restart record without restarting again')
+0041:     a=p.parse_args()
+0042:     context=json.loads(Path(a.context).read_text(encoding='utf-8'))
+0043:     evidence=ROOT/context['evidence']
+0044:     if a.review:return review(a.review,evidence)
+0045:     if (evidence/'persistence.json').exists():raise FileExistsError('Use a new check/report for a second restart')
+0046:     ledger=Ledger(evidence,{'HDFS_RUN_ID':context['run_id']})
+0047:     base=compose(context['project'])
+0048:     before={}
+0049:     for service,store in [('namenode','name'),('datanode','data')]:
+0050:         _,text,_=ledger.command(base+['exec','-T',service,'cat',f'/hdfs/{store}/current/VERSION'],'version-before-restart-'+service)
+0051:         before[service]=text
+0052:     ledger.command(base+['restart','namenode','datanode'],'restart-own-hdfs')
+0053:     ready=False
+0054:     for attempt in range(24):
+0055:         code,text,_=ledger.command(base+['exec','-T','namenode','hdfs','dfsadmin','-report'],f'restart-ready-{attempt:02d}',False)
+0056:         if code==0 and 'Live datanodes (1)' in text:
+0057:             _,safe,_=ledger.command(base+['exec','-T','namenode','hdfs','dfsadmin','-safemode','get'],f'restart-safe-{attempt:02d}')
+0058:             if 'Safe mode is OFF' in safe:ready=True;break
+0059:         time.sleep(5)
+0060:     if not ready:raise RuntimeError('HDFS did not recover one live DataNode/safe mode OFF')
+0061:     after={}
+0062:     for service,store in [('namenode','name'),('datanode','data')]:
+0063:         _,text,_=ledger.command(base+['exec','-T',service,'cat',f'/hdfs/{store}/current/VERSION'],'version-after-restart-'+service)
+0064:         after[service]=text
+0065:     _,logs,folder=ledger.command(base+['logs','--timestamps','--no-color'],'logs-after-restart')
+0066:     ledger.command(base+['ps','--all'],'ps-after-restart')
+0067:     ledger.command([sys.executable,'-B','scripts/hdfs_io.py','--context',a.context,'--label','content-after-restart'],'verify-all-after-restart')
+0068:     verified=json.loads((evidence/'content-after-restart.json').read_text(encoding='utf-8'))
+0069:     metadata_equal={key:properties(value) for key,value in before.items()}=={key:properties(value) for key,value in after.items()}
+0070:     result={'status':'PASS' if metadata_equal and verified['status']=='PASS' and logs.count('FORMAT_NEW_EMPTY_VOLUME')==1 and logs.count('REUSE_VERIFIED_VOLUME')==2 else 'FAIL',
+0071:        'checked_at_utc':utcnow(),'run_id':context['run_id'],'storage_version_unchanged':before==after,
+0072:        'all_storage_properties_unchanged':metadata_equal,
+0073:        'format_marker_count_in_entire_logs':logs.count('FORMAT_NEW_EMPTY_VOLUME'),
+0074:        'reuse_markers':logs.count('REUSE_VERIFIED_VOLUME'),'logs':str(folder/'stdout.txt'),
+0075:        'content_report':str(evidence/'content-after-restart.json'),'before':before,'after':after,
+0076:        'note':'Controlled restart of this run only; demonstrates persistence, not HA/fault tolerance.'}
+0077:     new_json(evidence/'persistence.json',result)
+0078:     print(json.dumps(result,ensure_ascii=False,indent=2))
+0079:     return 0 if result['status']=='PASS' else 1
+0080: 
+0081: if __name__=='__main__':raise SystemExit(main())
+
+### scripts/hdfs_service.sh
+0001: #!/usr/bin/env bash
+0002: set -euo pipefail
+0003: role="${1:?namenode or datanode required}"
+0004: : "${HDFS_RUN_ID:?Use a dedicated HDFS run ID}"
+0005: [[ "$HDFS_RUN_ID" =~ ^hdfs-[a-f0-9]{12}$ ]] || { echo 'Invalid cluster ID'; exit 1; }
+0006: case "$role" in
+0007:   namenode) store=/hdfs/name ;;
+0008:   datanode) store=/hdfs/data ;;
+0009:   *) echo 'Unknown role'; exit 1 ;;
+0010: esac
+0011: mkdir -p "$store"
+0012: if [[ -f "$store/current/VERSION" ]]; then
+0013:   actual=$(sed -n 's/^clusterID=//p' "$store/current/VERSION")
+0014:   [[ "$actual" == "$HDFS_RUN_ID" ]] || { echo 'Cluster ID mismatch: refusing existing volume'; exit 1; }
+0015:   echo "REUSE_VERIFIED_VOLUME role=$role cluster=$actual"
+0016: elif [[ -n "$(find "$store" -mindepth 1 -maxdepth 1 -print -quit)" ]]; then
+0017:   echo "Refusing non-empty unformatted $role volume"; exit 1
+0018: elif [[ "$role" == namenode ]]; then
+0019:   echo "FORMAT_NEW_EMPTY_VOLUME role=$role cluster=$HDFS_RUN_ID"
+0020:   hdfs namenode -format -clusterId "$HDFS_RUN_ID" -nonInteractive
+0021: else
+0022:   echo "NEW_EMPTY_VOLUME role=$role cluster=$HDFS_RUN_ID"
+0023: fi
+0024: exec hdfs "$role"
+
+### scripts/hdfs_source.py
+0001: """Freeze verified Week 1 Sink provenance for a NEW HDFS import."""
+0002: import json
+0003: from pathlib import Path
+0004: from common import sha256,utcnow
+0005: from movie_quality import inspect_movies
+0006: from hdfs_common import ROOT,new_json
+0007: 
+0008: FLUME_RUN='run-aa6b9eb58dca'
+0009: 
+0010: def source_manifest(run_id,evidence):
+0011:     old=ROOT/'evidence'/FLUME_RUN
+0012:     status=json.loads((old/'status.json').read_text(encoding='utf-8'))
+0013:     rec=json.loads((old/'reconciliation.json').read_text(encoding='utf-8'))
+0014:     spark=json.loads((ROOT/'evidence/recheck-20261011-221710/spark-main.json').read_text(encoding='utf-8'))
+0015:     if not (status['run_id']==FLUME_RUN and status['status']==rec['status']==spark['status']=='PASS' and spark['run_id']==FLUME_RUN):
+0016:         raise ValueError('Week 1 lineage is not the expected PASS run')
+0017:     for name,h in status['source_config_hashes'].items():
+0018:         if sha256(ROOT/name)!=h:raise ValueError('Flume source/config changed: '+name)
+0019:     generated=ROOT/'data/generated/main.jsonl'
+0020:     generated_manifest=json.loads(generated.with_suffix('.jsonl.manifest.json').read_text(encoding='utf-8'))
+0021:     if sha256(generated)!=status['input_sha256'] or rec['input_sha256']!=status['input_sha256'] or generated_manifest['sha256']!=status['input_sha256']:
+0022:         raise ValueError('Flume input provenance changed')
+0023:     for side in ['input','output']:
+0024:         if rec[side]['total']!=1000000 or rec[side]['unique']!=1000000 or any(rec[side][k] for k in ['invalid','duplicates','conflicting_ids']):
+0025:             raise ValueError('Unexpected Week 1 count/quality')
+0026:     if any(rec[k] for k in ['missing_event_ids','unexpected_event_ids','changed_payloads','session_errors','user_overlap_errors']):
+0027:         raise ValueError('Week 1 reconciliation has errors')
+0028:     movies=ROOT/'data/processed/movies.csv'
+0029:     _,qa=inspect_movies(movies)
+0030:     if qa['status']!='PASS' or qa['rows']!=9742 or sha256(movies)!=rec['movies_sha256']:
+0031:         raise ValueError('Movie snapshot changed')
+0032:     sink=ROOT/'data/runs'/FLUME_RUN/'output'
+0033:     expected={Path(f['path']).name:f for f in rec['output_files']}
+0034:     actual={p.name:p for p in sink.iterdir() if p.is_file()}
+0035:     if set(actual)!=set(expected):raise ValueError('Sink file list differs from reconciliation')
+0036:     if len(actual)!=15 or sum(p.stat().st_size for p in actual.values())!=343339148:
+0037:         raise ValueError('Sink declared scale changed')
+0038:     snapshot='mls-'+rec['movies_sha256'][:12]+'-'+run_id
+0039:     movies_dir='/movie-log/raw/movies/'+snapshot
+0040:     logs_dir='/movie-log/raw/user_logs/'+FLUME_RUN+'/'+run_id
+0041:     files=[{'kind':'movies','local_path':movies.relative_to(ROOT).as_posix(),'bytes':movies.stat().st_size,
+0042:             'sha256':sha256(movies),'expected_records':9742,'hdfs_path':movies_dir+'/movies.csv'}]
+0043:     for name,path in sorted(actual.items()):
+0044:         proof=expected[name]
+0045:         if path.stat().st_size!=proof['bytes'] or sha256(path)!=proof['sha256']:
+0046:             raise ValueError('Sink bytes/hash changed: '+name)
+0047:         records=0
+0048:         with path.open('rb') as f:
+0049:             for row in f:
+0050:                 if not row.endswith(b'\n'):raise ValueError('Truncated Sink part: '+name)
+0051:                 event=json.loads(row.decode('utf-8',errors='strict'))
+0052:                 if not isinstance(event,dict) or len(event)!=12:raise ValueError('Invalid event structure')
+0053:                 records+=1
+0054:         files.append({'kind':'logs','local_path':path.relative_to(ROOT).as_posix(),'bytes':proof['bytes'],
+0055:             'sha256':proof['sha256'],'expected_records':records,'empty':proof['empty'],'hdfs_path':logs_dir+'/'+name})
+0056:     if sum(f['expected_records'] for f in files if f['kind']=='logs')!=1000000:
+0057:         raise ValueError('Full JSON parsing count differs from verified run')
+0058:     result={'status':'PASS','created_at_utc':utcnow(),'hdfs_run_id':run_id,'flume_run_id':FLUME_RUN,
+0059:         'flume_input_sha256':status['input_sha256'],'flume_reconciliation_sha256':sha256(old/'reconciliation.json'),
+0060:         'movies_qa':qa,'expected_movies':9742,'expected_logs':1000000,'expected_log_bytes':343339148,
+0061:         'event_manifest':generated_manifest,'flume_stats':rec['output'],'authority':'hdfs://namenode:9000',
+0062:         'movies_uri':'hdfs://namenode:9000'+movies_dir+'/movies.csv','logs_uri':'hdfs://namenode:9000'+logs_dir,
+0063:         'directories':['/movie-log/raw/movies','/movie-log/raw/user_logs','/movie-log/processed','/movie-log/results',movies_dir,logs_dir],
+0064:         'files':files,'note':'Generated file is checked only for lineage; upload uses movies.csv and actual Sink parts exclusively.'}
+0065:     new_json(Path(evidence)/'source_manifest.json',result)
+0066:     return result
+
+### scripts/run_hdfs.py
+0001: """Start an isolated HDFS demo; never format or import into an existing run."""
+0002: import argparse
+0003: import json
+0004: import os
+0005: import time
+0006: import uuid
+0007: from pathlib import Path
+0008: from common import utcnow,sha256
+0009: from hdfs_common import ROOT,Ledger,new_json,compose
+0010: from hdfs_source import source_manifest
+0011: 
+0012: FILES=['compose.hdfs.yaml','config/hdfs/core-site.xml','config/hdfs/hdfs-site.xml','config/hdfs/log4j.properties',
+0013:        'scripts/hdfs_service.sh','scripts/run_hdfs.py','scripts/hdfs_common.py','scripts/hdfs_source.py']
+0014: 
+0015: def run(a):
+0016:     os.chdir(ROOT)
+0017:     run_id='hdfs-'+uuid.uuid4().hex[:12]
+0018:     evidence=ROOT/'evidence/week2-hdfs'/run_id
+0019:     evidence.mkdir(parents=True)
+0020:     project='movie-'+run_id
+0021:     context={'run_id':run_id,'project':project,'evidence':evidence.relative_to(ROOT).as_posix(),
+0022:         'audit':a.audit_dir,'started_at_utc':utcnow(),'ui_url':'http://127.0.0.1:19870',
+0023:         'configuration_hashes':{name:sha256(ROOT/name) for name in FILES}}
+0024:     new_json(evidence/'context.json',context)
+0025:     new_json(ROOT/a.audit_dir/'run-context.json',context)
+0026:     ledger=Ledger(evidence,{'HDFS_RUN_ID':run_id})
+0027:     base=compose(project)
+0028:     state={'runtime':'CHƯA THỂ XÁC MINH','upload':'CHƯA THỂ XÁC MINH','content':'CHƯA THỂ XÁC MINH',
+0029:            'spark':'CHƯA THỂ XÁC MINH','e2e':'CHƯA THỂ XÁC MINH'}
+0030:     try:
+0031:         source_manifest(run_id,evidence)
+0032:         ledger.command(['docker','version'],'docker-version')
+0033:         ledger.command(['docker','compose','version'],'compose-version')
+0034:         ledger.command(['docker','context','show'],'context')
+0035:         ledger.command(['docker','image','inspect','apache/hadoop:3.3.6','apache/spark:3.5.1'],'images')
+0036:         for volume in ['namenode','datanode']:
+0037:             code,_,_=ledger.command(['docker','volume','inspect',project+'_'+volume],'new-volume-'+volume,False)
+0038:             if code==0:raise ValueError('Volume already exists; refusing reuse')
+0039:         ledger.command(base+['config'],'compose-resolved')
+0040:         ledger.command(base+['up','-d','namenode','datanode'],'start-only-hdfs')
+0041:         ready=False
+0042:         for attempt in range(24):
+0043:             code,text,_=ledger.command(base+['exec','-T','namenode','hdfs','dfsadmin','-report'],f'ready-{attempt:02d}',False)
+0044:             if code==0 and 'Live datanodes (1)' in text:
+0045:                 code,safe,_=ledger.command(base+['exec','-T','namenode','hdfs','dfsadmin','-safemode','get'],f'safe-{attempt:02d}',False)
+0046:                 if code==0 and 'Safe mode is OFF' in safe:
+0047:                     ready=True;break
+0048:             time.sleep(5)
+0049:         if not ready:raise RuntimeError('HDFS failed to reach one live DataNode outside safe mode')
+0050:         for service in ['namenode','datanode']:
+0051:             ledger.command(base+['exec','-T',service,'hadoop','version'],service+'-version')
+0052:             ledger.command(base+['exec','-T',service,'java','-version'],service+'-java')
+0053:             ledger.command(base+['exec','-T',service,'cat',f'/hdfs/{"name" if service=="namenode" else "data"}/current/VERSION'],service+'-storage-version')
+0054:         ledger.command(base+['ps','--all'],'ps')
+0055:         ledger.command(base+['logs','--timestamps','--no-color'],'logs-runtime')
+0056:         ledger.command(['docker','volume','inspect',project+'_namenode',project+'_datanode'],'volumes')
+0057:         ledger.command(base+['exec','-T','namenode','hdfs','getconf','-confKey','fs.defaultFS'],'default-fs')
+0058:         state['runtime']='ĐẠT'
+0059:     except Exception as exc:
+0060:         state['reason']=str(exc)
+0061:         try:ledger.command(base+['logs','--timestamps','--no-color'],'logs-failure',False)
+0062:         except Exception:pass
+0063:     state.update(finished_at_utc=utcnow(),run_id=run_id,project=project)
+0064:     new_json(evidence/'runtime_status.json',state)
+0065:     print(json.dumps({'context':context,'status':state},ensure_ascii=False,indent=2))
+0066:     return 0 if state['runtime']=='ĐẠT' else 1
+0067: 
+0068: if __name__=='__main__':
+0069:     p=argparse.ArgumentParser(description=__doc__)
+0070:     p.add_argument('--audit-dir',required=True)
+0071:     raise SystemExit(run(p.parse_args()))
+
+### scripts/spark_hdfs_validate.py
+0001: """Full Spark QA reads HDFS URIs only; no local/generated fallback."""
+0002: import argparse
+0003: import json
+0004: import platform
+0005: import sys
+0006: from pathlib import Path
+0007: 
+0008: ROOT=Path(__file__).resolve().parents[1]
+0009: sys.path.insert(0,str(ROOT/'scripts'))
+0010: sys.path.insert(0,str(ROOT))
+0011: from common import sha256,utcnow
+0012: from hdfs_common import new_json
+0013: from src.schemas import MOVIE_SCHEMA,USER_LOG_SCHEMA
+0014: from spark_smoke_test import validate_frames
+0015: from pyspark import __version__ as pyspark_version
+0016: from pyspark.sql import SparkSession,functions as F
+0017: from pyspark.sql.types import StructType,StructField,StringType
+0018: 
+0019: def main():
+0020:     p=argparse.ArgumentParser(description=__doc__)
+0021:     p.add_argument('--source-manifest',required=True)
+0022:     p.add_argument('--hdfs-verification',required=True)
+0023:     p.add_argument('--report',required=True)
+0024:     a=p.parse_args()
+0025:     if Path(a.report).exists():raise FileExistsError(a.report)
+0026:     source=json.loads(Path(a.source_manifest).read_text(encoding='utf-8'))
+0027:     verified=json.loads(Path(a.hdfs_verification).read_text(encoding='utf-8'))
+0028:     if source['status']!='PASS' or verified['status']!='PASS' or verified['source_manifest_sha256']!=sha256(a.source_manifest):
+0029:         raise ValueError('Requires current PASS HDFS content verification')
+0030:     for uri in [source['movies_uri'],source['logs_uri']]:
+0031:         if not uri.startswith(source['authority']+'/movie-log/raw/'):
+0032:             raise ValueError('Must read the verified HDFS namespace, never local files')
+0033:     spark=None
+0034:     result={'status':'FAIL','started_at_utc':utcnow(),'hdfs_run_id':source['hdfs_run_id'],
+0035:        'flume_run_id':source['flume_run_id'],'movies_uri':source['movies_uri'],'logs_uri':source['logs_uri'],
+0036:        'source_manifest_sha256':sha256(a.source_manifest),'verification_sha256':sha256(a.hdfs_verification),
+0037:        'source_hashes':{name:sha256(ROOT/name) for name in ['scripts/spark_hdfs_validate.py','scripts/spark_smoke_test.py','src/schemas.py','config/hdfs/core-site.xml','config/hdfs/hdfs-site.xml']}}
+0038:     try:
+0039:         spark=(SparkSession.builder.master('local[2]').appName('Week2-TV1-HDFS-FullValidation')
+0040:             .config('spark.sql.session.timeZone','UTC').config('spark.sql.shuffle.partitions','8')
+0041:             .config('spark.sql.csv.parser.columnPruning.enabled','false')
+0042:             .config('spark.hadoop.fs.defaultFS',source['authority'])
+0043:             .config('spark.hadoop.dfs.client.use.datanode.hostname','true').getOrCreate())
+0044:         spark.sparkContext.setLogLevel('WARN')
+0045:         jvm=spark._jvm
+0046:         conf=spark.sparkContext._jsc.hadoopConfiguration()
+0047:         fs=jvm.org.apache.hadoop.fs.FileSystem.get(jvm.java.net.URI(source['authority']),conf)
+0048:         result['runtime']={'spark':spark.version,'pyspark':pyspark_version,'python':sys.version,
+0049:             'python_executable':sys.executable,'java':jvm.System.getProperty('java.version'),
+0050:             'hadoop_client':jvm.org.apache.hadoop.util.VersionInfo.getVersion(),'os':platform.platform(),
+0051:             'master':spark.sparkContext.master,'fs_defaultFS':conf.get('fs.defaultFS'),
+0052:             'actual_filesystem_uri':fs.getUri().toString(),'filesystem_class':fs.getClass().getName(),
+0053:             'timestamp_timezone':spark.conf.get('spark.sql.session.timeZone')}
+0054:         result['basic_action_count']=spark.range(5).count()
+0055:         if result['basic_action_count']!=5:raise ValueError('Basic Spark action failed')
+0056:         # JVM HDFS status is also checked; input list excludes no files, even empty parts.
+0057:         seen=[]
+0058:         for record in source['files']:
+0059:             path=jvm.org.apache.hadoop.fs.Path(source['authority']+record['hdfs_path'])
+0060:             status=fs.getFileStatus(path)
+0061:             if not status.isFile() or status.getLen()!=record['bytes']:
+0062:                 raise ValueError('HDFS file status changed: '+record['hdfs_path'])
+0063:             seen.append({'uri':status.getPath().toString(),'bytes':status.getLen(),'replication':status.getReplication()})
+0064:         statuses=fs.listStatus(jvm.org.apache.hadoop.fs.Path(source['logs_uri']))
+0065:         expected={source['authority']+f['hdfs_path'] for f in source['files'] if f['kind']=='logs'}
+0066:         actual={s.getPath().toString() for s in statuses if s.isFile()}
+0067:         if actual!=expected:raise ValueError('HDFS log directory file list changed')
+0068:         result['hdfs_status_files']=seen
+0069:         movie_schema=StructType(list(MOVIE_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])
+0070:         log_schema=StructType(list(USER_LOG_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])
+0071:         movies=(spark.read.option('header','true').option('encoding','UTF-8').option('escape','"')
+0072:             .option('mode','PERMISSIVE').option('columnNameOfCorruptRecord','_corrupt_record')
+0073:             .schema(movie_schema).csv(source['movies_uri']))
+0074:         logs=(spark.read.option('encoding','UTF-8').option('mode','PERMISSIVE')
+0075:             .option('columnNameOfCorruptRecord','_corrupt_record').schema(log_schema).json(sorted(expected)))
+0076:         result['schemas']={'movie_contract':MOVIE_SCHEMA.jsonValue(),'log_contract':USER_LOG_SCHEMA.jsonValue(),
+0077:             'movies_read':movies.schema.jsonValue(),'logs_read':logs.schema.jsonValue(),
+0078:             'eventTime_type':logs.withColumn('eventTime',F.to_timestamp('timestamp')).schema['eventTime'].dataType.simpleString()}
+0079:         result['observed_movies_files']=[r[0] for r in movies.select(F.input_file_name()).distinct().collect()]
+0080:         result['observed_log_files']=[r[0] for r in logs.select(F.input_file_name()).distinct().collect()]
+0081:         expected_nonempty={source['authority']+f['hdfs_path'] for f in source['files'] if f['kind']=='logs' and f['bytes']>0}
+0082:         if set(result['observed_movies_files'])!={source['movies_uri']} or set(result['observed_log_files'])!=expected_nonempty:
+0083:             raise ValueError('Actual input_file_name differs from HDFS source manifest')
+0084:         manifest=source['event_manifest']
+0085:         result.update(validate_frames(spark,movies,logs,source['expected_movies'],source['expected_logs'],manifest['start'],manifest['end']))
+0086:         result['local_fallback']=False
+0087:     except Exception as exc:
+0088:         result.update(status='FAIL',error=str(exc))
+0089:     finally:
+0090:         if spark is not None:spark.stop()
+0091:         result['finished_at_utc']=utcnow()
+0092:         new_json(a.report,result)
+0093:     print(json.dumps({key:value for key,value in result.items() if key!='schemas'},ensure_ascii=True,indent=2,default=str))
+0094:     return 0 if result['status']=='PASS' else 1
+0095: 
+0096: if __name__=='__main__':raise SystemExit(main())
+
+### scripts/spark_smoke_test.py
+0001: """Validate every field of actual Flume Sink output with reusable Spark schemas."""
+0002: import argparse
+0003: import json
+0004: import platform
+0005: import sys
+0006: from functools import reduce
+0007: from pathlib import Path
+0008: 
+0009: ROOT = Path(__file__).resolve().parents[1]
+0010: sys.path.insert(0, str(ROOT))
+0011: from src.schemas import MOVIE_SCHEMA, USER_LOG_SCHEMA
+0012: from pyspark import __version__ as pyspark_version
+0013: from pyspark.sql import SparkSession, Window
+0014: from pyspark.sql import functions as F
+0015: from pyspark.sql.types import StructField, StringType, LongType
+0016: 
+0017: 
+0018: def validate_frames(spark, movies, logs, expected_movies, expected_logs, start, end):
+0019:     """Actions touch every field. Fixture calls do not claim Flume provenance."""
+0020:     movies = movies.withColumn('_file', F.input_file_name()).cache()
+0021:     logs = logs.withColumn('_file', F.input_file_name()).withColumn('eventTime', F.to_timestamp('timestamp')).cache()
+0022:     errors, examples = {}, {}
+0023:     def check(name, frame, condition):
+0024:         bad = frame.filter(condition)
+0025:         errors[name] = bad.count()
+0026:         if errors[name]:
+0027:             examples[name] = [r.asDict(recursive=True) for r in bad.limit(10).collect()]
+0028:     movie_counts = movies.agg(F.count('*').alias('rows'), F.countDistinct('movieId').alias('unique_ids'), F.sum(F.col('releaseYear').isNull().cast('long')).alias('releaseYear_null_allowed')).first().asDict()
+0029:     required_movies = [f.name for f in MOVIE_SCHEMA if not f.nullable]
+0030:     check('movie_required_null', movies, reduce(lambda a,b:a|b, [F.col(k).isNull() for k in required_movies]))
+0031:     check('movie_empty_title_or_genres', movies, (F.trim('title')=='') | (F.trim('genres')==''))
+0032:     check('movie_invalid_id_or_year', movies, (F.col('movieId')<=0) | (F.col('releaseYear').isNotNull() & ~F.col('releaseYear').between(1870,2100)))
+0033:     if '_corrupt_record' in movies.columns:
+0034:         check('movie_malformed_csv', movies, F.col('_corrupt_record').isNotNull())
+0035:     duplicates = movies.groupBy('movieId').count().filter(F.col('count')>1)
+0036:     errors['movie_duplicate_ids'] = duplicates.count()
+0037:     if errors['movie_duplicate_ids']:
+0038:         examples['movie_duplicate_ids'] = [r.asDict() for r in duplicates.limit(10).collect()]
+0039:     required_logs = [f.name for f in USER_LOG_SCHEMA if not f.nullable]
+0040:     check('log_required_null', logs, reduce(lambda a,b:a|b,[F.col(k).isNull() for k in required_logs]))
+0041:     check('log_empty_identity', logs, reduce(lambda a,b:a|b,[F.trim(k)=='' for k in ['eventId','sessionId','userId','runId']]))
+0042:     if '_corrupt_record' in logs.columns:
+0043:         check('log_malformed_json', logs, F.col('_corrupt_record').isNotNull())
+0044:     check('log_timestamp_parse', logs, F.col('eventTime').isNull() | ~F.col('timestamp').rlike(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$'))
+0045:     check('log_timestamp_range', logs, (F.col('eventTime')<F.to_timestamp(F.lit(start))) | (F.col('eventTime')>=F.to_timestamp(F.lit(end))))
+0046:     check('log_action', logs, ~F.col('action').isin('view','play','pause','stop','complete'))
+0047:     check('log_duration', logs, (F.col('watchDuration')<0) | (F.col('watchDuration')>F.col('simulatedMovieDuration')) | (F.col('action').isin('view','play') & (F.col('watchDuration')!=0)) | (F.col('action').isin('pause','stop','complete') & (F.col('watchDuration')<=0)))
+0048:     check('log_integer_ranges', logs, (F.col('movieId')<=0) | (F.col('sequenceNumber')<0) | ~F.col('simulatedMovieDuration').between(3600,10800))
+0049:     check('log_provenance', logs, (F.col('isSynthetic')!=True) | (F.col('durationSource')!='synthetic'))
+0050:     payload = F.to_json(F.struct(*[F.col(f.name) for f in USER_LOG_SCHEMA]))
+0051:     duplicate_ids = logs.groupBy('eventId').agg(F.count('*').alias('rows'), F.countDistinct(payload).alias('payloads')).filter(F.col('rows')>1)
+0052:     errors['log_duplicate_ids'] = duplicate_ids.count()
+0053:     errors['log_conflicting_ids'] = duplicate_ids.filter(F.col('payloads')>1).count()
+0054:     if errors['log_duplicate_ids']:
+0055:         examples['log_duplicate_ids'] = [r.asDict() for r in duplicate_ids.limit(10).collect()]
+0056:     orphan = logs.join(movies.select('movieId').distinct(), 'movieId', 'left_anti')
+0057:     errors['orphan_movie_events'] = orphan.count()
+0058:     if errors['orphan_movie_events']:
+0059:         examples['orphan_movie_events'] = [r.asDict() for r in orphan.limit(10).collect()]
+0060:     errors['movie_count_mismatch'] = int(movie_counts['rows']!=expected_movies)
+0061:     log_counts = logs.agg(F.count('*').alias('rows'), F.countDistinct('eventId').alias('unique_event_ids'), F.countDistinct('userId').alias('users'), F.countDistinct('movieId').alias('movies'), F.countDistinct('sessionId').alias('sessions'), F.min('timestamp').alias('timestamp_min'), F.max('timestamp').alias('timestamp_max'), F.sum('watchDuration').alias('watch_seconds'), F.sum(F.length(payload)).alias('materialized_payload_characters')).first().asDict()
+0062:     errors['log_count_mismatch'] = int(log_counts['rows']!=expected_logs)
+0063:     errors['join_key_type_mismatch'] = int(not isinstance(movies.schema['movieId'].dataType,LongType) or not isinstance(logs.schema['movieId'].dataType,LongType))
+0064:     actions = {r['action']:r['count'] for r in logs.groupBy('action').count().collect()}
+0065:     win = Window.partitionBy('runId','sessionId').orderBy('sequenceNumber')
+0066:     ordered = logs.withColumn('_seq',F.row_number().over(win)-1).withColumn('_previousTime',F.lag('eventTime').over(win)).withColumn('_previousAction',F.lag('action').over(win))
+0067:     check('session_sequence_or_time',ordered,(F.col('sequenceNumber')!=F.col('_seq')) | (F.col('_previousTime').isNotNull() & (F.col('eventTime')<=F.col('_previousTime'))))
+0068:     check('session_segment_duration',ordered,F.col('action').isin('pause','stop','complete') & ((F.col('_previousAction')!='play') | (F.col('watchDuration') != (F.col('eventTime').cast('long')-F.col('_previousTime').cast('long')))))
+0069:     sessions = logs.groupBy('runId','sessionId').agg(F.countDistinct('userId').alias('users'),F.countDistinct('movieId').alias('movies'),F.countDistinct('simulatedMovieDuration').alias('runtimes'))
+0070:     errors['session_identity'] = sessions.filter((F.col('users')!=1)|(F.col('movies')!=1)|(F.col('runtimes')!=1)).count()
+0071:     movies.unpersist()
+0072:     logs.unpersist()
+0073:     return {'status':'PASS' if not any(errors.values()) else 'FAIL','expected_movies':expected_movies,'expected_logs':expected_logs,'movies':movie_counts,'logs':log_counts,'actions':actions,'errors':errors,'examples':examples,'timestamp_timezone':'UTC'}
+0074: 
+0075: 
+0076: def main():
+0077:     p=argparse.ArgumentParser(description=__doc__)
+0078:     p.add_argument('--movies-path',default='data/processed/movies.csv')
+0079:     p.add_argument('--movie-report',required=True,help='Measured prepare_movies QA JSON')
+0080:     p.add_argument('--run-evidence',required=True,help='Evidence directory of actual PASS Flume run')
+0081:     p.add_argument('--report',required=True,help='NEW JSON report path')
+0082:     args=p.parse_args()
+0083:     report_path=Path(args.report)
+0084:     if report_path.exists():
+0085:         raise FileExistsError(report_path)
+0086:     evidence=Path(args.run_evidence)
+0087:     status=json.loads((evidence/'status.json').read_text(encoding='utf-8'))
+0088:     rec=json.loads((evidence/'reconciliation.json').read_text(encoding='utf-8'))
+0089:     movie_qa=json.loads(Path(args.movie_report).read_text(encoding='utf-8'))
+0090:     if status['status']!='PASS' or rec['status']!='PASS' or movie_qa['status']!='PASS':
+0091:         raise ValueError('Requires verified movies and actual PASS Flume run')
+0092:     sys.path.insert(0,str(ROOT/'scripts'))
+0093:     from common import sha256,utcnow
+0094:     if sha256(args.movies_path)!=rec['movies_sha256'] or movie_qa['output_sha256']!=rec['movies_sha256']:
+0095:         raise ValueError('Movie snapshot differs from reconciliation')
+0096:     sink=ROOT/'data'/'runs'/status['run_id']/'output'
+0097:     actual=[]
+0098:     for file in rec['output_files']:
+0099:         filename=file['path'].replace('\\','/').rsplit('/',1)[-1]
+0100:         path=sink/filename
+0101:         if path.stat().st_size!=file['bytes'] or sha256(path)!=file['sha256']:
+0102:             raise ValueError('Sink file changed: '+str(path))
+0103:         actual.append(path)
+0104:     if {p.name for p in sink.iterdir() if p.is_file() and not p.name.startswith('.')}!={p.name for p in actual}:
+0105:         raise ValueError('Sink directory contains unreported files')
+0106:     manifest_path=ROOT/'data'/'generated'/(status['input'].replace('\\','/').rsplit('/',1)[-1]+'.manifest.json')
+0107:     manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+0108:     if manifest['sha256']!=rec['input_sha256'] or manifest['events']!=rec['input']['total']:
+0109:         raise ValueError('Input manifest differs from reconciliation')
+0110:     spark=None
+0111:     result={'status':'FAIL','started_at_utc':utcnow(),'run_id':status['run_id'],'sink_files':len(actual),'sink_bytes':sum(x.stat().st_size for x in actual),'source_hashes':{'schema':sha256(ROOT/'src/schemas.py'),'smoke':sha256(__file__)}}
+0112:     try:
+0113:         spark=(SparkSession.builder.appName('MovieLog-Week1-FullValidation').master('local[2]').config('spark.sql.session.timeZone','UTC').config('spark.sql.shuffle.partitions','8').config('spark.sql.csv.parser.columnPruning.enabled','false').getOrCreate())
+0114:         spark.sparkContext.setLogLevel('WARN')
+0115:         result['runtime']={'spark':spark.version,'pyspark':pyspark_version,'python':sys.version,'python_executable':sys.executable,'java':spark._jvm.System.getProperty('java.version'),'os':platform.platform(),'host_or_container':'Docker Spark container','master':spark.sparkContext.master}
+0116:         result['basic_action_count']=spark.range(5).count()
+0117:         if result['basic_action_count']!=5:
+0118:             raise ValueError('Spark basic action failed')
+0119:         # Copy the reusable schemas; do not mutate module globals with StructType.add.
+0120:         from pyspark.sql.types import StructType
+0121:         movie_schema=StructType(list(MOVIE_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])
+0122:         log_schema=StructType(list(USER_LOG_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])
+0123:         movies=spark.read.option('header','true').option('encoding','UTF-8').option('escape','"').option('mode','PERMISSIVE').option('columnNameOfCorruptRecord','_corrupt_record').schema(movie_schema).csv(args.movies_path)
+0124:         logs=spark.read.option('encoding','UTF-8').option('mode','PERMISSIVE').option('columnNameOfCorruptRecord','_corrupt_record').schema(log_schema).json([str(p) for p in actual if p.stat().st_size])
+0125:         result.update(validate_frames(spark,movies,logs,movie_qa['output_rows'],rec['output']['total'],manifest['start'],manifest['end']))
+0126:     except Exception as exc:
+0127:         result.update(status='FAIL',error=str(exc))
+0128:         raise
+0129:     finally:
+0130:         if spark is not None:
+0131:             spark.stop()
+0132:         result['finished_at_utc']=utcnow()
+0133:         report_path.parent.mkdir(parents=True,exist_ok=True)
+0134:         report_path.write_text(json.dumps(result,ensure_ascii=False,indent=2,default=str)+'\n',encoding='utf-8')
+0135:         print(json.dumps(result,ensure_ascii=True,indent=2,default=str))
+0136:     return 0 if result['status']=='PASS' else 1
+0137: 
+0138: 
+0139: if __name__=='__main__':
+0140:     raise SystemExit(main())
+
+### src/schemas.py
+0001: """Official Spark schemas for Movie metadata and User Behavior Logs.
+0002: 
+0003: Designed for Week 1 validation and reusable for Week 2 processing.
+0004: """
+0005: from pyspark.sql.types import (
+0006:     StructType,
+0007:     StructField,
+0008:     StringType,
+0009:     LongType,
+0010:     IntegerType,
+0011:     BooleanType,
+0012: )
+0013: 
+0014: # 1. Movie Dataset Schema
+0015: # Source: data/processed/movies.csv (Metadata phim)
+0016: MOVIE_SCHEMA = StructType([
+0017:     StructField("movieId", LongType(), nullable=False),
+0018:     StructField("title", StringType(), nullable=False),
+0019:     StructField("genres", StringType(), nullable=False),
+0020:     StructField("releaseYear", IntegerType(), nullable=True),
+0021: ])
+0022: 
+0023: # 2. User Behavior Log Schema
+0024: # Source: Apache Flume Output JSONL (Log hành vi người dùng)
+0025: USER_LOG_SCHEMA = StructType([
+0026:     StructField("eventId", StringType(), nullable=False),
+0027:     StructField("userId", StringType(), nullable=False),
+0028:     StructField("sessionId", StringType(), nullable=False),
+0029:     StructField("movieId", LongType(), nullable=False),
+0030:     StructField("action", StringType(), nullable=False),
+0031:     StructField("timestamp", StringType(), nullable=False),
+0032:     StructField("watchDuration", LongType(), nullable=False),
+0033:     StructField("sequenceNumber", LongType(), nullable=False),
+0034:     StructField("runId", StringType(), nullable=False),
+0035:     StructField("isSynthetic", BooleanType(), nullable=False),
+0036:     StructField("simulatedMovieDuration", LongType(), nullable=False),
+0037:     StructField("durationSource", StringType(), nullable=False),
+0038: ])
+
+### tests/test_hdfs_properties.py
+0001: """Regression for Hadoop VERSION comments; never creates dataset/HDFS evidence."""
+0002: import sys
+0003: import unittest
+0004: from pathlib import Path
+0005: sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
+0006: from hdfs_restart_verify import properties
+0007: 
+0008: class StoragePropertiesTests(unittest.TestCase):
+0009:     def test_timestamp_comment_is_not_storage_identity(self):
+0010:         before='#Mon Oct 12 07:25:13 UTC 2026\nclusterID=hdfs-demo\nstorageID=DS-demo\nlayoutVersion=-57\n'
+0011:         after='#Mon Oct 12 07:45:31 UTC 2026\nlayoutVersion=-57\nstorageID=DS-demo\nclusterID=hdfs-demo\n'
+0012:         self.assertEqual(properties(before),properties(after))
+0013: 
+0014:     def test_any_storage_property_change_is_detected(self):
+0015:         original='clusterID=hdfs-demo\nstorageID=DS-demo\nlayoutVersion=-57\n'
+0016:         for changed in ['clusterID=foreign','storageID=DS-foreign','layoutVersion=-58']:
+0017:             key=changed.split('=')[0]
+0018:             rows=[row for row in original.splitlines() if not row.startswith(key+'=')]
+0019:             self.assertNotEqual(properties(original),properties('\n'.join(rows+[changed])))
+0020: 
+0021:     def test_duplicate_storage_property_is_rejected(self):
+0022:         with self.assertRaises(ValueError):properties('clusterID=a\nclusterID=b\n')
+0023: 
+0024: if __name__=='__main__':unittest.main()

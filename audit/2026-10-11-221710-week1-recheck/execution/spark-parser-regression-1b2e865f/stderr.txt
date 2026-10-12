@@ -1,0 +1,45 @@
+ Network movie-spark-parser-221710_default Creating 
+ Network movie-spark-parser-221710_default Creating 
+ Network movie-spark-parser-221710_default Created 
+ Network movie-spark-parser-221710_default Created 
+ Container movie-spark-parser-221710 Creating 
+ Container movie-spark-parser-221710 Created 
+26/10/11 15:45:49 INFO SparkContext: Running Spark version 3.5.1
+26/10/11 15:45:49 INFO SparkContext: OS info Linux, 6.18.40.1-microsoft-standard-WSL2, amd64
+26/10/11 15:45:49 INFO SparkContext: Java version 11.0.22
+26/10/11 15:45:50 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/11 15:45:51 INFO ResourceUtils: ==============================================================
+26/10/11 15:45:51 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/11 15:45:51 INFO ResourceUtils: ==============================================================
+26/10/11 15:45:51 INFO SparkContext: Submitted application: Week1-Parser-Fixtures
+26/10/11 15:45:51 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/11 15:45:51 INFO ResourceProfile: Limiting resource is cpu
+26/10/11 15:45:51 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/11 15:45:51 INFO SecurityManager: Changing view acls to: spark
+26/10/11 15:45:51 INFO SecurityManager: Changing modify acls to: spark
+26/10/11 15:45:51 INFO SecurityManager: Changing view acls groups to: 
+26/10/11 15:45:51 INFO SecurityManager: Changing modify acls groups to: 
+26/10/11 15:45:51 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+26/10/11 15:45:53 INFO Utils: Successfully started service 'sparkDriver' on port 34447.
+26/10/11 15:45:53 INFO SparkEnv: Registering MapOutputTracker
+26/10/11 15:45:53 INFO SparkEnv: Registering BlockManagerMaster
+26/10/11 15:45:53 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/11 15:45:53 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/11 15:45:53 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/11 15:45:53 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-40eec50e-117d-4fbe-b010-f88d74edb84f
+26/10/11 15:45:53 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/10/11 15:45:53 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/11 15:45:54 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/10/11 15:45:55 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/11 15:45:55 INFO Executor: Starting executor ID driver on host 9ce68157a7e7
+26/10/11 15:45:55 INFO Executor: OS info Linux, 6.18.40.1-microsoft-standard-WSL2, amd64
+26/10/11 15:45:55 INFO Executor: Java version 11.0.22
+26/10/11 15:45:55 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/10/11 15:45:55 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@4a29cf9a for default.
+26/10/11 15:45:56 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 46141.
+26/10/11 15:45:56 INFO NettyBlockTransferService: Server created on 9ce68157a7e7:46141
+26/10/11 15:45:56 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/11 15:45:56 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 9ce68157a7e7, 46141, None)
+26/10/11 15:45:56 INFO BlockManagerMasterEndpoint: Registering block manager 9ce68157a7e7:46141 with 434.4 MiB RAM, BlockManagerId(driver, 9ce68157a7e7, 46141, None)
+26/10/11 15:45:56 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 9ce68157a7e7, 46141, None)
+26/10/11 15:45:56 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 9ce68157a7e7, 46141, None)

@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "docker",
+    "image",
+    "inspect",
+    "apache/hadoop:3.3.6"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-12T07:20:35.827136+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "os": "Windows-10-10.0.19045-SP0",
+  "environment": {
+    "DOCKER_HOST": null,
+    "DOCKER_CONTEXT": null,
+    "DOCKER_CONFIG": null,
+    "RUN_DIR": null,
+    "LOG_DIR": null,
+    "TMP": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\temporary",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\execution\\hadoop-image-inspect-b802e46a\\stdout.txt",
+  "stderr_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\execution\\hadoop-image-inspect-b802e46a\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-12T07:20:36.189828+00:00"
+}

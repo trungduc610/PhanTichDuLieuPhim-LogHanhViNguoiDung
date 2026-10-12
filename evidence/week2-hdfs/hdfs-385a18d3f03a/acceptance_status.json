@@ -1,0 +1,27 @@
+{
+  "status": "ĐẠT",
+  "checked_at_utc": "2026-10-12T08:17:59.291292+00:00",
+  "run_id": "hdfs-385a18d3f03a",
+  "stages": {
+    "runtime": "ĐẠT",
+    "upload": "ĐẠT",
+    "content": "ĐẠT",
+    "spark": "ĐẠT",
+    "e2e": "ĐẠT"
+  },
+  "evidence_sha256": {
+    "context.json": "5266610c663976c101983a741a0b9ef96bf382c113b635d85d7b47a1bb29d105",
+    "source_manifest.json": "ab6e60dfd5185229f7244cfcd581d868d3b128c5c68150a393b5b7ca249119d7",
+    "runtime_status.json": "94ed90daa182aefed01ff1ce2f4ee430a8e4bd06b9b323be094f62c3ce6f5afd",
+    "upload_status.json": "93c94256131876c73d385ba1da879e5f543ff2ef47a6ac5eae996da4e22adee1",
+    "content-import.json": "70eda51f026322264023320b7cd0d56985da018098c1eeec14d1276ad088b213",
+    "content-after-restart.json": "b166a00c582def9f8099b8139a29c13585fa7b64dc9e04bac0e0d20d5cf5ab7c",
+    "persistence-reviewed.json": "76878de2a46847b6b2beeb0975b25569ee449fdf7e77195b768e6065ba43f907",
+    "spark-hdfs.json": "75b4ce4866cc1dc71e3bdad53ec85ddf67a20befc40ed011a4200914f0e43696",
+    "final-hdfs-hashes.json": "1b717f6010941851ebb3afa5865e2e2eb41b6081a4567b310d11e65916da143a",
+    "final-runtime.json": "c971419fd803729c798e6c96e6f6e62ce11178b15913a88c086a7a8c304d563f"
+  },
+  "source_config_matches_executed": true,
+  "preexisting_files_preserved": 514,
+  "note": "Final stage state; earlier runtime_status remains the immutable startup checkpoint. Technical TV1 acceptance does not claim TV2/group approval or all Week 2 completion."
+}

@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-10-11T16:04:29.172465+00:00",
+  "run_id": "run-aa6b9eb58dca",
+  "sink_files": 15,
+  "sink_bytes": 343339148,
+  "source_hashes": {
+    "schema": "c11cf48dcbd99801d72ecb3be32ffb03b196efd7a9173c40817962c34d082310",
+    "smoke": "47b128299335c43f4153ee846f63523886fc62db21c9242cd37b5c5fcef49645"
+  },
+  "runtime": {
+    "spark": "3.5.1",
+    "pyspark": "3.5.1",
+    "python": "3.8.10 (default, Nov 22 2023, 10:22:35) \n[GCC 9.4.0]",
+    "python_executable": "/usr/bin/python3",
+    "java": "11.0.22",
+    "os": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.29",
+    "host_or_container": "Docker Spark container",
+    "master": "local[2]"
+  },
+  "basic_action_count": 5,
+  "expected_movies": 9742,
+  "expected_logs": 1000000,
+  "movies": {
+    "rows": 9742,
+    "unique_ids": 9742,
+    "releaseYear_null_allowed": 13
+  },
+  "logs": {
+    "rows": 1000000,
+    "unique_event_ids": 1000000,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z",
+    "watch_seconds": 1458785357,
+    "materialized_payload_characters": 342339148
+  },
+  "actions": {
+    "complete": 141907,
+    "stop": 116021,
+    "view": 303052,
+    "play": 348474,
+    "pause": 90546
+  },
+  "errors": {
+    "movie_required_null": 0,
+    "movie_empty_title_or_genres": 0,
+    "movie_invalid_id_or_year": 0,
+    "movie_malformed_csv": 0,
+    "movie_duplicate_ids": 0,
+    "log_required_null": 0,
+    "log_empty_identity": 0,
+    "log_malformed_json": 0,
+    "log_timestamp_parse": 0,
+    "log_timestamp_range": 0,
+    "log_action": 0,
+    "log_duration": 0,
+    "log_integer_ranges": 0,
+    "log_provenance": 0,
+    "log_duplicate_ids": 0,
+    "log_conflicting_ids": 0,
+    "orphan_movie_events": 0,
+    "movie_count_mismatch": 0,
+    "log_count_mismatch": 0,
+    "join_key_type_mismatch": 0,
+    "session_sequence_or_time": 0,
+    "session_segment_duration": 0,
+    "session_identity": 0
+  },
+  "examples": {},
+  "timestamp_timezone": "UTC",
+  "finished_at_utc": "2026-10-11T16:06:46.890957+00:00"
+}

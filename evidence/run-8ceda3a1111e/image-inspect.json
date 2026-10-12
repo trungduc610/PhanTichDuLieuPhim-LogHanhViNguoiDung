@@ -1,0 +1,76 @@
+[
+    {
+        "Id": "sha256:a8836ff4a7c6d26c210d8459fe910de19103ef6a789ebbcd248832f907d29457",
+        "RepoTags": [
+            "movie-log-flume:1.11.0-local"
+        ],
+        "RepoDigests": [
+            "movie-log-flume@sha256:a8836ff4a7c6d26c210d8459fe910de19103ef6a789ebbcd248832f907d29457"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-11T15:32:59.686694248Z",
+        "Config": {
+            "Env": [
+                "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US:en",
+                "LC_ALL=en_US.UTF-8",
+                "JAVA_VERSION=jdk8u504-b01",
+                "FLUME_HOME=/opt/flume",
+                "FLUME_HEAP_OPTS=-Xms128m -Xmx512m"
+            ],
+            "Entrypoint": [
+                "/bin/bash",
+                "/project/scripts/run_flume.sh"
+            ],
+            "WorkingDir": "/project",
+            "Labels": {
+                "com.docker.compose.project": "movie-run-8ceda3a1111e",
+                "com.docker.compose.service": "flume",
+                "com.docker.compose.version": "5.4.0",
+                "org.opencontainers.image.version": "22.04"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 272214264,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:cbaf391e670933f026c05c7dedec3faf8f194b6c2d83b0d5694ad68323c8077c",
+                "sha256:df69676f653a5e818bc4e66e27840525ad9b7954d117bed99fcdcf82fefd4bb6",
+                "sha256:21e7eac43cf9fefd888c6b1a356ab4ac947677d2096ef064b717b83752028bac",
+                "sha256:d6f6f0ee8ec2f44ae6fb52ca96c7d9910e38af6f98bf804a6671ffa9b84eb1b3",
+                "sha256:998365ae12acc767debb4b8ddf7fb74d3e3999bdb3634ee91ee9b8c423ca9b63",
+                "sha256:b00517af6c5f34f17022a5c765d8aa199364eb7be8970b5ac0e00398839b33b0",
+                "sha256:cc8da20af69c763a44be8906c2c7e436507f5a45266d7efd49406f250d41a939",
+                "sha256:08f790bd2e6e553a672c58d5561ab6e29a65bf9753672863fbd674db6cdb940f",
+                "sha256:a000c47080e75191e3a11bb9538984a350543ed7ddb27c4f7fd2c25fa62ce9af",
+                "sha256:6961b37480acbec00115823fe3343c3cb0a4f47a4677ca9c935c79c3ebdfe00b",
+                "sha256:4410294df0d88f2729c657c33a9ec37cfb04d2b5efed6e55be4522e4304ff43b",
+                "sha256:0560de92f6b4c94fd108e76dd4fc75d7ae482aeaf8d5744a69889b81cddd647b",
+                "sha256:abb0c335cc5159f018961d216fb4fe0a696630fd793f1faf030886ac0af7926a",
+                "sha256:fcb899fd2a5b631430edb702e221c71f298431c3176a1b31b64a855e2af69aab",
+                "sha256:a98f80e44832f1e984d50463e2c845f9bc90229c64b20ef537a0b03a43c09a3d",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-11T15:35:27.029502107Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:a8836ff4a7c6d26c210d8459fe910de19103ef6a789ebbcd248832f907d29457",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "q2aay5qie3r0jixpngqhe4lju",
+                    "CreatedAt": "2026-10-11T15:35:27.143058129Z"
+                }
+            ]
+        }
+    }
+]

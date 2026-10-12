@@ -1,0 +1,15 @@
+{"at_utc": "2026-10-11T15:50:06.003235+00:00", "spool_completed": false, "observed_complete_lines": 0, "expected": 1000000}
+{"at_utc": "2026-10-11T15:50:16.185669+00:00", "spool_completed": false, "observed_complete_lines": 49000, "expected": 1000000}
+{"at_utc": "2026-10-11T15:50:26.445724+00:00", "spool_completed": false, "observed_complete_lines": 123115, "expected": 1000000}
+{"at_utc": "2026-10-11T15:50:36.646792+00:00", "spool_completed": false, "observed_complete_lines": 179707, "expected": 1000000}
+{"at_utc": "2026-10-11T15:50:46.841135+00:00", "spool_completed": false, "observed_complete_lines": 230569, "expected": 1000000}
+{"at_utc": "2026-10-11T15:50:57.043747+00:00", "spool_completed": false, "observed_complete_lines": 286891, "expected": 1000000}
+{"at_utc": "2026-10-11T15:51:07.313080+00:00", "spool_completed": false, "observed_complete_lines": 359276, "expected": 1000000}
+{"at_utc": "2026-10-11T15:51:17.592107+00:00", "spool_completed": false, "observed_complete_lines": 434046, "expected": 1000000}
+{"at_utc": "2026-10-11T15:51:27.858779+00:00", "spool_completed": false, "observed_complete_lines": 506523, "expected": 1000000}
+{"at_utc": "2026-10-11T15:51:38.260887+00:00", "spool_completed": true, "observed_complete_lines": 595684, "expected": 1000000}
+{"at_utc": "2026-10-11T15:51:48.680630+00:00", "spool_completed": true, "observed_complete_lines": 692161, "expected": 1000000}
+{"at_utc": "2026-10-11T15:51:59.204938+00:00", "spool_completed": true, "observed_complete_lines": 784891, "expected": 1000000}
+{"at_utc": "2026-10-11T15:52:09.599542+00:00", "spool_completed": true, "observed_complete_lines": 866569, "expected": 1000000}
+{"at_utc": "2026-10-11T15:52:20.020452+00:00", "spool_completed": true, "observed_complete_lines": 944546, "expected": 1000000}
+{"at_utc": "2026-10-11T15:52:30.287508+00:00", "spool_completed": true, "observed_complete_lines": 1000000, "expected": 1000000}

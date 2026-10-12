@@ -1,154 +1,69 @@
-# Tuần 1 — Movie dataset và pipeline log Apache Flume
+# Phân tích dữ liệu phim và log hành vi người dùng
 
-**Người phụ trách: Nhan Tử Mạnh.** Đề tài: “Phân tích dữ liệu phim và log hành vi người dùng trên hệ thống xem phim”.
+Apache Flume là thành phần thu thập log; Spark kiểm tra dữ liệu phía sau. Dữ liệu kỹ thuật đã sẵn sàng cho Tuần 2. Nghiệm thu chưa đầy đủ vì chưa có bằng chứng nhóm xác nhận kiến trúc (TV2-06); không tuyên bố hoàn thành 100%.
 
-**Trạng thái nghiệm thu Tuần 1 (cập nhật 04/10/2026):** Đã hoàn thành 100% mục tiêu Tuần 1. Apache Flume là công nghệ trọng tâm của đồ án được triển khai thành công trên Docker. Dữ liệu phim MovieLens đã chuẩn hóa (9.742 phim). Bộ sinh log hành vi người dùng hoạt động chính xác (10.000 demo events và 1.000.000 main events). Pipeline Flume (`spooldir` Source → `file` Channel → `file_roll` Sink) đã build và chạy thực tế trên Docker thành công: demo 10.000 events đạt PASS E2E (`evidence/run-a9b3a8a26afb/`), main 1.000.000 events đạt PASS E2E (`evidence/run-f63c810e9d8d/`). Kết quả reconciliation chứng minh 0 missing, 0 duplicates, 0 payload changed. Toàn bộ 12 unit tests Python PASS. Sẵn sàng bàn giao cho Thành viên 2 xác thực downstream.
+## Kết quả thực thi hiện tại
 
-## 1. Mục tiêu và kiến trúc
+Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
 
-Chuẩn bị metadata phim và log hành vi mô phỏng phục vụ học tập, thu thập qua Flume rồi bàn giao JSONL cho nhóm PySpark downstream. Apache Flume đóng vai trò công nghệ trung tâm trong việc thu thập và vận chuyển log. Không triển khai website, đăng nhập, dashboard hay phân tích sâu tuần 2.
+| Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
+|---|---|---:|---:|---:|
+| Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
+| Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
+
+Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
+
+Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
+
+MovieLens là metadata/rating nguồn GroupLens; log `sim-user-*` là synthetic do generator tạo. `watchDuration` là giây mới phát sinh từ play gần nhất; runtime phim cũng synthetic. Không kết luận về người xem thật.
+
+## Luồng và runtime
 
 ```text
-MovieLens ZIP → raw CSV → chuẩn hóa → processed/movies.csv
-                                      ↓ chọn movieId hợp lệ
-generate_logs.py → generated/demo.jsonl (đóng file hoàn toàn)
- → copy .tmp → rename nguyên tử .jsonl trong spool/
- → Spooling Directory Source → File Channel → File Roll Sink
- → filesystem cục bộ: data/runs/<run-id>/output/*.jsonl
+MovieLens -> prepare_movies -> movies.csv -----------------------+
+                                                               v
+Generator -> spooldir Source -> File Channel -> File Roll Sink -> Spark QA
+                                                               |
+                                             Tuần 2: phân tích -> Dashboard
 ```
 
-Đây là filesystem cục bộ được bind mount từ container, **không phải HDFS**. Không có yêu cầu bắt buộc HDFS trong đầu bài nên chọn cách triển khai đơn giản. Một triệu event mô phỏng không tự chứng minh hệ thống đạt quy mô Big Data.
+Host Windows 10 build 19045 dùng Python 3.12.14 thật tại `C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; alias WindowsApps không dùng. Docker Desktop 4.88.1, Client/Engine 29.7.2, Compose v5.4.0, context desktop-linux, Linux containers, 4 CPU / 7,486 GiB Docker memory. Flume 1.11.0 chạy Temurin Java 1.8.0_504; agent thực ghi InitialHeapSize 134.217.728 và MaxHeapSize 536.870.912 byte. Spark/PySpark 3.5.1, Python 3.8.10, Java 11.0.22, master local[2], driver 2 GiB trong `apache/spark:3.5.1`. Host không cần PySpark/Java; scripts host dùng stdlib. Phiên bản/digest thực đo nằm trong execution logs và image-inspect; tag có thể thay đổi nên giữ image ID/digest khi bàn giao.
 
-## 2. Môi trường và phiên bản
+File Channel dùng volume Linux riêng theo Compose project; runner xuất checkpoint/data về `data/runs/<run-id>/channel/` sau khi dừng. Volume được giữ lại. Sink/spool bind vào thư mục run trên host; Storage là filesystem local, không HDFS. Không chạy hai lần trong cùng Compose project/channel.
 
-| Thành phần | Lựa chọn | Kiểm chứng hiện tại |
-|---|---|---|
-| Python | >=3.10, thư viện chuẩn, không cần pip | Đã chạy bằng Python 3.11/3.12 đi kèm môi trường |
-| Apache Flume | 1.11.0, binary chính thức, kiểm SHA512 lúc build | Đã build image và chạy thành công trên Docker (`movie-log-flume:1.11.0-local`) |
-| Java trong container | Eclipse Temurin 8 JRE, `eclipse-temurin:8-jre-jammy` | Đã kiểm chứng runtime: OpenJDK 1.8.0_504 trong container Flume |
-| Docker | Docker Engine + Compose v2, Linux containers | Đã kiểm chứng: Docker Engine 29.8.1 + Compose v5.5.1 hoạt động tốt |
-| Hệ điều hành khảo sát | Windows 10 build 19045 / Windows 11 | `evidence/environment.json` |
+## Chạy và kiểm lại
 
-Chọn Docker để cố định đường dẫn Linux và tránh cài Flume trực tiếp trên Windows. Docker Desktop cung cấp môi trường Linux containers ổn định cho pipeline Flume. Xem [yêu cầu cài Docker Desktop chính thức](https://docs.docker.com/desktop/setup/install/windows-install/).
-
-Flume yêu cầu Java từ 8 theo [User Guide](https://flume.apache.org/FlumeUserGuide). Nguồn binary ở [Apache Downloads](https://flume.apache.org/download.html); base image ở [Docker Official Images](https://hub.docker.com/_/eclipse-temurin). Runner lưu image ID sau build để truy vết.
-
-## 3. Cài đặt và thư mục chạy lệnh
-
-Giải nén/chuyển cả thư mục `movie-log-bigdata` sang vị trí làm bài. **Mọi lệnh dưới đây chạy tại thư mục gốc `movie-log-bigdata`.** Mã không dùng gói Python bên ngoài; `requirements.txt` cố ý chỉ có chú thích.
-
-**PowerShell trên Windows:** cài Python >=3.10 và Docker Desktop theo tài liệu chính thức, chọn Linux containers, mở Docker Desktop. Chạy:
+Trong PowerShell đặt `$py` là executable Python thật ở trên (hoặc Python >=3.10 có sẵn). Chạy ở thư mục project; Linux dùng `python3`. Không cần pip cho scripts host; Spark chạy từ service container có sẵn dependency.
 
 ```powershell
-cd C:\duong-dan\movie-log-bigdata
-python --version
-docker version
-docker compose version
-python scripts/check_environment.py
+& $py scripts/check_environment.py --report evidence/environment-new.json
+& $py scripts/download_dataset.py
+& $py scripts/prepare_movies.py --output data/processed/movies-repeat.csv --report evidence/movies-repeat.json
+& $py -m unittest discover -s tests -v
+& $py scripts/generate_logs.py --mode demo --output data/generated/demo-repeat.jsonl
+& $py scripts/run_pipeline.py --input data/generated/demo-repeat.jsonl --timeout 600
 ```
 
-`C:\duong-dan` là vị trí bạn đặt dự án. Nếu `python` là Windows App execution alias, dùng `py -3` hoặc đường dẫn tuyệt đối tới Python thật. Không cần cài Java trên host vì Java nằm trong image.
+Downloader tái sử dụng snapshot đã có sau kiểm hash; không ghi đè raw. Mọi output/report phải là đường dẫn mới chưa tồn tại. Nếu cần CA, truyền `--ca-file` với bundle tin cậy; giữ HTTPS verification. Bản tải mới 11/10 đã dùng root CA public từ runtime Node, không tắt TLS.
 
-**Terminal Linux:** vào thư mục đã chép dự án, dùng `python3` thay `python`; kiểm tra Docker/Compose như trên. Không chạy `run_flume.sh` trực tiếp trên host: script này được Docker entrypoint gọi với đường dẫn trong container.
-
-Gợi ý tài nguyên cho đồ án: RAM máy 8 GB trở lên, cấp khoảng 2 GB cho Docker, chừa ít nhất 5 GB đĩa. Đây là ngân sách dự kiến, chưa phải benchmark. JVM cấu hình 512 MB heap; file channel cũng dùng đĩa và bộ nhớ ngoài heap.
-
-## 4. Dataset: tải và chuẩn hóa
-
-Bản bàn giao đã có dữ liệu. Có thể kiểm lại snapshot mà không tải lại:
+Chỉ sinh/chạy main sau demo E2E PASS với cùng source/config. Trong checkout này main đã có; chọn tên khác nếu sinh lại. Thay `run-DEMO-MOI` bằng run thực sự mới vừa PASS; bằng chứng lịch sử thiếu hash snapshot không được runner chấp nhận.
 
 ```powershell
-python scripts/download_dataset.py
+& $py scripts/generate_logs.py --mode main --events 1000000 --output data/generated/main-repeat.jsonl
+& $py scripts/run_pipeline.py --input data/generated/main-repeat.jsonl --timeout 1800 --demo-proof evidence/run-DEMO-MOI/status.json
+& $py scripts/validate_pipeline.py --input data/generated/main.jsonl --output-dir data/runs/run-aa6b9eb58dca/output --report evidence/main-recheck-new.json
+docker compose -p movie-spark-recheck run --rm spark --driver-memory 2g scripts/spark_smoke_test.py --movie-report evidence/recheck-20261011-221710/dataset_quality.json --run-evidence evidence/run-aa6b9eb58dca --report evidence/spark-recheck-new.json
+& $py scripts/create_delivery_manifest.py --verify evidence/recheck-20261011-221710/delivery_manifest.json
 ```
 
-Nếu chạy từ bản mã nguồn Git sạch chưa có data:
+Lệnh Spark kiểm hash và file list của đúng Sink run PASS, dùng schema từ `src/schemas.py`, action đọc tất cả fields, parse timestamp UTC, kiểm null/type/duplicate/full left anti join/session. Expected count lấy từ manifest/reconciliation đã xác minh, không lấy count quan sát để tạo PASS. `INPUT_PASS`, `.COMPLETED`, count và mẫu join không thay E2E reconciliation.
 
-```powershell
-python scripts/download_dataset.py
-python scripts/prepare_movies.py
-```
+Runner tạo run/project/output/evidence riêng, publish `.tmp` đóng xong rồi rename cùng spool, lưu argv/cwd/UTC/exit/logs/source hashes/launcher/heap/counters/images/Compose. Dừng và gỡ container/network của chính run; giữ volume/channel/data. Build không tính vào timeout drain. Khoảng 12 GB đĩa dự kiến cho images, generated/spool/Sink, channel/export và SQLite; máy thực đo có 16 GB RAM và trên 60 GB đĩa trống. Không dùng `docker system prune`.
 
-Downloader giữ ZIP, README điều kiện sử dụng và CSV nguyên bản; ghi thời gian UTC, hash SHA256. Snapshot hiện có chỉ được tái sử dụng khi hash còn đúng. `prepare_movies.py` không ghi đè output đang có. Muốn chuẩn hóa lại để so sánh:
+## Bàn giao
 
-```powershell
-python scripts/prepare_movies.py --output data/processed/movies-check.csv --report evidence/dataset-quality-check.json
-```
+`data/raw/` có ZIP/CSV/README license/manifest; `data/processed/` có movies; `data/generated/` có input/manifest. Dữ liệu phân tích là `data/runs/run-aa6b9eb58dca/output/`; demo `run-aefc814b0b5f` chỉ dùng kiểm thử. `logs/<run>/` và `evidence/<run>/` là log/bằng chứng, không phải event input. Không gộp demo/main như hai lịch sử người dùng độc lập.
 
-Muốn tải snapshot khác: `--raw data/raw-new`, rồi truyền `--source data/raw-new/ml-latest-small/movies.csv` và một `--output` mới. Không thay raw cũ.
+Data/logs bị Git ignore nhưng thực sự tồn tại local, phải chép cùng source và evidence theo manifest khi bàn giao. Manifest loại spool bản copy, channel, temporary/fixtures, CA public tạm, history không được chọn và chính manifest; scope/exclusions được lưu trong JSON. Bằng chứng FAIL/BLOCKED/PASS cũ và audit cũ giữ nguyên, không dùng thay kết quả hiện tại.
 
-Nếu lỗi chứng thư TLS, cấu hình CA tin cậy của máy hoặc dùng `--ca-file C:\duong-dan\trusted-ca.pem`; không tắt kiểm chứng HTTPS. Trong phiên bàn giao, đã dùng CA gốc từ runtime Node để Python tải HTTPS có kiểm chứng; chi tiết ở `evidence/execution_commands.md`.
-
-## 5. Sinh và kiểm tra log demo
-
-Demo đã có sẵn `data/generated/demo.jsonl`. Lệnh tái tạo tại đường dẫn mới:
-
-```powershell
-python scripts/generate_logs.py --mode demo --output data/generated/demo-repeat.jsonl
-python scripts/validate_pipeline.py --input data/generated/demo-repeat.jsonl --input-only --report evidence/demo-repeat-validation.json
-python -m unittest discover -s tests -v
-```
-
-Trên bản Git sạch dùng `python scripts/generate_logs.py --mode demo` để tạo đường dẫn mặc định. Cùng seed, tham số và dataset tạo cùng nội dung/eventId. Chỉ dùng `--run-id` mới nếu muốn mô phỏng một lô độc lập; không đổi ID khi thử lại cùng một lô thất bại.
-
-Có thể đổi `--events`, `--users`, `--start`, `--end`, `--seed`, `--output`. Timestamp bắt buộc có timezone; khoảng thời gian ít nhất 6 giờ. Mặc định mô phỏng tháng 09/2026 giờ Việt Nam, xuất UTC `Z`.
-
-## 6. Chạy Flume và thu bằng chứng E2E
-
-**PowerShell hoặc Terminal Linux (đổi `python` thành `python3`):**
-
-```powershell
-python scripts/run_pipeline.py --input data/generated/demo.jsonl --timeout 300
-```
-
-Runner kiểm input, build image, bật agent, đưa file đã ghi xong vào spool, chờ `.COMPLETED` và lượng output, dừng agent để đóng file, rồi đối chiếu payload/eventId. Mỗi lần chạy tạo `data/runs/run-...`, `logs/run-...`, `evidence/run-...` riêng; không xóa lần chạy trước. Có thể tăng `--timeout 900` nếu máy chậm. Thời gian build không tính trong timeout chờ dữ liệu.
-
-Chỉ khi `evidence/<run-id>/status.json` và `reconciliation.json` cùng ghi `PASS` mới coi demo E2E đạt. Xem thêm log vận hành để xác nhận agent không lỗi cấu hình. `INPUT_PASS` chỉ xác nhận dữ liệu trước Flume.
-
-Runner lưu: lệnh + cwd + biến mount, phiên bản Docker/Java/Flume, build log, resolved Compose, image ID, stdout/stderr container có timestamp, mẫu input/output và báo cáo đối chiếu. Sau chạy, container được dừng và gỡ; thư mục dữ liệu/channel/log/evidence giữ lại.
-
-Nếu cần kiểm lại output, thay `run-...` bằng mã thực tế runner in ra:
-
-```powershell
-python scripts/validate_pipeline.py --input data/generated/demo.jsonl --output-dir data/runs/run-.../output --report evidence/recheck-demo.json
-```
-
-Không trộn output nhiều lần chạy khi đối chiếu một input. Source hoàn tất không có nghĩa sink đã xả hết channel; vì vậy phải chờ/dừng có kiểm soát rồi kiểm tra.
-
-## 7. Dữ liệu chính — chỉ sau khi demo E2E đạt
-
-```powershell
-python scripts/generate_logs.py --mode main --events 1000000 --users 1000 --start 2026-09-01T00:00:00+07:00 --end 2026-10-01T00:00:00+07:00 --seed 42 --output data/generated/main.jsonl
-python scripts/validate_pipeline.py --input data/generated/main.jsonl --input-only --report evidence/main-input-validation.json
-python scripts/run_pipeline.py --input data/generated/main.jsonl --timeout 1800 --demo-proof evidence/run-DEMO-THUC-TE/status.json
-```
-
-Thay `run-DEMO-THUC-TE` bằng lần demo PASS thật (ví dụ `evidence/run-a9b3a8a26afb/status.json`). Thực tế lô main 1.000.000 events đã được thực thi và xác thực PASS tại `evidence/run-f63c810e9d8d/status.json`. Runner từ chối input >10.000 event nếu thiếu chứng cứ demo hợp lệ với cùng hash cấu hình. Một triệu event chiếm ~343 MB JSONL, sinh ra 254 file output qua File Roll Sink. Đổi `--events 100000` nếu tài nguyên ít; tăng số user/khoảng thời gian nếu mô phỏng quá dày. Không dùng seed khác để che lỗi kiểm thử.
-
-## 8. Vị trí sản phẩm và xử lý lỗi
-
-| Vị trí | Nội dung |
-|---|---|
-| `data/raw/` | ZIP, CSV gốc, giấy phép và manifest |
-| `data/processed/movies.csv` | Metadata chuẩn hóa, thêm releaseYear |
-| `data/generated/` | Input JSONL và manifest; không phải sink output |
-| `data/runs/<run-id>/spool/` | File đã nạp, `.COMPLETED`, tracker |
-| `data/runs/<run-id>/channel/` | File Channel, không phải dữ liệu cho Spark |
-| `data/runs/<run-id>/output/` | JSONL thực tế do sink tạo |
-| `logs/<run-id>/` và `evidence/<run-id>/flume-operational.log` | Log vận hành, tách khỏi event |
-| `evidence/` | Kiểm tra môi trường, QA dataset/input, kiểm thử và lần chạy |
-| `docs/` | Mô tả dữ liệu, schema, pipeline, báo cáo, thuyết trình, bàn giao |
-
-| Lỗi | Cách xử lý |
-|---|---|
-| Docker not found / cannot connect | Cài/mở Docker, kiểm `docker version` phải thấy Server; xác nhận Linux containers |
-| WSL E_ACCESSDENIED / virtualization | Kiểm tra quyền và khả năng ảo hóa với người quản trị; có thể chuyển sang máy Linux có Docker |
-| Build tải Flume/CA thất bại | Xem build.log, kiểm HTTPS/CA/proxy; không bỏ kiểm hash |
-| FileExistsError | Chọn output mới; không sửa file đã vào spool |
-| Source không nhận file | Kiểm tên `.jsonl`, quyền mount, agent log và regex; `.tmp` cố ý bị bỏ qua |
-| File channel hết đĩa/khóa | Chừa trên 100 MB, không cho hai agent dùng chung channel; không xóa checkpoint khi còn dữ liệu |
-| Timeout/output thiếu | Xem log, capacity/quyền đĩa; giữ run dir để điều tra; chạy lại runner tạo vùng mới |
-| Event trùng | Xem số duplicates và payload conflicts; khử trùng eventId ở Spark sau khi kiểm xung đột |
-| JSON bị tách dòng | Không đưa JSON pretty-print nhiều dòng vào spool; event phải dưới giới hạn 16.384 ký tự |
-| Mô phỏng quá dày | Tăng `--users` hoặc thời gian; file `.part` không được publish |
-
-Chi tiết: [dataset](docs/dataset_description.md), [schema](docs/log_schema.md), [pipeline](docs/flume_pipeline.md), [báo cáo tuần 1](docs/week1_report.md), [thuyết trình](docs/presentation_script.md), [bàn giao PySpark](docs/week2_handoff.md).
+Tài liệu: [dataset](docs/dataset_description.md), [log](docs/log_schema.md), [movie schema](docs/movie_schema.md), [log schema](docs/user_log_schema.md), [Flume](docs/flume_pipeline.md), [kiến trúc](docs/system_architecture.md), [quyết định chờ nhóm](docs/architecture_decision_pending.md), [chất lượng](docs/data_quality_report.md), [bàn giao Tuần 2](docs/week2_handoff.md).

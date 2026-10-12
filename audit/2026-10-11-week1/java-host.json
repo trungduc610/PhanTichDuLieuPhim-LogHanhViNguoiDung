@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "java",
+    "-version"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:48.339442+00:00",
+  "exit_code": null,
+  "error": "[WinError 2] The system cannot find the file specified",
+  "reason": "executable_not_found"
+}

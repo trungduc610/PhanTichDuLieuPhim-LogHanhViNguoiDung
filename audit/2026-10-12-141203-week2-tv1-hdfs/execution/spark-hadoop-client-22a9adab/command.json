@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--entrypoint",
+    "sh",
+    "apache/spark:3.5.1",
+    "-c",
+    "java -cp \"/opt/spark/jars/*\" org.apache.hadoop.util.VersionInfo; ls /opt/spark/jars/hadoop*; python3 --version"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-12T07:13:33.897190+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "os": "Windows-10-10.0.19045-SP0",
+  "environment": {
+    "DOCKER_HOST": null,
+    "DOCKER_CONTEXT": null,
+    "DOCKER_CONFIG": null,
+    "RUN_DIR": null,
+    "LOG_DIR": null,
+    "TMP": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\temporary",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\execution\\spark-hadoop-client-22a9adab\\stdout.txt",
+  "stderr_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\execution\\spark-hadoop-client-22a9adab\\stderr.txt",
+  "exit_code": 1,
+  "finished_at_utc": "2026-10-12T07:13:34.219602+00:00"
+}

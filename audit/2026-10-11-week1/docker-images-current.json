@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "docker",
+    "image",
+    "ls",
+    "--no-trunc"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:51.025638+00:00",
+  "exit_code": 1,
+  "output": "WARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\nfailed to connect to the docker API at npipe:////./pipe/docker_engine; check if the path is correct and if the daemon is running: open //./pipe/docker_engine: The system cannot find the file specified.\n"
+}

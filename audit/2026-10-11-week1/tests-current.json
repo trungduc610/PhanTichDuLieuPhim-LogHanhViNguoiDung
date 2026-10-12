@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:39.529179+00:00",
+  "exit_code": 0,
+  "output": "test_duplicate_movies_rejected (test_project.ProjectTests.test_duplicate_movies_rejected) ... ok\r\ntest_duration_tampering_rejected (test_project.ProjectTests.test_duration_tampering_rejected) ... ok\r\ntest_empty_sink_never_passes (test_project.ProjectTests.test_empty_sink_never_passes) ... ok\r\ntest_exact_counts_boundaries_and_sessions (test_project.ProjectTests.test_exact_counts_boundaries_and_sessions) ... ok\r\ntest_invalid_utf8_rejected (test_project.ProjectTests.test_invalid_utf8_rejected) ... ok\r\ntest_missing_duplicate_invalid_and_mutated_detected (test_project.ProjectTests.test_missing_duplicate_invalid_and_mutated_detected) ... ok\r\ntest_mock_reordered_output_matches (test_project.ProjectTests.test_mock_reordered_output_matches) ... ok\r\ntest_naive_timezone_rejected (test_project.ProjectTests.test_naive_timezone_rejected) ... ok\r\ntest_normalization_preserves_missing_year (test_project.ProjectTests.test_normalization_preserves_missing_year) ... ok\r\ntest_output_protection (test_project.ProjectTests.test_output_protection) ... ok\r\ntest_seed_reproducibility (test_project.ProjectTests.test_seed_reproducibility) ... ok\r\ntest_unknown_movie_rejected (test_project.ProjectTests.test_unknown_movie_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 12 tests in 6.187s\r\n\r\nOK\r\n"
+}

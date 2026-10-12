@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\scripts\check_environment.py", line 31, in <module>
+    write_json(args.report, result)
+               ^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'report'

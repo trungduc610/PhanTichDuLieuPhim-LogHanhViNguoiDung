@@ -1,0 +1,3 @@
+NAME                                 IMAGE                                                                                   COMMAND                  SERVICE    CREATED          STATUS              PORTS
+movie-hdfs-385a18d3f03a-datanode-1   apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144   "bash /project/scrip…"   datanode   21 minutes ago   Up About a minute   
+movie-hdfs-385a18d3f03a-namenode-1   apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144   "bash /project/scrip…"   namenode   21 minutes ago   Up About a minute   127.0.0.1:19870->9870/tcp

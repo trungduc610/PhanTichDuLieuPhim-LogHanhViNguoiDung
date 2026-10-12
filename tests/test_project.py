@@ -118,6 +118,48 @@ class ProjectTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             generate(self.movies, self.output, events=10, start='2026-09-01T00:00:00')
 
+    def test_missing_genres_rejected(self):
+        self.movies.write_text('movieId,title,genres\n1,Fixture (2001),\n', encoding='utf-8')
+        with self.assertRaises(ValueError):
+            prepare(self.movies, self.root / 'normalized.csv', self.root / 'quality.json')
+
+    def test_validator_checks_duplicate_movie_ids(self):
+        self.make()
+        with self.movies.open('a', encoding='utf-8') as f:
+            f.write('1,Duplicate,Drama\n')
+        result = self.check()
+        self.assertEqual(result['status'], 'FAIL')
+        self.assertEqual(result['movies_quality']['error_rows'], 1)
+
+    def test_validator_reports_empty_roll_file(self):
+        rows = self.make()
+        (self.sink / 'part').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+        (self.sink / 'empty').write_bytes(b'')
+        result = self.check(self.sink)
+        self.assertEqual(result['status'], 'PASS')
+        self.assertEqual(result['output_file_summary']['empty_files'], 1)
+
+    def test_truncated_event_rejected(self):
+        rows = self.make()
+        (self.sink / 'part').write_text('\n'.join(rows), encoding='utf-8')
+        result = self.check(self.sink)
+        self.assertEqual(result['status'], 'FAIL')
+        self.assertEqual(result['output_file_summary']['missing_final_newline_files'], 1)
+
+    def test_integer_overflow_rejected(self):
+        rows = self.make()
+        event = json.loads(rows[0])
+        event['sequenceNumber'] = 2**63
+        rows[0] = json.dumps(event)
+        self.output.write_text('\n'.join(rows)+'\n', encoding='utf-8')
+        self.assertEqual(self.check()['input']['invalid'], 1)
+
+    def test_validation_evidence_not_overwritten(self):
+        self.make()
+        self.check()
+        with self.assertRaises(FileExistsError):
+            self.check()
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

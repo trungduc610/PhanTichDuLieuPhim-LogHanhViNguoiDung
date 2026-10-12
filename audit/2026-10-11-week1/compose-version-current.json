@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "version"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:48.831680+00:00",
+  "exit_code": 0,
+  "output": "Docker Compose version v5.4.0\nWARNING: Error loading config file: open C:\\Users\\User\\.docker\\config.json: Access is denied.\n"
+}

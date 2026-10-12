@@ -1,0 +1,38 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-p",
+    "movie-independent-221710",
+    "run",
+    "--rm",
+    "--entrypoint",
+    "python3",
+    "spark",
+    "scripts/validate_pipeline.py",
+    "--input",
+    "data/generated/main.jsonl",
+    "--output-dir",
+    "data/runs/run-aa6b9eb58dca/output",
+    "--report",
+    "audit/2026-10-11-221710-week1-recheck/reconciliation-independent-main.json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T16:07:30.686787+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "os": "Windows-10-10.0.19045-SP0",
+  "environment": {
+    "DOCKER_HOST": null,
+    "DOCKER_CONTEXT": null,
+    "DOCKER_CONFIG": null,
+    "RUN_DIR": null,
+    "LOG_DIR": null,
+    "TMP": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\temporary",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "stdout_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\execution\\reconciliation-independent-main-53fc590b\\stdout.txt",
+  "stderr_path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\execution\\reconciliation-independent-main-53fc590b\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-11T16:20:59.408122+00:00"
+}

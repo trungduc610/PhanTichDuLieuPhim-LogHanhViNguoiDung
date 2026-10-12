@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-10-11T16:28:55.583649+00:00",
+  "status": "PASS",
+  "report": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-221710-week1-recheck\\bao-cao-nghiem-thu-tuan-1-recheck.md",
+  "report_sha256": "038ba1a6b82a45c69248a573f1e670b8c2427c0969a64bab3256348a7f48106b",
+  "source_files_unchanged": 39,
+  "matrix_rows": 22,
+  "products": 11,
+  "spark_final_source_checks": [
+    {
+      "run": "run-aefc814b0b5f",
+      "status": "PASS"
+    },
+    {
+      "run": "run-aa6b9eb58dca",
+      "status": "PASS"
+    }
+  ],
+  "manifest_files": 344,
+  "manifest_bytes": 703890394,
+  "manifest_verify": {
+    "status": "PASS",
+    "files_checked": 344,
+    "issues": [],
+    "checked_at_utc": "2026-10-11T16:28:54.884943+00:00"
+  },
+  "issues": []
+}

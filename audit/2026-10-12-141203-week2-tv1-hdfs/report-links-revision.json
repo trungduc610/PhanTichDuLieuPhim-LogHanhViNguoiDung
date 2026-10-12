@@ -1,0 +1,8 @@
+{
+  "edited_at_utc": "2026-10-12T08:21:53.840192+00:00",
+  "report": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-12-141203-week2-tv1-hdfs\\bao-cao-nghiem-thu-tv1-tuan-2-hdfs.md",
+  "before_sha256": "ebf9a58de4f186ab7f9fd6074c4c6cf9ea0bb9031dc0211d9616ce36ad1cf996",
+  "after_sha256": "a9e274e2bed0e97c132e22f43d2873eebef92b30f4e08b69d7fb7da29194fab3",
+  "reason": "Binary screenshot links have no source line numbers; record packaging verifier error. This is a new unfrozen Week 2 report; no historical report/data/status was modified.",
+  "affected_recheck": "check_delivery.py; no data/config/job changes"
+}

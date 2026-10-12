@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "scripts/spark_smoke_test.py"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-11T14:44:47.193244+00:00",
+  "exit_code": 1,
+  "output": "Traceback (most recent call last):\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\scripts\\spark_smoke_test.py\", line 20, in <module>\r\n    from src.schemas import MOVIE_SCHEMA, USER_LOG_SCHEMA\r\n  File \"C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\src\\schemas.py\", line 5, in <module>\r\n    from pyspark.sql.types import (\r\nModuleNotFoundError: No module named 'pyspark'\r\n"
+}

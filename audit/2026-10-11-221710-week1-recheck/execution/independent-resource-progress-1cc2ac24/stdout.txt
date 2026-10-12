@@ -1,0 +1,2 @@
+CONTAINER ID   NAME                                              CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O         PIDS
+8827e886fdaf   movie-independent-221710-spark-run-6c7106988cc5   30.65%    136.1MiB / 7.486GiB   1.78%     1.82kB / 126B   1.34MB / 6.91GB   1
