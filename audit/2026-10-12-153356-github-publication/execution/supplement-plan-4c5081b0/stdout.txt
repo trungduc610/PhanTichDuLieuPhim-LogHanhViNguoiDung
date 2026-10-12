@@ -1,0 +1,1 @@
+PASS: 3 immutable Dockerfile snapshots and the new publication scope document

@@ -1,0 +1,5 @@
+[codex/week2-tv1-hdfs be28c97] docs: include immutable Flume Dockerfile snapshots in publication
+ 4 files changed, 64 insertions(+), 1 deletion(-)
+ create mode 100644 evidence/run-8ceda3a1111e/source-snapshot/Dockerfile
+ create mode 100644 evidence/run-aa6b9eb58dca/source-snapshot/Dockerfile
+ create mode 100644 evidence/run-aefc814b0b5f/source-snapshot/Dockerfile

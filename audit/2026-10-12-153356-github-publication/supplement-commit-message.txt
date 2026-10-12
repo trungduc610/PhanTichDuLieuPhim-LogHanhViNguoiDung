@@ -1,0 +1,5 @@
+docs: include immutable Flume Dockerfile snapshots in publication
+
+Add the three lightweight extensionless source-snapshot Dockerfiles omitted
+by the evidence extension filter. Preserve their original local bytes and
+update the publication scope to describe the complete branch delivery.

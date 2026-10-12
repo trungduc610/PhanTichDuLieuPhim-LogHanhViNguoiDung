@@ -1,0 +1,47 @@
+{
+  "selected": 1017,
+  "bytes": 5388802,
+  "changed_tracked": 23,
+  "excluded_untracked": 49,
+  "ignored_large": 27,
+  "tracked_large": [],
+  "secret_findings": [],
+  "largest_selected": [
+    {
+      "path": "audit/2026-10-11-week1/numbered-project-files.txt",
+      "bytes": 442954,
+      "sha256": "c7ce9b9e1b89fb721dfd2c9b585243b49cc8f513ae6c5f72d2e391dc93a1e919",
+      "change": "new"
+    },
+    {
+      "path": "evidence/week2-hdfs/hdfs-385a18d3f03a/commands/final-logs-425125d9/stdout.txt",
+      "bytes": 414266,
+      "sha256": "15d9e499c7d4aa1fff6129e4fbf23f5bb008c1ed0750e8bb733f0f0f24b32b9d",
+      "change": "new"
+    },
+    {
+      "path": "evidence/week2-hdfs/hdfs-385a18d3f03a/commands/logs-after-restart-3398e18b/stdout.txt",
+      "bytes": 331639,
+      "sha256": "b0beeaa2f4d1e4c3a1adc73c19f3faec1a6be91b48ae6a697bba426332528e76",
+      "change": "new"
+    },
+    {
+      "path": "audit/2026-10-12-141203-week2-tv1-hdfs/commands-final.json",
+      "bytes": 218099,
+      "sha256": "fd0853d5f6a0ca390b6b875fe69f384bb2935acbdfa565c245d8ae7cf7d42d3f",
+      "change": "new"
+    },
+    {
+      "path": "evidence/week2-hdfs/hdfs-385a18d3f03a/screenshots/namenode-full-page.jpg",
+      "bytes": 181598,
+      "sha256": "6780309e7aa562b1a8919e7322d8699af3b6605b1829ecf57d79d75ce48f990e",
+      "change": "new"
+    },
+    {
+      "path": "evidence/week2-hdfs/hdfs-385a18d3f03a/delivery_manifest.json",
+      "bytes": 173335,
+      "sha256": "2ec5a00fe345edfe11d6420d6a3508ee9d4f36653db9f7617ba95c451301065d",
+      "change": "new"
+    }
+  ]
+}

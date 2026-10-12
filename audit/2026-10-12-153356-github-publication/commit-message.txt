@@ -1,0 +1,12 @@
+feat: validate Week 1 Flume pipeline and add TV1 Week 2 HDFS
+
+Record verified demo/main Flume Sink lineage and full Spark data quality
+checks. Deploy isolated NameNode/DataNode storage, immutable HDFS imports,
+whole-file SHA256 checks, restart guards, and direct Spark HDFS validation.
+
+Publish source, configurations, tests, documentation, acceptance reports,
+manifests and lightweight evidence. Keep datasets, binary streams, spool,
+channel state and Docker volumes local; explain the publication scope.
+
+Group/TV2 confirmations remain outstanding. Advanced preprocessing,
+analysis, K-Means and dashboard work are outside this TV1 delivery.

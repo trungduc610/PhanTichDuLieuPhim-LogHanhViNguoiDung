@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-12T08:41:58.664697+00:00",
+  "manifest_sha256": "2ec5a00fe345edfe11d6420d6a3508ee9d4f36653db9f7617ba95c451301065d",
+  "files_checked": 820,
+  "total_bytes": 1385606703,
+  "issues": [],
+  "remote_note": "This verifies local files only. Re-run hdfs_hash_verify.py for current HDFS bytes; the immutable recorded remote receipt is included in the manifest."
+}

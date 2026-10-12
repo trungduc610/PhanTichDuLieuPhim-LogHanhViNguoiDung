@@ -1,0 +1,42 @@
+{
+  "checked_at_utc": "2026-10-11T14:48:31.601658+00:00",
+  "mode": "pipeline_reconciliation",
+  "input_sha256": "23e3d4be3d45242e6f029ed0c10aaddef19f4be12eaade82cc97039bfc6f561d",
+  "movies_sha256": "08311151f9aba9b0b86ddb459e0c90c5e5cb578f084cfa2a56c2059c2dc40c49",
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 1,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 1,
+    "unique": 1,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output": {
+    "total": 1,
+    "unique": 1,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0
+  },
+  "output_files": [
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-week1\\fixtures\\validator-probes\\mock-sink\\copied-fixture.jsonl",
+      "bytes": 314,
+      "sha256": "23e3d4be3d45242e6f029ed0c10aaddef19f4be12eaade82cc97039bfc6f561d"
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\audit\\2026-10-11-week1\\fixtures\\validator-probes\\mock-sink\\empty.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "missing_event_ids": 0,
+  "unexpected_event_ids": 0,
+  "changed_payloads": 0,
+  "manifest_errors": [],
+  "status": "PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}
