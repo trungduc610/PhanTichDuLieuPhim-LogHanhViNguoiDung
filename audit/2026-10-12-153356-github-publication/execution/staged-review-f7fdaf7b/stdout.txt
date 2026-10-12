@@ -1,1 +1,0 @@
-{"status": "PASS", "staged_files": 1018, "staged_index_bytes": 5347269, "index_files_scanned": 1126, "normalized_text_files": 518, "whitespace_check_exit": 2, "secret_findings": []}
