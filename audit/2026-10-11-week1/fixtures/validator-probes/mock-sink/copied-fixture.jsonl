@@ -1,0 +1,1 @@
+{"eventId": "fixture-event-1", "userId": "fixture-user-1", "sessionId": "fixture-session-1", "movieId": 1, "action": "view", "timestamp": "2026-09-01T00:00:00Z", "watchDuration": 0, "sequenceNumber": 0, "runId": "audit-fixture", "isSynthetic": true, "simulatedMovieDuration": 3600, "durationSource": "synthetic"}

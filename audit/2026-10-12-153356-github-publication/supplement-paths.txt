@@ -1,0 +1,4 @@
+docs/github_publication_scope.md
+evidence/run-8ceda3a1111e/source-snapshot/Dockerfile
+evidence/run-aa6b9eb58dca/source-snapshot/Dockerfile
+evidence/run-aefc814b0b5f/source-snapshot/Dockerfile

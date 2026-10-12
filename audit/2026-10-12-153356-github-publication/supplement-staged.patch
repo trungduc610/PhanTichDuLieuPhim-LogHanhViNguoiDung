@@ -1,0 +1,94 @@
+diff --git a/docs/github_publication_scope.md b/docs/github_publication_scope.md
+index 8f5ea6f..6014999 100644
+--- a/docs/github_publication_scope.md
++++ b/docs/github_publication_scope.md
+@@ -9,7 +9,7 @@ Repository: [trungduc610/PhanTichDuLieuPhim-LogHanhViNguoiDung](https://github.c
+ - README, tài liệu dataset/schema/pipeline, báo cáo nghiệm thu Tuần 1 và TV1 Tuần 2, hợp đồng tích hợp TV2, sơ đồ kiến trúc và điều kiện xác nhận nhóm chưa có.
+ - Bằng chứng nhẹ trong các audit/evidence lịch sử: JSON, log văn bản, command records, source snapshots, manifest, samples synthetic nhỏ và ảnh UI thực. Giữ nguyên cả FAIL/BLOCKED, các lỗi verifier và kết quả sửa lại; không công bố chỉ các PASS.
+ 
+-Staging dùng danh sách đường dẫn cụ thể đã kiểm kích thước/nội dung/bí mật, không dùng `git add .` hoặc `git add -A`. Tệp mới được chọn không vượt 2 MiB/tệp; không có file lớn trên 50 MiB đang tracked cần xử lý. Danh sách kiểm tra trước thêm tài liệu này gồm 1.017 tệp, 5.388.802 byte; tài liệu này bổ sung một tệp. Tổng staged thực tế và SHA commit được ghi trong audit công bố local, và file list cuối có thể xem bằng `git show --stat` trên branch.
++Staging dùng danh sách đường dẫn cụ thể đã kiểm kích thước/nội dung/bí mật, không dùng `git add .` hoặc `git add -A`. Tệp mới được chọn không vượt 2 MiB/tệp; không có file lớn trên 50 MiB đang tracked cần xử lý. Phạm vi cuối gồm 1.021 tệp thay đổi so với main, khoảng 5,40 MB byte local: lượt đầu 1.018 tệp, sau đó bổ sung ba `source-snapshot/Dockerfile` của các run Flume và cập nhật tài liệu này bằng commit tiếp theo. Không viết lại commit đã push. Tổng staged thực tế và SHA commit được ghi trong audit công bố local; xem toàn bộ file list bằng `git diff --stat main...codex/week2-tv1-hdfs`.
+ 
+ ## Dữ liệu và bằng chứng giữ local
+ 
+diff --git a/evidence/run-8ceda3a1111e/source-snapshot/Dockerfile b/evidence/run-8ceda3a1111e/source-snapshot/Dockerfile
+new file mode 100644
+index 0000000..be0b0d2
+--- /dev/null
++++ b/evidence/run-8ceda3a1111e/source-snapshot/Dockerfile
+@@ -0,0 +1,21 @@
++FROM eclipse-temurin:8-jre-jammy
++ARG FLUME_VERSION=1.11.0
++RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates python3 procps \
++    && rm -rf /var/lib/apt/lists/*
++WORKDIR /tmp/flume-download
++RUN curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz" -o flume.tar.gz \
++    && curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz.sha512" -o flume.sha512
++COPY scripts/verify_archive.py /tmp/verify_archive.py
++RUN python3 /tmp/verify_archive.py flume.tar.gz flume.sha512 \
++    && mkdir /opt/flume \
++    && tar -xzf flume.tar.gz -C /opt/flume --strip-components=1 \
++    && rm -rf /tmp/flume-download
++ENV FLUME_HOME=/opt/flume
++ENV FLUME_HEAP_OPTS="-Xms128m -Xmx512m"
++COPY config/flume-env.sh /opt/flume/conf/flume-env.sh
++COPY config/log4j2.xml /opt/flume/conf/log4j2.xml
++COPY config/flume.conf /project/config/flume.conf
++COPY scripts/run_flume.sh /project/scripts/run_flume.sh
++RUN chmod +x /project/scripts/run_flume.sh
++WORKDIR /project
++ENTRYPOINT ["/bin/bash", "/project/scripts/run_flume.sh"]
+diff --git a/evidence/run-aa6b9eb58dca/source-snapshot/Dockerfile b/evidence/run-aa6b9eb58dca/source-snapshot/Dockerfile
+new file mode 100644
+index 0000000..be0b0d2
+--- /dev/null
++++ b/evidence/run-aa6b9eb58dca/source-snapshot/Dockerfile
+@@ -0,0 +1,21 @@
++FROM eclipse-temurin:8-jre-jammy
++ARG FLUME_VERSION=1.11.0
++RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates python3 procps \
++    && rm -rf /var/lib/apt/lists/*
++WORKDIR /tmp/flume-download
++RUN curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz" -o flume.tar.gz \
++    && curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz.sha512" -o flume.sha512
++COPY scripts/verify_archive.py /tmp/verify_archive.py
++RUN python3 /tmp/verify_archive.py flume.tar.gz flume.sha512 \
++    && mkdir /opt/flume \
++    && tar -xzf flume.tar.gz -C /opt/flume --strip-components=1 \
++    && rm -rf /tmp/flume-download
++ENV FLUME_HOME=/opt/flume
++ENV FLUME_HEAP_OPTS="-Xms128m -Xmx512m"
++COPY config/flume-env.sh /opt/flume/conf/flume-env.sh
++COPY config/log4j2.xml /opt/flume/conf/log4j2.xml
++COPY config/flume.conf /project/config/flume.conf
++COPY scripts/run_flume.sh /project/scripts/run_flume.sh
++RUN chmod +x /project/scripts/run_flume.sh
++WORKDIR /project
++ENTRYPOINT ["/bin/bash", "/project/scripts/run_flume.sh"]
+diff --git a/evidence/run-aefc814b0b5f/source-snapshot/Dockerfile b/evidence/run-aefc814b0b5f/source-snapshot/Dockerfile
+new file mode 100644
+index 0000000..be0b0d2
+--- /dev/null
++++ b/evidence/run-aefc814b0b5f/source-snapshot/Dockerfile
+@@ -0,0 +1,21 @@
++FROM eclipse-temurin:8-jre-jammy
++ARG FLUME_VERSION=1.11.0
++RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates python3 procps \
++    && rm -rf /var/lib/apt/lists/*
++WORKDIR /tmp/flume-download
++RUN curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz" -o flume.tar.gz \
++    && curl -fSL --retry 3 "https://archive.apache.org/dist/flume/${FLUME_VERSION}/apache-flume-${FLUME_VERSION}-bin.tar.gz.sha512" -o flume.sha512
++COPY scripts/verify_archive.py /tmp/verify_archive.py
++RUN python3 /tmp/verify_archive.py flume.tar.gz flume.sha512 \
++    && mkdir /opt/flume \
++    && tar -xzf flume.tar.gz -C /opt/flume --strip-components=1 \
++    && rm -rf /tmp/flume-download
++ENV FLUME_HOME=/opt/flume
++ENV FLUME_HEAP_OPTS="-Xms128m -Xmx512m"
++COPY config/flume-env.sh /opt/flume/conf/flume-env.sh
++COPY config/log4j2.xml /opt/flume/conf/log4j2.xml
++COPY config/flume.conf /project/config/flume.conf
++COPY scripts/run_flume.sh /project/scripts/run_flume.sh
++RUN chmod +x /project/scripts/run_flume.sh
++WORKDIR /project
++ENTRYPOINT ["/bin/bash", "/project/scripts/run_flume.sh"]
