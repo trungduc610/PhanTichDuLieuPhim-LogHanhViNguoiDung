@@ -1,0 +1,153 @@
+[
+    {
+        "Id": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+        "RepoTags": [
+            "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144"
+        ],
+        "RepoDigests": [
+            "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2023-06-26T15:43:27.914081786Z",
+        "Config": {
+            "User": "hadoop",
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hadoop/bin",
+                "JAVA_HOME=/usr/lib/jvm/jre/",
+                "HADOOP_LOG_DIR=/var/log/hadoop",
+                "HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop"
+            ],
+            "Entrypoint": [
+                "/usr/local/bin/dumb-init",
+                "--",
+                "/opt/starter.sh"
+            ],
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/opt/hadoop",
+            "Labels": {
+                "org.label-schema.build-date": "20190305",
+                "org.label-schema.license": "GPLv2",
+                "org.label-schema.name": "CentOS Base Image",
+                "org.label-schema.schema-version": "1.0",
+                "org.label-schema.vendor": "CentOS"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 2642342864,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:d69483a6face4499acb974449d1303591fcbb5cdce5420f36f8a6607bda11854",
+                "sha256:a7e55935cf0b2e0c66d732ac36b26c3395e5e365490fcfa31bd0aa7babd49aac",
+                "sha256:9006ada31dc9c6e81daeb5a82b92692a951fdfcef5a93b0e666e4c26e8a374ce",
+                "sha256:164052d30ef11401f243045331ccbf951828eea8ff8754a14dda59afe86bfece",
+                "sha256:dd41d0f944acbb6fcec44f1fcb8bc0b87a01e0ba39d15f09832b329b0cbd698e",
+                "sha256:b76b23935a3b19ed781cb4ecca7beed22c1833fb35d1f870e577b8c8ba6f19f8",
+                "sha256:91cbc41ea72438938f8b7212432a894d227e338a158b1fa478081b642c9f93ec",
+                "sha256:bb0818abbbc29050f2deccba97393aeef83da8bfdce3791dea06f1874fe90059",
+                "sha256:7afb22aa16c884361a0c5b26888b53e73249b314a424eecf79e4d0e280480431",
+                "sha256:77c76fa09ae5d4dfe7f2af48e192d115ab25d22b2f980cd5951632e9787550be",
+                "sha256:c7fc2d735bbcdaf6d7a30957e9e8150962b72549fc2ca462063b756a8327f7db",
+                "sha256:32c55d5f44bdd4a29d8ad695ba63e39f37a205e01771125e41246a11e6630e11",
+                "sha256:57d1b07c8254c56ef596e6aa8652d6bbd538069b405a4f40aa13c775333a05da",
+                "sha256:fdbdd5a1f11f6b60f51c5ae60bbc1de00d4d880c82f5eb71bb17af02d4c612be",
+                "sha256:ed1a1c70f454d5fb59b833d85fa6fc583ed6e7831cfb1bd769431cdea132a0a9",
+                "sha256:f83d2a17eaab79a361fa57ba1c03e964624ab0085cc26cce6060858435962b9c",
+                "sha256:0f28285923f8bcd769bf52139b3cbf612147be2c4b3bf669dfa531489062e302",
+                "sha256:a1b13947e8101bfdc6e93e7ac77c30bc22e952f5e9e37ce989311cc9968b3639",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:3d57b4bd8edeb7918bc3246acab93d254c630c7d14458a570e3e4deac26e7e72",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:d5d915d32079b2ff06f679af8d696323f47c2cc73c1f76a8efc39e286d347fb0",
+                "sha256:383097b407f6997e2432197be591be7afc669b743c22a459efb0107ae384acc0"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-12T14:16:19.201925028Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+            "size": 5124
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "docker.io/apache/hadoop"
+                }
+            ]
+        }
+    },
+    {
+        "Id": "sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94",
+        "RepoTags": [
+            "apache/spark:3.5.1"
+        ],
+        "RepoDigests": [
+            "apache/spark@sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2024-02-29T03:10:09.065306711Z",
+        "Config": {
+            "User": "spark",
+            "Env": [
+                "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US:en",
+                "LC_ALL=en_US.UTF-8",
+                "JAVA_VERSION=jdk-11.0.22+7",
+                "SPARK_TGZ_URL=https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz",
+                "SPARK_TGZ_ASC_URL=https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz.asc",
+                "GPG_KEY=FD3E84942E5E6106235A1D25BD356A9F8740E4FF",
+                "SPARK_HOME=/opt/spark"
+            ],
+            "Entrypoint": [
+                "/opt/entrypoint.sh"
+            ],
+            "WorkingDir": "/opt/spark/work-dir",
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "20.04"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 1558490608,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:28da0445c4497f3ecb56288bd74d91ed1ff6f86578d1d0f6f9cb2781915163b1",
+                "sha256:280a35f8a8e51d852025d3abcbe2f4c114cdac749182d5fef3fa1a4090c9651c",
+                "sha256:b03e66cb04daa54c8c9417728b78d19e535d677074e144583b418ab55986f887",
+                "sha256:5a552a1e1b0bb876b3cc62630170f4bebef8e869f0da26c4292275cea3ccd850",
+                "sha256:278b866edee309e22d1334df12d2d5665adf6293a896760af43eae218316d012",
+                "sha256:5e80c961328a7e6f72adba0dd4761816aa1ad9689f955fb5d623933d5f64b7cc",
+                "sha256:ce30fa221df2e81104dc7938c619dbca4c54929a83e051af58ce6e3ef26af808",
+                "sha256:c2c203c35a04ca154648a5e0ae3e4a7b241595831bb24da78d47bdf5e83a5ec0",
+                "sha256:84083b64bd5b64054131536ea79fd80a28e052a0200a54460c1dc4ba91e80042",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:c56019f8ceb0282ff819cd6115f41c90d693b081b3f2b9b955dd2fa7b8019347"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-12T14:11:29.929693162Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.list.v2+json",
+            "digest": "sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94",
+            "size": 685
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "docker.io/apache/spark"
+                }
+            ]
+        }
+    }
+]

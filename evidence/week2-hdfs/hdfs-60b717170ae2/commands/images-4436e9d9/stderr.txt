@@ -1,0 +1,1 @@
+Error response from daemon: No such image: apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144

@@ -44,3 +44,47 @@ class Ledger:
 
 def compose(project):
     return ['docker','compose','-f','compose.hdfs.yaml','-p',project]
+
+
+def snapshot_namespaces(source):
+    """Scope checks to the selected raw snapshot, including old source manifests."""
+    from urllib.parse import urlsplit
+    from pathlib import PurePosixPath
+    if source['status'] != 'PASS' or source['authority'] != 'hdfs://namenode:9000':
+        raise ValueError('Requires a PASS HDFS source manifest')
+    paths = []
+    for key in ['movies_uri', 'logs_uri']:
+        parsed = urlsplit(source[key])
+        if parsed.scheme != 'hdfs' or parsed.netloc != 'namenode:9000' or parsed.query or parsed.fragment:
+            raise ValueError('Requires actual HDFS URIs')
+        if '..' in PurePosixPath(parsed.path).parts or str(PurePosixPath(parsed.path)) != parsed.path:
+            raise ValueError('Invalid snapshot path')
+        paths.append(parsed.path)
+    movies, logs = paths
+    movie_root = str(PurePosixPath(movies).parent)
+    if not movies.endswith('/movies.csv') or not movie_root.startswith('/movie-log/raw/movies/'):
+        raise ValueError('Invalid movies snapshot namespace')
+    if logs != '/movie-log/raw/user_logs/' + source['flume_run_id'] + '/' + source['hdfs_run_id']:
+        raise ValueError('Logs URI does not match the selected run IDs')
+    roots = [movie_root, logs]
+    if 'raw_namespaces' in source and source['raw_namespaces'] != roots:
+        raise ValueError('Manifest namespace declarations disagree')
+    destinations = []
+    for item in source['files']:
+        if item['kind'] not in ['movies', 'logs']:
+            raise ValueError('Unknown source file kind')
+        parent = movie_root if item['kind'] == 'movies' else logs
+        path = item['hdfs_path']
+        if not path.startswith(parent + '/') or '..' in PurePosixPath(path).parts or str(PurePosixPath(path)) != path:
+            raise ValueError('Source destination is outside its raw snapshot')
+        destinations.append(path)
+    if len(set(destinations)) != len(destinations) or movies not in destinations:
+        raise ValueError('Duplicate destinations or missing movie file')
+    return roots
+
+
+def snapshot_file_diff(source, listed):
+    roots = snapshot_namespaces(source)
+    expected = {item['hdfs_path'] for item in source['files']}
+    actual = {path for path in listed if any(path.startswith(parent + '/') for parent in roots)}
+    return sorted(expected - actual), sorted(actual - expected)

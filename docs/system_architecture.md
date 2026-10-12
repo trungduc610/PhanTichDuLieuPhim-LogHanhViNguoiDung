@@ -1,4 +1,11 @@
-# Kiến trúc hệ thống — Hệ thống thu thập và phân tích log xem phim
+# Kiến trúc hệ thống: Tuần 1 và Tuần 2
+
+Kiến trúc chính Tuần 2: Movie metadata → HDFS; User Log → Apache Flume →
+File Roll Sink output → HDFS → Spark/PySpark. Flume vẫn là thành phần thu thập.
+[Sơ đồ HDFS](week2_system_architecture.md) và [hướng dẫn tích hợp](week2_tv2_hdfs_handoff.md)
+áp dụng cho Tuần 2. Các sơ đồ local bên dưới là kiến trúc **Tuần 1**;
+local Spark smoke test không phải pipeline HDFS Tuần 2.
+
 
 Đề tài: **“Phân tích dữ liệu phim và log hành vi người dùng trên hệ thống xem phim”**
 

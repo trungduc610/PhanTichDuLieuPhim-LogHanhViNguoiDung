@@ -1,0 +1,11 @@
+{
+  "runtime": "CHƯA THỂ XÁC MINH",
+  "upload": "CHƯA THỂ XÁC MINH",
+  "content": "CHƯA THỂ XÁC MINH",
+  "spark": "CHƯA THỂ XÁC MINH",
+  "e2e": "CHƯA THỂ XÁC MINH",
+  "reason": "[WinError 3] The system cannot find the path specified: 'D:\\\\Code\\\\Bigdata\\\\movie-log-bigdata-week1\\\\movie-log-bigdata\\\\data\\\\runs\\\\run-aa6b9eb58dca\\\\output'",
+  "finished_at_utc": "2026-10-12T13:35:41.650594+00:00",
+  "run_id": "hdfs-35922090bc3e",
+  "project": "movie-hdfs-35922090bc3e"
+}

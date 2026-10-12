@@ -1,0 +1,11 @@
+{
+  "runtime": "CHƯA THỂ XÁC MINH",
+  "upload": "CHƯA THỂ XÁC MINH",
+  "content": "CHƯA THỂ XÁC MINH",
+  "spark": "CHƯA THỂ XÁC MINH",
+  "e2e": "CHƯA THỂ XÁC MINH",
+  "reason": "Flume source/config changed: config/log4j2.xml",
+  "finished_at_utc": "2026-10-12T13:22:37.453221+00:00",
+  "run_id": "hdfs-f0bd2aa387f9",
+  "project": "movie-hdfs-f0bd2aa387f9"
+}

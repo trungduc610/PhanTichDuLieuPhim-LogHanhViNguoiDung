@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 from common import sha256, utcnow
-from hdfs_common import new_json
+from hdfs_common import new_json, snapshot_namespaces, snapshot_file_diff
 from pyspark.sql import SparkSession
 
 
@@ -43,14 +43,13 @@ def main():
         if report['filesystem_class'] != 'org.apache.hadoop.hdfs.DistributedFileSystem':
             raise ValueError('Refuses a non-HDFS filesystem')
         report['hadoop_client'] = jvm.org.apache.hadoop.util.VersionInfo.getVersion()
-        iterator = fs.listFiles(jvm.org.apache.hadoop.fs.Path('/movie-log'), True)
         listed = set()
-        while iterator.hasNext():
-            listed.add(iterator.next().getPath().toUri().getPath())
-        expected = {f['hdfs_path'] for f in source['files']}
-        report['missing_files'] = sorted(expected-listed)
-        report['unexpected_files'] = sorted(listed-expected)
-        if listed != expected:
+        for namespace in snapshot_namespaces(source):
+            iterator = fs.listFiles(jvm.org.apache.hadoop.fs.Path(namespace), True)
+            while iterator.hasNext():
+                listed.add(iterator.next().getPath().toUri().getPath())
+        report['missing_files'], report['unexpected_files'] = snapshot_file_diff(source, listed)
+        if report['missing_files'] or report['unexpected_files']:
             raise ValueError('Final namespace file list differs')
         for record in source['files']:
             uri = source['authority'] + record['hdfs_path']

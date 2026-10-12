@@ -47,8 +47,8 @@ def main():
     if remote['status']!='PASS' or remote['source_manifest_sha256']!=sha256(evidence/'source_manifest.json') or any(v!='ĐẠT' for v in acceptance['stages'].values()):
         raise ValueError('Requires verified remote bytes and five completed stages')
     scopes=['scripts','src','tests','config','docs','data/raw','data/processed','data/generated',
-            'data/runs/run-aa6b9eb58dca/output','evidence/run-aa6b9eb58dca',
-            'evidence/recheck-20261011-221710',context['evidence'],context['audit']]
+            'data/runs/'+source['flume_run_id']+'/output','evidence/'+source['flume_run_id'],
+            context['evidence'],context['audit']]
     selected={ROOT/n for n in ['README.md','Dockerfile','compose.yaml','compose.hdfs.yaml',
                   'requirements.txt','.gitignore','.gitattributes','.dockerignore',
                   'audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md']}

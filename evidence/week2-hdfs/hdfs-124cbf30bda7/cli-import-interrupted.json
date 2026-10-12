@@ -1,0 +1,6 @@
+{
+  "status": "INTERRUPTED",
+  "reason": "CLI per-file JVM startup was replaced by one-JVM Java client mode.",
+  "resumed_and_verified_by": "content-import-java-v2.json",
+  "old_evidence_preserved": true
+}

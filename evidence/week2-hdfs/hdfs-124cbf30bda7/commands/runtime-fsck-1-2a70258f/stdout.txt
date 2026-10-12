@@ -1,0 +1,804 @@
+FSCK started by root (auth:SIMPLE) from /172.19.0.2 for path /movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7 at Mon Oct 12 14:28:52 UTC 2026
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7 <dir>
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-1.jsonl 514899 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741826_1002 len=514899 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-10.jsonl 171661 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741827_1003 len=171661 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-100.jsonl 1201680 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741828_1004 len=1201680 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-101.jsonl 686525 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741829_1005 len=686525 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-102.jsonl 858227 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741830_1006 len=858227 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-103.jsonl 858312 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741831_1007 len=858312 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-104.jsonl 858283 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741832_1008 len=858283 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-105.jsonl 1201623 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741833_1009 len=1201623 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-106.jsonl 1201750 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741834_1010 len=1201750 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-107.jsonl 1030084 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741835_1011 len=1030084 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-108.jsonl 1201557 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741836_1012 len=1201557 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-109.jsonl 1201738 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741837_1013 len=1201738 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-11.jsonl 171724 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741838_1014 len=171724 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-110.jsonl 1030104 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741839_1015 len=1030104 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-111.jsonl 1029865 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741840_1016 len=1029865 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-112.jsonl 1201610 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741841_1017 len=1201610 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-113.jsonl 1029868 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741842_1018 len=1029868 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-114.jsonl 1373436 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741843_1019 len=1373436 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-115.jsonl 2059898 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741844_1020 len=2059898 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-116.jsonl 2060330 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741845_1021 len=2060330 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-117.jsonl 1716565 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741846_1022 len=1716565 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-118.jsonl 1373472 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741847_1023 len=1373472 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-119.jsonl 1544909 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741848_1024 len=1544909 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-12.jsonl 171660 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741849_1025 len=171660 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-120.jsonl 1373391 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741850_1026 len=1373391 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-121.jsonl 1545084 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741851_1027 len=1545084 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-122.jsonl 1544946 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741852_1028 len=1544946 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-123.jsonl 1545133 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741853_1029 len=1545133 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-124.jsonl 2060004 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741854_1030 len=2060004 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-125.jsonl 1716833 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741855_1031 len=1716833 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-126.jsonl 1888485 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741856_1032 len=1888485 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-127.jsonl 2059984 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741857_1033 len=2059984 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-128.jsonl 1888560 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741858_1034 len=1888560 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-129.jsonl 2231670 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741859_1035 len=2231670 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-13.jsonl 171629 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741860_1036 len=171629 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-130.jsonl 2231738 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741861_1037 len=2231738 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-131.jsonl 1888663 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741862_1038 len=1888663 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-132.jsonl 1888613 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741863_1039 len=1888613 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-133.jsonl 2060116 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741864_1040 len=2060116 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-134.jsonl 1716875 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741865_1041 len=1716875 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-135.jsonl 1888318 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741866_1042 len=1888318 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-136.jsonl 1716857 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741867_1043 len=1716857 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-137.jsonl 1545163 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741868_1044 len=1545163 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-138.jsonl 1716437 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741869_1045 len=1716437 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-139.jsonl 1716597 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741870_1046 len=1716597 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-14.jsonl 343378 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741871_1047 len=343378 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-140.jsonl 1888456 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741872_1048 len=1888456 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-141.jsonl 2059856 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741873_1049 len=2059856 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-142.jsonl 1887877 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741874_1050 len=1887877 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-143.jsonl 1888307 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741875_1051 len=1888307 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-144.jsonl 2060210 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741876_1052 len=2060210 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-145.jsonl 1544912 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741877_1053 len=1544912 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-146.jsonl 1888123 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741878_1054 len=1888123 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-147.jsonl 1716573 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741879_1055 len=1716573 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-148.jsonl 2060214 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741880_1056 len=2060214 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-149.jsonl 2059927 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741881_1057 len=2059927 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-15.jsonl 171674 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741882_1058 len=171674 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-150.jsonl 2231653 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741883_1059 len=2231653 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-151.jsonl 1545027 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741884_1060 len=1545027 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-152.jsonl 1888265 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741885_1061 len=1888265 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-153.jsonl 2060060 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741886_1062 len=2060060 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-154.jsonl 2059967 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741887_1063 len=2059967 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-155.jsonl 2231359 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741888_1064 len=2231359 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-156.jsonl 2060099 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741889_1065 len=2060099 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-157.jsonl 2231775 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741890_1066 len=2231775 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-158.jsonl 1888317 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741891_1067 len=1888317 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-159.jsonl 1888659 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741892_1068 len=1888659 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-16.jsonl 171697 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741893_1069 len=171697 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-160.jsonl 2231868 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741894_1070 len=2231868 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-161.jsonl 2059962 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741895_1071 len=2059962 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-162.jsonl 2403045 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741896_1072 len=2403045 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-163.jsonl 2060074 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741897_1073 len=2060074 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-164.jsonl 1888255 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741898_1074 len=1888255 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-165.jsonl 2060234 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741899_1075 len=2060234 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-166.jsonl 1545047 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741900_1076 len=1545047 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-167.jsonl 1201835 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741901_1077 len=1201835 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-168.jsonl 1717083 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741902_1078 len=1717083 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-169.jsonl 1544983 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741903_1079 len=1544983 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-17.jsonl 171693 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741904_1080 len=171693 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-170.jsonl 1545015 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741905_1081 len=1545015 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-171.jsonl 1716654 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741906_1082 len=1716654 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-172.jsonl 1030077 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741907_1083 len=1030077 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-173.jsonl 1716545 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741908_1084 len=1716545 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-174.jsonl 2060079 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741909_1085 len=2060079 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-175.jsonl 2060107 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741910_1086 len=2060107 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-176.jsonl 1716666 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741911_1087 len=1716666 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-177.jsonl 2231899 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741912_1088 len=2231899 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-178.jsonl 1888541 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741913_1089 len=1888541 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-179.jsonl 1888487 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741914_1090 len=1888487 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-18.jsonl 171676 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741915_1091 len=171676 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-180.jsonl 2059990 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741916_1092 len=2059990 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-181.jsonl 1716592 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741917_1093 len=1716592 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-182.jsonl 1888434 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741918_1094 len=1888434 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-183.jsonl 2231777 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741919_1095 len=2231777 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-184.jsonl 1888406 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741920_1096 len=1888406 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-185.jsonl 1716760 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741921_1097 len=1716760 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-186.jsonl 1888163 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741922_1098 len=1888163 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-187.jsonl 2231646 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741923_1099 len=2231646 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-188.jsonl 2059867 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741924_1100 len=2059867 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-189.jsonl 2231950 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741925_1101 len=2231950 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-19.jsonl 171749 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741926_1102 len=171749 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-190.jsonl 2059988 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741927_1103 len=2059988 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-191.jsonl 2060024 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741928_1104 len=2060024 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-192.jsonl 1716522 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741929_1105 len=1716522 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-193.jsonl 2060106 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741930_1106 len=2060106 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-194.jsonl 2060103 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741931_1107 len=2060103 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-195.jsonl 2059992 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741932_1108 len=2059992 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-196.jsonl 2060259 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741933_1109 len=2060259 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-197.jsonl 2060168 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741934_1110 len=2060168 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-198.jsonl 2060029 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741935_1111 len=2060029 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-199.jsonl 1716711 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741936_1112 len=1716711 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-2.jsonl 343202 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741937_1113 len=343202 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-20.jsonl 171653 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741938_1114 len=171653 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-200.jsonl 1716624 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741939_1115 len=1716624 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-201.jsonl 2060157 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741940_1116 len=2060157 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-202.jsonl 2059674 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741941_1117 len=2059674 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-203.jsonl 2231850 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741942_1118 len=2231850 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-204.jsonl 2231593 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741943_1119 len=2231593 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-205.jsonl 1888396 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741944_1120 len=1888396 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-206.jsonl 2060233 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741945_1121 len=2060233 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-207.jsonl 2059903 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741946_1122 len=2059903 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-208.jsonl 2403373 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741947_1123 len=2403373 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-209.jsonl 1888260 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741948_1124 len=1888260 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-21.jsonl 171650 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741949_1125 len=171650 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-210.jsonl 2059955 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741950_1126 len=2059955 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-211.jsonl 1888324 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741951_1127 len=1888324 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-212.jsonl 1545061 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741952_1128 len=1545061 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-213.jsonl 1888296 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741953_1129 len=1888296 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-214.jsonl 1888171 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741954_1130 len=1888171 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-215.jsonl 1888701 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741955_1131 len=1888701 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-216.jsonl 2231773 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741956_1132 len=2231773 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-217.jsonl 2059993 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741957_1133 len=2059993 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-218.jsonl 1888352 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741958_1134 len=1888352 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-219.jsonl 1716816 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741959_1135 len=1716816 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-22.jsonl 171602 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741960_1136 len=171602 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-220.jsonl 2231365 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741961_1137 len=2231365 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-221.jsonl 2060042 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741962_1138 len=2060042 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-222.jsonl 1888435 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741963_1139 len=1888435 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-223.jsonl 2231780 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741964_1140 len=2231780 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-224.jsonl 1888738 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741965_1141 len=1888738 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-225.jsonl 1373088 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741966_1142 len=1373088 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-226.jsonl 2060238 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741967_1143 len=2060238 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-227.jsonl 1888328 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741968_1144 len=1888328 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-228.jsonl 1888108 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741969_1145 len=1888108 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-229.jsonl 1888616 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741970_1146 len=1888616 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-23.jsonl 171700 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741971_1147 len=171700 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-230.jsonl 2059964 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741972_1148 len=2059964 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-231.jsonl 1888500 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741973_1149 len=1888500 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-232.jsonl 1544942 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741974_1150 len=1544942 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-233.jsonl 2059678 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741975_1151 len=2059678 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-234.jsonl 1373437 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741976_1152 len=1373437 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-235.jsonl 1716784 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741977_1153 len=1716784 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-236.jsonl 1373186 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741978_1154 len=1373186 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-237.jsonl 1888205 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741979_1155 len=1888205 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-238.jsonl 1716730 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741980_1156 len=1716730 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-239.jsonl 1888552 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741981_1157 len=1888552 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-24.jsonl 171593 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741982_1158 len=171593 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-240.jsonl 2060141 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741983_1159 len=2060141 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-241.jsonl 2059852 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741984_1160 len=2059852 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-242.jsonl 2059819 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741985_1161 len=2059819 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-243.jsonl 2060130 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741986_1162 len=2060130 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-244.jsonl 1716657 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741987_1163 len=1716657 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-245.jsonl 1544935 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741988_1164 len=1544935 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-246.jsonl 2060174 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741989_1165 len=2060174 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-247.jsonl 2060257 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741990_1166 len=2060257 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-248.jsonl 2060241 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741991_1167 len=2060241 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-249.jsonl 1888403 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741992_1168 len=1888403 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-25.jsonl 171664 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741993_1169 len=171664 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-250.jsonl 2231832 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741994_1170 len=2231832 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-251.jsonl 1888302 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741995_1171 len=1888302 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-252.jsonl 1716747 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741996_1172 len=1716747 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-253.jsonl 2231547 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741997_1173 len=2231547 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-254.jsonl 1373426 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741998_1174 len=1373426 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-26.jsonl 171752 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073741999_1175 len=171752 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-27.jsonl 171740 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742000_1176 len=171740 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-28.jsonl 171665 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742001_1177 len=171665 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-29.jsonl 171722 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742002_1178 len=171722 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-3.jsonl 343329 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742003_1179 len=343329 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-30.jsonl 171666 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742004_1180 len=171666 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-31.jsonl 171690 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742005_1181 len=171690 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-32.jsonl 171689 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742006_1182 len=171689 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-33.jsonl 171690 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742007_1183 len=171690 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-34.jsonl 171651 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742008_1184 len=171651 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-35.jsonl 171655 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742009_1185 len=171655 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-36.jsonl 171582 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742010_1186 len=171582 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-37.jsonl 171656 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742011_1187 len=171656 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-38.jsonl 171631 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742012_1188 len=171631 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-39.jsonl 171613 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742013_1189 len=171613 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-4.jsonl 171696 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742014_1190 len=171696 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-40.jsonl 171690 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742015_1191 len=171690 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-41.jsonl 171639 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742016_1192 len=171639 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-42.jsonl 171740 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742017_1193 len=171740 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-43.jsonl 171693 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742018_1194 len=171693 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-44.jsonl 171718 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742019_1195 len=171718 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-45.jsonl 171737 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742020_1196 len=171737 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-46.jsonl 171577 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742021_1197 len=171577 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-47.jsonl 171718 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742022_1198 len=171718 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-48.jsonl 171657 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742023_1199 len=171657 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-49.jsonl 171720 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742024_1200 len=171720 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-5.jsonl 171627 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742025_1201 len=171627 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-50.jsonl 171684 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742026_1202 len=171684 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-51.jsonl 171607 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742027_1203 len=171607 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-52.jsonl 171634 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742028_1204 len=171634 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-53.jsonl 171616 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742029_1205 len=171616 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-54.jsonl 171703 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742030_1206 len=171703 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-55.jsonl 171644 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742031_1207 len=171644 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-56.jsonl 171706 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742032_1208 len=171706 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-57.jsonl 171680 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742033_1209 len=171680 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-58.jsonl 171686 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742034_1210 len=171686 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-59.jsonl 171608 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742035_1211 len=171608 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-6.jsonl 171640 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742036_1212 len=171640 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-60.jsonl 171745 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742037_1213 len=171745 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-61.jsonl 171705 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742038_1214 len=171705 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-62.jsonl 171661 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742039_1215 len=171661 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-63.jsonl 171733 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742040_1216 len=171733 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-64.jsonl 171671 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742041_1217 len=171671 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-65.jsonl 171670 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742042_1218 len=171670 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-66.jsonl 171704 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742043_1219 len=171704 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-67.jsonl 171689 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742044_1220 len=171689 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-68.jsonl 171670 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742045_1221 len=171670 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-69.jsonl 171695 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742046_1222 len=171695 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-7.jsonl 171767 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742047_1223 len=171767 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-70.jsonl 171619 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742048_1224 len=171619 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-71.jsonl 171645 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742049_1225 len=171645 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-72.jsonl 171665 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742050_1226 len=171665 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-73.jsonl 171624 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742051_1227 len=171624 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-74.jsonl 171613 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742052_1228 len=171613 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-75.jsonl 171690 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742053_1229 len=171690 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-76.jsonl 1201351 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742054_1230 len=1201351 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-77.jsonl 2060160 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742055_1231 len=2060160 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-78.jsonl 2231410 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742056_1232 len=2231410 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-79.jsonl 1888306 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742057_1233 len=1888306 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-8.jsonl 171605 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742058_1234 len=171605 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-80.jsonl 1888400 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742059_1235 len=1888400 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-81.jsonl 1888321 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742060_1236 len=1888321 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-82.jsonl 1545247 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742061_1237 len=1545247 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-83.jsonl 1888490 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742062_1238 len=1888490 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-84.jsonl 2231934 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742063_1239 len=2231934 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-85.jsonl 2231498 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742064_1240 len=2231498 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-86.jsonl 1888079 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742065_1241 len=1888079 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-87.jsonl 2231701 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742066_1242 len=2231701 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-88.jsonl 2231549 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742067_1243 len=2231549 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-89.jsonl 2060026 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742068_1244 len=2060026 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-9.jsonl 171632 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742069_1245 len=171632 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-90.jsonl 2060178 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742070_1246 len=2060178 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-91.jsonl 2060153 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742071_1247 len=2060153 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-92.jsonl 1373433 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742072_1248 len=1373433 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-93.jsonl 2231819 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742073_1249 len=2231819 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-94.jsonl 2060333 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742074_1250 len=2060333 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-95.jsonl 2231604 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742075_1251 len=2231604 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-96.jsonl 2231677 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742076_1252 len=2231677 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-97.jsonl 2403476 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742077_1253 len=2403476 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-98.jsonl 2059865 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742078_1254 len=2059865 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-99.jsonl 1373114 bytes, replicated: replication=1, 1 block(s):  OK
+0. BP-1003441718-172.19.0.2-1791814590482:blk_1073742079_1255 len=1373114 Live_repl=1  [DatanodeInfoWithStorage[172.19.0.3:9866,DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6,DISK]]
+
+
+Status: HEALTHY
+ Number of data-nodes:	1
+ Number of racks:		1
+ Total dirs:			1
+ Total symlinks:		0
+
+Replicated Blocks:
+ Total size:	343339148 B
+ Total files:	254
+ Total blocks (validated):	254 (avg. block size 1351728 B)
+ Minimally replicated blocks:	254 (100.0 %)
+ Over-replicated blocks:	0 (0.0 %)
+ Under-replicated blocks:	0 (0.0 %)
+ Mis-replicated blocks:		0 (0.0 %)
+ Default replication factor:	1
+ Average block replication:	1.0
+ Missing blocks:		0
+ Corrupt blocks:		0
+ Missing replicas:		0 (0.0 %)
+ Blocks queued for replication:	0
+
+Erasure Coded Block Groups:
+ Total size:	0 B
+ Total files:	0
+ Total block groups (validated):	0
+ Minimally erasure-coded block groups:	0
+ Over-erasure-coded block groups:	0
+ Under-erasure-coded block groups:	0
+ Unsatisfactory placement block groups:	0
+ Average block group size:	0.0
+ Missing block groups:		0
+ Corrupt block groups:		0
+ Missing internal blocks:	0
+ Blocks queued for replication:	0
+FSCK ended at Mon Oct 12 14:28:52 UTC 2026 in 257 milliseconds
+
+
+The filesystem under path '/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7' is HEALTHY

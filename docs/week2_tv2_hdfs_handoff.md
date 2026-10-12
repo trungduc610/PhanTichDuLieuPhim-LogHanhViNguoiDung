@@ -1,71 +1,109 @@
-# Hợp đồng tích hợp HDFS cho TV2
+# Tích hợp HDFS cho TV2
 
-TV1 bàn giao kỹ thuật ngày 12/10/2026, chưa nhận xác nhận từ TV2. Scope là đọc HDFS và QA; không có sản phẩm tiền xử lý/phân tích/K-Means/dashboard trong lượt này.
+Nguồn hiện chọn: run-f63c810e9d8d. Status/reconciliation PASS, 254 file Sink,
+1.000.000 events; movies local có 9.742 phim. Đây là kết quả local, chưa đủ
+để tuyên bố HDFS/Spark hiện tại PASS.
 
-## 1. Snapshot chính xác
+## Tạo cluster/snapshot mới
 
-- Cluster/import ID: `hdfs-385a18d3f03a`.
-- Compose project: `movie-hdfs-385a18d3f03a`.
-- Flume run: `run-aa6b9eb58dca` (event payload runId: `f93ca6901f8554ae127a`).
-- Movies: `hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv`.
-- Logs: `hdfs://namenode:9000/movie-log/raw/user_logs/run-aa6b9eb58dca/hdfs-385a18d3f03a`.
-- Source manifest: `evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json`; SHA256 `ab6e60dfd5185229f7244cfcd581d868d3b128c5c68150a393b5b7ca249119d7`.
-- 16 files, 343.872.495 bytes: metadata 9.742 rows/533.347 bytes, logs 15 parts/1.000.000 events/343.339.148 bytes. Tên/hash/expected_records từng tệp nằm trong manifest; cả 15 part đều không rỗng.
-- Metadata SHA256: `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`.
-
-Các thư mục `/movie-log/processed`, `/movie-log/results` đã tồn tại, chưa có output phân tích. TV2 nên ghi output vào namespace theo run mới; không sửa raw snapshot đã nghiệm thu. Không đổi expected count theo count quan sát.
-
-## 2. Schema và ý nghĩa dữ liệu
-
-Import trực tiếp `MOVIE_SCHEMA`, `USER_LOG_SCHEMA` từ `src/schemas.py`. Không tự suy schema từ mẫu JSON. Schema đầy đủ đã lưu cả contract và schema thực đọc trong `spark-hdfs.json`.
-
-| Dataset | Fields/type |
-|---|---|
-| Movies | movieId long; title string; genres string; releaseYear integer nullable |
-| Logs | eventId/userId/sessionId/action/timestamp/runId/durationSource string; movieId/watchDuration/sequenceNumber/simulatedMovieDuration long; isSynthetic boolean |
-
-13 releaseYear null hợp lệ; 34 genre `(no genres listed)` giữ nguyên upstream. CSV UTF-8, header=true, quote/escape `"`, hỗ trợ title có dấu phẩy/quote. JSONL một object mỗi dòng. Timestamp UTC Z; parse sang TimestampType với Spark session timezone UTC. `watchDuration` là số giây phát sinh từ play gần nhất, không cộng dồn trong record; các action view/play có duration 0. `isSynthetic=true`, `durationSource=synthetic`; runtime phim synthetic từ 3.600 tới 10.800 giây. Khoảng thời gian event thực: `2026-08-31T17:00:04Z`–`2026-09-30T15:58:22Z`.
-
-Required fields phải kiểm bằng action dữ liệu, không dựa `nullable=False`. movieId hai phía phải cùng LongType; kiểm malformed CSV/JSON, null/type, IDs trùng/conflict, orphan join, timestamp/action/duration/provenance và sessions. Job TV1 đã kiểm toàn lô, 23 nhóm lỗi đều 0; không fallback file local/generated.
-
-## 3. Chạy trong PowerShell tại root project
-
-Docker Desktop/Engine phải hoạt động ở `desktop-linux`; không sửa WSL hay cấu hình bảo mật. Giữ ID đúng để dùng lại cluster và hai named volume đã kiểm. Lệnh dưới chỉ bật NameNode/DataNode, không bật Flume.
+Dùng Python >=3.10 và Docker CLI/Engine Linux tại root project:
 
 ```powershell
-$env:HDFS_RUN_ID='hdfs-385a18d3f03a'
-docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a up -d namenode datanode
-docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a ps
-docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a exec -T namenode hdfs dfsadmin -report
-docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a exec -T namenode hdfs dfsadmin -safemode get
+python -B scripts/run_hdfs.py --flume-run-id run-f63c810e9d8d --audit-dir evidence/week2-hdfs/check-new
 ```
 
-Kiểm Live datanodes (1), safe mode OFF trước đọc. Không chạy `namenode -format`, `down -v` hoặc `-put -f`. Script service tự từ chối nonempty unformatted volume/cluster khác. ID mới chỉ dành cho triển khai mới bằng `scripts/run_hdfs.py`, không thay ID của cluster hiện hữu.
-
-Mỗi QA report phải có tên mới. Ví dụ (UUID không chứa dữ liệu cá nhân):
+Audit-dir phải mới; lấy context từ check-new/run-context.json. Runner tạo
+project/volumes riêng và chờ DataNode live, safe mode OFF. Tiếp tục theo context:
 
 ```powershell
-$qaId=[guid]::NewGuid().ToString('N')
-docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a --profile spark run --rm --no-deps spark --driver-memory 2g scripts/spark_hdfs_validate.py --source-manifest evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json --hdfs-verification evidence/week2-hdfs/hdfs-385a18d3f03a/content-after-restart.json --report "evidence/week2-hdfs/hdfs-385a18d3f03a/spark-tv2-$qaId.json"
+$contextFile='evidence/week2-hdfs/check-new/run-context.json'
+$context=Get-Content $contextFile -Raw | ConvertFrom-Json
+$env:HDFS_RUN_ID=$context.run_id
+$clusterProject=$context.project
+$evidenceDir=$context.evidence
+
+docker compose -f compose.hdfs.yaml -p $clusterProject config
+docker compose -f compose.hdfs.yaml -p $clusterProject ps
+docker compose -f compose.hdfs.yaml -p $clusterProject exec -T namenode hdfs dfsadmin -report
+docker compose -f compose.hdfs.yaml -p $clusterProject exec -T namenode hdfs dfsadmin -safemode get
+python -B scripts/hdfs_io.py --context $contextFile --upload --client spark --label import-first
 ```
 
-Job dùng manifest và PASS content report đúng hash, truy cập HDFS thật; metadata thay đổi sẽ bị bytes/list/QA kiểm. Trước nghiệm thu snapshot mới hoặc khi nghi dữ liệu thay đổi, đọc toàn bộ byte lại:
+Nếu runtime bị chặn, chỉ tiếp tục khi Docker/HDFS sẵn sàng. Có thể start lại đúng
+cluster theo context bằng lệnh dưới; không format hoặc xóa volume cũ:
 
 ```powershell
-$hashId=[guid]::NewGuid().ToString('N')
-docker compose -f compose.hdfs.yaml -p movie-hdfs-385a18d3f03a --profile spark run --rm --no-deps spark --driver-memory 1g scripts/hdfs_hash_verify.py --source-manifest evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json --report "evidence/week2-hdfs/hdfs-385a18d3f03a/hashes-tv2-$hashId.json"
+docker compose -f compose.hdfs.yaml -p $clusterProject up -d namenode datanode
 ```
 
-Không dùng `localhost:9000` từ Spark để chỉ container NameNode khác. Host chỉ có UI loopback 19870; RPC 9000 và DataNode transfer 9866 liên lạc qua Docker network cùng project. Spark container bên ngoài cần join network này, dùng XML config hiện tại và có Hadoop client tương thích; không tự coi chỉ nối RPC là đọc block được.
+## URI và provenance
 
-## 4. Bằng chứng và giới hạn
+Đọc movies_uri, logs_uri từ source_manifest.json của context:
 
-- `content-import.json`: toàn lô được cat binary, SHA256, CSV/JSON parser kiểm sau upload.
-- `content-after-restart.json`: cùng phép kiểm toàn lô sau restart.
-- `persistence-reviewed.json`: mọi Java metadata properties không đổi; FAIL so comment lịch sử được giữ tại `persistence.json`.
-- `spark-hdfs.json`: Spark 3.5.1/Hadoop client 3.3.4/Java 11.0.22/Python 3.8.10, actual filesystem HDFS, `input_file_name`, full fields và 23 nhóm lỗi 0.
-- `final-hdfs-hashes.json`: kiểm byte/hash độc lập bằng Java Hadoop client trước đóng gói.
-- `screenshots/namenode-full-page.jpg`: screenshot UI thực.
-- `delivery_manifest.json`: scope/exclusions và bytes/SHA256 của tệp local; remote HDFS kiểm riêng bằng job nêu trên. Volumes không nằm trong gói portable.
+- hdfs://namenode:9000/movie-log/raw/movies/<snapshot>/movies.csv
+- hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/<hdfs-run-id>/
+- /movie-log/processed và /movie-log/results cho bước tiếp theo.
 
-HDFS server 3.3.6/Java 1.8.0_212, một DataNode và replication 1, simple authentication, root trong container; môi trường demo một máy, không HA/chịu lỗi hoặc endpoint công khai. Named volumes đang được giữ. Chưa có TV2 xác nhận đã đọc/tích hợp và chưa có phê duyệt nhóm cho kiến trúc hoặc giới thiệu/cơ sở lý thuyết Tuần 1. Những xác nhận đó không được thay bằng QA kỹ thuật của TV1.
+Manifest lưu selected run, nguồn local, bytes, SHA256, expected_records và đích
+HDFS. Danh sách Sink lấy từ reconciliation. Generated input chỉ kiểm lineage,
+không được upload thay Sink. Evidence cũ có config_sha256 được hỗ trợ; nếu có
+source_config_hashes, tất cả hash đó vẫn được kiểm. Hash bắt buộc log4j2.xml:
+f7f47e1246016eaa5bfaa0a65a8c66be712baac931e05ce30adfd694625b277b.
+Kiểm byte-exact, không chuẩn hóa lúc kiểm và không sửa evidence cũ để tạo PASS.
+
+## Upload lại
+
+```powershell
+python -B scripts/hdfs_io.py --context $contextFile --upload --client spark --label import-repeat
+```
+
+Đích đã có chỉ SKIP khi actual remote bytes có size/SHA256 khớp; khác thì FAIL,
+không overwrite. Mỗi lần dùng label mới để bảo toàn report. Upload dở tiếp tục
+bằng việc skip file đã đúng và put file thiếu. Verifier chỉ kiểm hai raw namespaces,
+vẫn bắt file thiếu/thừa trong snapshot; processed/results và snapshot khác không
+gây FAIL. Không dùng down -v, format thủ công, put -f hoặc xóa snapshot cũ.
+
+## Spark đọc HDFS
+
+```powershell
+docker compose -f compose.hdfs.yaml -p $clusterProject --profile spark run --rm --no-deps spark --driver-memory 2g scripts/spark_hdfs_validate.py --source-manifest "$evidenceDir/source_manifest.json" --hdfs-verification "$evidenceDir/import-first.json" --report "$evidenceDir/spark-hdfs-new.json"
+docker compose -f compose.hdfs.yaml -p $clusterProject --profile spark run --rm --no-deps spark --driver-memory 1g scripts/hdfs_hash_verify.py --source-manifest "$evidenceDir/source_manifest.json" --report "$evidenceDir/hdfs-hashes-new.json"
+```
+
+Content report phải PASS, đúng hash manifest. Job kiểm filesystem
+org.apache.hadoop.hdfs.DistributedFileSystem, HDFS URI, input file list/count/schema,
+malformed/null/type/duplicate/orphan/session; local_fallback=false. Report phải mới.
+Spark mount Hadoop XML và cùng network với NameNode/DataNode. namenode:9000
+không phải endpoint công khai từ Windows host.
+
+Schema ở src/schemas.py: movieId LongType, timestamp UTC Z, watchDuration là giây
+phát sinh; log/runtime synthetic. Một NameNode/DataNode, replication 1: demo,
+không HA/dự phòng. Snapshot hdfs-385a18d3f03a và run-aa6b9eb58dca trong báo cáo cũ
+là lịch sử, không phải nguồn hiện chọn. Chưa thực hiện công việc TV2 trong phần này.
+
+For many Sink parts, --client spark reuses Hadoop Java client in one JVM.
+The CLI client remains available. Both verify remote bytes and forbid overwrite.
+The Java byte-verification report is followed by independent Spark count/schema QA.
+
+## Snapshot đã kiểm chứng tại checkout này
+
+Cluster: hdfs-124cbf30bda7; Compose project: movie-hdfs-124cbf30bda7.
+
+- [Context hiện tại](../evidence/week2-hdfs/fix-run-f63c810e9d8d-20261012-verified/run-context.json)
+- [Source manifest](../evidence/week2-hdfs/hdfs-124cbf30bda7/source_manifest.json)
+- [Acceptance checks](../evidence/week2-hdfs/hdfs-124cbf30bda7/acceptance_status.json)
+- [Spark HDFS QA](../evidence/week2-hdfs/hdfs-124cbf30bda7/spark-hdfs-fixed.json)
+
+Đã kiểm trực tiếp: NameNode/DataNode running, safe mode OFF, fsck HEALTHY,
+255 file raw đúng SHA256, 9.742 phim, 1.000.000 events; 23 nhóm lỗi Spark = 0.
+Upload lại: 0 file mới, 255 SKIP_VERIFIED. Filesystem là
+org.apache.hadoop.hdfs.DistributedFileSystem, local_fallback=false.
+
+Movies: hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv
+
+Logs: hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7
+
+Để tiếp tục snapshot này, dùng context liên kết ở trên. Content byte-verification
+report là content-import-java-v2.json; Spark QA là spark-hdfs-fixed.json. Các lệnh
+check-new ở trên dùng cho một lần triển khai mới. Giữ nguyên raw snapshot;
+TV2 ghi output mới dưới processed/results. Cluster/volumes đang được giữ.

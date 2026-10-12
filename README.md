@@ -1,8 +1,33 @@
 # Phân tích dữ liệu phim và log hành vi người dùng
 
-Apache Flume là thành phần thu thập log; Spark kiểm tra dữ liệu phía sau. Dữ liệu kỹ thuật đã sẵn sàng cho Tuần 2. Nghiệm thu chưa đầy đủ vì chưa có bằng chứng nhóm xác nhận kiến trúc (TV2-06); không tuyên bố hoàn thành 100%.
+Apache Flume thu thập log; HDFS lưu snapshot để Spark/PySpark đọc ở Tuần 2.
 
-## Kết quả thực thi hiện tại
+## Pipeline HDFS Tuần 2
+
+```text
+Movies metadata ------------------------------> HDFS raw/movies ---+
+User Log -> Flume -> local File Roll Sink -> HDFS raw/user_logs ----+-> Spark/PySpark
+```
+
+Run nguồn đang chọn: **run-f63c810e9d8d**, reconciliation PASS, 254 Sink parts,
+1.000.000 events. Generated input chỉ đối chiếu lineage; user log upload luôn là
+Flume Sink output. Số parts lấy từ reconciliation, không cố định trong code.
+
+[Hướng dẫn HDFS hiện tại](docs/week2_tv2_hdfs_handoff.md),
+[kiến trúc Tuần 2](docs/week2_system_architecture.md),
+[cơ sở HDFS và lần nghiệm thu trước](docs/week2_tv1_hdfs_report.md).
+Chỉ kết luận HDFS/Spark PASS khi report của cluster hiện tại xác minh thành công;
+receipt từ máy trước không chứng minh runtime đang chạy ở checkout này.
+
+```powershell
+python -B scripts/run_hdfs.py --flume-run-id run-f63c810e9d8d --audit-dir evidence/week2-hdfs/check-new
+```
+
+Dùng Python >=3.10 và audit-dir mới. Runner tạo cluster/project/volumes riêng và
+source manifest mới. Import và Spark QA theo context: xem hướng dẫn HDFS ở trên.
+Các phần/local Spark smoke test phía dưới thuộc **Tuần 1 và snapshot lịch sử**.
+
+## Kết quả thực thi Tuần 1 đã lưu
 
 Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
 
@@ -17,7 +42,7 @@ Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evi
 
 MovieLens là metadata/rating nguồn GroupLens; log `sim-user-*` là synthetic do generator tạo. `watchDuration` là giây mới phát sinh từ play gần nhất; runtime phim cũng synthetic. Không kết luận về người xem thật.
 
-## Luồng và runtime
+## Luồng và runtime Tuần 1
 
 ```text
 MovieLens -> prepare_movies -> movies.csv -----------------------+
@@ -31,7 +56,7 @@ Host Windows 10 build 19045 dùng Python 3.12.14 thật tại `C:\Users\User\.ca
 
 File Channel dùng volume Linux riêng theo Compose project; runner xuất checkpoint/data về `data/runs/<run-id>/channel/` sau khi dừng. Volume được giữ lại. Sink/spool bind vào thư mục run trên host; Storage là filesystem local, không HDFS. Không chạy hai lần trong cùng Compose project/channel.
 
-## Chạy và kiểm lại
+## Chạy và kiểm lại Tuần 1
 
 Trong PowerShell đặt `$py` là executable Python thật ở trên (hoặc Python >=3.10 có sẵn). Chạy ở thư mục project; Linux dùng `python3`. Không cần pip cho scripts host; Spark chạy từ service container có sẵn dependency.
 
@@ -60,7 +85,7 @@ Lệnh Spark kiểm hash và file list của đúng Sink run PASS, dùng schema 
 
 Runner tạo run/project/output/evidence riêng, publish `.tmp` đóng xong rồi rename cùng spool, lưu argv/cwd/UTC/exit/logs/source hashes/launcher/heap/counters/images/Compose. Dừng và gỡ container/network của chính run; giữ volume/channel/data. Build không tính vào timeout drain. Khoảng 12 GB đĩa dự kiến cho images, generated/spool/Sink, channel/export và SQLite; máy thực đo có 16 GB RAM và trên 60 GB đĩa trống. Không dùng `docker system prune`.
 
-## Bàn giao
+## Bàn giao Tuần 1 (lịch sử)
 
 `data/raw/` có ZIP/CSV/README license/manifest; `data/processed/` có movies; `data/generated/` có input/manifest. Dữ liệu phân tích là `data/runs/run-aa6b9eb58dca/output/`; demo `run-aefc814b0b5f` chỉ dùng kiểm thử. `logs/<run>/` và `evidence/<run>/` là log/bằng chứng, không phải event input. Không gộp demo/main như hai lịch sử người dùng độc lập.
 

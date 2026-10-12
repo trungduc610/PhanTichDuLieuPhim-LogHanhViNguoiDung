@@ -1,0 +1,5 @@
+ Container movie-hdfs-124cbf30bda7-spark-run-637dc3a841ff Creating 
+ Container movie-hdfs-124cbf30bda7-spark-run-637dc3a841ff Created 
+26/10/12 14:22:59 INFO ShutdownHookManager: Shutdown hook called
+26/10/12 14:22:59 INFO ShutdownHookManager: Deleting directory /tmp/spark-55b94612-f681-4b62-89a0-a4c79dd34e42
+

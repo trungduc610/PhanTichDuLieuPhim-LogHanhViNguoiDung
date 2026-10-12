@@ -1,0 +1,1 @@
+Connecting to namenode via http://namenode:9870/fsck?ugi=root&files=1&blocks=1&locations=1&path=%2Fmovie-log%2Fraw%2Fmovies%2Fmls-1df01064e7a0-hdfs-124cbf30bda7

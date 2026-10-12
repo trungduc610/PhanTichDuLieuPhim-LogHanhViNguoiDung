@@ -1,5 +1,9 @@
 # Cấu hình và vận hành Flume
 
+Tài liệu mô tả Flume/local smoke test Tuần 1. Tuần 2 giữ File Roll Sink,
+nhập output đã reconciliation vào HDFS rồi Spark đọc HDFS; xem
+[hướng dẫn HDFS](week2_tv2_hdfs_handoff.md).
+
 Lựa chọn cục bộ: Spooling Directory Source → File Channel → File Roll Sink, agent `a1`. Xem `config/flume.conf`, `Dockerfile`, `compose.yaml`, `scripts/run_flume.sh`, `scripts/run_pipeline.py`.
 
 Source đọc file đã đóng; channel đệm trên đĩa; sink ghi event body vào file output. `LINE` đọc một event mỗi dòng, `TEXT` thêm newline và không chèn header vào JSON. Không có interceptor đổi payload. Schema ứng dụng được validator kiểm trước và sau vận chuyển; Flume không tự hiểu các trường JSON.

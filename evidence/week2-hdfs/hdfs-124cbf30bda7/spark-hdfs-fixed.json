@@ -1,0 +1,1849 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-10-12T14:29:24.546680+00:00",
+  "hdfs_run_id": "hdfs-124cbf30bda7",
+  "flume_run_id": "run-f63c810e9d8d",
+  "movies_uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv",
+  "logs_uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7",
+  "source_manifest_sha256": "fdb4c551c34b412a5af3480191d0fb975c64fd43b5a5b80401ea0b0fabd959de",
+  "verification_sha256": "d5ffbc290e457e75fdd9ed0cb476f3e5a21e6dc7434cee560352b356ad11aae8",
+  "source_hashes": {
+    "scripts/spark_hdfs_validate.py": "c4832e03b130f1b7526e0428e64b2aacb535a5b0704c2faf13cd107322fbf6b0",
+    "scripts/spark_smoke_test.py": "47b128299335c43f4153ee846f63523886fc62db21c9242cd37b5c5fcef49645",
+    "src/schemas.py": "c11cf48dcbd99801d72ecb3be32ffb03b196efd7a9173c40817962c34d082310",
+    "config/hdfs/core-site.xml": "67c630f4c15c668c3b687165de09c3d7cd02eee679658a861ea30ab9d638a1b3",
+    "config/hdfs/hdfs-site.xml": "23ea6f5bc3fd8e9351c247b7709a5d1454631982ff1c6a644592b237c90d2653"
+  },
+  "runtime": {
+    "spark": "3.5.1",
+    "pyspark": "3.5.1",
+    "python": "3.8.10 (default, Nov 22 2023, 10:22:35) \n[GCC 9.4.0]",
+    "python_executable": "/usr/bin/python3",
+    "java": "11.0.22",
+    "hadoop_client": "3.3.4",
+    "os": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.29",
+    "master": "local[2]",
+    "fs_defaultFS": "hdfs://namenode:9000",
+    "actual_filesystem_uri": "hdfs://namenode:9000",
+    "filesystem_class": "org.apache.hadoop.hdfs.DistributedFileSystem",
+    "timestamp_timezone": "UTC"
+  },
+  "basic_action_count": 5,
+  "hdfs_status_files": [
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv",
+      "bytes": 533347,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-1.jsonl",
+      "bytes": 514899,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-10.jsonl",
+      "bytes": 171661,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-100.jsonl",
+      "bytes": 1201680,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-101.jsonl",
+      "bytes": 686525,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-102.jsonl",
+      "bytes": 858227,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-103.jsonl",
+      "bytes": 858312,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-104.jsonl",
+      "bytes": 858283,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-105.jsonl",
+      "bytes": 1201623,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-106.jsonl",
+      "bytes": 1201750,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-107.jsonl",
+      "bytes": 1030084,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-108.jsonl",
+      "bytes": 1201557,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-109.jsonl",
+      "bytes": 1201738,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-11.jsonl",
+      "bytes": 171724,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-110.jsonl",
+      "bytes": 1030104,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-111.jsonl",
+      "bytes": 1029865,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-112.jsonl",
+      "bytes": 1201610,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-113.jsonl",
+      "bytes": 1029868,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-114.jsonl",
+      "bytes": 1373436,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-115.jsonl",
+      "bytes": 2059898,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-116.jsonl",
+      "bytes": 2060330,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-117.jsonl",
+      "bytes": 1716565,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-118.jsonl",
+      "bytes": 1373472,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-119.jsonl",
+      "bytes": 1544909,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-12.jsonl",
+      "bytes": 171660,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-120.jsonl",
+      "bytes": 1373391,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-121.jsonl",
+      "bytes": 1545084,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-122.jsonl",
+      "bytes": 1544946,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-123.jsonl",
+      "bytes": 1545133,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-124.jsonl",
+      "bytes": 2060004,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-125.jsonl",
+      "bytes": 1716833,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-126.jsonl",
+      "bytes": 1888485,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-127.jsonl",
+      "bytes": 2059984,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-128.jsonl",
+      "bytes": 1888560,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-129.jsonl",
+      "bytes": 2231670,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-13.jsonl",
+      "bytes": 171629,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-130.jsonl",
+      "bytes": 2231738,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-131.jsonl",
+      "bytes": 1888663,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-132.jsonl",
+      "bytes": 1888613,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-133.jsonl",
+      "bytes": 2060116,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-134.jsonl",
+      "bytes": 1716875,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-135.jsonl",
+      "bytes": 1888318,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-136.jsonl",
+      "bytes": 1716857,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-137.jsonl",
+      "bytes": 1545163,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-138.jsonl",
+      "bytes": 1716437,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-139.jsonl",
+      "bytes": 1716597,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-14.jsonl",
+      "bytes": 343378,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-140.jsonl",
+      "bytes": 1888456,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-141.jsonl",
+      "bytes": 2059856,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-142.jsonl",
+      "bytes": 1887877,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-143.jsonl",
+      "bytes": 1888307,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-144.jsonl",
+      "bytes": 2060210,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-145.jsonl",
+      "bytes": 1544912,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-146.jsonl",
+      "bytes": 1888123,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-147.jsonl",
+      "bytes": 1716573,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-148.jsonl",
+      "bytes": 2060214,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-149.jsonl",
+      "bytes": 2059927,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-15.jsonl",
+      "bytes": 171674,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-150.jsonl",
+      "bytes": 2231653,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-151.jsonl",
+      "bytes": 1545027,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-152.jsonl",
+      "bytes": 1888265,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-153.jsonl",
+      "bytes": 2060060,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-154.jsonl",
+      "bytes": 2059967,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-155.jsonl",
+      "bytes": 2231359,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-156.jsonl",
+      "bytes": 2060099,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-157.jsonl",
+      "bytes": 2231775,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-158.jsonl",
+      "bytes": 1888317,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-159.jsonl",
+      "bytes": 1888659,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-16.jsonl",
+      "bytes": 171697,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-160.jsonl",
+      "bytes": 2231868,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-161.jsonl",
+      "bytes": 2059962,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-162.jsonl",
+      "bytes": 2403045,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-163.jsonl",
+      "bytes": 2060074,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-164.jsonl",
+      "bytes": 1888255,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-165.jsonl",
+      "bytes": 2060234,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-166.jsonl",
+      "bytes": 1545047,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-167.jsonl",
+      "bytes": 1201835,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-168.jsonl",
+      "bytes": 1717083,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-169.jsonl",
+      "bytes": 1544983,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-17.jsonl",
+      "bytes": 171693,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-170.jsonl",
+      "bytes": 1545015,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-171.jsonl",
+      "bytes": 1716654,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-172.jsonl",
+      "bytes": 1030077,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-173.jsonl",
+      "bytes": 1716545,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-174.jsonl",
+      "bytes": 2060079,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-175.jsonl",
+      "bytes": 2060107,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-176.jsonl",
+      "bytes": 1716666,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-177.jsonl",
+      "bytes": 2231899,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-178.jsonl",
+      "bytes": 1888541,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-179.jsonl",
+      "bytes": 1888487,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-18.jsonl",
+      "bytes": 171676,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-180.jsonl",
+      "bytes": 2059990,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-181.jsonl",
+      "bytes": 1716592,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-182.jsonl",
+      "bytes": 1888434,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-183.jsonl",
+      "bytes": 2231777,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-184.jsonl",
+      "bytes": 1888406,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-185.jsonl",
+      "bytes": 1716760,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-186.jsonl",
+      "bytes": 1888163,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-187.jsonl",
+      "bytes": 2231646,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-188.jsonl",
+      "bytes": 2059867,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-189.jsonl",
+      "bytes": 2231950,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-19.jsonl",
+      "bytes": 171749,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-190.jsonl",
+      "bytes": 2059988,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-191.jsonl",
+      "bytes": 2060024,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-192.jsonl",
+      "bytes": 1716522,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-193.jsonl",
+      "bytes": 2060106,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-194.jsonl",
+      "bytes": 2060103,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-195.jsonl",
+      "bytes": 2059992,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-196.jsonl",
+      "bytes": 2060259,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-197.jsonl",
+      "bytes": 2060168,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-198.jsonl",
+      "bytes": 2060029,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-199.jsonl",
+      "bytes": 1716711,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-2.jsonl",
+      "bytes": 343202,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-20.jsonl",
+      "bytes": 171653,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-200.jsonl",
+      "bytes": 1716624,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-201.jsonl",
+      "bytes": 2060157,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-202.jsonl",
+      "bytes": 2059674,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-203.jsonl",
+      "bytes": 2231850,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-204.jsonl",
+      "bytes": 2231593,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-205.jsonl",
+      "bytes": 1888396,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-206.jsonl",
+      "bytes": 2060233,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-207.jsonl",
+      "bytes": 2059903,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-208.jsonl",
+      "bytes": 2403373,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-209.jsonl",
+      "bytes": 1888260,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-21.jsonl",
+      "bytes": 171650,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-210.jsonl",
+      "bytes": 2059955,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-211.jsonl",
+      "bytes": 1888324,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-212.jsonl",
+      "bytes": 1545061,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-213.jsonl",
+      "bytes": 1888296,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-214.jsonl",
+      "bytes": 1888171,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-215.jsonl",
+      "bytes": 1888701,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-216.jsonl",
+      "bytes": 2231773,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-217.jsonl",
+      "bytes": 2059993,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-218.jsonl",
+      "bytes": 1888352,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-219.jsonl",
+      "bytes": 1716816,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-22.jsonl",
+      "bytes": 171602,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-220.jsonl",
+      "bytes": 2231365,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-221.jsonl",
+      "bytes": 2060042,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-222.jsonl",
+      "bytes": 1888435,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-223.jsonl",
+      "bytes": 2231780,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-224.jsonl",
+      "bytes": 1888738,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-225.jsonl",
+      "bytes": 1373088,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-226.jsonl",
+      "bytes": 2060238,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-227.jsonl",
+      "bytes": 1888328,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-228.jsonl",
+      "bytes": 1888108,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-229.jsonl",
+      "bytes": 1888616,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-23.jsonl",
+      "bytes": 171700,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-230.jsonl",
+      "bytes": 2059964,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-231.jsonl",
+      "bytes": 1888500,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-232.jsonl",
+      "bytes": 1544942,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-233.jsonl",
+      "bytes": 2059678,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-234.jsonl",
+      "bytes": 1373437,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-235.jsonl",
+      "bytes": 1716784,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-236.jsonl",
+      "bytes": 1373186,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-237.jsonl",
+      "bytes": 1888205,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-238.jsonl",
+      "bytes": 1716730,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-239.jsonl",
+      "bytes": 1888552,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-24.jsonl",
+      "bytes": 171593,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-240.jsonl",
+      "bytes": 2060141,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-241.jsonl",
+      "bytes": 2059852,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-242.jsonl",
+      "bytes": 2059819,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-243.jsonl",
+      "bytes": 2060130,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-244.jsonl",
+      "bytes": 1716657,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-245.jsonl",
+      "bytes": 1544935,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-246.jsonl",
+      "bytes": 2060174,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-247.jsonl",
+      "bytes": 2060257,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-248.jsonl",
+      "bytes": 2060241,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-249.jsonl",
+      "bytes": 1888403,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-25.jsonl",
+      "bytes": 171664,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-250.jsonl",
+      "bytes": 2231832,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-251.jsonl",
+      "bytes": 1888302,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-252.jsonl",
+      "bytes": 1716747,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-253.jsonl",
+      "bytes": 2231547,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-254.jsonl",
+      "bytes": 1373426,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-26.jsonl",
+      "bytes": 171752,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-27.jsonl",
+      "bytes": 171740,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-28.jsonl",
+      "bytes": 171665,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-29.jsonl",
+      "bytes": 171722,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-3.jsonl",
+      "bytes": 343329,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-30.jsonl",
+      "bytes": 171666,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-31.jsonl",
+      "bytes": 171690,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-32.jsonl",
+      "bytes": 171689,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-33.jsonl",
+      "bytes": 171690,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-34.jsonl",
+      "bytes": 171651,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-35.jsonl",
+      "bytes": 171655,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-36.jsonl",
+      "bytes": 171582,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-37.jsonl",
+      "bytes": 171656,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-38.jsonl",
+      "bytes": 171631,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-39.jsonl",
+      "bytes": 171613,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-4.jsonl",
+      "bytes": 171696,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-40.jsonl",
+      "bytes": 171690,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-41.jsonl",
+      "bytes": 171639,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-42.jsonl",
+      "bytes": 171740,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-43.jsonl",
+      "bytes": 171693,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-44.jsonl",
+      "bytes": 171718,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-45.jsonl",
+      "bytes": 171737,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-46.jsonl",
+      "bytes": 171577,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-47.jsonl",
+      "bytes": 171718,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-48.jsonl",
+      "bytes": 171657,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-49.jsonl",
+      "bytes": 171720,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-5.jsonl",
+      "bytes": 171627,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-50.jsonl",
+      "bytes": 171684,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-51.jsonl",
+      "bytes": 171607,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-52.jsonl",
+      "bytes": 171634,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-53.jsonl",
+      "bytes": 171616,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-54.jsonl",
+      "bytes": 171703,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-55.jsonl",
+      "bytes": 171644,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-56.jsonl",
+      "bytes": 171706,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-57.jsonl",
+      "bytes": 171680,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-58.jsonl",
+      "bytes": 171686,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-59.jsonl",
+      "bytes": 171608,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-6.jsonl",
+      "bytes": 171640,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-60.jsonl",
+      "bytes": 171745,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-61.jsonl",
+      "bytes": 171705,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-62.jsonl",
+      "bytes": 171661,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-63.jsonl",
+      "bytes": 171733,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-64.jsonl",
+      "bytes": 171671,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-65.jsonl",
+      "bytes": 171670,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-66.jsonl",
+      "bytes": 171704,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-67.jsonl",
+      "bytes": 171689,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-68.jsonl",
+      "bytes": 171670,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-69.jsonl",
+      "bytes": 171695,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-7.jsonl",
+      "bytes": 171767,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-70.jsonl",
+      "bytes": 171619,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-71.jsonl",
+      "bytes": 171645,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-72.jsonl",
+      "bytes": 171665,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-73.jsonl",
+      "bytes": 171624,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-74.jsonl",
+      "bytes": 171613,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-75.jsonl",
+      "bytes": 171690,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-76.jsonl",
+      "bytes": 1201351,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-77.jsonl",
+      "bytes": 2060160,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-78.jsonl",
+      "bytes": 2231410,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-79.jsonl",
+      "bytes": 1888306,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-8.jsonl",
+      "bytes": 171605,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-80.jsonl",
+      "bytes": 1888400,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-81.jsonl",
+      "bytes": 1888321,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-82.jsonl",
+      "bytes": 1545247,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-83.jsonl",
+      "bytes": 1888490,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-84.jsonl",
+      "bytes": 2231934,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-85.jsonl",
+      "bytes": 2231498,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-86.jsonl",
+      "bytes": 1888079,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-87.jsonl",
+      "bytes": 2231701,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-88.jsonl",
+      "bytes": 2231549,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-89.jsonl",
+      "bytes": 2060026,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-9.jsonl",
+      "bytes": 171632,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-90.jsonl",
+      "bytes": 2060178,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-91.jsonl",
+      "bytes": 2060153,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-92.jsonl",
+      "bytes": 1373433,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-93.jsonl",
+      "bytes": 2231819,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-94.jsonl",
+      "bytes": 2060333,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-95.jsonl",
+      "bytes": 2231604,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-96.jsonl",
+      "bytes": 2231677,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-97.jsonl",
+      "bytes": 2403476,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-98.jsonl",
+      "bytes": 2059865,
+      "replication": 1
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-99.jsonl",
+      "bytes": 1373114,
+      "replication": 1
+    }
+  ],
+  "schemas": {
+    "movie_contract": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "movieId",
+          "type": "long",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "genres",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "releaseYear",
+          "type": "integer",
+          "nullable": true,
+          "metadata": {}
+        }
+      ]
+    },
+    "log_contract": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "eventId",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "userId",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "sessionId",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "movieId",
+          "type": "long",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "timestamp",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "watchDuration",
+          "type": "long",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "sequenceNumber",
+          "type": "long",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "runId",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "isSynthetic",
+          "type": "boolean",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "simulatedMovieDuration",
+          "type": "long",
+          "nullable": false,
+          "metadata": {}
+        },
+        {
+          "name": "durationSource",
+          "type": "string",
+          "nullable": false,
+          "metadata": {}
+        }
+      ]
+    },
+    "movies_read": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "movieId",
+          "type": "long",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "genres",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "releaseYear",
+          "type": "integer",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "_corrupt_record",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        }
+      ]
+    },
+    "logs_read": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "eventId",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "userId",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "sessionId",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "movieId",
+          "type": "long",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "timestamp",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "watchDuration",
+          "type": "long",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "sequenceNumber",
+          "type": "long",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "runId",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "isSynthetic",
+          "type": "boolean",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "simulatedMovieDuration",
+          "type": "long",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "durationSource",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        },
+        {
+          "name": "_corrupt_record",
+          "type": "string",
+          "nullable": true,
+          "metadata": {}
+        }
+      ]
+    },
+    "eventTime_type": "timestamp"
+  },
+  "observed_movies_files": [
+    "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv"
+  ],
+  "observed_log_files": [
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-97.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-208.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-250.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-189.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-203.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-223.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-130.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-84.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-129.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-187.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-95.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-160.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-87.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-162.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-157.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-216.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-96.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-183.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-177.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-93.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-150.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-94.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-246.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-85.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-116.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-206.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-226.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-88.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-196.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-90.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-253.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-155.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-77.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-247.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-165.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-148.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-144.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-204.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-78.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-220.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-248.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-197.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-193.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-198.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-243.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-133.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-89.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-91.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-163.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-240.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-174.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-153.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-191.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-180.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-201.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-194.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-190.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-127.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-175.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-124.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-195.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-156.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-221.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-217.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-242.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-230.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-210.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-159.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-229.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-141.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-239.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-188.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-98.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-233.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-132.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-202.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-215.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-131.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-241.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-224.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-154.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-149.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-207.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-115.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-161.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-128.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-231.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-179.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-126.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-140.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-79.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-178.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-83.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-182.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-211.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-81.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-143.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-251.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-222.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-184.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-205.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-218.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-227.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-249.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-158.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-213.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-80.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-135.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-186.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-125.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-238.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-171.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-136.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-185.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-164.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-146.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-142.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-252.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-199.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-244.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-176.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-152.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-209.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-237.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-168.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-134.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-219.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-235.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-214.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-228.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-86.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-192.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-245.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-200.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-181.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-147.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-117.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-137.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-170.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-121.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-212.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-119.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-138.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-82.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-151.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-139.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-169.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-232.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-145.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-118.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-123.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-173.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-166.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-122.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-114.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-109.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-113.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-111.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-105.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-101.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-92.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-99.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-76.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-110.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-106.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-104.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-234.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-167.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-112.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-108.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-107.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-103.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-254.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-120.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-100.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-172.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-102.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-236.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-225.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-2.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-7.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-19.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-60.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-45.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-29.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-17.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-31.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-27.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-49.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-54.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-69.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-75.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-3.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-26.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-56.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-14.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-11.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-66.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-16.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-44.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-61.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-63.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-4.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-43.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-40.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-1.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-42.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-47.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-23.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-33.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-48.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-32.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-67.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-57.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-25.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-52.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-12.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-37.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-35.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-34.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-21.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-9.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-38.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-50.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-68.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-20.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-6.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-30.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-10.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-71.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-65.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-55.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-41.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-58.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-28.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-72.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-18.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-15.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-64.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-62.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-13.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-59.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-70.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-53.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-51.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-22.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-46.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-5.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-24.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-39.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-73.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-8.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-36.jsonl",
+    "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-74.jsonl"
+  ],
+  "expected_movies": 9742,
+  "expected_logs": 1000000,
+  "movies": {
+    "rows": 9742,
+    "unique_ids": 9742,
+    "releaseYear_null_allowed": 13
+  },
+  "logs": {
+    "rows": 1000000,
+    "unique_event_ids": 1000000,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z",
+    "watch_seconds": 1458785357,
+    "materialized_payload_characters": 342339148
+  },
+  "actions": {
+    "complete": 141907,
+    "stop": 116021,
+    "play": 348474,
+    "pause": 90546,
+    "view": 303052
+  },
+  "errors": {
+    "movie_required_null": 0,
+    "movie_empty_title_or_genres": 0,
+    "movie_invalid_id_or_year": 0,
+    "movie_malformed_csv": 0,
+    "movie_duplicate_ids": 0,
+    "log_required_null": 0,
+    "log_empty_identity": 0,
+    "log_malformed_json": 0,
+    "log_timestamp_parse": 0,
+    "log_timestamp_range": 0,
+    "log_action": 0,
+    "log_duration": 0,
+    "log_integer_ranges": 0,
+    "log_provenance": 0,
+    "log_duplicate_ids": 0,
+    "log_conflicting_ids": 0,
+    "orphan_movie_events": 0,
+    "movie_count_mismatch": 0,
+    "log_count_mismatch": 0,
+    "join_key_type_mismatch": 0,
+    "session_sequence_or_time": 0,
+    "session_segment_duration": 0,
+    "session_identity": 0
+  },
+  "examples": {},
+  "timestamp_timezone": "UTC",
+  "local_fallback": false,
+  "finished_at_utc": "2026-10-12T14:30:50.988537+00:00"
+}

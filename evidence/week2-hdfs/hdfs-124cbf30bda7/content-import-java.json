@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "started_at_utc": "2026-10-12T14:22:59.542450+00:00",
+  "hdfs_run_id": "hdfs-124cbf30bda7",
+  "flume_run_id": "run-f63c810e9d8d",
+  "source_manifest_sha256": "fdb4c551c34b412a5af3480191d0fb975c64fd43b5a5b80401ea0b0fabd959de",
+  "stage": "HDFS_BYTE_VERIFICATION",
+  "files": [],
+  "note": "Every remote byte is hashed. Independent record counts and schema QA are checked by spark_hdfs_validate.py.",
+  "source_hashes": {
+    "scripts/hdfs_spark_import.py": "52c5d7afe2fc01486f5128c1f4180dc827c50b72b6e13c487be5732de991a3cc",
+    "scripts/hdfs_common.py": "a0fad9d1dbc2df51bc728cc20a7146572fc2c7790bdc9c376dc62a71ea205839"
+  },
+  "error": "'PosixPath' object has no attribute 'is_relative_to'",
+  "finished_at_utc": "2026-10-12T14:22:59.575403+00:00"
+}

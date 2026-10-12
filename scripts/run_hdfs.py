@@ -2,6 +2,7 @@
 import argparse
 import json
 import os
+import shutil
 import time
 import uuid
 from pathlib import Path
@@ -19,7 +20,7 @@ def run(a):
     evidence.mkdir(parents=True)
     project='movie-'+run_id
     context={'run_id':run_id,'project':project,'evidence':evidence.relative_to(ROOT).as_posix(),
-        'audit':a.audit_dir,'started_at_utc':utcnow(),'ui_url':'http://127.0.0.1:19870',
+        'audit':a.audit_dir,'flume_run_id':a.flume_run_id,'started_at_utc':utcnow(),'ui_url':'http://127.0.0.1:19870',
         'configuration_hashes':{name:sha256(ROOT/name) for name in FILES}}
     new_json(evidence/'context.json',context)
     new_json(ROOT/a.audit_dir/'run-context.json',context)
@@ -28,11 +29,17 @@ def run(a):
     state={'runtime':'CHƯA THỂ XÁC MINH','upload':'CHƯA THỂ XÁC MINH','content':'CHƯA THỂ XÁC MINH',
            'spark':'CHƯA THỂ XÁC MINH','e2e':'CHƯA THỂ XÁC MINH'}
     try:
-        source_manifest(run_id,evidence)
+        source_manifest(run_id,evidence,a.flume_run_id)
+        if shutil.which('docker') is None:
+            raise FileNotFoundError('Docker CLI not found in PATH; HDFS runtime not started')
         ledger.command(['docker','version'],'docker-version')
         ledger.command(['docker','compose','version'],'compose-version')
         ledger.command(['docker','context','show'],'context')
-        ledger.command(['docker','image','inspect','apache/hadoop:3.3.6','apache/spark:3.5.1'],'images')
+        image_args=['docker','image','inspect','apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144','apache/spark:3.5.1']
+        code,_,_=ledger.command(image_args,'images',False)
+        if code:
+            ledger.command(base+['--profile','spark','pull','namenode','datanode','spark'],'pull-required-images')
+            ledger.command(image_args,'images-after-pull')
         for volume in ['namenode','datanode']:
             code,_,_=ledger.command(['docker','volume','inspect',project+'_'+volume],'new-volume-'+volume,False)
             if code==0:raise ValueError('Volume already exists; refusing reuse')
@@ -58,14 +65,16 @@ def run(a):
         state['runtime']='ĐẠT'
     except Exception as exc:
         state['reason']=str(exc)
+        state['error_kind']='ENVIRONMENT' if isinstance(exc,FileNotFoundError) and shutil.which('docker') is None else 'VALIDATION_OR_RUNTIME'
         try:ledger.command(base+['logs','--timestamps','--no-color'],'logs-failure',False)
         except Exception:pass
     state.update(finished_at_utc=utcnow(),run_id=run_id,project=project)
     new_json(evidence/'runtime_status.json',state)
-    print(json.dumps({'context':context,'status':state},ensure_ascii=False,indent=2))
+    print(json.dumps({'context':context,'status':state},ensure_ascii=True,indent=2))
     return 0 if state['runtime']=='ĐẠT' else 1
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--audit-dir',required=True)
+    p.add_argument('--flume-run-id',required=True,help='Explicit PASS Flume Sink run; no generated-input fallback')
     raise SystemExit(run(p.parse_args()))

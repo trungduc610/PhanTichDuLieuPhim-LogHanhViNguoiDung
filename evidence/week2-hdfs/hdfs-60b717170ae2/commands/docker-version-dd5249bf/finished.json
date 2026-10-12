@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "docker",
+    "version"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-12T14:02:34.236004+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-60b717170ae2",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-hdfs\\hdfs-60b717170ae2\\commands\\docker-version-dd5249bf\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-hdfs\\hdfs-60b717170ae2\\commands\\docker-version-dd5249bf\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-12T14:02:34.446719+00:00"
+}

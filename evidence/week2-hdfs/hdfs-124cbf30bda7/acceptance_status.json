@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "run_id": "hdfs-124cbf30bda7",
+  "flume_run_id": "run-f63c810e9d8d",
+  "checked_at_utc": "2026-10-12T14:34:57.749910+00:00",
+  "checks": {
+    "namenode_running": true,
+    "datanode_running": true,
+    "live_datanode": true,
+    "safe_mode_off": true,
+    "fsck_healthy": true,
+    "directories_exist": true,
+    "upload_byte_verification": true,
+    "repeat_upload_all_skipped": true,
+    "independent_remote_hashes": true,
+    "spark_hdfs": true,
+    "processed_results_probe": true,
+    "unit_tests": true,
+    "required_log4j_hash": true
+  },
+  "stages": {
+    "runtime": "ĐẠT",
+    "upload": "ĐẠT",
+    "content": "ĐẠT",
+    "spark": "ĐẠT",
+    "e2e": "ĐẠT"
+  },
+  "reports": [
+    "source_manifest.json",
+    "live-runtime.json",
+    "content-import-java-v2.json",
+    "upload-repeat-java.json",
+    "spark-hdfs-fixed.json",
+    "hdfs-hashes-fixed.json",
+    "scope-probe-verification.json",
+    "unit-tests-with-java.json"
+  ]
+}

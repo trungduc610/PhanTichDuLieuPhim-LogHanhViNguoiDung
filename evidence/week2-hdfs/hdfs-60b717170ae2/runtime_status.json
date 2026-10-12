@@ -1,0 +1,12 @@
+{
+  "runtime": "CHƯA THỂ XÁC MINH",
+  "upload": "CHƯA THỂ XÁC MINH",
+  "content": "CHƯA THỂ XÁC MINH",
+  "spark": "CHƯA THỂ XÁC MINH",
+  "e2e": "CHƯA THỂ XÁC MINH",
+  "reason": "images exit 1; see D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-hdfs\\hdfs-60b717170ae2\\commands\\images-4436e9d9",
+  "error_kind": "VALIDATION_OR_RUNTIME",
+  "finished_at_utc": "2026-10-12T14:02:42.560260+00:00",
+  "run_id": "hdfs-60b717170ae2",
+  "project": "movie-hdfs-60b717170ae2"
+}

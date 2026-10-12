@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "fixture_only": true,
+  "paths": [
+    "/movie-log/processed/_tv1_verifier_probe/hdfs-124cbf30bda7/fixture-only.txt",
+    "/movie-log/results/_tv1_verifier_probe/hdfs-124cbf30bda7/fixture-only.txt"
+  ],
+  "byte_verifier_report": "evidence/week2-hdfs/hdfs-124cbf30bda7/hdfs-hashes-fixed.json",
+  "exit_code": 0,
+  "note": "These new zero-byte fixtures are test artifacts, not TV2 output. Raw hash verification ran while both files existed."
+}

@@ -1,0 +1,24 @@
+test_extra_nested_file_and_missing_snapshot_file_detected (test_hdfs_integration.NamespaceTests.test_extra_nested_file_and_missing_snapshot_file_detected) ... ok
+test_local_uri_wrong_namespace_and_traversal_rejected (test_hdfs_integration.NamespaceTests.test_local_uri_wrong_namespace_and_traversal_rejected) ... ok
+test_processed_results_and_other_snapshots_do_not_fail (test_hdfs_integration.NamespaceTests.test_processed_results_and_other_snapshots_do_not_fail) ... ok
+test_bad_reconciliation_or_non_pass_rejected (test_hdfs_integration.SourceTests.test_bad_reconciliation_or_non_pass_rejected) ... ok
+test_changed_sink_or_file_list_rejected (test_hdfs_integration.SourceTests.test_changed_sink_or_file_list_rejected) ... ok
+test_config_hash_and_required_log4j_hash_enforced (test_hdfs_integration.SourceTests.test_config_hash_and_required_log4j_hash_enforced) ... ok
+test_input_hash_enforced (test_hdfs_integration.SourceTests.test_input_hash_enforced) ... ok
+test_legacy_run_dynamic_parts_and_sink_only (test_hdfs_integration.SourceTests.test_legacy_run_dynamic_parts_and_sink_only) ... ok
+test_missing_sink_never_falls_back_to_generated (test_hdfs_integration.SourceTests.test_missing_sink_never_falls_back_to_generated) ... ok
+test_modern_source_hashes_still_enforced (test_hdfs_integration.SourceTests.test_modern_source_hashes_still_enforced) ... ok
+test_windows_evidence_paths_are_portable (test_hdfs_integration.SourceTests.test_windows_evidence_paths_are_portable) ... ok
+test_existence_error_does_not_attempt_upload (test_hdfs_integration.UploadTests.test_existence_error_does_not_attempt_upload) ... ok
+test_partial_upload_resumes_missing_file (test_hdfs_integration.UploadTests.test_partial_upload_resumes_missing_file) ... ok
+test_remote_fingerprint_hashes_binary_bytes (test_hdfs_integration.UploadTests.test_remote_fingerprint_hashes_binary_bytes) ... ok
+test_same_size_wrong_hash_refuses_overwrite (test_hdfs_integration.UploadTests.test_same_size_wrong_hash_refuses_overwrite) ... ok
+test_second_upload_skips_verified_existing_content (test_hdfs_integration.UploadTests.test_second_upload_skips_verified_existing_content) ... ok
+test_any_storage_property_change_is_detected (test_hdfs_properties.StoragePropertiesTests.test_any_storage_property_change_is_detected) ... ok
+test_duplicate_storage_property_is_rejected (test_hdfs_properties.StoragePropertiesTests.test_duplicate_storage_property_is_rejected) ... ok
+test_timestamp_comment_is_not_storage_identity (test_hdfs_properties.StoragePropertiesTests.test_timestamp_comment_is_not_storage_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.400s
+
+OK

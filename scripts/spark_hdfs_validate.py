@@ -9,7 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 sys.path.insert(0,str(ROOT))
 from common import sha256,utcnow
-from hdfs_common import new_json
+from hdfs_common import new_json,snapshot_namespaces,snapshot_file_diff
 from src.schemas import MOVIE_SCHEMA,USER_LOG_SCHEMA
 from spark_smoke_test import validate_frames
 from pyspark import __version__ as pyspark_version
@@ -30,6 +30,7 @@ def main():
     for uri in [source['movies_uri'],source['logs_uri']]:
         if not uri.startswith(source['authority']+'/movie-log/raw/'):
             raise ValueError('Must read the verified HDFS namespace, never local files')
+    namespaces=snapshot_namespaces(source)
     spark=None
     result={'status':'FAIL','started_at_utc':utcnow(),'hdfs_run_id':source['hdfs_run_id'],
        'flume_run_id':source['flume_run_id'],'movies_uri':source['movies_uri'],'logs_uri':source['logs_uri'],
@@ -51,6 +52,8 @@ def main():
             'master':spark.sparkContext.master,'fs_defaultFS':conf.get('fs.defaultFS'),
             'actual_filesystem_uri':fs.getUri().toString(),'filesystem_class':fs.getClass().getName(),
             'timestamp_timezone':spark.conf.get('spark.sql.session.timeZone')}
+        if fs.getClass().getName()!='org.apache.hadoop.hdfs.DistributedFileSystem':
+            raise ValueError('Refuses a non-HDFS filesystem')
         result['basic_action_count']=spark.range(5).count()
         if result['basic_action_count']!=5:raise ValueError('Basic Spark action failed')
         # JVM HDFS status is also checked; input list excludes no files, even empty parts.
@@ -61,10 +64,13 @@ def main():
             if not status.isFile() or status.getLen()!=record['bytes']:
                 raise ValueError('HDFS file status changed: '+record['hdfs_path'])
             seen.append({'uri':status.getPath().toString(),'bytes':status.getLen(),'replication':status.getReplication()})
-        statuses=fs.listStatus(jvm.org.apache.hadoop.fs.Path(source['logs_uri']))
+        listed=set()
+        for namespace in namespaces:
+            iterator=fs.listFiles(jvm.org.apache.hadoop.fs.Path(namespace),True)
+            while iterator.hasNext():listed.add(iterator.next().getPath().toUri().getPath())
+        missing,unexpected=snapshot_file_diff(source,listed)
+        if missing or unexpected:raise ValueError('HDFS raw snapshot file list changed')
         expected={source['authority']+f['hdfs_path'] for f in source['files'] if f['kind']=='logs'}
-        actual={s.getPath().toString() for s in statuses if s.isFile()}
-        if actual!=expected:raise ValueError('HDFS log directory file list changed')
         result['hdfs_status_files']=seen
         movie_schema=StructType(list(MOVIE_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])
         log_schema=StructType(list(USER_LOG_SCHEMA.fields)+[StructField('_corrupt_record',StringType(),True)])

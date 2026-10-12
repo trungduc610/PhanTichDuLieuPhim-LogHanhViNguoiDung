@@ -7,16 +7,74 @@ import json
 import subprocess
 from pathlib import Path
 from common import sha256,utcnow,parse_time
-from hdfs_common import ROOT,Ledger,new_json,compose
+from hdfs_common import ROOT,Ledger,new_json,compose,snapshot_namespaces,snapshot_file_diff
 from validate_pipeline import REQUIRED
+
+
+def remote_fingerprint(ledger, base, record):
+    """Hash actual remote bytes before skipping an existing destination."""
+    argv = base + ['dfs', '-cat', record['hdfs_path']]
+    folder, command = ledger.start(argv, 'hash-existing-' + Path(record['hdfs_path']).name)
+    digest = hashlib.sha256()
+    size = 0
+    with (folder / 'stderr.txt').open('xb') as err:
+        proc = subprocess.Popen(argv, cwd=ROOT, env=ledger.env, stdout=subprocess.PIPE, stderr=err)
+        try:
+            for block in iter(lambda: proc.stdout.read(1024 * 1024), b''):
+                digest.update(block)
+                size += len(block)
+        finally:
+            proc.stdout.close()
+        code = proc.wait()
+    command.update(exit_code=code, finished_at_utc=utcnow(), stdout=None,
+                   stdout_capture='Binary stdout streamed into SHA256; no newline conversion',
+                   stdout_sha256=digest.hexdigest(), stdout_bytes=size)
+    new_json(folder / 'finished.json', command)
+    if code:
+        raise RuntimeError('Cannot verify existing HDFS file: ' + record['hdfs_path'])
+    return size, digest.hexdigest()
+
+
+def upload_files(ledger, base, source):
+    actions = []
+    ledger.command(base + ['dfs', '-mkdir', '-p', *source['directories']], 'mkdir-namespace')
+    for record in source['files']:
+        code, _, folder = ledger.command(base + ['dfs', '-test', '-e', record['hdfs_path']], 'test-target', False)
+        if code == 0:
+            size, digest = remote_fingerprint(ledger, base, record)
+            if size != record['bytes'] or digest != record['sha256']:
+                raise ValueError('Existing HDFS content differs; refusing overwrite: ' + record['hdfs_path'])
+            action = 'SKIP_VERIFIED'
+        elif code == 1 and not (folder / 'stderr.txt').read_text(encoding='utf-8', errors='replace').strip():
+            ledger.command(base + ['dfs', '-put', '/project/' + record['local_path'], record['hdfs_path']],
+                           'put-' + Path(record['local_path']).name)
+            action = 'UPLOADED'
+        else:
+            raise RuntimeError('Cannot determine whether HDFS target exists: ' + record['hdfs_path'])
+        actions.append({'hdfs_path': record['hdfs_path'], 'action': action})
+    return actions
+
 
 def execute(a):
     context=json.loads(Path(a.context).read_text(encoding='utf-8'))
     evidence=ROOT/context['evidence']
     source=json.loads((evidence/'source_manifest.json').read_text(encoding='utf-8'))
+    namespaces=snapshot_namespaces(source)
     target=evidence/(a.label+'.json')
     if target.exists():raise FileExistsError(target)
     ledger=Ledger(evidence,{'HDFS_RUN_ID':context['run_id']})
+    if getattr(a,'client','cli')=='spark':
+        argv=compose(context['project'])+['--profile','spark','run','--rm','--no-deps','spark','--driver-memory','1g',
+             'scripts/hdfs_spark_import.py','--source-manifest',(evidence/'source_manifest.json').relative_to(ROOT).as_posix(),
+             '--report',target.relative_to(ROOT).as_posix()]
+        if a.upload:argv.append('--upload')
+        code,text,_=ledger.command(argv,'java-client-'+a.label,False)
+        if code==0 and a.upload:
+            receipt=json.loads(target.read_text(encoding='utf-8'))
+            new_json(evidence/(a.label+'-upload.json'),receipt)
+            if not (evidence/'upload_status.json').exists():new_json(evidence/'upload_status.json',receipt)
+        print(text)
+        return code
     base=compose(context['project'])+['exec','-T','namenode','hdfs']
     result={'status':'FAIL','started_at_utc':utcnow(),'hdfs_run_id':context['run_id'],
        'source_manifest_sha256':sha256(evidence/'source_manifest.json'),
@@ -29,30 +87,35 @@ def execute(a):
                 local=ROOT/record['local_path']
                 if sha256(local)!=record['sha256'] or local.stat().st_size!=record['bytes']:
                     raise ValueError('Local source changed before upload: '+record['local_path'])
-            ledger.command(base+['dfs','-mkdir','-p',*source['directories']],'mkdir-namespace')
-            for record in source['files']:
-                code,_,_=ledger.command(base+['dfs','-test','-e',record['hdfs_path']],'refuse-existing-target',False)
-                if code==0:raise FileExistsError(record['hdfs_path'])
-                ledger.command(base+['dfs','-put','/project/'+record['local_path'],record['hdfs_path']],'put-'+Path(record['local_path']).name)
-            new_json(evidence/'upload_status.json',{'status':'ĐẠT','finished_at_utc':utcnow(),'files':len(source['files']),
-               'source_manifest_sha256':sha256(evidence/'source_manifest.json'),'note':'Upload is complete; content verification is a separate stage.'})
-        _,listing,_=ledger.command(base+['dfs','-ls','-R','/movie-log'],'list-namespace')
+            actions=upload_files(ledger,base,source)
+            receipt={'status':'PASS','finished_at_utc':utcnow(),'files':len(source['files']),
+                'uploaded':sum(item['action']=='UPLOADED' for item in actions),
+                'skipped_verified':sum(item['action']=='SKIP_VERIFIED' for item in actions),
+                'actions':actions,'source_manifest_sha256':sha256(evidence/'source_manifest.json'),
+                'note':'Existing files skipped only after matching actual remote bytes and size/SHA256.'}
+            new_json(evidence/(a.label+'-upload.json'),receipt)
+            if not (evidence/'upload_status.json').exists():new_json(evidence/'upload_status.json',receipt)
+            result['upload']=receipt
+        _,listing,_=ledger.command(base+['dfs','-ls','-R',*namespaces],'list-namespace')
         listed={}
         for line in listing.splitlines():
             fields=line.split(None,7)
             if line.startswith('-') and len(fields)==8:
                 listed[fields[7]]={'bytes':int(fields[4]),'replication':int(fields[1])}
         expected={record['hdfs_path']:record for record in source['files']}
-        result['missing_files']=sorted(set(expected)-set(listed))
-        result['unexpected_files']=sorted(set(listed)-set(expected))
+        result['missing_files'],result['unexpected_files']=snapshot_file_diff(source,listed)
         if result['missing_files'] or result['unexpected_files']:
             raise ValueError('HDFS file list differs from source manifest')
-        ledger.command(base+['dfs','-du','-s','/movie-log/raw'],'du-raw')
+        ledger.command(base+['dfs','-du','-s',*namespaces],'du-raw')
         _,admin,_=ledger.command(base+['dfsadmin','-report'],'dfsadmin-report')
         _,safe,_=ledger.command(base+['dfsadmin','-safemode','get'],'safe-mode')
-        _,fsck,_=ledger.command(base+['fsck','/movie-log','-files','-blocks','-locations'],'fsck-files-blocks')
+        fsck_checks=[]
+        for index,namespace in enumerate(namespaces):
+            _,text,_=ledger.command(base+['fsck',namespace,'-files','-blocks','-locations'],f'fsck-snapshot-{index}')
+            fsck_checks.append(text)
+        fsck='\n'.join(fsck_checks)
         result.update(live_datanodes='Live datanodes (1)' in admin,safe_mode_off='Safe mode is OFF' in safe,
-                      fsck_healthy='is HEALTHY' in fsck,fsck_log=fsck)
+                      fsck_healthy=all('is HEALTHY' in text for text in fsck_checks),fsck_log=fsck)
         if not result['live_datanodes'] or not result['safe_mode_off'] or not result['fsck_healthy']:
             raise ValueError('HDFS is not healthy/outside safe mode with one live DataNode')
         totals={'movies':0,'logs':0,'log_bytes':0,'duplicate_ids':0,'invalid_records':0}
@@ -119,12 +182,13 @@ def execute(a):
         result['error']=str(exc)
     result['finished_at_utc']=utcnow()
     new_json(target,result)
-    print(json.dumps({key:value for key,value in result.items() if key not in ['files','fsck_log']},ensure_ascii=False,indent=2))
+    print(json.dumps({key:value for key,value in result.items() if key not in ['files','fsck_log']},ensure_ascii=True,indent=2))
     return 0 if result['status']=='PASS' else 1
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--context',required=True)
     p.add_argument('--upload',action='store_true')
+    p.add_argument('--client',choices=['cli','spark'],default='cli',help='spark reuses one JVM for large multi-part snapshots')
     p.add_argument('--label',required=True,help='NEW verification report name')
     raise SystemExit(execute(p.parse_args()))

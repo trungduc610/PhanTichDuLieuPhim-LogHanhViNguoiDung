@@ -1,32 +1,33 @@
-# Kiến trúc hệ thống sau bổ sung HDFS
+# Kiến trúc Tuần 2 với HDFS
 
-Snapshot triển khai: `hdfs-385a18d3f03a`, ngày 12/10/2026. Sơ đồ mô tả đúng đường dữ liệu đã chạy; nhánh nét đứt là công việc tiếp theo.
+Chọn nguồn bằng --flume-run-id, hiện tại run-f63c810e9d8d: reconciliation PASS,
+254 Sink parts, 1.000.000 events. Runner tạo cluster/import ID riêng;
+trạng thái remote phải đọc từ evidence của context hiện tại.
 
 ```mermaid
 flowchart TD
-    M[MovieLens raw và license bảo toàn] --> N[Metadata chuẩn hóa movies.csv]
+    M[MovieLens] --> N[movies.csv: 9742 phim]
     N --> HM[HDFS raw/movies theo snapshot]
-    G[Synthetic behavior logs] --> F[Apache Flume run-aa6b9eb58dca]
-    F --> S[Filesystem Sink thật: 15 parts]
-    S --> U[Import và đối chiếu toàn lô]
-    U --> HL[HDFS raw/user_logs theo run và import]
-    HM --> Q[Spark 3.5.1 đọc hdfs URI và QA toàn lô]
+    G[User Behavior Log] --> F[Apache Flume]
+    F --> S[Local File Roll Sink output]
+    S --> V[Kiểm PASS reconciliation và toàn bộ bytes/hash/count]
+    V --> HL[HDFS raw/user_logs theo Flume run và HDFS import]
+    HM --> Q[Spark/PySpark đọc hdfs URI và QA]
     HL --> Q
-    Q -. bước tiếp theo .-> P[TV2 tiền xử lý và phân tích]
-    P -. ghi tương lai .-> O[HDFS processed và results đã tạo, hiện trống]
-    P -. bước tiếp theo .-> K[K-Means và Dashboard]
+    Q -. công việc tiếp theo .-> P[TV2 preprocessing và analysis]
+    P -. output tương lai .-> O[HDFS processed/results]
+    P -. công việc tiếp theo .-> K[K-Means]
 ```
 
-| Thành phần | Trạng thái trong lượt này | Bằng chứng |
-|---|---|---|
-| MovieLens → normalized metadata | ĐẠT, kế thừa nguồn đã kiểm lại | `source_manifest.json`, metadata SHA256 |
-| Generated → Flume → filesystem Sink | ĐẠT, run Tuần 1 được xác minh lại; không chạy lại main | `evidence/run-aa6b9eb58dca/reconciliation.json` |
-| Import → HDFS | ĐẠT, 1 NameNode + 1 DataNode, replication 1 | `content-import.json`, `content-after-restart.json` |
-| HDFS → Spark QA | ĐẠT, 9.742 phim + 1.000.000 events, mọi nhóm lỗi 0 | `spark-hdfs.json` |
-| Tiền xử lý chuyên sâu/phân tích/K-Means/dashboard | CHƯA THỂ XÁC MINH, thuộc công việc tiếp theo và chưa chạy | Không có kết quả giả định |
+Tuần 1: log → Flume → local Sink → local Spark smoke test.
+Tuần 2: log → Flume → Sink output → HDFS → Spark/PySpark. Metadata vào HDFS
+riêng rồi join movieId. Không upload generated input thay Sink; File Roll Sink
+vẫn ghi local. Import không overwrite; file tồn tại chỉ skip khi size/SHA256 khớp.
+Verifier kiểm hai raw namespaces, không nhầm processed/results hoặc snapshot khác
+thành file thừa.
 
-Metadata và logs gặp nhau ở Spark thông qua LongType movieId; full left anti join hiện không có orphan event. Log là synthetic; simulatedMovieDuration không phải runtime thực tế của MovieLens. Flume chưa được đổi sang HDFS Sink; upload filesystem → HDFS là bước riêng, có source manifest, chống ghi đè và đối chiếu bytes/hash/count.
-
-HDFS URI sử dụng `namenode:9000` và DataNode `datanode` trong network `movie-hdfs-385a18d3f03a_default`. Named volumes cùng project giữ metadata và blocks. UI host là `http://127.0.0.1:19870`; Spark chạy trong cùng network. Một máy, một DataNode, replication 1 không có HA/dự phòng. Chưa nhận xác nhận kiến trúc của nhóm hoặc xác nhận tích hợp TV2; sơ đồ là trạng thái triển khai đã kiểm chứng của TV1.
-
-Tài liệu cấu hình, schema, commands và điều kiện truy cập: [Hợp đồng TV2](week2_tv2_hdfs_handoff.md). Cơ sở lý thuyết và số liệu: [Chương HDFS](week2_tv1_hdfs_report.md).
+NameNode namenode:9000, DataNode datanode:9866, hai named volumes riêng theo
+Compose project; Spark cùng network với Hadoop XML. UI loopback 19870;
+replication 1, không HA/dự phòng. Runner kiểm DataNode live/safe mode OFF.
+Report trong hdfs-385a18d3f03a là lịch sử, không tự chứng minh runtime ở máy này.
+[Commands và hợp đồng HDFS](week2_tv2_hdfs_handoff.md).

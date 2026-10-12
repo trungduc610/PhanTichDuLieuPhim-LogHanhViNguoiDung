@@ -1,0 +1,2 @@
+Deleted /movie-log/processed/_tv1_verifier_probe/hdfs-124cbf30bda7/fixture-only.txt
+Deleted /movie-log/results/_tv1_verifier_probe/hdfs-124cbf30bda7/fixture-only.txt
