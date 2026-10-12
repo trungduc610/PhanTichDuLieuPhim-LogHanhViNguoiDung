@@ -1,0 +1,42 @@
+[
+  {
+    "cluster": 0,
+    "userCount": 237,
+    "avgPlayCount": 436.52742616033754,
+    "avgCompleteCount": 154.20253164556962,
+    "avgTotalWatchDuration": 1612246.894514768,
+    "avgWatchDuration": 3743.7613029045397,
+    "avgDistinctMovies": 317.084388185654,
+    "avgDistinctGenres": 19.772151898734176,
+    "avgSessionCount": 417.0,
+    "avgCompletionRate": 0.48621454431511396,
+    "avgActiveDays": 30.0,
+    "avgEventCount": 1290.054852320675,
+    "minPlayCount": 366,
+    "maxPlayCount": 799,
+    "minTotalWatchDuration": 1489924,
+    "maxTotalWatchDuration": 1805941,
+    "medianTotalWatchDuration": 1606882,
+    "label": "Cluster 0"
+  },
+  {
+    "cluster": 1,
+    "userCount": 763,
+    "avgPlayCount": 321.12319790301444,
+    "avgCompleteCount": 138.0878112712975,
+    "avgTotalWatchDuration": 1411117.749672346,
+    "avgWatchDuration": 4406.714082115263,
+    "avgDistinctMovies": 213.09174311926606,
+    "avgDistinctGenres": 19.562254259501966,
+    "avgSessionCount": 267.65792922673654,
+    "avgCompletionRate": 0.5822182129131404,
+    "avgActiveDays": 30.0,
+    "avgEventCount": 909.9043250327654,
+    "minPlayCount": 264,
+    "maxPlayCount": 379,
+    "minTotalWatchDuration": 1211527,
+    "maxTotalWatchDuration": 1623947,
+    "medianTotalWatchDuration": 1409563,
+    "label": "Cluster 1"
+  }
+]

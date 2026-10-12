@@ -1,0 +1,9 @@
+test_cleaning_and_disjoint_reconciliation (__main__.SparkFixtures) ... ok
+test_features_time_genres_and_resumed_session_rate (__main__.SparkFixtures) ... ok
+test_movie_duplicates_and_allowed_unknown_metadata (__main__.SparkFixtures) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 51.078s
+
+OK
+{"status": "PASS", "fixture_only": true, "fixtures": "In-memory temporary DataFrames, no project/HDFS raw mutations", "started_at_utc": "2026-10-12T15:48:19.150269+00:00", "finished_at_utc": "2026-10-12T15:49:10.216704+00:00", "tests": 3, "failures": [], "errors": []}

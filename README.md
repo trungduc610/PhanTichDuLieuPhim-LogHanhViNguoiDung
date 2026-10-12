@@ -92,3 +92,23 @@ Runner tạo run/project/output/evidence riêng, publish `.tmp` đóng xong rồ
 Data/logs bị Git ignore nhưng thực sự tồn tại local, phải chép cùng source và evidence theo manifest khi bàn giao. Manifest loại spool bản copy, channel, temporary/fixtures, CA public tạm, history không được chọn và chính manifest; scope/exclusions được lưu trong JSON. Bằng chứng FAIL/BLOCKED/PASS cũ và audit cũ giữ nguyên, không dùng thay kết quả hiện tại.
 
 Tài liệu: [dataset](docs/dataset_description.md), [log](docs/log_schema.md), [movie schema](docs/movie_schema.md), [log schema](docs/user_log_schema.md), [Flume](docs/flume_pipeline.md), [kiến trúc](docs/system_architecture.md), [quyết định chờ nhóm](docs/architecture_decision_pending.md), [chất lượng](docs/data_quality_report.md), [bàn giao Tuần 2](docs/week2_handoff.md).
+
+## TV2 Tuần 2 — Spark analysis và K-Means
+
+Run thực thi **tv2-4ed70c10cd84**: **PASS**, đọc HDFS thật; 9.742 movies,
+1.000.000 raw/clean/joined events, 1.000 users. K=2..6 được đo bằng Spark MLlib;
+chọn **K=2**, silhouette **0.6707563871905433**, cluster sizes **237 / 763**.
+Raw snapshot và file TV1 được bảo vệ giữ nguyên hash.
+
+[Báo cáo TV2](docs/week2_tv2_processing_report.md) ·
+[Hướng dẫn chạy TV2](docs/week2_tv2_run_guide.md) ·
+[Evidence PASS](evidence/week2-tv2/tv2-4ed70c10cd84/run_status.json).
+Output Parquet và CSV/JSON đã sẵn sàng cho Dashboard; namespace run và manifest
+được ghi trong evidence. Model đã save/reload trên HDFS và kiểm assignment.
+
+```powershell
+python -B scripts/run_tv2.py --hdfs-context evidence/week2-hdfs/fix-run-f63c810e9d8d-20261012-verified/run-context.json
+```
+
+Runner tạo TV2 run mới; default driver heap 1536m, seed lấy từ event manifest.
+Dùng Python executable thật nếu WindowsApps alias không hoạt động.

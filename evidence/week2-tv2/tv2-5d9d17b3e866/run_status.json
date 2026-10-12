@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "run_id": "tv2-5d9d17b3e866",
+  "evidence": "evidence/week2-tv2/tv2-5d9d17b3e866",
+  "checks": {},
+  "error": "tv2-full-pipeline exit 137; see D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-tv2\\tv2-5d9d17b3e866\\commands\\tv2-full-pipeline-e8e29fc8",
+  "finished_at_utc": "2026-10-12T15:53:02.580962+00:00"
+}

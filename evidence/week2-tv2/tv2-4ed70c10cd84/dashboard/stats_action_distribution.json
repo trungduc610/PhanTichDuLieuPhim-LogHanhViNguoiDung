@@ -1,0 +1,27 @@
+[
+  {
+    "action": "complete",
+    "count": 141907,
+    "percentage": 14.1907
+  },
+  {
+    "action": "pause",
+    "count": 90546,
+    "percentage": 9.0546
+  },
+  {
+    "action": "play",
+    "count": 348474,
+    "percentage": 34.8474
+  },
+  {
+    "action": "stop",
+    "count": 116021,
+    "percentage": 11.6021
+  },
+  {
+    "action": "view",
+    "count": 303052,
+    "percentage": 30.3052
+  }
+]

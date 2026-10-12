@@ -1,0 +1,146 @@
+[
+  {
+    "hour": 0,
+    "eventCount": 28880,
+    "distinctUsers": 1000,
+    "playCount": 8766
+  },
+  {
+    "hour": 1,
+    "eventCount": 30942,
+    "distinctUsers": 1000,
+    "playCount": 9546
+  },
+  {
+    "hour": 2,
+    "eventCount": 29757,
+    "distinctUsers": 1000,
+    "playCount": 10300
+  },
+  {
+    "hour": 3,
+    "eventCount": 27894,
+    "distinctUsers": 1000,
+    "playCount": 10352
+  },
+  {
+    "hour": 4,
+    "eventCount": 27986,
+    "distinctUsers": 1000,
+    "playCount": 9927
+  },
+  {
+    "hour": 5,
+    "eventCount": 24683,
+    "distinctUsers": 1000,
+    "playCount": 8050
+  },
+  {
+    "hour": 6,
+    "eventCount": 42597,
+    "distinctUsers": 1000,
+    "playCount": 16258
+  },
+  {
+    "hour": 7,
+    "eventCount": 40679,
+    "distinctUsers": 1000,
+    "playCount": 14987
+  },
+  {
+    "hour": 8,
+    "eventCount": 41564,
+    "distinctUsers": 1000,
+    "playCount": 14490
+  },
+  {
+    "hour": 9,
+    "eventCount": 42070,
+    "distinctUsers": 1000,
+    "playCount": 14608
+  },
+  {
+    "hour": 10,
+    "eventCount": 41638,
+    "distinctUsers": 1000,
+    "playCount": 14639
+  },
+  {
+    "hour": 11,
+    "eventCount": 42067,
+    "distinctUsers": 1000,
+    "playCount": 14879
+  },
+  {
+    "hour": 12,
+    "eventCount": 41927,
+    "distinctUsers": 1000,
+    "playCount": 14775
+  },
+  {
+    "hour": 13,
+    "eventCount": 41491,
+    "distinctUsers": 1000,
+    "playCount": 14514
+  },
+  {
+    "hour": 14,
+    "eventCount": 41979,
+    "distinctUsers": 1000,
+    "playCount": 14785
+  },
+  {
+    "hour": 15,
+    "eventCount": 42036,
+    "distinctUsers": 1000,
+    "playCount": 14840
+  },
+  {
+    "hour": 16,
+    "eventCount": 42279,
+    "distinctUsers": 1000,
+    "playCount": 14936
+  },
+  {
+    "hour": 17,
+    "eventCount": 40898,
+    "distinctUsers": 1000,
+    "playCount": 14173
+  },
+  {
+    "hour": 18,
+    "eventCount": 36450,
+    "distinctUsers": 1000,
+    "playCount": 11594
+  },
+  {
+    "hour": 19,
+    "eventCount": 62592,
+    "distinctUsers": 1000,
+    "playCount": 22592
+  },
+  {
+    "hour": 20,
+    "eventCount": 55217,
+    "distinctUsers": 1000,
+    "playCount": 18936
+  },
+  {
+    "hour": 21,
+    "eventCount": 54893,
+    "distinctUsers": 1000,
+    "playCount": 18283
+  },
+  {
+    "hour": 22,
+    "eventCount": 55419,
+    "distinctUsers": 1000,
+    "playCount": 18494
+  },
+  {
+    "hour": 23,
+    "eventCount": 64062,
+    "distinctUsers": 1000,
+    "playCount": 23750
+  }
+]

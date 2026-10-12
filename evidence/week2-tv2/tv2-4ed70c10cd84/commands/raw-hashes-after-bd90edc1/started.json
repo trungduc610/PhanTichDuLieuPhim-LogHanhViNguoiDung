@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-f",
+    "compose.tv2.yaml",
+    "-p",
+    "movie-hdfs-124cbf30bda7",
+    "--profile",
+    "spark",
+    "run",
+    "--rm",
+    "--no-deps",
+    "spark",
+    "--driver-memory",
+    "1g",
+    "scripts/hdfs_hash_verify.py",
+    "--source-manifest",
+    "evidence/week2-tv2/tv2-4ed70c10cd84/source_manifest.json",
+    "--report",
+    "evidence/week2-tv2/tv2-4ed70c10cd84/raw-after.json"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-12T16:05:39.528726+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-tv2\\tv2-4ed70c10cd84\\commands\\raw-hashes-after-bd90edc1\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-tv2\\tv2-4ed70c10cd84\\commands\\raw-hashes-after-bd90edc1\\stderr.txt"
+}

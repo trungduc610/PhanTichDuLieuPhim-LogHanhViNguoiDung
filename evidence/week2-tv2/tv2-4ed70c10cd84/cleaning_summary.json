@@ -1,0 +1,85 @@
+{
+  "raw_log_count": 1000000,
+  "malformed_json_count": 0,
+  "null_count": 0,
+  "empty_required_string_count": 0,
+  "invalid_action_count": 0,
+  "invalid_timestamp_count": 0,
+  "invalid_watch_duration_count": 0,
+  "invalid_integer_count": 0,
+  "invalid_provenance_count": 0,
+  "parsed_log_count": 1000000,
+  "duplicate_event_id_groups": 0,
+  "exact_duplicate_count": 0,
+  "conflicting_event_id_groups": 0,
+  "conflicting_event_rows": 0,
+  "duplicate_count": 0,
+  "orphan_movie_id_count": 0,
+  "pre_join_clean_log_count": 1000000,
+  "clean_log_count": 1000000,
+  "rejected_record_count": 0,
+  "steps": [
+    {
+      "rule": "malformed_json_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "null_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "empty_required_string_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "invalid_action_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "invalid_timestamp_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "invalid_watch_duration_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "invalid_integer_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "invalid_provenance_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "duplicate_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    },
+    {
+      "rule": "orphan_movie_id_count",
+      "before": 1000000,
+      "removed": 0,
+      "after": 1000000
+    }
+  ],
+  "counting_semantics": "Basic rule counts are independent on raw rows and may overlap. Duplicate metrics apply after basic rules; conflicting IDs reject all variants. Orphans are counted after deduplication. Steps are disjoint removals.",
+  "duplicate_policy": "Canonical business fields; keep one identical eventId payload, reject every row of conflicting eventIds."
+}

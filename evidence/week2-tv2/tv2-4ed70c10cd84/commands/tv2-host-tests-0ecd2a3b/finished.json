@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "C:\\Users\\GIGA\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_tv2*.py",
+    "-v"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-12T15:59:58.630308+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-tv2\\tv2-4ed70c10cd84\\commands\\tv2-host-tests-0ecd2a3b\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week2-tv2\\tv2-4ed70c10cd84\\commands\\tv2-host-tests-0ecd2a3b\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-12T15:59:58.759727+00:00"
+}

@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "run_id": "tv2-4ed70c10cd84",
+  "checked_at_utc": "2026-10-12T16:11:59.120626+00:00",
+  "checks": {
+    "runner_pass": true,
+    "pipeline_pass": true,
+    "all_output_read_back_counts": true,
+    "model_reloaded_assignments_match": true,
+    "code_hashes_match_executed": true,
+    "protected_tv1_unchanged": true,
+    "local_csv_json_values_and_counts_match": true,
+    "statistics_counts_reconcile": true,
+    "feature_assignment_users_unique_match": true,
+    "assignments_preserve_features": true,
+    "feature_totals_reconcile": true,
+    "best_k_measured_max": true,
+    "assignment_cluster_sizes_match": true,
+    "all_ten_profile_means_reconcile": true,
+    "raw_hashes_unchanged": true,
+    "git_diff_check_pass": true
+  },
+  "local_csv_json_counts": {
+    "kmeans_assignments": 1000,
+    "kmeans_cluster_profiles": 2,
+    "kmeans_k_search": 5,
+    "kmeans_model_metadata": 1,
+    "kmeans_user_features": 1000,
+    "stats_action_distribution": 5,
+    "stats_daily_active_users": 30,
+    "stats_hourly_activity": 24,
+    "stats_top_genres": 20,
+    "stats_top_movies_by_play": 20,
+    "stats_user_movie_time": 72,
+    "stats_watch_duration_summary": 2
+  },
+  "raw_files": 255,
+  "raw_bytes": 343872495,
+  "note": "Independent host validation on small dashboard exports and actual Spark/HDFS evidence; no ML fitting or raw data mutation."
+}

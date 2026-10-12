@@ -1,0 +1,76 @@
+name: movie-hdfs-124cbf30bda7
+services:
+  datanode:
+    depends_on:
+      namenode:
+        condition: service_started
+        required: true
+    entrypoint:
+      - bash
+      - /project/scripts/hdfs_service.sh
+      - datanode
+    environment:
+      HADOOP_CONF_DIR: /project/config/hdfs
+      HADOOP_HEAPSIZE_MAX: "512"
+      HDFS_RUN_ID: hdfs-124cbf30bda7
+    hostname: datanode
+    image: apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144
+    init: true
+    networks:
+      default: null
+    stop_grace_period: 1m0s
+    tmpfs:
+      - /data
+    user: '0:0'
+    volumes:
+      - type: bind
+        source: D:\Code\Bigdata\movie-log-bigdata-week1\movie-log-bigdata
+        target: /project
+        read_only: true
+        bind: {}
+      - type: volume
+        source: datanode
+        target: /hdfs/data
+        volume: {}
+  namenode:
+    entrypoint:
+      - bash
+      - /project/scripts/hdfs_service.sh
+      - namenode
+    environment:
+      HADOOP_CONF_DIR: /project/config/hdfs
+      HADOOP_HEAPSIZE_MAX: "512"
+      HDFS_RUN_ID: hdfs-124cbf30bda7
+    hostname: namenode
+    image: apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144
+    init: true
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        host_ip: 127.0.0.1
+        target: 9870
+        published: "19870"
+        protocol: tcp
+    stop_grace_period: 1m0s
+    tmpfs:
+      - /data
+    user: '0:0'
+    volumes:
+      - type: bind
+        source: D:\Code\Bigdata\movie-log-bigdata-week1\movie-log-bigdata
+        target: /project
+        read_only: true
+        bind: {}
+      - type: volume
+        source: namenode
+        target: /hdfs/name
+        volume: {}
+networks:
+  default:
+    name: movie-hdfs-124cbf30bda7_default
+volumes:
+  datanode:
+    name: movie-hdfs-124cbf30bda7_datanode
+  namenode:
+    name: movie-hdfs-124cbf30bda7_namenode
