@@ -1,1 +1,0 @@
-PASS: exact 4-path supplemental diff, content, sizes and secret checks

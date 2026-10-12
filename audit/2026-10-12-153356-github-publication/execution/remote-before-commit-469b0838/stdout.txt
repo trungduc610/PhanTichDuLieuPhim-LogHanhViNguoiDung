@@ -1,3 +1,0 @@
-ref: refs/heads/main	HEAD
-bcb28b7fac0c9d260af0e6acb121947f991355f8	HEAD
-bcb28b7fac0c9d260af0e6acb121947f991355f8	refs/heads/main

@@ -1,6 +1,0 @@
-{
-  "status": "PASS",
-  "files_checked": 344,
-  "issues": [],
-  "checked_at_utc": "2026-10-12T08:50:08.601528+00:00"
-}

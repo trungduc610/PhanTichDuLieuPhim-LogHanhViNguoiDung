@@ -1,2 +1,0 @@
-be28c972091e83f81b78c082f11e836690fa842e	refs/heads/codex/week2-tv1-hdfs
-bcb28b7fac0c9d260af0e6acb121947f991355f8	refs/heads/main

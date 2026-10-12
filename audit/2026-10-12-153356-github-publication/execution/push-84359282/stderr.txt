@@ -1,6 +1,0 @@
-remote: 
-remote: Create a pull request for 'codex/week2-tv1-hdfs' on GitHub by visiting:        
-remote:      https://github.com/trungduc610/PhanTichDuLieuPhim-LogHanhViNguoiDung/pull/new/codex/week2-tv1-hdfs        
-remote: 
-To https://github.com/trungduc610/PhanTichDuLieuPhim-LogHanhViNguoiDung.git
- * [new branch]      codex/week2-tv1-hdfs -> codex/week2-tv1-hdfs
