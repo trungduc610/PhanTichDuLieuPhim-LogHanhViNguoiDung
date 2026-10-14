@@ -1,14 +1,14 @@
-# Movie Analytics Dashboard
+# Movie Analytics Dashboard 1.1
 
-Điều hướng ở thanh bên trái trên desktop; màn hình nhỏ dùng nút “Mở menu”/“Đóng menu”, tự thu gọn khi chọn trang. Các đường dẫn hiện có được giữ nguyên. Trang phân cụm có KPI “Người dùng được phân cụm” đọc từ metadata, ba biểu đồ thanh nhóm so sánh play/phim/phiên bằng trục riêng cho từng đơn vị và bảng tra cứu có hướng dẫn cuộn ngang rõ ràng. Biểu đồ lấy trực tiếp các trung bình từ hồ sơ cụm; không đổi cách tính Spark.
+Phiên bản bàn giao: **1.1** (package version: **1.1.0**). Bản này hoàn thiện giao diện và tương tác của tám trang, giữ nguyên dữ liệu và các phép thống kê Spark/PySpark.
 
-Ứng dụng React + Vite, JavaScript/JSX, React Router, Recharts và CSS thông thường. Chưa có backend hoặc API.
+Dashboard trình bày kết quả Spark/PySpark đã xuất, bằng React + Vite, JSX, React Router, Recharts và CSS thông thường. Không có backend, API, đăng nhập hoặc huấn luyện mô hình trong frontend.
+
+Tổng quan mới nhất là bố cục duy nhất. Component và liên kết chuyển về Tổng quan V1 đã được loại bỏ; URL cũ có tham số layout không mở lại bố cục cũ.
 
 ## Chạy bằng VS Code
 
-Trang thời gian có ghi chú DAU từ JSON: đếm người dùng khác nhau có sự kiện trong từng ngày (mọi hành động). Chuỗi hiện gồm 30 ngày đều có 1.000 người/ngày nên không cần biểu đồ hoặc cộng các ngày thành tổng người dùng toàn kỳ.
-
-Mở repository trong VS Code, chọn Terminal → New Terminal (PowerShell):
+Mở Terminal → New Terminal tại repository:
 
 ```powershell
 cd dashboard
@@ -16,74 +16,94 @@ npm.cmd ci
 npm.cmd run dev
 ```
 
-Mở URL Vite in trong Terminal (thường là http://localhost:5173). Dùng Ctrl+C để dừng. Dùng `npm.cmd` để tránh lỗi PowerShell chặn `npm.ps1`; không cần thay đổi Execution Policy.
+Mở URL Local Vite in ra, thường http://localhost:5173. Dùng Ctrl+C để dừng. Trên PowerShell dùng npm.cmd để tránh bị chặn npm.ps1; không cần thay đổi Execution Policy. Chỉ cần npm.cmd ci khi mới clone hoặc chưa có dependencies.
 
 ```powershell
+npm.cmd test
 npm.cmd run build
 npm.cmd run preview
-npm.cmd test
 ```
 
-`preview` phục vụ bản build tại URL được in trong Terminal (thường http://localhost:4173). Sau khi dữ liệu thay đổi, chạy lại build trước preview.
+Preview dùng bản build đã tạo, thường tại http://localhost:4173. Nếu dữ liệu thay đổi, chạy build lại trước preview.
 
-## Dữ liệu
+## Tám trang
 
-`scripts/sync-data.mjs` đọc mười một tệp từ `../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/` và chép nguyên nội dung sang `public/data/`:
+| Đường dẫn | Nội dung |
+| --- | --- |
+| / | Bốn KPI, điểm nổi bật, hoạt động theo giờ, donut hành vi, Top 5 phim; Biểu đồ/Bảng, CSV và nguồn dữ liệu |
+| /phim | Thanh xếp hạng và bảng tối đa 20 phim, nhận xét phim dẫn đầu |
+| /the-loai | Chọn Top 5/10/toàn bộ trên biểu đồ; bảng giữ đầy đủ thể loại đã xuất |
+| /hanh-vi | Donut tương tác và bảng đủ năm hành động, số lượng và tỷ lệ |
+| /thoi-gian | 24 giờ, bảng sự kiện/play/người dùng khác nhau và tóm tắt DAU |
+| /thoi-luong | Số bản ghi, trung bình, trung vị, min/max, độ lệch chuẩn của hai nhóm sự kiện |
+| /ket-hop | Chọn 00h–23h; Top 3 phim và người dùng khác nhau theo giờ; tra cứu đủ 72 dòng hoặc chỉ giờ đang chọn |
+| /phan-cum | Metadata, thử nghiệm K, kích thước/hồ sơ cụm, nhận xét và tra cứu người dùng theo cụm, 20 dòng/trang |
 
-- `stats_action_distribution.json`
-- `kmeans_assignments.json`
-- `stats_hourly_activity.json`
-- `stats_daily_active_users.json`
-- `stats_top_movies_by_play.json`
-- `stats_top_genres.json`
-- `stats_watch_duration_summary.json`
-- `stats_user_movie_time.json`
-- `kmeans_model_metadata.json`
-- `kmeans_k_search.json`
-- `kmeans_cluster_profiles.json`
+Sidebar luôn có tám đường dẫn. Desktop dùng thanh bên trái; từ 1023px trở xuống dùng menu mở/đóng. Escape đóng menu và trả focus về nút mở. Khi chuyển route, trang cuộn về đầu và focus đến tiêu đề; đổi bộ lọc không làm mất focus. Có liên kết “Đến nội dung chính” khi dùng Tab.
 
-Script kiểm tra JSON là mảng không rỗng và báo lỗi nếu nguồn thiếu/hỏng. Tự chạy trước `dev`, `test` và `build`; cũng có thể chạy `npm.cmd run sync:data` khi dev đang mở, rồi tải lại trang. Sau khi clone, chạy `npm.cmd ci` trong dashboard để cài đúng package-lock; các JSON nguồn đã nằm trong evidence của repository. Không chỉnh sửa evidence hoặc chạy pipeline. Các bản sao JSON và thư mục build/node_modules được bỏ qua bởi `.gitignore` trong dashboard.
+## Dữ liệu và phạm vi
 
-Frontend dùng fetch đọc `/data/*.json`. `services/overviewMetrics.js` tính:
+Frontend fetch các bản sao JSON trong public/data. Script scripts/sync-data.mjs chép nguyên nội dung từ ../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/:
 
-- Tổng sự kiện: cộng `count` của tất cả action.
-- Người dùng khác nhau: tập hợp `userId` của assignments.
-- Phiên được ghi nhận: cộng `sessionCount` theo người dùng.
-- Phiên có ít nhất một play: cộng `playedSessionCount` theo người dùng.
+- stats_action_distribution.json
+- stats_top_movies_by_play.json
+- stats_top_genres.json
+- stats_hourly_activity.json
+- stats_daily_active_users.json
+- stats_watch_duration_summary.json
+- stats_user_movie_time.json
+- kmeans_model_metadata.json
+- kmeans_k_search.json
+- kmeans_cluster_profiles.json
+- kmeans_assignments.json
 
-Phiên trong nguồn được đếm theo `(runId, sessionId)` trong từng người dùng; tổng phiên ở đây là tổng các số đếm đó. Không dùng số sự kiện play để thay cho số phiên. Kiểm tra số đếm hợp lệ, userId trùng, và tổng eventCount trong assignments khớp tổng action để tránh hiển thị dữ liệu không nhất quán. Không có số liệu giả/fallback. Có trạng thái tải, thiếu dữ liệu, lỗi JSON và nút thử lại.
+Script kiểm tra JSON là mảng không rỗng, báo lỗi khi nguồn thiếu hoặc hỏng, tự chạy trước dev/test/build. Khi dev đang mở, dùng npm.cmd run sync:data rồi tải lại trang. Sau khi clone cần giữ nguyên thư mục evidence tương ứng. public/data, dist, node_modules và .browser-check được bỏ qua bởi .gitignore; không commit các bản sao hoặc tệp sinh tạm.
 
-## Cấu trúc
+Dữ liệu hành vi mô phỏng từ 01/09/2026 đến 30/09/2026 theo giờ Việt Nam (UTC+7). JSON theo giờ đã được tổng hợp sẵn; frontend không chuyển múi giờ thêm lần nữa. Nhận xét chỉ mô tả kết quả đã xuất, không đại diện sở thích người xem thật.
 
-- `src/components/`: MetricCard tái sử dụng.
-- `src/pages/`: trang Tổng quan.
-- `src/services/`: đọc JSON, kiểm tra và tính chỉ số.
-- `src/styles/`: CSS và bố cục responsive.
-- `scripts/`: đồng bộ dữ liệu.
-- `tests/`: kiểm tra cách tính trên JSON thực tế và từ chối dữ liệu lỗi.
+### Cách đọc chỉ số
 
-Trang Tổng quan có bốn chỉ số và ba biểu đồ tóm tắt, không có bảng đầy đủ. Liên kết "Xem chi tiết" và thanh điều hướng dẫn đến:
+- Tổng sự kiện: cộng count của các hành động. Người dùng khác nhau toàn kỳ: userId phân biệt trong assignments.
+- Phiên ghi nhận và phiên có ít nhất một play: cộng sessionCount và playedSessionCount theo người dùng. Phiên phân biệt theo (runId, sessionId) trong từng người dùng. Không dùng số sự kiện play thay số phiên.
+- Play có thể lặp lại trong cùng phiên/người dùng. View là xem thông tin phim, không phải phát phim. Tỷ lệ hành động có mẫu số là tổng sự kiện, không phải tổng người dùng.
+- Một phim có nhiều thể loại nên một play có thể vào nhiều nhóm. Không cộng nhóm thể loại thành tổng play độc lập.
+- Theo giờ: cộng gộp toàn kỳ, không phải một ngày. Người dùng khác nhau theo giờ hoặc phim–giờ được đếm riêng trong từng nhóm; không cộng các nhóm để suy ra tổng người dùng.
+- DAU đếm mỗi người có ít nhất một sự kiện một lần/ngày, gồm mọi hành động. Chuỗi hiện có 30 ngày đều 1.000 người/ngày; hiển thị tóm tắt thay biểu đồ lớn. Không cộng DAU các ngày thành người dùng khác nhau toàn kỳ.
+- Thời lượng có đơn vị gốc giây, tính theo bản ghi sự kiện. all_events gồm cả thời lượng 0; watch_segments chỉ gồm thời lượng dương và là tập con. Không cộng hai nhóm. Trung vị xấp xỉ; độ lệch chuẩn mẫu. Không suy ra thời lượng mỗi phiên hoặc histogram khi chưa có dữ liệu.
+- K-Means chỉ trình bày kết quả Spark đã xử lý. Đặc trưng đọc từ featureColumnsJson; bestK và silhouette đọc từ metadata. Silhouette không có đơn vị, đo phân tách cụm theo squared Euclidean, không chứng minh hành vi người xem thật.
+- completionRate là tỷ lệ từ 0–1, nhân 100 khi hiển thị %. Tỷ lệ của người dùng = số phiên có complete / số phiên có play; trung bình cụm là trung bình tỷ lệ người dùng, không phải tổng complete chia tổng play. Người không có phiên play ghi “Chưa xác định” khi tra cứu.
+- avgTotalWatchDuration là trung bình tổng thời lượng mỗi người dùng. avgWatchDuration là trung bình các trung bình đoạn xem dương của từng người, bằng 0 nếu không có đoạn xem. Hai chỉ số không thay thế nhau. Giữ nhãn Cluster gốc, không gán nhãn tâm lý/kinh doanh.
 
-- `/phim`: xếp hạng và bảng tối đa 20 phim trong JSON.
-- `/phan-cum`: tổng quan K-Means, đặc trưng từ metadata, bảng K=2..6, số người dùng/hồ sơ từng cụm, nhận xét và tra cứu userId theo cụm với 20 dòng/trang.
+Các services kiểm tra nguồn, đơn vị, số đếm và sự nhất quán giữa JSON. Không có số liệu demo hoặc fallback giả. Có trạng thái tải, thiếu dữ liệu, JSON hỏng và nút thử lại.
 
-Trang phân cụm chỉ đọc bốn JSON K-Means đã xuất (assignments đã có trong cơ chế đồng bộ). `clustering.js` kiểm tra metadata, silhouette, số cụm, tổng người dùng và số người dùng từng cụm giữa các nguồn; giữ nguyên các trung bình trong profiles. Tỷ lệ hoàn thành được nhân 100 để hiển thị %, không tính lại từ tổng complete/play. Tổng thời lượng trung bình mỗi người dùng và trung bình thời lượng đoạn xem theo người dùng được diễn giải riêng, đơn vị giây. Tra cứu hỗ trợ tìm một phần/chính xác userId, lọc mã cụm và phân trang; tìm kiếm hoặc đổi cụm trở về trang 1. Không gán lại cụm, huấn luyện hoặc tạo scatter chưa có phép chiếu. Các kết quả chỉ mô tả dữ liệu mô phỏng.
-- `/ket-hop`: chọn 00h–23h, biểu đồ và bảng Top 3 phim theo giờ, nhận xét chênh lệch hai phim đầu; bảng tra cứu đủ 72 dòng có tùy chọn chỉ xem giờ đang chọn.
+## Giao diện và tương tác
 
-Trang kết hợp dùng loader `loadCombinedAnalysis` và các thành phần tải/lỗi, biểu đồ, bảng sẵn có. Service kiểm tra đủ 24 giờ, mỗi giờ đúng 3 phim; giữ nguyên thứ hạng Spark theo play giảm dần và mã phim tăng dần khi bằng nhau. `playCount` là số sự kiện play; `distinctUsers` được đếm riêng cho mỗi phim trong mỗi giờ, không cộng các nhóm để suy ra tổng người dùng. Dữ liệu gộp trên toàn kỳ theo giờ Việt Nam (UTC+7), không phải riêng một ngày; chỉ có Top 3 mỗi giờ, không bao gồm tất cả phim. Nhận xét là mô tả dữ liệu mô phỏng, không suy diễn sở thích người xem thật.
-- `/thoi-luong`: so sánh số bản ghi, trung bình, trung vị xấp xỉ, nhỏ nhất, lớn nhất và độ lệch chuẩn mẫu giữa toàn bộ sự kiện và các sự kiện có thời lượng dương.
+Tám trang dùng cùng typography, phạm vi dữ liệu, màu nhấn, thẻ, bảng và định dạng số tiếng Việt. Thông tin chính luôn hiển thị; diễn giải dài nằm trong “Cách đọc số liệu”, mở/đóng được bằng Enter hoặc phím cách.
 
-Trang thời lượng dùng loader riêng `loadWatchDuration` với cơ chế đọc JSON, tải/lỗi và thử lại hiện có. Giá trị gốc đơn vị giây được giữ nguyên; giao diện làm tròn tối đa 3 chữ số thập phân và dùng dấu phân cách tiếng Việt. Có bảng đủ 12 giá trị, thẻ số bản ghi/trung bình và nhận xét từ chênh lệch trung bình, trung vị. Các thống kê được Spark tổng hợp theo bản ghi sự kiện, không phải mỗi phiên xem. Không cộng hai nhóm, không tạo histogram hoặc phân bố chưa có dữ liệu. `watchDuration.js` kiểm tra đủ hai nhóm, đơn vị, giá trị hợp lệ. Không đổi null/sai dữ liệu thành 0.
-- `/the-loai`: biểu đồ mặc định Top 10 thể loại, chọn Top 5/10/toàn bộ; bảng giữ tất cả thể loại đã xuất và nhận xét so sánh hai vị trí đầu.
+- Biểu đồ giờ: hover để highlight; click/chạm lấy giờ trực tiếp từ cột. Tab vào biểu đồ, dùng ←/→, Home/End; Escape bỏ highlight. Số liệu ở vùng đọc cố định, không che cột.
+- Donut: hover/focus là xem tạm; click/chạm hoặc Enter/phím cách giữ lựa chọn. Mũi tên/Home/End chuyển giữa các hành động. Escape bỏ highlight. Giữ lựa chọn khi đổi Biểu đồ/Bảng ở Tổng quan.
+- Phim/thể loại/phim–giờ dùng lại thanh xếp hạng HTML/CSS của Tổng quan, tên đầy đủ và số sự kiện gốc. Hover/Tab làm nổi bật từng dòng. Danh sách dài cuộn trong khung, mọi dòng vẫn truy cập được.
+- K-Means dùng một đơn vị/trục riêng cho mỗi chỉ số. Biểu đồ đọc trực tiếp hồ sơ cụm, hỗ trợ hover, click/chạm và mũi tên/Home/End/Escape; không có scatter hay phép chiếu giả.
+- Bảng rộng có vùng cuộn và hướng dẫn khi cần. Tab đến vùng bảng rồi dùng ←/→; Home/End đến cột đầu/cuối khi có cuộn ngang, nếu không thì giữ cuộn dọc mặc định. Bảng dài có cuộn riêng và tiêu đề cột cố định; bảng người dùng giữ mã người dùng bên trái.
+- Tìm userId hoặc đổi cụm trở về trang 1. Không gán lại cụm hoặc thay đổi kết quả mô hình.
 
-Trang thể loại dùng lại `DashboardDataProvider` và hàm đọc JSON, với loader `loadGenres` riêng để báo thiếu/lỗi dữ liệu thể loại mà không ảnh hưởng các trang cũ. `genreAnalysis.js` kiểm tra tên thể loại, số đếm và sắp xếp giảm dần; nhận xét lấy hai vị trí đầu và hiệu số sự kiện. Biểu đồ thanh ngang và bảng được tái sử dụng từ components hiện có. Một phim có thể thuộc nhiều thể loại nên một sự kiện play có thể được đếm ở nhiều nhóm; không cộng các nhóm thành tổng play độc lập. Không chuyển các số đếm này thành kết luận về sở thích người xem thật.
-- `/hanh-vi`: biểu đồ 5 hành vi, bảng số lượng và tỷ lệ.
-- `/thoi-gian`: biểu đồ 24 giờ, bảng sự kiện, phát phim và người dùng khác nhau.
+CSV chỉ có ở ba phần Tổng quan, giữ đúng 24/5/5 dòng đang trình bày. UTF-8 có BOM; số gốc chưa làm tròn. Tên có dấu phẩy/nháy/xuống dòng được thoát đúng; chuỗi có thể là công thức bảng tính được trung hòa. Dùng chức năng nhập CSV nếu bảng tính mặc định dùng dấu chấm phẩy.
 
-`DashboardDataProvider` đọc dữ liệu bằng service hiện có và dùng chung giữa các trang. Các trang tái sử dụng biểu đồ và bảng trong `OverviewCharts.jsx`; không sao chép cách tính KPI. `services/overviewAnalysis.js` vẫn kiểm tra tổng theo giờ và sắp xếp phim, trả thêm danh sách tối đa 20 phim. Trục số ghi rõ nghìn/triệu; tooltip và bảng dùng giá trị chính xác. Tên phim dài được xuống dòng/rút gọn trên trục; tên đầy đủ nằm trong tooltip và bảng chi tiết.
+## Cấu trúc và kiểm thử
 
-Phạm vi được hiển thị theo thông tin đã xác nhận: dữ liệu hành vi mô phỏng từ 01/09/2026 đến 30/09/2026, giờ Việt Nam (UTC+7). JSON theo giờ đã tổng hợp sẵn; frontend không chuyển múi giờ thêm một lần nữa. Các kết quả không đại diện sở thích người xem thật. Trang K-Means chỉ trình bày kết quả Spark đã xuất, không huấn luyện trong frontend; các lựa chọn và bộ lọc chỉ dùng dữ liệu hiện có.
+- src/pages/: tám chức năng; AnalysisPage dùng cấu hình cho phim, hành vi và thời gian.
+- src/components/: header/thẻ/bảng/hướng dẫn và biểu đồ tái sử dụng. OverviewMovieRanking dùng cả Tổng quan và trang xếp hạng; OverviewActionDonut và OverviewHourlyChart dùng chung với trang chi tiết. ComparisonBarChart dùng chung cho bốn biểu đồ K-Means.
+- src/styles/: global.css cho shell; overview.css cho hệ thống trình bày mới; analysis.css cho bố cục chi tiết.
+- src/services/: đọc và kiểm tra JSON, định dạng và chuẩn bị thống kê. Các phép tính phân tích giữ nguyên.
+- scripts/: đồng bộ JSON và kiểm tra Edge.
+- tests/: đối chiếu nguồn JSON thực tế, kiểm tra thống kê, bộ lọc và từ chối dữ liệu lỗi.
 
-Khi kiểm tra localhost, thử thanh điều hướng, các liên kết chi tiết, nút Back và tải lại trực tiếp ở từng đường dẫn. Di chuột vào cột để xem số chính xác. Thu nhỏ cửa sổ; bảng chi tiết cuộn ngang trong vùng riêng. Số phiên có phát phim vẫn là số phiên phân biệt, không phải số sự kiện play.
+npm.cmd test chạy unit test; npm.cmd run build tạo production build. node scripts/check-ui.mjs dùng Edge có sẵn trên Windows, không cài thư viện trình duyệt:
 
-`node scripts/check-ui.mjs` kiểm tra bằng Edge cài sẵn trên Windows ở 1440/900/390/320px: đường dẫn, menu, Back, bảng, KPI, tooltip, tương tác, trạng thái tải/lỗi và tràn ngang. Ảnh kiểm tra và profile tạm nằm trong `.browser-check/` (được bỏ qua bởi .gitignore). Script không cài thư viện hoặc thay đổi evidence.
+- Kiểm tra tám route ở 1440/768/390/320px, menu, Back, focus, bàn phím và cảm ứng mô phỏng.
+- Đối chiếu bảng/biểu đồ/nhận xét/bộ lọc với JSON, ba CSV tải thật, tìm kiếm/lọc/phân trang K-Means.
+- Kiểm tra tải chậm, dữ liệu trống, JSON hỏng, thử lại và không tràn ngang toàn trang.
+- Kiểm tra URL cũ không phục hồi giao diện Tổng quan cũ.
+- Ảnh, profile và tệp tải thử nằm trong .browser-check, được Git bỏ qua.
+
+Có thể giới hạn bằng --width=320 hoặc --route=/phan-cum. Kiểm tra thêm trực quan với Device Toolbar ở bốn kích thước trên, và thiết bị cảm ứng/trình đọc màn hình thật nếu có.
