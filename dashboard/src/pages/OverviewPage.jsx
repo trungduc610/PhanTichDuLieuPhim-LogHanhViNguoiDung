@@ -4,35 +4,36 @@ import OverviewSummaryCharts from '../components/OverviewSummaryCharts.jsx';
 import { DataState, useDashboardData } from '../components/DashboardData.jsx';
 import '../styles/overview.css';
 import { DataScope, useSource } from '../components/DataSource.jsx';
+import MetricExplanation from '../components/MetricExplanation.jsx';
+import OverviewMethodology, { OverviewSessions } from '../components/OverviewMethodology.jsx';
+import { definitions } from '../content/overviewContent.js';
+import '../styles/overview-ux.css';
+import { useRef } from 'react';
 
 export default function OverviewPage() {
   const state = useDashboardData();
   const source = useSource();
-  return <div className="overview-page">
+  const metricDetails = useRef(null);
+  return <div className="overview-page overview-home">
     <header className="overview-heading">
       <p className="eyebrow">DỮ LIỆU PHIM & HÀNH VI</p>
-      <h1>Tổng quan</h1>
-      <p className="intro">Khám phá hoạt động sử dụng hệ thống, các phim dẫn đầu và những khung giờ nổi bật.</p>
-      <DataScope />
+      <h1>Tổng quan hoạt động xem phim</h1>
+      <p className="intro">Tổng hợp kết quả phân tích dữ liệu phim và hoạt động của người dùng trong kỳ.</p>
+      <DataScope syntheticLabel="Log hành vi mô phỏng" />
+      <p className="overview-origin">Thông tin phim: MovieLens · Kết quả xử lý theo lô</p>
     </header>
     <DataState />
     {state.status === 'ready' && <>
       <section className="metrics-grid" aria-label="Chỉ số tổng quan">
-        <MetricCard icon="events" title="Tổng số sự kiện" value={state.metrics.totalEvents} description="Tất cả hành động được ghi nhận trong kỳ." />
-        <MetricCard icon="users" title="Người dùng khác nhau" value={state.metrics.distinctUsers} description="Mỗi người dùng chỉ tính một lần trong toàn kỳ." />
-        <MetricCard icon="sessions" title="Phiên được ghi nhận" value={state.metrics.totalSessions} description="Tổng số phiên truy cập của các người dùng." />
-        <MetricCard icon="play" title="Phiên có phát phim" value={state.metrics.playedSessions} description="Có ít nhất một lần phát; mỗi phiên chỉ tính một lần." />
+        <MetricCard icon="events" title={definitions.totalActions.title} value={state.metrics.totalEvents} description="Tất cả hành động được ghi nhận trong kỳ." explanation={<MetricExplanation definition={definitions.totalActions} target={metricDetails} />} />
+        <MetricCard icon="users" title={definitions.users.title} value={state.metrics.distinctUsers} description="Mỗi mã người dùng chỉ tính một lần trong kỳ." explanation={<MetricExplanation definition={definitions.users} target={metricDetails} />} />
+        <MetricCard icon="play" title={definitions.plays.title} value={state.metrics.analysis.actions.find(row => row.action === 'play').count} description="Số lần ghi nhận hành động phát phim trong kỳ." explanation={<MetricExplanation definition={definitions.plays} target={metricDetails} />} />
       </section>
+      <div ref={metricDetails} className="independent-explanations" />
+      <OverviewSessions metrics={state.metrics} />
       <OverviewHighlights analysis={state.metrics.analysis} />
       <OverviewSummaryCharts analysis={state.metrics.analysis} />
     </>}
-    <details className="overview-source">
-      <summary>Nguồn dữ liệu và cách đọc chỉ số</summary>
-      <p>Dữ liệu hành vi mô phỏng, không đại diện cho sở thích của người xem thật. Các chỉ số phản ánh toàn bộ kỳ, không phải một ngày riêng lẻ.</p>
-      <p>Một phiên có thể có nhiều sự kiện phát (play). Người dùng khác nhau chỉ được đếm một lần trong toàn kỳ; phiên có phát phim chỉ được đếm một lần khi có ít nhất một play.</p>
-      <p>Số phiên trong nguồn được đếm theo (runId, sessionId) trong từng người dùng. Tổng phiên trên trang là tổng các số đếm đó, không phải số sự kiện play.</p>
-      <p>Nguồn: <code>evidence/week2-tv2/{source?.runId}/dashboard/</code>. Frontend đọc các bản sao JSON đã kiểm hash, giữ nguyên kết quả Spark.</p>
-      <ul><li><code>stats_action_distribution.json</code>: tổng sự kiện và phân bố hành động.</li><li><code>kmeans_assignments.json</code>: người dùng, số phiên và số phiên có play.</li><li><code>stats_hourly_activity.json</code>: số sự kiện theo giờ Việt Nam, cộng gộp toàn kỳ.</li><li><code>stats_top_movies_by_play.json</code>: xếp hạng phim theo sự kiện phát.</li></ul>
-    </details>
+    {source && <OverviewMethodology source={source} />}
     </div>;
 }

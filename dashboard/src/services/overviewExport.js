@@ -2,18 +2,18 @@
 export const overviewTables = {
   hourly: {
     filename: 'hoat-dong-theo-gio-toan-ky.csv',
-    caption: '24 khung giờ UTC+7, cộng gộp toàn kỳ 01/09/2026–30/09/2026',
-    columns: [{ label: 'Giờ UTC+7 (toàn kỳ)', key: 'label' }, { label: 'Tổng sự kiện', key: 'eventCount', format: 'number' }],
+    caption: 'Các khung giờ Việt Nam (UTC+7), cộng gộp toàn kỳ phân tích',
+    columns: [{ label: 'Giờ UTC+7 (toàn kỳ)', key: 'label' }, { label: 'Số hành động', key: 'eventCount', format: 'number' }],
   },
   actions: {
     filename: 'phan-bo-hanh-vi.csv',
-    caption: '5 hành động; tỷ lệ có mẫu số là tổng sự kiện trong kỳ',
-    columns: [{ label: 'Hành động', key: 'label' }, { label: 'Mã hành động', key: 'action' }, { label: 'Số sự kiện', key: 'count', format: 'number' }, { label: 'Tỷ lệ tổng sự kiện (%)', key: 'percentage', format: 'percent' }],
+    caption: 'Tỷ lệ tính trên tổng số hành động trong kỳ',
+    columns: [{ label: 'Hành động', key: 'label' }, { label: 'Mã hành động', key: 'action' }, { label: 'Số lần ghi nhận', key: 'count', format: 'number' }, { label: 'Tỷ lệ tổng số hành động (%)', key: 'percentage', format: 'percent' }],
   },
   movies: {
     filename: 'top-5-phim-theo-play.csv',
-    caption: 'Đúng 5 phim trên biểu đồ; số sự kiện play bao gồm phát lặp lại',
-    columns: [{ label: 'Hạng', key: 'rank', format: 'number' }, { label: 'Tên phim', key: 'title' }, { label: 'Sự kiện play', key: 'playCount', format: 'number' }],
+    caption: 'Năm phim trên biểu đồ; lượt phát đếm các bản ghi hành động phát phim',
+    columns: [{ label: 'Hạng', key: 'rank', format: 'number' }, { label: 'Tên phim', key: 'title' }, { label: 'Lượt phát phim', key: 'playCount', format: 'number' }],
   },
 };
 

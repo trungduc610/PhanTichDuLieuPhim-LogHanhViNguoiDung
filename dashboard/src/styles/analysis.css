@@ -68,3 +68,85 @@
   .analysis-page .cluster-pagination { justify-content: space-between; }
   .analysis-page .reading-guide summary { font-size: 13px; }
 }
+
+/* Chỉ bốn trang chi tiết đợt 1; không tác động Tổng quan. */
+.detail-ux .analysis-origin { margin: 12px 0 24px; color: #526079; font-size: 13px; }
+.detail-ux .daily-activity { min-width: 0; }
+.detail-ux .analysis-feature-value { color: #526079; }
+.detail-ux .analysis-feature-value strong { color: #172b4d; font-size: 28px; }
+.detail-ux .analysis-observation { border-top: 3px solid #d7c6ec; }
+.detail-ux .genre-observation { border-top: 3px solid #b9dfda; }
+.detail-ux .analysis-limitation { font-size: 13px; color: #526079; margin: 20px 0; }
+.detail-ux .analysis-related { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 16px 20px; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff; font-size: 14px; }
+.detail-ux .analysis-related span { color: #526079; }
+.detail-ux .analysis-related a { color: #234fa3; text-underline-offset: 3px; }
+.detail-ux .analysis-explanations { display: grid; gap: 4px; border-top: 1px solid #edf0f5; margin-top: 18px; padding-top: 12px; font-size: 13px; }
+.detail-ux .independent-explanations:empty { display: none; }
+.detail-ux .independent-explanations:not(:empty) { display: grid; gap: 12px; }
+.detail-ux .explanation-body { padding: 16px 18px; background: #fff; border: 1px solid #d8e2f0; border-radius: 10px; min-width: 0; overflow-wrap: anywhere; }
+.detail-ux .explanation-body p, .detail-ux .explanation-body dd { color: #526079; font-size: 14px; line-height: 1.7; }
+.detail-ux .explanation-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.detail-ux .explanation-heading h3 { margin: 0; font-size: 15px; }
+.detail-ux .explanation-close { padding: 5px 9px; background: #f0f5fc; color: #234fa3; font-size: 13px; flex-shrink: 0; }
+.detail-ux .technical-definition { border-top: 1px solid #e2e8f0; padding-top: 8px; margin-top: 12px; }
+.detail-ux details > summary { display: flex; align-items: baseline; gap: 6px; list-style: none; cursor: pointer; color: #234fa3; font-size: 13px; padding: 5px 0; }
+.detail-ux details > summary::marker { content: ''; }
+.detail-ux details > summary::-webkit-details-marker { display: none; }
+.detail-ux details > summary::after { content: none !important; }
+.detail-ux details > summary::before { content: '▸'; flex: 0 0 12px; }
+.detail-ux details[open] > summary::before { content: '▾'; }
+.detail-ux summary:focus-visible, .detail-ux button:focus-visible, .detail-ux a:focus-visible { outline: 3px solid #b26916; outline-offset: 3px; border-radius: 3px; }
+.detail-ux .analysis-explanations details:nth-child(2) > summary { color: #526079; }
+.detail-ux .action-definitions { display: grid; gap: 12px; }
+.detail-ux .action-definitions dt { font-size: 14px; font-weight: 600; }
+.detail-ux .action-definitions code { margin-left: 6px; color: #526079; font-weight: 400; }
+.detail-ux .action-definitions dd { margin: 3px 0 0; }
+.detail-ux .results-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin-top: 16px; }
+.detail-ux .results-controls label { color: #40516a; font-size: 14px; }
+.detail-ux .results-controls input, .detail-ux .results-controls select { font: inherit; font-size: 14px; padding: 9px 12px; width: 100%; min-width: 0; min-height: 44px; border: 1px solid #a7bce2; border-radius: 8px; background: #fff; }
+.detail-ux .results-controls .page-size { flex: 0 1 160px; }
+.detail-ux .results-status { font-size: 13px; color: #526079; }
+.detail-ux [data-results="actions"] table { min-width: 360px; }
+.detail-ux .results-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 16px; font-size: 14px; }
+.detail-ux .results-pagination button { border: 1px solid #d8e2f0; background: #fff; color: #315fa8; font-size: 14px; }
+.detail-ux .action-donut { grid-template-columns: 1fr; }
+.detail-ux .donut-visual { height: 240px; }
+.detail-ux .action-legend-item { min-height: 48px; }
+.detail-ux .action-count { display: block; font-size: 12px; font-weight: 400; color: #526079; }
+.detail-ux .analysis-primary { container: detail-chart / inline-size; }
+.detail-ux .overview-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@container detail-chart (min-width: 480px) {
+  .detail-ux .action-donut { grid-template-columns: minmax(190px,1fr) minmax(0,1.25fr); }
+}
+@media (max-width: 560px) {
+  .detail-ux .results-controls .filter-field { flex-basis: 100%; }
+  .detail-ux .overview-panel-heading h2 { font-size: 17px; }
+  .detail-ux .analysis-related { gap: 12px; }
+  .detail-ux .analysis-related span { flex-basis: 100%; }
+  .detail-ux .overview-chart-readout { min-height: 80px; }
+}
+
+/* Đợt 2: phạm vi riêng, giữ nguyên năm trang đã nghiệm thu. */
+.advanced-ux.clustering-page .metrics-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.advanced-ux .k-search-table { min-width: 360px; }
+.advanced-ux .metric-card { border-top: 3px solid #d7e3f7; }
+.advanced-ux .metric-card:nth-child(2) { border-top-color: #b9dfda; }
+.advanced-ux .metric-card:nth-child(3) { border-top-color: #d7c6ec; }
+.advanced-ux .metric-card h2 { font-size: 15px; }
+.advanced-ux .metric-value { font-size: 28px; }
+.advanced-ux .stat-meaning { padding: 12px 14px; background: #f8fafd; border-left: 3px solid #b9dfda; font-size: 14px; color: #526079; }
+.advanced-ux .feature-list { display: grid; gap: 8px; margin: 12px 0; }
+.advanced-ux .feature-list > span { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.advanced-ux .cluster-comparison-grid { align-items: start; }
+.advanced-ux .cluster-comparison { background: #f9fbfe; }
+.advanced-ux .chart-controls { align-items: end; }
+@media (max-width: 800px) {
+  .advanced-ux.duration-page .metrics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 560px) {
+  .advanced-ux.clustering-page .metrics-grid { grid-template-columns: 1fr; }
+  .advanced-ux .metric-value { font-size: 25px; }
+}
+@media (max-width: 359px) {
+  .advanced-ux.duration-page .metrics-grid { grid-template-columns: 1fr; }
+}

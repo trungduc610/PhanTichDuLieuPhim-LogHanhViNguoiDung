@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { number, axisNumber } from '../services/formatNumbers.js';
 import { displayDate } from '../services/dailyActivity.js';
 
-export default function DailyActivityChart({ rows }) {
+export default function DailyActivityChart({ rows, compactHelp = false }) {
   const id = useId();
   const region = useRef(null);
   const [index,setIndex] = useState(null);
@@ -41,6 +41,6 @@ export default function DailyActivityChart({ rows }) {
         </ResponsiveContainer>
       </div>
     </div>
-    <p id={id} className="overview-interaction-help">← →: đổi ngày · Home/End: đầu/cuối · Esc: bỏ highlight.</p>
+    <p id={id} className={compactHelp ? 'overview-sr-only' : 'overview-interaction-help'}>← →: đổi ngày · Home/End: đầu/cuối · Esc: bỏ đánh dấu.</p>
   </div>;
 }
