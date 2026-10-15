@@ -1,0 +1,9 @@
+[
+  {
+    "bestK": 2,
+    "silhouette": 0.6707563871905433,
+    "seed": 42,
+    "users": 1000,
+    "featureColumnsJson": "[\"playCount\", \"completeCount\", \"totalWatchDuration\", \"avgWatchDuration\", \"distinctMovies\", \"distinctGenres\", \"sessionCount\", \"completionRate\"]"
+  }
+]

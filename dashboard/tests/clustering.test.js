@@ -1,3 +1,4 @@
+import { selectedSource, copiedSource } from './selectedSource.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -5,29 +6,29 @@ import { prepareClustering, findUsers, formatProfile, formatCompletion } from '.
 import { loadClustering } from '../src/services/dashboardData.js';
 import { MissingDataError } from '../src/services/overviewMetrics.js';
 
-const source = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/', import.meta.url);
+const source = selectedSource('');
 const files = ['kmeans_model_metadata.json', 'kmeans_k_search.json', 'kmeans_cluster_profiles.json', 'kmeans_assignments.json'];
 const inputs = await Promise.all(files.map(async name => JSON.parse(await readFile(new URL(name, source), 'utf8'))));
 const data = prepareClustering(...inputs);
 
 test('Metadata, đặc trưng, K search, hồ sơ và gán cụm khớp JSON', () => {
-  assert.equal(data.metadata.bestK, 2);
+  assert.equal(data.metadata.bestK,[...data.search].sort((a,b)=>b.silhouette-a.silhouette || a.k-b.k)[0].k);
   assert.equal(data.metadata.silhouette, inputs[0][0].silhouette);
   assert.deepEqual(data.features, JSON.parse(inputs[0][0].featureColumnsJson));
   assert.deepEqual(data.profiles, inputs[2]);
-  assert.equal(data.profiles.reduce((sum, row) => sum + row.userCount, 0), 1000);
-  assert.deepEqual(data.profiles.map(row => row.userCount), [237, 763]);
+  assert.equal(data.profiles.reduce((sum, row) => sum + row.userCount, 0), data.metadata.users);
+  assert.deepEqual(data.profiles.map(row => row.userCount),data.search.find(row=>row.k===data.metadata.bestK).cluster_sizes);
   for (const profile of data.profiles) assert.equal(data.assignments.filter(row => row.cluster === profile.cluster).length, profile.userCount);
   assert.deepEqual(data.assignments, inputs[3]);
 });
 
 test('Tỷ lệ hoàn thành hiển thị nhân 100; không nhầm hai trường thời lượng', () => {
-  assert.equal(formatProfile('avgCompletionRate', data.profiles[0].avgCompletionRate), '48,62%');
-  assert.equal(formatProfile('avgCompletionRate', data.profiles[1].avgCompletionRate), '58,22%');
-  assert.equal(formatCompletion(data.assignments[0]), '57,96%');
+  assert.equal(formatProfile('avgCompletionRate', 0.4862), '48,62%');
+  assert.equal(formatProfile('avgCompletionRate', 0.5822), '58,22%');
+  assert.equal(formatCompletion({completionRateDefined:true,completionRate:0.5796}), '57,96%');
   assert.notEqual(data.profiles[0].avgTotalWatchDuration, data.profiles[0].avgWatchDuration);
-  assert.equal(formatProfile('avgTotalWatchDuration', data.profiles[0].avgTotalWatchDuration), '1.612.246,895');
-  assert.equal(formatProfile('avgWatchDuration', data.profiles[0].avgWatchDuration), '3.743,761');
+  assert.equal(formatProfile('avgTotalWatchDuration', 1612246.895), '1.612.246,895');
+  assert.equal(formatProfile('avgWatchDuration', 3743.761), '3.743,761');
   assert.equal(formatCompletion({...data.assignments[0], completionRateDefined: false}), 'Chưa xác định');
 });
 
@@ -37,12 +38,14 @@ test('Tìm một phần hoặc chính xác userId, kết hợp lọc cụm và p
   assert.equal(next.rows[0].userId, data.assignments[20].userId);
   assert.equal(findUsers(data.assignments, {query: data.assignments[0].userId}).total, 1);
   assert.equal(findUsers(data.assignments, {query: ' SIM-USER-0000 '}).total, data.assignments.filter(row => row.userId.includes('sim-user-0000')).length);
-  assert.equal(findUsers(data.assignments, {cluster: '0'}).total, 237);
-  assert.equal(findUsers(data.assignments, {cluster: '1'}).total, 763);
-  assert.equal(findUsers(data.assignments, {query: data.assignments[0].userId, cluster: '0'}).total, 0);
+  const clusterZero = data.assignments.filter(row=>row.cluster===0).length;
+  assert.equal(findUsers(data.assignments, {cluster: '0'}).total, clusterZero);
+  assert.equal(findUsers(data.assignments, {cluster: '1'}).total, data.assignments.filter(row=>row.cluster===1).length);
+  const otherCluster = data.profiles.find(row=>row.cluster!==data.assignments[0].cluster).cluster;
+  assert.equal(findUsers(data.assignments, {query: data.assignments[0].userId, cluster: String(otherCluster)}).total, 0);
   const last = findUsers(data.assignments, {cluster: '0', page: 99});
-  assert.equal(last.page, 12);
-  assert.equal(last.rows.length, 17);
+  assert.equal(last.page, Math.ceil(clusterZero/20));
+  assert.equal(last.rows.length, clusterZero%20 || 20);
   assert.equal(findUsers(data.assignments, {query: 'khong-co-user'}).rows.length, 0);
   assert.equal(findUsers(data.assignments, {query: 'khong-co-user'}).totalPages, 1);
 });

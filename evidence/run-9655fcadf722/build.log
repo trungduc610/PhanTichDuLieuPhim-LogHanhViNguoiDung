@@ -1,0 +1,76 @@
+ Image movie-log-flume:1.11.0-local Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 625B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 30B 0.1s
+#2 transferring dockerfile: 1.21kB 0.3s done
+#2 DONE 0.4s
+
+#3 [internal] load metadata for docker.io/library/eclipse-temurin:8-jre-jammy
+#3 DONE 2.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 101B 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [ 1/12] FROM docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0
+#6 resolve docker.io/library/eclipse-temurin:8-jre-jammy@sha256:bbd3fa148819097f0bd441524ef72cf730341faa89d137059252581dbcc58ab0 0.1s done
+#6 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 3.16kB 0.0s done
+#5 DONE 0.0s
+
+#7 [ 6/12] RUN python3 /tmp/verify_archive.py flume.tar.gz flume.sha512     && mkdir /opt/flume     && tar -xzf flume.tar.gz -C /opt/flume --strip-components=1     && rm -rf /tmp/flume-download
+#7 CACHED
+
+#8 [ 7/12] COPY config/flume-env.sh /opt/flume/conf/flume-env.sh
+#8 CACHED
+
+#9 [ 8/12] COPY config/log4j2.xml /opt/flume/conf/log4j2.xml
+#9 CACHED
+
+#10 [10/12] COPY scripts/run_flume.sh /project/scripts/run_flume.sh
+#10 CACHED
+
+#11 [ 2/12] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates python3 procps     && rm -rf /var/lib/apt/lists/*
+#11 CACHED
+
+#12 [ 3/12] WORKDIR /tmp/flume-download
+#12 CACHED
+
+#13 [ 9/12] COPY config/flume.conf /project/config/flume.conf
+#13 CACHED
+
+#14 [11/12] RUN chmod +x /project/scripts/run_flume.sh
+#14 CACHED
+
+#15 [ 4/12] RUN curl -fSL --retry 3 "https://archive.apache.org/dist/flume/1.11.0/apache-flume-1.11.0-bin.tar.gz" -o flume.tar.gz     && curl -fSL --retry 3 "https://archive.apache.org/dist/flume/1.11.0/apache-flume-1.11.0-bin.tar.gz.sha512" -o flume.sha512
+#15 CACHED
+
+#16 [ 5/12] COPY scripts/verify_archive.py /tmp/verify_archive.py
+#16 CACHED
+
+#17 [12/12] WORKDIR /project
+#17 CACHED
+
+#18 exporting to image
+#18 exporting layers 0.0s done
+#18 exporting manifest sha256:cad55911ed586a5a0d29b3c63645c8ec6778cddffe8a60bc6fa6839cd0154bcf 0.0s done
+#18 exporting config sha256:e10d8b168c16406ee20533f3016370a3394f0252312cb754ce4a960f76d56b0f
+#18 exporting config sha256:e10d8b168c16406ee20533f3016370a3394f0252312cb754ce4a960f76d56b0f 0.0s done
+#18 exporting attestation manifest sha256:78782491a5c26455d63c5571c7c8b424c6b587898315cda4397c5e15d744c949 0.1s done
+#18 exporting manifest list sha256:64e9a347c4d15ecae0f8e49a60cebdcade91abcf81d91a09c464e980fa3002e2
+#18 exporting manifest list sha256:64e9a347c4d15ecae0f8e49a60cebdcade91abcf81d91a09c464e980fa3002e2 0.0s done
+#18 naming to docker.io/library/movie-log-flume:1.11.0-local done
+#18 unpacking to docker.io/library/movie-log-flume:1.11.0-local 0.0s done
+#18 DONE 0.5s
+
+#19 resolving provenance for metadata file
+#19 DONE 0.1s
+ Image movie-log-flume:1.11.0-local Built 

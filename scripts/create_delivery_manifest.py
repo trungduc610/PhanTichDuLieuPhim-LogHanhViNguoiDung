@@ -26,6 +26,7 @@ def main():
     p.add_argument('--audit-dir')
     p.add_argument('--run',action='append',default=[])
     p.add_argument('--extra-evidence',action='append',default=[])
+    p.add_argument('--system-only',action='store_true',help='Include Dashboard/system source, omit course reports and slides')
     a=p.parse_args()
     if a.verify:
         result=verify(a.verify)
@@ -33,11 +34,17 @@ def main():
         return 0 if result['status']=='PASS' else 1
     if not a.output or Path(a.output).exists():
         raise ValueError('--output must be a NEW file')
-    scopes=['scripts','src','tests','config','docs','data/raw','data/processed','data/generated']
+    scopes=['scripts','src','tests','config','data/raw','data/processed','data/generated']
+    if not a.system_only:scopes.append('docs')
+    else:scopes += ['dashboard/src','dashboard/scripts','dashboard/tests']
     scopes += [f'evidence/{x}' for x in a.run]+[f'data/runs/{x}/output' for x in a.run]+[f'logs/{x}' for x in a.run]+a.extra_evidence
     if a.audit_dir:
         scopes.append(a.audit_dir)
     files=set(ROOT/name for name in ['README.md','Dockerfile','compose.yaml','requirements.txt','.gitignore','.gitattributes','.dockerignore'])
+    if a.system_only:
+        files.update(ROOT/name for name in ['Dockerfile.tv2','compose.hdfs.yaml','compose.tv2.yaml',
+            'dashboard/package.json','dashboard/package-lock.json','dashboard/data-source.json',
+            'dashboard/vite.config.js','dashboard/index.html','dashboard/.gitignore','dashboard/README.md'])
     output=Path(a.output).resolve()
     for scope in scopes:
         folder=(ROOT/scope).resolve()

@@ -1,0 +1,41 @@
+ Container movie-hdfs-385a18d3f03a-spark-run-7b917b9c219d Creating 
+ Container movie-hdfs-385a18d3f03a-spark-run-7b917b9c219d Created 
+26/10/14 18:44:47 INFO SparkContext: Running Spark version 3.5.1
+26/10/14 18:44:47 INFO SparkContext: OS info Linux, 6.18.54.1-microsoft-standard-WSL2, amd64
+26/10/14 18:44:47 INFO SparkContext: Java version 11.0.22
+26/10/14 18:44:47 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/14 18:44:47 INFO ResourceUtils: ==============================================================
+26/10/14 18:44:47 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/14 18:44:47 INFO ResourceUtils: ==============================================================
+26/10/14 18:44:47 INFO SparkContext: Submitted application: TV1-HDFS-Snapshot-Import
+26/10/14 18:44:47 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/14 18:44:47 INFO ResourceProfile: Limiting resource is cpu
+26/10/14 18:44:47 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/14 18:44:47 INFO SecurityManager: Changing view acls to: spark,root
+26/10/14 18:44:47 INFO SecurityManager: Changing modify acls to: spark,root
+26/10/14 18:44:47 INFO SecurityManager: Changing view acls groups to: 
+26/10/14 18:44:47 INFO SecurityManager: Changing modify acls groups to: 
+26/10/14 18:44:47 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark, root; groups with view permissions: EMPTY; users with modify permissions: spark, root; groups with modify permissions: EMPTY
+26/10/14 18:44:48 INFO Utils: Successfully started service 'sparkDriver' on port 45031.
+26/10/14 18:44:48 INFO SparkEnv: Registering MapOutputTracker
+26/10/14 18:44:48 INFO SparkEnv: Registering BlockManagerMaster
+26/10/14 18:44:48 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/14 18:44:48 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/14 18:44:48 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/14 18:44:48 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-d3906b39-2853-474d-b1bc-2de37c288643
+26/10/14 18:44:48 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/10/14 18:44:48 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/14 18:44:48 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/10/14 18:44:49 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/14 18:44:49 INFO Executor: Starting executor ID driver on host ae0b931e497f
+26/10/14 18:44:49 INFO Executor: OS info Linux, 6.18.54.1-microsoft-standard-WSL2, amd64
+26/10/14 18:44:49 INFO Executor: Java version 11.0.22
+26/10/14 18:44:49 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/10/14 18:44:49 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@33696f93 for default.
+26/10/14 18:44:49 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 33205.
+26/10/14 18:44:49 INFO NettyBlockTransferService: Server created on ae0b931e497f:33205
+26/10/14 18:44:49 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/14 18:44:49 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ae0b931e497f, 33205, None)
+26/10/14 18:44:49 INFO BlockManagerMasterEndpoint: Registering block manager ae0b931e497f:33205 with 434.4 MiB RAM, BlockManagerId(driver, ae0b931e497f, 33205, None)
+26/10/14 18:44:49 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ae0b931e497f, 33205, None)
+26/10/14 18:44:49 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ae0b931e497f, 33205, None)

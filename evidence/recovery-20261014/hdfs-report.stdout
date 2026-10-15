@@ -1,0 +1,42 @@
+Configured Capacity: 1081101176832 (1006.85 GB)
+Present Capacity: 1018849259520 (948.88 GB)
+DFS Remaining: 1018502586368 (948.55 GB)
+DFS Used: 346673152 (330.61 MB)
+DFS Used%: 0.03%
+Replicated Blocks:
+	Under replicated blocks: 0
+	Blocks with corrupt replicas: 0
+	Missing blocks: 0
+	Missing blocks (with replication factor 1): 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+Erasure Coded Block Groups: 
+	Low redundancy block groups: 0
+	Block groups with corrupt internal blocks: 0
+	Missing block groups: 0
+	Low redundancy blocks with highest priority to recover: 0
+	Pending deletion blocks: 0
+
+-------------------------------------------------
+Live datanodes (1):
+
+Name: 172.18.0.3:9866 (movie-hdfs-385a18d3f03a-datanode-1.movie-hdfs-385a18d3f03a_default)
+Hostname: datanode
+Decommission Status : Normal
+Configured Capacity: 1081101176832 (1006.85 GB)
+DFS Used: 346673152 (330.61 MB)
+Non DFS Used: 7259561984 (6.76 GB)
+DFS Remaining: 1018502586368 (948.55 GB)
+DFS Used%: 0.03%
+DFS Remaining%: 94.21%
+Configured Cache Capacity: 0 (0 B)
+Cache Used: 0 (0 B)
+Cache Remaining: 0 (0 B)
+Cache Used%: 100.00%
+Cache Remaining%: 0.00%
+Xceivers: 0
+Last contact: Wed Oct 14 16:35:17 UTC 2026
+Last Block Report: Wed Oct 14 16:34:17 UTC 2026
+Num of Blocks: 16
+
+

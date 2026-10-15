@@ -1,0 +1,27 @@
+usage: week3_tv1.py [-h] [--context CONTEXT] [--source-context SOURCE_CONTEXT]
+                    [--official-acceptance OFFICIAL_ACCEPTANCE]
+                    [--source-manifest SOURCE_MANIFEST]
+                    [--flume-run-id FLUME_RUN_ID]
+                    [--evidence-dir EVIDENCE_DIR] [--input INPUT]
+                    [--label LABEL] [--verification VERIFICATION]
+                    {prepare,check,start,stop,stability,import,spark,persistence,history,seal}
+
+Member 1 operations on an explicitly selected, existing HDFS cluster. Never
+creates/formats a cluster, overwrites a snapshot or selects Dashboard data.
+Reports are exclusive; run again with a new label/context directory.
+
+positional arguments:
+  {prepare,check,start,stop,stability,import,spark,persistence,history,seal}
+
+options:
+  -h, --help            show this help message and exit
+  --context CONTEXT
+  --source-context SOURCE_CONTEXT
+  --official-acceptance OFFICIAL_ACCEPTANCE
+  --source-manifest SOURCE_MANIFEST
+                        Additional historical snapshot to preserve, read-only
+  --flume-run-id FLUME_RUN_ID
+  --evidence-dir EVIDENCE_DIR
+  --input INPUT         Small stability input, never imported as official data
+  --label LABEL
+  --verification VERIFICATION

@@ -1,0 +1,82 @@
+[
+  {
+    "genre": "Comedy",
+    "playCount": 144882
+  },
+  {
+    "genre": "Drama",
+    "playCount": 143222
+  },
+  {
+    "genre": "Action",
+    "playCount": 77406
+  },
+  {
+    "genre": "Thriller",
+    "playCount": 66163
+  },
+  {
+    "genre": "Romance",
+    "playCount": 53795
+  },
+  {
+    "genre": "Adventure",
+    "playCount": 53602
+  },
+  {
+    "genre": "Crime",
+    "playCount": 53233
+  },
+  {
+    "genre": "Children",
+    "playCount": 38123
+  },
+  {
+    "genre": "Sci-Fi",
+    "playCount": 36487
+  },
+  {
+    "genre": "Horror",
+    "playCount": 34703
+  },
+  {
+    "genre": "Animation",
+    "playCount": 23941
+  },
+  {
+    "genre": "Fantasy",
+    "playCount": 23053
+  },
+  {
+    "genre": "Documentary",
+    "playCount": 19926
+  },
+  {
+    "genre": "Mystery",
+    "playCount": 19275
+  },
+  {
+    "genre": "Musical",
+    "playCount": 10688
+  },
+  {
+    "genre": "War",
+    "playCount": 8860
+  },
+  {
+    "genre": "Western",
+    "playCount": 4584
+  },
+  {
+    "genre": "IMAX",
+    "playCount": 4071
+  },
+  {
+    "genre": "Film-Noir",
+    "playCount": 3519
+  },
+  {
+    "genre": "(no genres listed)",
+    "playCount": 1538
+  }
+]

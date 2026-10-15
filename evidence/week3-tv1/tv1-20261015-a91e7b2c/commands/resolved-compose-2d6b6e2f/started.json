@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "config"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T18:55:14.361095+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\resolved-compose-2d6b6e2f\\stdout.txt",
+  "stderr": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\resolved-compose-2d6b6e2f\\stderr.txt"
+}

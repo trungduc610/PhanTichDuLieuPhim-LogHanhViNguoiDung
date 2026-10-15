@@ -1,0 +1,2 @@
+{"at_utc": "2026-10-14T16:38:04.505525+00:00", "spool_completed": false, "observed_complete_lines": 0, "expected": 10000}
+{"at_utc": "2026-10-14T16:38:14.617744+00:00", "spool_completed": true, "observed_complete_lines": 7322, "expected": 10000}

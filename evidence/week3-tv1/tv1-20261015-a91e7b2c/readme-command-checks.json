@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-14T18:55:58.758571+00:00",
+  "verified_actions": [
+    "Python discovery excluding WindowsApps",
+    "CLI help",
+    "prepare from historical official context",
+    "check",
+    "start already-running existing cluster",
+    "stability",
+    "import-first",
+    "import-repeat",
+    "controlled persistence restart",
+    "history full byte hashes",
+    "Spark full input QA",
+    "unit tests"
+  ],
+  "not_exercised": "stop/cold start are not repeated unnecessarily; restart persistence and guards are verified. New-context prepare from the final acceptance and manifest verification follow sealing."
+}

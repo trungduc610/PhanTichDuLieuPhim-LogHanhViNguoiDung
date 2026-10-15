@@ -5,9 +5,16 @@ import { prepareWatchDuration } from './watchDuration.js';
 import { prepareCombinedAnalysis } from './combinedAnalysis.js';
 import { prepareClustering } from './clustering.js';
 import { prepareDailyActivity } from './dailyActivity.js';
+import { validateSource } from './dataSource.js';
+
+let directory = 'data/';
+export function selectDataSource(source) {
+  validateSource(source);
+  directory = `data/${source.runId}/`;
+}
 
 async function readJson(name, signal) {
-  const response = await fetch(`${import.meta.env?.BASE_URL ?? '/'}data/${name}`, { signal, cache: 'no-store' });
+  const response = await fetch(`${import.meta.env?.BASE_URL ?? '/'}${directory}${name}`, { signal, cache: 'no-store' });
   if (response.status === 404) throw new MissingDataError(`Thiếu ${name}. Hãy chạy npm.cmd run sync:data.`);
   if (!response.ok) throw new Error(`Không đọc được ${name} (HTTP ${response.status}).`);
   const content = await response.text();

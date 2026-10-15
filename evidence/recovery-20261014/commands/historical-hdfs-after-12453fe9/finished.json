@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "--profile",
+    "spark",
+    "run",
+    "--rm",
+    "--no-deps",
+    "spark",
+    "--driver-memory",
+    "1g",
+    "scripts/hdfs_hash_verify.py",
+    "--source-manifest",
+    "evidence/week2-hdfs/hdfs-385a18d3f03a/source_manifest.json",
+    "--report",
+    "evidence/recovery-20261014/historical-hdfs-after.json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T17:11:44.949201+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "evidence\\recovery-20261014\\commands\\historical-hdfs-after-12453fe9\\stdout.txt",
+  "stderr": "evidence\\recovery-20261014\\commands\\historical-hdfs-after-12453fe9\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-14T17:12:02.024020+00:00"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\generated\\demo.jsonl",
+    "path": "data/generated/demo.jsonl",
+    "bytes": 3433123,
+    "sha256": "fc4a0d2ed2addeebe1ffef8920d416b99c87d4aacf9ac2e4fcb7922336c0cc53"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\generated\\demo.jsonl.manifest.json",
+    "path": "data/generated/demo.jsonl.manifest.json",
+    "bytes": 1937,
+    "sha256": "c46985795174aafff5158027863245c315d407a9d0769799213a2e1853ae71f3"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\processed\\movies.csv",
+    "path": "data/processed/movies.csv",
+    "bytes": 533347,
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\raw\\download_manifest.json",
+    "path": "data/raw/download_manifest.json",
+    "bytes": 985,
+    "sha256": "09cb64d52eede8192b877dcc6552be4c27635762bdc3e3fc142bab281dfe94b0"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\raw\\ml-latest-small.zip",
+    "path": "data/raw/ml-latest-small.zip",
+    "bytes": 978202,
+    "sha256": "696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\raw\\ml-latest-small\\links.csv",
+    "path": "data/raw/ml-latest-small/links.csv",
+    "bytes": 197979,
+    "sha256": "97ad18e4e56a09363c65676b6cb3482ce3e2cea2372a24620c1599c843325f31"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\raw\\ml-latest-small\\movies.csv",
+    "path": "data/raw/ml-latest-small/movies.csv",
+    "bytes": 494431,
+    "sha256": "5a5f32dd9bb3797b8e728a1b98958789d2b13f294a69fdfbc5727f8a9611aa07"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\raw\\ml-latest-small\\ratings.csv",
+    "path": "data/raw/ml-latest-small/ratings.csv",
+    "bytes": 2483723,
+    "sha256": "aa289ca83157595d0df6aea1be6a4ded676ddc4385472e8313a8ed9805352646"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\raw\\ml-latest-small\\README.txt",
+    "path": "data/raw/ml-latest-small/README.txt",
+    "bytes": 8342,
+    "sha256": "63d22ac138e80fae37021797ed8e1b9424b5239dc576a137422adf783ae3f404"
+  },
+  {
+    "source": "C:\\Users\\User\\Documents\\Codex\\2026-10-03\\files-pasted-by-the-user-b\\outputs\\movie-log-bigdata\\data\\raw\\ml-latest-small\\tags.csv",
+    "path": "data/raw/ml-latest-small/tags.csv",
+    "bytes": 118660,
+    "sha256": "92a9f8bb7916dceef6151209845788c3643f794dfa79d1feaec7121b5960399d"
+  }
+]

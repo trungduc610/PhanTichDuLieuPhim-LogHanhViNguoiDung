@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "run_id": "run-c26cfa7fb494",
+  "role": "stability-only-never-official",
+  "events": 10000,
+  "parts": 1,
+  "bytes": 3433123,
+  "reconciliation_sha256": "fad3c9b932ea51009df8a29589d313d665fb25afe9f27e999c6275895a9b3d2c"
+}

@@ -1,0 +1,1 @@
+      8 /opt/java/openjdk/bin/java -Xms128m -Xmx512m -XX:+PrintFlagsFinal -Dlog4j.configurationFile=/opt/flume/conf/log4j2.xml -Dflume.monitoring.type=http -Dflume.monitoring.port=41414 -cp /opt/flume/conf:/opt/flume/lib/*:/lib/* -Djava.library.path= org.apache.flume.node.Application --name a1 --conf-file /project/config/flume.conf

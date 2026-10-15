@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-14T18:53:04.695149+00:00",
+  "source_hashes": {
+    "Dockerfile": "8037f027750233fc6925e351fae61221b471d15909c8819a5001918677dbd8cd",
+    "compose.yaml": "674b5854f3d53c82df04aedcdb0fd238a5fe632ccf028e743ce1823f6973d7f4",
+    "compose.hdfs.yaml": "c9afaae9ee08fafa757014cbeb43fa37f6d74c4d86fbef0dabaa917e3db9ec24",
+    "config/flume.conf": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+    "config/flume-env.sh": "acf2075e698a74f65a384c9d8c73e317fccda5d4c02429a381387b5634e26b74",
+    "config/log4j2.xml": "f7f47e1246016eaa5bfaa0a65a8c66be712baac931e05ce30adfd694625b277b",
+    "config/hdfs/core-site.xml": "67c630f4c15c668c3b687165de09c3d7cd02eee679658a861ea30ab9d638a1b3",
+    "config/hdfs/hdfs-site.xml": "23ea6f5bc3fd8e9351c247b7709a5d1454631982ff1c6a644592b237c90d2653",
+    "scripts/run_pipeline.py": "ad7514dcb4b1b5f26102e6ba345a827db406f511f5c6fe675e0a718ae9ba8023",
+    "scripts/run_flume.sh": "6996130db3d8a0db1677bfdb40e5614980f980f2e812c3aed5ac990a5fe39c2b",
+    "scripts/hdfs_source.py": "21ad2286440df5a844a74501e65586961fa0578da605dcd06f9ae642cc027bd8",
+    "scripts/hdfs_io.py": "6b7872ef6bc5dad459110a45b78ef519e3f9ffdd2dcf622b6f3bc580e78ed2c4",
+    "scripts/hdfs_spark_import.py": "22df9ced9ea28de4cd82105c1d1f6dfc8341ea5707944d09cad7b37c611c0d43",
+    "scripts/hdfs_service.sh": "b52f82d5019c36273ca61644fcfada9bfb3dfcabde992ae515ee0e8df2a00a7e",
+    "scripts/spark_hdfs_validate.py": "c4832e03b130f1b7526e0428e64b2aacb535a5b0704c2faf13cd107322fbf6b0",
+    "scripts/week3_tv1.py": "d0c8a466d620d79ef4248b1f9c6c9c33f90d04342952570f003e7ce26fc6f2a8",
+    "src/schemas.py": "c11cf48dcbd99801d72ecb3be32ffb03b196efd7a9173c40817962c34d082310"
+  },
+  "flume_links": {
+    "a1.sources": "r1",
+    "a1.channels": "c1",
+    "a1.sinks": "k1",
+    "a1.sources.r1.channels": "c1",
+    "a1.sinks.k1.channel": "c1",
+    "a1.sources.r1.type": "spooldir",
+    "a1.channels.c1.type": "file",
+    "a1.sinks.k1.type": "file_roll",
+    "a1.sources.r1.inputCharset": "UTF-8",
+    "a1.sources.r1.decodeErrorPolicy": "FAIL",
+    "a1.sinks.k1.sink.serializer.appendNewline": "true"
+  },
+  "max_official_event_bytes": 351,
+  "line_limit": 16384,
+  "utf8_and_final_lf": "All Sink parts parsed by hdfs_source.py",
+  "execution_mode": "batch; stopped after drain and reconciliation",
+  "personal_machine_path_matches": []
+}

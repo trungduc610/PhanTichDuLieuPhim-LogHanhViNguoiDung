@@ -1,0 +1,2 @@
+Filesystem                Size     Used  Available  Use%
+hdfs://namenode:9000  1006.9 G  867.4 M    947.5 G    0%

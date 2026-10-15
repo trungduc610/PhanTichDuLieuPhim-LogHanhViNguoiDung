@@ -7,10 +7,14 @@ import ScrollableTable from '../components/ScrollableTable.jsx';
 import { loadWatchDuration } from '../services/dashboardData.js';
 import { durationFields } from '../services/watchDuration.js';
 import { number } from '../services/formatNumbers.js';
+import { useState } from 'react';
+import ComparisonBarChart from '../components/ComparisonBarChart.jsx';
 
 function WatchDurationContent() {
   const state = useDashboardData();
   const data = state.metrics;
+  const [stat,setStat] = useState('mean');
+  const metric = durationFields.find(row => row.key === stat);
   return <div className="analysis-page overview-page duration-page">
     <AnalysisPageHeader title="Thời lượng xem" description="So sánh thời lượng trên toàn bộ sự kiện và những đoạn xem có thời lượng lớn hơn 0." />
     <p className="analysis-context"><strong>Đơn vị gốc: giây.</strong> Thống kê theo bản ghi sự kiện, không phải thời lượng trung bình mỗi phiên xem.</p>
@@ -23,6 +27,23 @@ function WatchDurationContent() {
         <MetricCard icon="duration" title="Đoạn xem · Trung bình" value={data.watchSegments.mean} unit="giây" description="Trên các bản ghi có thời lượng dương." />
       </section>
       <div className="analysis-grid">
+        <ChartPanel className="analysis-wide" title="Biểu đồ so sánh thời lượng" note="So sánh cùng một chỉ số bằng giây; không cộng hai phạm vi bản ghi." icon="chart">
+          <div className="chart-controls"><div className="filter-field">
+            <label htmlFor="duration-stat">Chỉ số thời lượng</label>
+            <select id="duration-stat" value={stat} onChange={event => setStat(event.target.value)}>
+              {durationFields.filter(row => row.unit === 'giây').map(row => <option key={row.key} value={row.key}>{row.label}</option>)}
+            </select>
+          </div></div>
+          <div data-chart="watch-duration" data-statistic={stat}>
+            <ComparisonBarChart data={[{ cluster:0,label:'Toàn bộ',value:data.allEvents[stat] },
+              { cluster:1,label:'Đoạn dương',value:data.watchSegments[stat] }]}
+              dataKey="value" unit="giây" title={metric.label} itemName="nhóm" />
+            <div className="duration-values" aria-label="Giá trị chỉ số đang chọn">
+              <span data-duration-scope="all_events">Toàn bộ: <strong>{number(data.allEvents[stat])} giây</strong></span>
+              <span data-duration-scope="watch_segments">Đoạn dương: <strong>{number(data.watchSegments[stat])} giây</strong></span>
+            </div>
+          </div>
+        </ChartPanel>
         <ChartPanel title="So sánh thống kê thời lượng" note="Đơn vị giây; làm tròn tối đa 3 chữ số thập phân. Số bản ghi giữ nguyên số nguyên." icon="table">
           <ScrollableTable label="Bảng thống kê thời lượng">
             <table className="duration-table"><caption>Thống kê trên bản ghi sự kiện — nguồn stats_watch_duration_summary.json</caption>

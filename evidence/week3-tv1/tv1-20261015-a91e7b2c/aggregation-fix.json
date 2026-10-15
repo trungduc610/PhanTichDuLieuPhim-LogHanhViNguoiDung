@@ -1,0 +1,10 @@
+{
+  "status": "RESOLVED",
+  "checked_at_utc": "2026-10-14T18:55:58.748388+00:00",
+  "first_batch_run_id": "run-922de67e4cbf",
+  "first_batch_status": "PASS",
+  "wrapper_failure": "JSONDecodeError: Extra data when interpreting the multiple JSON documents printed by run_pipeline.py",
+  "fix": "runner_status decodes the JSON stream and requires a valid final run_id; regression tests and a second actual batch passed",
+  "verified_stability": "run-c26cfa7fb494",
+  "note": "Original batch status, commands, stdout and reconciliation retained."
+}

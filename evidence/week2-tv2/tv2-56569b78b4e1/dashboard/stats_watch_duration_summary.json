@@ -1,0 +1,22 @@
+[
+  {
+    "count": 1000000,
+    "mean": 1458.785357,
+    "median": 0.0,
+    "min": 0,
+    "max": 10800,
+    "stddev": 2654.320302200105,
+    "scope": "all_events",
+    "unit": "seconds"
+  },
+  {
+    "count": 348474,
+    "mean": 4186.210038625551,
+    "median": 3832.0,
+    "min": 1,
+    "max": 10800,
+    "stddev": 2966.5372587340803,
+    "scope": "watch_segments",
+    "unit": "seconds"
+  }
+]

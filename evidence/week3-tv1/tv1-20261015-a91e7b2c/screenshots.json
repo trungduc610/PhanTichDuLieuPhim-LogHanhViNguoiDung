@@ -1,0 +1,24 @@
+{
+  "status": "CAPTURED",
+  "captured_at_utc": "2026-10-14T18:55:58.750391+00:00",
+  "method": "Direct Codex browser screenshot API on live localhost NameNode UI",
+  "url": "http://127.0.0.1:19870/dfshealth.html",
+  "files": {
+    "datanode-after.jpg": {
+      "bytes": 75701,
+      "sha256": "b3dc494dbd1b9fa2dc16153a58f0b763bf2ec4b0976d7b82f5bcd5c025e3a193",
+      "media_type": "image/jpeg"
+    },
+    "namenode-overview-after.jpg": {
+      "bytes": 181590,
+      "sha256": "2bce013ebd13c5b6e26ebb5a871e0a4d945e923679df9ab3fd975ca647756b53",
+      "media_type": "image/jpeg"
+    },
+    "namenode-overview-before.jpg": {
+      "bytes": 181668,
+      "sha256": "6c80433ff7db821cfc6911ebf7cfed7781eb9d1f5e50fc6466b93f6832bb6b37",
+      "media_type": "image/jpeg"
+    }
+  },
+  "initial_narrow_capture": "namenode-before.png contains JPEG bytes from browser API; retained as an initial capture, use the named .jpg full-page screenshots."
+}

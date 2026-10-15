@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "scripts/hdfs_io.py",
+    "--context",
+    "evidence/week3-tv1/tv1-20261015-a91e7b2c/run-context.json",
+    "--client",
+    "spark",
+    "--label",
+    "persistence-before"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T18:48:25.328538+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\persistence-before-f642c828\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\persistence-before-f642c828\\stderr.txt"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-10-14T18:48:31.056420+00:00",
+  "hdfs_run_id": "hdfs-385a18d3f03a",
+  "flume_run_id": "run-63efa2865c76",
+  "source_manifest_sha256": "df1917c1b05fed4d38f1467fa7de148d66bc5076d9a7a8902bd3442e31cb3a12",
+  "stage": "HDFS_BYTE_VERIFICATION",
+  "note": "Every remote byte is hashed. Independent record counts and schema QA are checked by spark_hdfs_validate.py.",
+  "source_hashes": {
+    "scripts/hdfs_spark_import.py": "22df9ced9ea28de4cd82105c1d1f6dfc8341ea5707944d09cad7b37c611c0d43",
+    "scripts/hdfs_common.py": "f52b831067b7f7c6a1eb6646c1626e507ed57a9e4cd540be121d070d930afd91"
+  },
+  "filesystem_class": "org.apache.hadoop.hdfs.DistributedFileSystem",
+  "actual_filesystem_uri": "hdfs://namenode:9000",
+  "missing_files": [],
+  "unexpected_files": [],
+  "local_fallback": false,
+  "total_bytes": 343872495,
+  "uploaded": 0,
+  "skipped_verified": 0,
+  "finished_at_utc": "2026-10-14T18:48:41.463604+00:00"
+}
+

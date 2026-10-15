@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "scripts/week3_tv1.py",
+    "prepare",
+    "--source-context",
+    "evidence/recovery-20261014/live-hdfs/run-context.json",
+    "--official-acceptance",
+    "evidence/recovery-20261014/system-acceptance.json",
+    "--flume-run-id",
+    "run-c26cfa7fb494",
+    "--evidence-dir",
+    "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\refused-demo"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T18:49:01.920474+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\reject-demo-official-f4b4cd74\\stdout.txt",
+  "stderr": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\reject-demo-official-f4b4cd74\\stderr.txt",
+  "exit_code": 1,
+  "finished_at_utc": "2026-10-14T18:49:02.383093+00:00"
+}

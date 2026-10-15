@@ -1,0 +1,30 @@
+[
+    {
+        "CreatedAt": "2026-10-12T07:24:48Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "12904640e2ad877c4293e8915f1b2c60c3663058788eeae41e92a4d9459d1442",
+            "com.docker.compose.project": "movie-hdfs-385a18d3f03a",
+            "com.docker.compose.version": "5.4.0",
+            "com.docker.compose.volume": "datanode"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/movie-hdfs-385a18d3f03a_datanode/_data",
+        "Name": "movie-hdfs-385a18d3f03a_datanode",
+        "Options": null,
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-12T07:24:48Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "e627bf1ff5a67e0d364d7e5662968585415d3ba4b4de888988aefa9e5c14b1ed",
+            "com.docker.compose.project": "movie-hdfs-385a18d3f03a",
+            "com.docker.compose.version": "5.4.0",
+            "com.docker.compose.volume": "namenode"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/movie-hdfs-385a18d3f03a_namenode/_data",
+        "Name": "movie-hdfs-385a18d3f03a_namenode",
+        "Options": null,
+        "Scope": "local"
+    }
+]

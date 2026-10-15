@@ -1,0 +1,10 @@
+{
+  "pre_join_clean_log_count": 1000000,
+  "clean_log_count": 1000000,
+  "joined_count": 1000000,
+  "orphan_count": 0,
+  "count_identity": "pre_join_clean_log_count = joined_count + orphan_count; clean_log_count excludes quarantined orphans",
+  "key": "movieId",
+  "type": "bigint",
+  "join": "inner"
+}

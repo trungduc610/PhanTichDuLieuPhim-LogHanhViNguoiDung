@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "docker",
+    "info",
+    "--format",
+    "{{json .}}"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T16:57:59.366992+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\docker-info-e5d6fafb\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\docker-info-e5d6fafb\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-14T16:58:01.269194+00:00"
+}

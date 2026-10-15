@@ -1,0 +1,3 @@
+count,mean,median,min,max,stddev,scope,unit
+1000000,1458.785357,0.0,0,10800,2654.320302200105,all_events,seconds
+348474,4186.210038625551,3832.0,1,10800,2966.5372587340803,watch_segments,seconds

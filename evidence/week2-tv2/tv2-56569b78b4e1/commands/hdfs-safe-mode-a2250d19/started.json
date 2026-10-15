@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-f",
+    "compose.tv2.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "exec",
+    "-T",
+    "namenode",
+    "hdfs",
+    "dfsadmin",
+    "-safemode",
+    "get"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T16:58:02.055614+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\hdfs-safe-mode-a2250d19\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\hdfs-safe-mode-a2250d19\\stderr.txt"
+}

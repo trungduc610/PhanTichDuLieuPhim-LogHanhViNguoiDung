@@ -1,0 +1,47 @@
+{
+  "run_id": "tv2-56569b78b4e1",
+  "hdfs_run_id": "hdfs-385a18d3f03a",
+  "flume_run_id": "run-63efa2865c76",
+  "project": "movie-hdfs-385a18d3f03a",
+  "evidence": "evidence/week2-tv2/tv2-56569b78b4e1",
+  "source_manifest": "evidence/week2-tv2/tv2-56569b78b4e1/source_manifest.json",
+  "source_manifest_sha256": "19a752104263dbda5d1fc8925d235a46f86186092121b994b62134d7b1b8c267",
+  "hdfs_context": "evidence\\recovery-20261014\\live-hdfs\\run-context.json",
+  "seed": 42,
+  "driver_memory": "1536m",
+  "output_roots": {
+    "processed": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1",
+    "results": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1"
+  },
+  "started_at_utc": "2026-10-14T16:57:59.192008+00:00",
+  "protected_tv1_hashes": {
+    "src/schemas.py": "c11cf48dcbd99801d72ecb3be32ffb03b196efd7a9173c40817962c34d082310",
+    "compose.hdfs.yaml": "c9afaae9ee08fafa757014cbeb43fa37f6d74c4d86fbef0dabaa917e3db9ec24",
+    "scripts/hdfs_source.py": "21ad2286440df5a844a74501e65586961fa0578da605dcd06f9ae642cc027bd8",
+    "scripts/run_hdfs.py": "83b68ebdebb860e405fd9dfd0e1e2a8166a77bb8bd2aa3e65e4e737489055d13",
+    "scripts/hdfs_io.py": "6b7872ef6bc5dad459110a45b78ef519e3f9ffdd2dcf622b6f3bc580e78ed2c4",
+    "scripts/hdfs_hash_verify.py": "03488617a62c80840c2f6ae7c67063eb1fb09400744bb54e41775500f4bf65a5",
+    "scripts/spark_hdfs_validate.py": "c4832e03b130f1b7526e0428e64b2aacb535a5b0704c2faf13cd107322fbf6b0",
+    "config/hdfs/core-site.xml": "67c630f4c15c668c3b687165de09c3d7cd02eee679658a861ea30ab9d638a1b3",
+    "config/hdfs/hdfs-site.xml": "23ea6f5bc3fd8e9351c247b7709a5d1454631982ff1c6a644592b237c90d2653",
+    "config/flume.conf": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+    "config/log4j2.xml": "f7f47e1246016eaa5bfaa0a65a8c66be712baac931e05ce30adfd694625b277b",
+    "data/processed/movies.csv": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "evidence/recovery-20261014/live-hdfs/source_manifest.json": "19a752104263dbda5d1fc8925d235a46f86186092121b994b62134d7b1b8c267"
+  },
+  "code_hashes": {
+    "Dockerfile.tv2": "3aa314447b363d4786f20e1df766d81fe56654a7c151e318ded8a4b7a4a38fa9",
+    "compose.tv2.yaml": "aa40af3bf21c99a045c7d3de7d030f2c6f511d27461bf26060c75c070e185bb0",
+    "scripts/run_tv2.py": "bc1be895a7acb78a3dbf0dc405b217f1a7cfe582abd25bf7e8886f00dad3cd11",
+    "scripts/tv2_pipeline.py": "f26a77b6f8a05c0708b5d57b10fc50925b913542d13124fe73d3482e7b14328d",
+    "scripts/tv2_common.py": "06ebf77eddc990644d71c5702add9591ce69b55782e9487c7239f29f00301827",
+    "src/tv2_processing.py": "dfa5711e15bd3331bf19f2c11ca70588ca47f229bae1d9bdc62cd4fb94828b4c",
+    "src/tv2_analytics.py": "76d444e860afcc7f4c6b24ab540f4bfb1b9309981593369b06ff0dd511d23ee6",
+    "src/tv2_clustering.py": "74d99362608ffe74a0ead6bb184bd72d5e12c56913c70773eda84f0625bd14f1",
+    "scripts/tv2_spark_tests.py": "6a34d8951462d25e0eb272b4dd4b44dc761ee87d411109f037acbb8a6cde0a1a",
+    "tests/test_tv2_contract.py": "bd93c047e3097ccf7f42c5d65f92c7ece7d94709a10c17ccf608925f3cc6b206",
+    "scripts/common.py": "246ee962b07d43e9b9beafb1918ce1a35b88d9ee9f30ea03e0a70232068706b0",
+    "scripts/hdfs_common.py": "f52b831067b7f7c6a1eb6646c1626e507ed57a9e4cd540be121d070d930afd91",
+    "src/schemas.py": "c11cf48dcbd99801d72ecb3be32ffb03b196efd7a9173c40817962c34d082310"
+  }
+}

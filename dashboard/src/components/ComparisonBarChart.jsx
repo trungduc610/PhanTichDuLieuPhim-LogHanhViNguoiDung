@@ -5,7 +5,7 @@ import { number, axisNumber } from '../services/formatNumbers.js';
 const colors = ['#315fa8', '#25817e', '#8567b0', '#9a6434', '#687d97'];
 
 // Một chỉ số và một đơn vị cho mỗi biểu đồ; dữ liệu lấy nguyên từ hồ sơ cụm.
-export default function ComparisonBarChart({ data, dataKey, unit, title, vertical = false }) {
+export default function ComparisonBarChart({ data, dataKey, unit, title, vertical = false, itemName = 'cụm' }) {
   const id = useId();
   const region = useRef(null);
   const [hoverIndex, setHoverIndex] = useState(null);
@@ -51,7 +51,7 @@ export default function ComparisonBarChart({ data, dataKey, unit, title, vertica
       onMouseDown={event => { if (event.target.closest('.recharts-bar-rectangle')) event.preventDefault(); }}>
       <div className="overview-chart-readout" role="status" aria-live="polite" aria-atomic="true" data-cluster={active?.cluster}>
         {active ? <><span>{active.label}</span><strong>{number(active[dataKey])} {unit}</strong></>
-          : <span>Di chuột hoặc dùng Tab để đọc số liệu từng cụm.</span>}
+          : <span>Di chuột hoặc dùng Tab để đọc số liệu từng {itemName}.</span>}
       </div>
       <div className="chart-frame">
         <ResponsiveContainer width="100%" height="100%">
@@ -73,6 +73,6 @@ export default function ComparisonBarChart({ data, dataKey, unit, title, vertica
         </ResponsiveContainer>
       </div>
     </div>
-    <p id={id} className="overview-interaction-help">← → hoặc ↑ ↓: đổi cụm · Home/End: đầu/cuối · Esc: bỏ highlight.</p>
+    <p id={id} className="overview-interaction-help">← → hoặc ↑ ↓: đổi {itemName} · Home/End: đầu/cuối · Esc: bỏ highlight.</p>
   </div>;
 }

@@ -11,7 +11,8 @@ from hdfs_common import ROOT,Ledger,new_json,snapshot_namespaces
 from tv2_common import output_roots
 
 TV2_FILES=['Dockerfile.tv2','compose.tv2.yaml','scripts/run_tv2.py','scripts/tv2_pipeline.py','scripts/tv2_common.py',
-           'src/tv2_processing.py','src/tv2_analytics.py','src/tv2_clustering.py','scripts/tv2_spark_tests.py','tests/test_tv2_contract.py']
+           'src/tv2_processing.py','src/tv2_analytics.py','src/tv2_clustering.py','scripts/tv2_spark_tests.py','tests/test_tv2_contract.py',
+           'scripts/common.py','scripts/hdfs_common.py','src/schemas.py']
 PROTECTED=['src/schemas.py','compose.hdfs.yaml','scripts/hdfs_source.py','scripts/run_hdfs.py','scripts/hdfs_io.py',
            'scripts/hdfs_hash_verify.py','scripts/spark_hdfs_validate.py','config/hdfs/core-site.xml',
            'config/hdfs/hdfs-site.xml','config/flume.conf','config/log4j2.xml','data/processed/movies.csv']

@@ -1,0 +1,262 @@
+{
+  "checked_at_utc": "2026-10-14T16:48:57.916653+00:00",
+  "mode": "pipeline_reconciliation",
+  "input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+  "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+  "movies_quality": {
+    "path": "data\\processed\\movies.csv",
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "bytes": 533347,
+    "rows": 9742,
+    "unique_movie_ids": 9742,
+    "error_rows": 0,
+    "issues_sample": [],
+    "releaseYear_null_allowed": 13,
+    "no_genres_listed": 34,
+    "status": "PASS"
+  },
+  "errors_sample": [],
+  "session_errors": 0,
+  "valid_sessions": 303052,
+  "user_overlap_errors": 0,
+  "input": {
+    "total": 1000000,
+    "valid": 1000000,
+    "unique": 1000000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 303052,
+      "play": 348474,
+      "complete": 141907,
+      "stop": 116021,
+      "pause": 90546
+    },
+    "watch_seconds": 1458785357,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z"
+  },
+  "output": {
+    "total": 1000000,
+    "valid": 1000000,
+    "unique": 1000000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 303052,
+      "play": 348474,
+      "complete": 141907,
+      "stop": 116021,
+      "pause": 90546
+    },
+    "watch_seconds": 1458785357,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z"
+  },
+  "output_files": [
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-1.jsonl",
+      "bytes": 3433123,
+      "sha256": "4b4f08c601fde6f5c871f97dc98b714c254913b0eaa3ad7cae6d11a2abc613eb",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-10.jsonl",
+      "bytes": 12187848,
+      "sha256": "bd0e5b32ecbbe4b1684c3262dc864be06c1910feb8132051cfbbd87ac4d7c2d8",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-11.jsonl",
+      "bytes": 9956532,
+      "sha256": "c048ab4021560b523cab64590e68b54d40221d58aaf6540e9f2c90a6d57fd4fc",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-12.jsonl",
+      "bytes": 14076388,
+      "sha256": "577e0f4dd4eec4babc4251c50b2a43c1033275014ca93b69c576b1366aa6b78c",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-13.jsonl",
+      "bytes": 15278619,
+      "sha256": "f2da5fa82f4ae84034b9ee3eaffafd91b757e961fba8f936e386594e88128998",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-14.jsonl",
+      "bytes": 15794181,
+      "sha256": "6b985e0fe698455d8c402ed29c8eed7deb809401327fa1c68c4be0209ab841d3",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-15.jsonl",
+      "bytes": 13219016,
+      "sha256": "05881811bf7897a8e8598ba54eb84dc9fe2fca09a29e918acf0ff9fbe2aff455",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-16.jsonl",
+      "bytes": 13905109,
+      "sha256": "9767967cfa4251b819695a97f9dbda3228221b8043af77f7ec73cc01855353c0",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-17.jsonl",
+      "bytes": 10986851,
+      "sha256": "545ba129d06cceec997780100d95c1d20aeb06e4d3b8476cf9f6a7a980bdbd60",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-18.jsonl",
+      "bytes": 13218781,
+      "sha256": "1e4a3deff0213c2413e46ed6b662745143292986288e55405d7e8004c299c68b",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-19.jsonl",
+      "bytes": 15106911,
+      "sha256": "f941bcb957cdef66c5270a38e8516518eb73d37da68fa7b438ec325f07707d4c",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-2.jsonl",
+      "bytes": 14763395,
+      "sha256": "198e1a94c0182fd2f6efdad93d20e34d67724ca21052e5b03fe4d20294296e60",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-20.jsonl",
+      "bytes": 14248217,
+      "sha256": "8728b52e9682d66d7b879c49057ec7aba24881ed582500b6a216fbe67c868e12",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-21.jsonl",
+      "bytes": 16480482,
+      "sha256": "0b17bb26a05646c8c019ae269d670570c92914c5ae01b34e0892490f71991e63",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-22.jsonl",
+      "bytes": 16137194,
+      "sha256": "fa463324dfa83e6504060a8692008d4ad4595b9f0a20088050e0f7a6daae297d",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-23.jsonl",
+      "bytes": 15793252,
+      "sha256": "1227db64c69abce3d1e647ae98237376ccb179682bb90b6df0fd7f7b76985bde",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-24.jsonl",
+      "bytes": 15107150,
+      "sha256": "6f85870bc1f8c0e2090fd7de3ee1d683f3ff160f46775adff433aaa6303055fe",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-25.jsonl",
+      "bytes": 10300279,
+      "sha256": "aa512774f4a1a31c0e88826aba955cc55413145a23988563c990855c8236f3fb",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-26.jsonl",
+      "bytes": 1201680,
+      "sha256": "4b4b2e9e6b73d3a1cf8947edf7728a24ffdabadd949306753433182bb8205bf8",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-3.jsonl",
+      "bytes": 15450438,
+      "sha256": "211427531d9b8033f4953183aee9c6d89ab870e23483c1ef1ca246dd1f733d9f",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-4.jsonl",
+      "bytes": 16823804,
+      "sha256": "d0e1349aff96dc71ee91c2f2d2b34e6262a106ce368d8ecdc8ecb5686e73759f",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-5.jsonl",
+      "bytes": 16479472,
+      "sha256": "a7adc516bd78c48c1f57a3ebc9f05ba6275a175ade4fe882e616800b45c10d70",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-6.jsonl",
+      "bytes": 18025282,
+      "sha256": "4a3db6cba3cf1c38a94ef48ec143e026efb27e5d56d46d8712e42d5817f04c57",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-7.jsonl",
+      "bytes": 15278834,
+      "sha256": "d19b162d888f4bd44059b8a7adbdc487476bc8785284dd97827991a31bcc3e78",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-8.jsonl",
+      "bytes": 10815855,
+      "sha256": "750991cf2746a443877caa5b60b8e12a3d44a2122c9d23295ad4669cfc343223",
+      "empty": false,
+      "final_newline": true
+    },
+    {
+      "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\runs\\run-63efa2865c76\\output\\1791996256695-9.jsonl",
+      "bytes": 9270455,
+      "sha256": "aef35cf8764600e2011ab97532d0985b50e80b26a85ec99653876c78822399d7",
+      "empty": false,
+      "final_newline": true
+    }
+  ],
+  "output_file_summary": {
+    "files": 26,
+    "bytes": 343339148,
+    "empty_files": 0,
+    "missing_final_newline_files": 0
+  },
+  "missing_event_ids": 0,
+  "unexpected_event_ids": 0,
+  "changed_payloads": 0,
+  "manifest_errors": [],
+  "status": "PASS",
+  "semantics": "Observed reconciliation only; not an exactly-once guarantee. Duplicates are reported as FAIL for review."
+}

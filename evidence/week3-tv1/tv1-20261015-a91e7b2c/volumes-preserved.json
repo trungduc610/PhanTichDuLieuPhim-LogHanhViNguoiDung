@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-14T18:56:36.251236+00:00",
+  "original_volumes": [
+    "movie-hdfs-385a18d3f03a_datanode",
+    "movie-hdfs-385a18d3f03a_namenode",
+    "movie-run-63efa2865c76_flume-channel",
+    "movie-run-9655fcadf722_flume-channel",
+    "movie-run-aa6b9eb58dca_flume-channel",
+    "movie-run-aefc814b0b5f_flume-channel"
+  ],
+  "current_volumes": [
+    "movie-hdfs-385a18d3f03a_datanode",
+    "movie-hdfs-385a18d3f03a_namenode",
+    "movie-run-63efa2865c76_flume-channel",
+    "movie-run-922de67e4cbf_flume-channel",
+    "movie-run-9655fcadf722_flume-channel",
+    "movie-run-aa6b9eb58dca_flume-channel",
+    "movie-run-aefc814b0b5f_flume-channel",
+    "movie-run-c26cfa7fb494_flume-channel"
+  ],
+  "nodes": {
+    "datanode": {
+      "id": "712efa5b90f3c6470edd68a5921c76f914d8d874612a99a8385e18c2f3d35c62",
+      "name": "movie-hdfs-385a18d3f03a-datanode-1",
+      "volume": "movie-hdfs-385a18d3f03a_datanode",
+      "image": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+      "image_reference": "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+      "running": true,
+      "store": "/hdfs/data"
+    },
+    "namenode": {
+      "id": "db63a5df76fde4f8fbdf8c8954a67f83c1f67e501624d5fb601b145f25d18e88",
+      "name": "movie-hdfs-385a18d3f03a-namenode-1",
+      "volume": "movie-hdfs-385a18d3f03a_namenode",
+      "image": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+      "image_reference": "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+      "running": true,
+      "store": "/hdfs/name"
+    }
+  }
+}
