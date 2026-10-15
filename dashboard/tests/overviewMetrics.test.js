@@ -1,9 +1,10 @@
+import { selectedSource, copiedSource } from './selectedSource.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { calculateOverview, MissingDataError } from '../src/services/overviewMetrics.js';
 
-const source = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/', import.meta.url);
+const source = selectedSource('');
 const actions = JSON.parse(await readFile(new URL('stats_action_distribution.json', source), 'utf8'));
 const assignments = JSON.parse(await readFile(new URL('kmeans_assignments.json', source), 'utf8'));
 

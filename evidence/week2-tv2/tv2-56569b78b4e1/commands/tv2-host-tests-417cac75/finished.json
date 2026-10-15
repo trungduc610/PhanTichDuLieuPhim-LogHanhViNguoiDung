@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_tv2*.py",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T16:58:09.196631+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\tv2-host-tests-417cac75\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\tv2-host-tests-417cac75\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-14T16:58:09.462939+00:00"
+}

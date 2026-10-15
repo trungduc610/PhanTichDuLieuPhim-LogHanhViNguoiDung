@@ -9,17 +9,19 @@ import { number, percent } from '../src/services/formatNumbers.js';
 import { buildCsv, overviewTables } from '../src/services/overviewExport.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const sourceData = async name => JSON.parse(await readFile(new URL(`../public/data/${name}`, import.meta.url), 'utf8'));
+const selectedSource = JSON.parse(await readFile(new URL('../public/data/source.json',import.meta.url),'utf8'));
+const sourceData = async name => JSON.parse(await readFile(new URL(`../public/data/${selectedSource.runId}/${name}`, import.meta.url), 'utf8'));
+const dailyRows = await sourceData('stats_daily_active_users.json');
 const actionRows = (await sourceData('stats_action_distribution.json')).sort((a,b) => b.count-a.count);
 const hourlyRows = await sourceData('stats_hourly_activity.json');
 const movieRows = await sourceData('stats_top_movies_by_play.json');
 const genreRows = await sourceData('stats_top_genres.json');
-const durationRows = JSON.parse(await readFile(new URL('../public/data/stats_watch_duration_summary.json', import.meta.url), 'utf8'));
-const combinedRows = JSON.parse(await readFile(new URL('../public/data/stats_user_movie_time.json', import.meta.url), 'utf8'));
-const clusteringMetadata = JSON.parse(await readFile(new URL('../public/data/kmeans_model_metadata.json', import.meta.url), 'utf8'))[0];
-const clusterProfiles = JSON.parse(await readFile(new URL('../public/data/kmeans_cluster_profiles.json', import.meta.url), 'utf8'));
-const clusterUsers = JSON.parse(await readFile(new URL('../public/data/kmeans_assignments.json', import.meta.url), 'utf8')).sort((a,b) => a.userId.localeCompare(b.userId));
-const artifacts = new URL('../.browser-check/', import.meta.url);
+const durationRows = (await sourceData('stats_watch_duration_summary.json'));
+const combinedRows = (await sourceData('stats_user_movie_time.json'));
+const clusteringMetadata = (await sourceData('kmeans_model_metadata.json'))[0];
+const clusterProfiles = (await sourceData('kmeans_cluster_profiles.json'));
+const clusterUsers = (await sourceData('kmeans_assignments.json')).sort((a,b) => a.userId.localeCompare(b.userId));
+const artifacts = new URL(`../.browser-check/${Date.now()}/`, import.meta.url);
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const reserve = createNetServer();
 await new Promise((resolve) => reserve.listen(0, '127.0.0.1', resolve));
@@ -327,7 +329,7 @@ try {
   }
   const routes = [
     ['/', 'Tổng quan', 0], ['/phim', 'Phân tích phim', 20],
-    ['/hanh-vi', 'Hành vi người dùng', 5], ['/thoi-gian', 'Hoạt động theo thời gian', 24],
+    ['/hanh-vi', 'Hành vi người dùng', 5], ['/thoi-gian', 'Hoạt động theo thời gian', 24 + dailyRows.length],
     ['/the-loai', 'Phân tích thể loại', 20],
     ['/thoi-luong', 'Thời lượng xem', 6],
     ['/ket-hop', 'Phân tích kết hợp', 75],
@@ -347,7 +349,7 @@ try {
       await call('Page.navigate', { url: origin + path });
       let ready = false;
       for (let attempt = 0; attempt < 150; attempt++) {
-        const expectedBars = path === '/' || path === '/thoi-gian' ? 24 : path === '/phan-cum' ? clusterProfiles.length * 4 : 0;
+        const expectedBars = path === '/' || path === '/thoi-gian' ? 24 : path === '/phan-cum' ? clusterProfiles.length * 4 : path === '/thoi-luong' ? 2 : 0;
         const expectedRanking = path === '/' ? 5 : path === '/phim' ? 20 : path === '/the-loai' ? 10 : path === '/ket-hop' ? 3 : 0;
         ready = await evaluate(`!!document.querySelector('${path === '/' ? '.metrics-grid' : 'tbody'}') && document.querySelectorAll('.recharts-bar-rectangle').length === ${expectedBars} && document.querySelectorAll('.movie-ranking li').length === ${expectedRanking} ${path === '/' || path === '/hanh-vi' ? "&& document.querySelectorAll('.recharts-pie-sector').length === 5" : ''}`);
         if (ready) break;
@@ -367,9 +369,46 @@ try {
       })`);
       assert.equal(result.title, title);
       assert.equal(result.rows, rows);
-      assert.equal(result.charts, path === '/' ? 2 : path === '/phan-cum' ? 4 : path === '/thoi-gian' || path === '/hanh-vi' ? 1 : 0);
+      assert.equal(result.charts, path === '/' ? 2 : path === '/phan-cum' ? 4 : path === '/thoi-gian' ? 2 : path === '/hanh-vi' || path === '/thoi-luong' ? 1 : 0);
       assert.equal(await evaluate("!!document.querySelector('.overview-heading .overview-scope')"),true,'Tám trang phải dùng phạm vi dữ liệu thống nhất');
       assert.equal(result.overflow, false, `${width}px ${path}: trang bị tràn ngang`);
+      assert.ok(result.text.includes(selectedSource.runId),'Dashboard phải hiển thị đúng run đã xác minh');
+      if (path === '/thoi-gian') {
+        const actualDaily = await evaluate("[...document.querySelectorAll('.daily-activity tbody tr')].map(row=>[row.children[0].textContent,row.children[1].textContent])");
+        assert.deepEqual(actualDaily,dailyRows.map(row=>[row.date.split('-').reverse().join('/'),number(row.activeUsers)]));
+        assert.equal(await evaluate("document.querySelectorAll('.daily-chart .recharts-line-dot').length"),dailyRows.length);
+        await evaluate("document.querySelector('.daily-chart .comparison-interaction').focus()");
+        await key('End',35);
+        assert.ok(await evaluate("document.querySelector('.daily-chart .overview-chart-readout').textContent.includes('" + dailyRows.at(-1).date.split('-').reverse().join('/') + "')"));
+        await key('Home',36);
+        assert.ok(await evaluate("document.querySelector('.daily-chart .overview-chart-readout').textContent.includes('" + dailyRows[0].date.split('-').reverse().join('/') + "')"));
+        await evaluate('document.activeElement.blur()');
+        await evaluate("document.querySelector('.daily-chart').scrollIntoView({block:'center'})");
+        await pause(300);
+        const dailyScreenshot = await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+        await writeFile(new URL(`${width}-daily-chart.png`,artifacts),Buffer.from(dailyScreenshot.data,'base64'));
+        await evaluate("document.querySelector('.daily-activity .table-shell').closest('details').open=true");
+        await pause(200);
+      }
+      if (path === '/thoi-luong') {
+        for (const metric of ['mean','median','min','max','stddev']) {
+          await evaluate(`document.querySelector('#duration-stat').value='${metric}'; document.querySelector('#duration-stat').dispatchEvent(new Event('change',{bubbles:true}))`);
+          await pause(200);
+          assert.equal(await evaluate("document.querySelector('[data-chart=\"watch-duration\"]').dataset.statistic"),metric);
+          const labels = await evaluate("[...document.querySelectorAll('[data-chart=\"watch-duration\"] .recharts-label-list text')].map(node=>node.textContent)");
+          // Recharts omits labels for zero-width bars; the visible value key must
+          // still state both numbers, including zero, without inventing a bar.
+          const scopes = ['all_events','watch_segments'];
+          assert.deepEqual(labels,scopes.map(scope=>durationRows.find(row=>row.scope===scope)[metric]).filter(value=>value!==0).map(number));
+          const values = await evaluate("[...document.querySelectorAll('[data-duration-scope] strong')].map(node=>node.textContent)");
+          assert.deepEqual(values,scopes.map(scope=>number(durationRows.find(row=>row.scope===scope)[metric])+' giây'));
+        }
+        await evaluate("document.querySelector('#duration-stat').value='mean'; document.querySelector('#duration-stat').dispatchEvent(new Event('change',{bubbles:true}))");
+        await pause(200);
+        await evaluate("document.querySelector('[data-chart=\"watch-duration\"]').closest('.chart-panel').scrollIntoView({block:'center'})");
+        const durationScreenshot = await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+        await writeFile(new URL(`${width}-duration-chart.png`,artifacts),Buffer.from(durationScreenshot.data,'base64'));
+      }
       assert.equal(await evaluate("document.querySelectorAll('nav a').length"), 8);
       assert.equal(await evaluate("document.querySelector('nav a[aria-current=\"page\"]').getAttribute('href')"), path);
       if (width <= 1023) {
@@ -500,11 +539,11 @@ try {
         await checkOverviewInteractions(width);
       }
       if (path === '/' || path === '/phim') assert.ok(result.text.includes('Catch That Kid'));
-      const readTable = () => evaluate("[...document.querySelectorAll('tbody tr')].map(row => [...row.children].map(cell => cell.textContent))");
+      const readTable = (selector = 'tbody tr') => evaluate(`[...document.querySelectorAll('${selector}')].map(row => [...row.children].map(cell => cell.textContent))`);
       if (path === '/phim') assert.deepEqual(await readTable(), movieRows.slice(0,20).map((row,index) => [String(index+1),row.title,number(row.playCount)]));
       if (path === '/hanh-vi') assert.deepEqual(await readTable(), actionRows.map(row => [`${({play:'Phát phim',view:'Xem thông tin',pause:'Tạm dừng',stop:'Dừng phát',complete:'Hoàn thành'})[row.action]} (${row.action})`,number(row.count),percent(row.percentage)]));
       if (path === '/thoi-gian') {
-        assert.deepEqual(await readTable(), hourlyRows.map(row => [`${String(row.hour).padStart(2,'0')}h`,number(row.eventCount),number(row.playCount),number(row.distinctUsers)]));
+        assert.deepEqual(await readTable('.analysis-wide tbody tr'), hourlyRows.map(row => [`${String(row.hour).padStart(2,'0')}h`,number(row.eventCount),number(row.playCount),number(row.distinctUsers)]));
         assert.ok(result.text.includes('Mỗi ngày có 1.000 người dùng hoạt động'));
         assert.ok(result.text.includes('30 ngày'));
       }
@@ -743,7 +782,7 @@ try {
     throw new Error(`Hết thời gian chờ: ${expression}`);
   };
   for (const [path,file] of faultRoutes.filter(([path]) => !selectedRoute || path === selectedRoute)) {
-    await call('Fetch.enable',{patterns:[{urlPattern:`*/data/${file}`,requestStage:'Request'}]});
+    await call('Fetch.enable',{patterns:[{urlPattern:`*/data/*/${file}`,requestStage:'Request'}]});
     interceptMode='hold';
     heldRequests.length=0;
     await call('Page.navigate',{url:origin+path});
@@ -768,6 +807,10 @@ try {
   await waitFor("document.querySelector('h1')?.textContent==='Không tìm thấy trang'");
   assert.equal(await evaluate("document.querySelector('h1')?.textContent"), 'Không tìm thấy trang');
   assert.deepEqual(errors, [], 'Có lỗi JavaScript/React trong trình duyệt');
+  await writeFile(new URL('result.json',artifacts),JSON.stringify({status:'PASS',runId:selectedSource.runId,
+    checkedAt:new Date().toISOString(),widths:selectedWidth?[selectedWidth]:[1440,768,390,320],
+    routes:selectedRoute?[selectedRoute]:routes.map(row=>row[0]),javascriptErrors:errors},null,2));
+  console.log('Browser artifacts:',fileURLToPath(artifacts));
   console.log('Đạt: liên kết chi tiết, Back, trang không tồn tại và không có lỗi JavaScript/React.');
 } finally {
   socket?.close();

@@ -1,0 +1,4 @@
+ Container movie-hdfs-385a18d3f03a-datanode-1 Restarting 
+ Container movie-hdfs-385a18d3f03a-namenode-1 Restarting 
+ Container movie-hdfs-385a18d3f03a-datanode-1 Started 
+ Container movie-hdfs-385a18d3f03a-namenode-1 Started 

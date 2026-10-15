@@ -1,10 +1,11 @@
+import { selectedSource, copiedSource } from './selectedSource.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { prepareCombinedAnalysis, selectCombinedHour, hourLabel } from '../src/services/combinedAnalysis.js';
 import { MissingDataError } from '../src/services/overviewMetrics.js';
 
-const source = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/stats_user_movie_time.json', import.meta.url);
+const source = selectedSource('stats_user_movie_time.json');
 const rows = JSON.parse(await readFile(source, 'utf8'));
 
 test('Đủ 72 dòng, 24 giờ và 3 phim mỗi giờ; giữ nguyên giá trị và thứ hạng Spark', () => {

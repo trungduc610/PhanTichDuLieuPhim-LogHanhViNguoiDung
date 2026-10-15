@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-14T18:56:38.079487+00:00",
+  "flume_run_id": "run-63efa2865c76",
+  "hdfs_run_id": "hdfs-385a18d3f03a",
+  "movies_uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv",
+  "logs_uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a",
+  "movies": 9742,
+  "events": 1000000,
+  "users": 1000,
+  "files": 27,
+  "sink_parts": 26,
+  "bytes": 343872495,
+  "checks": {
+    "official-ingestion-inherited": "PASS",
+    "stability": "PASS",
+    "import-first": "PASS",
+    "import-repeat": "PASS",
+    "persistence": "PASS",
+    "spark-full": "PASS",
+    "preservation-check": "PASS",
+    "volumes-preserved": "PASS",
+    "demo-rejection": "PASS",
+    "python-tests-counted": "PASS",
+    "historical-hdfs-after": "PASS"
+  },
+  "official_execution": "inherited; content/source reverified",
+  "current_stability_run": "run-c26cfa7fb494",
+  "preserved_files": 1557,
+  "python_unit_tests": 57,
+  "source_manifest_sha256": "df1917c1b05fed4d38f1467fa7de148d66bc5076d9a7a8902bd3442e31cb3a12",
+  "historical_source_manifest": "evidence/recovery-20261014/source_manifest.json"
+}

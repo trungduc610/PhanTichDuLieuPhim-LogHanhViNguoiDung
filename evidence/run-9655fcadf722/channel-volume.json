@@ -1,0 +1,16 @@
+[
+    {
+        "CreatedAt": "2026-10-14T16:37:49Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "1f52153ba05bb9521782ebf0e17a52d962f320adfa8328ea21556a8bb4bd8d1b",
+            "com.docker.compose.project": "movie-run-9655fcadf722",
+            "com.docker.compose.version": "5.4.0",
+            "com.docker.compose.volume": "flume-channel"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/movie-run-9655fcadf722_flume-channel/_data",
+        "Name": "movie-run-9655fcadf722_flume-channel",
+        "Options": null,
+        "Scope": "local"
+    }
+]

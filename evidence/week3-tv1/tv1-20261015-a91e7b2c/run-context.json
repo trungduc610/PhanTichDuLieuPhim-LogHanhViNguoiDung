@@ -1,0 +1,10 @@
+{
+  "run_id": "hdfs-385a18d3f03a",
+  "project": "movie-hdfs-385a18d3f03a",
+  "flume_run_id": "run-63efa2865c76",
+  "evidence": "evidence/week3-tv1/tv1-20261015-a91e7b2c",
+  "role": "official-main",
+  "created_at_utc": "2026-10-14T18:40:37.035743+00:00",
+  "inherited_context": "evidence/recovery-20261014/live-hdfs/run-context.json",
+  "official_acceptance": "evidence/recovery-20261014/system-acceptance.json"
+}

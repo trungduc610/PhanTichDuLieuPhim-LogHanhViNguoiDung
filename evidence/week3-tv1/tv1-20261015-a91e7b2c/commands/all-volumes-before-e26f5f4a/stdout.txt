@@ -1,0 +1,6 @@
+movie-hdfs-385a18d3f03a_datanode
+movie-hdfs-385a18d3f03a_namenode
+movie-run-63efa2865c76_flume-channel
+movie-run-9655fcadf722_flume-channel
+movie-run-aa6b9eb58dca_flume-channel
+movie-run-aefc814b0b5f_flume-channel

@@ -1,0 +1,459 @@
+{
+  "status": "PASS",
+  "created_at_utc": "2026-10-14T18:57:30.320535+00:00",
+  "hdfs_run_id": "hdfs-385a18d3f03a",
+  "flume_run_id": "run-63efa2865c76",
+  "selected_run_id": "run-63efa2865c76",
+  "flume_input_sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+  "flume_status_sha256": "e8937ce659ea39dc79d9eb703fae0883d4441d1406fc5cd4c06b98f9466a9fdc",
+  "flume_reconciliation_sha256": "975e0a6b334b75611fe00ca029701aa8b2d0357d27d2f5db31fab61dd2a72da3",
+  "provenance": {
+    "flume_config_sha256": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+    "log4j2_sha256": "f7f47e1246016eaa5bfaa0a65a8c66be712baac931e05ce30adfd694625b277b",
+    "source_config_hashes": {
+      "Dockerfile": "8037f027750233fc6925e351fae61221b471d15909c8819a5001918677dbd8cd",
+      "compose.yaml": "674b5854f3d53c82df04aedcdb0fd238a5fe632ccf028e743ce1823f6973d7f4",
+      "config/flume.conf": "773ce30679ceae9dc140b6f035b2d5bf027553173ea9f66713687aaf11f0d116",
+      "config/flume-env.sh": "acf2075e698a74f65a384c9d8c73e317fccda5d4c02429a381387b5634e26b74",
+      "config/log4j2.xml": "f7f47e1246016eaa5bfaa0a65a8c66be712baac931e05ce30adfd694625b277b",
+      "scripts/run_flume.sh": "6996130db3d8a0db1677bfdb40e5614980f980f2e812c3aed5ac990a5fe39c2b",
+      "scripts/verify_archive.py": "f2c364e535f6d1670d31bad70b5a0fe78d233b8a702afa17c361e0dd6c1fb111",
+      "scripts/run_pipeline.py": "ad7514dcb4b1b5f26102e6ba345a827db406f511f5c6fe675e0a718ae9ba8023",
+      "scripts/validate_pipeline.py": "5c8b5b607cd96b61620e318829fae3ab97ac7fd21e10298580bd3662ced761ad",
+      "scripts/movie_quality.py": "b754d98e7b041ba8fc3b3f58f74821c48278fbc4b59c6b4b20c70f8db2d0e273",
+      "scripts/common.py": "246ee962b07d43e9b9beafb1918ce1a35b88d9ee9f30ea03e0a70232068706b0"
+    },
+    "evidence_format": "source_config_hashes"
+  },
+  "movies_qa": {
+    "path": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\data\\processed\\movies.csv",
+    "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "bytes": 533347,
+    "rows": 9742,
+    "unique_movie_ids": 9742,
+    "error_rows": 0,
+    "issues_sample": [],
+    "releaseYear_null_allowed": 13,
+    "no_genres_listed": 34,
+    "status": "PASS"
+  },
+  "expected_movies": 9742,
+  "expected_logs": 1000000,
+  "expected_log_bytes": 343339148,
+  "event_manifest": {
+    "movies_sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+    "events": 1000000,
+    "users": 1000,
+    "start": "2026-08-31T17:00:00+00:00",
+    "end": "2026-09-30T17:00:00+00:00",
+    "seed": 42,
+    "generator_version": 1,
+    "runId": "f93ca6901f8554ae127a",
+    "output": "data\\generated\\main.jsonl",
+    "sha256": "c89a753a83a7f194992f7e1c75eddc0c326f1e560c4e436de17b66865377eefd",
+    "bytes": 343339148,
+    "sessions": 303052,
+    "actions": {
+      "view": 303052,
+      "play": 348474,
+      "complete": 141907,
+      "stop": 116021,
+      "pause": 90546
+    },
+    "session_start_hour_Asia_Saigon": {
+      "0": 4869,
+      "1": 7199,
+      "2": 8457,
+      "3": 8278,
+      "4": 7737,
+      "5": 6200,
+      "6": 15091,
+      "7": 12753,
+      "8": 12262,
+      "9": 12470,
+      "10": 12448,
+      "11": 12537,
+      "12": 12456,
+      "13": 12208,
+      "14": 12478,
+      "15": 12477,
+      "16": 12699,
+      "17": 11794,
+      "18": 9605,
+      "19": 23095,
+      "20": 17937,
+      "21": 17415,
+      "22": 17796,
+      "23": 22791
+    },
+    "active_users": 1000,
+    "unique_movies": 9740,
+    "top_users_sessions": [
+      [
+        "803",
+        1496
+      ],
+      [
+        "437",
+        1178
+      ],
+      [
+        "110",
+        1093
+      ],
+      [
+        "634",
+        946
+      ],
+      [
+        "484",
+        827
+      ],
+      [
+        "94",
+        815
+      ],
+      [
+        "741",
+        762
+      ],
+      [
+        "328",
+        733
+      ],
+      [
+        "213",
+        719
+      ],
+      [
+        "377",
+        693
+      ]
+    ],
+    "top_movies_sessions": [
+      [
+        "7262",
+        14755
+      ],
+      [
+        "100044",
+        8251
+      ],
+      [
+        "45720",
+        5863
+      ],
+      [
+        "52281",
+        4566
+      ],
+      [
+        "7074",
+        3809
+      ],
+      [
+        "4422",
+        3205
+      ],
+      [
+        "3055",
+        2840
+      ],
+      [
+        "101088",
+        2424
+      ],
+      [
+        "27778",
+        2362
+      ],
+      [
+        "164909",
+        2091
+      ]
+    ],
+    "status": "GENERATED_NOT_FLUME_OUTPUT"
+  },
+  "flume_stats": {
+    "total": 1000000,
+    "valid": 1000000,
+    "unique": 1000000,
+    "duplicates": 0,
+    "conflicting_ids": 0,
+    "invalid": 0,
+    "error_counts": {},
+    "actions": {
+      "view": 303052,
+      "play": 348474,
+      "complete": 141907,
+      "stop": 116021,
+      "pause": 90546
+    },
+    "watch_seconds": 1458785357,
+    "users": 1000,
+    "movies": 9740,
+    "sessions": 303052,
+    "timestamp_min": "2026-08-31T17:00:04Z",
+    "timestamp_max": "2026-09-30T15:58:22Z"
+  },
+  "authority": "hdfs://namenode:9000",
+  "movies_uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv",
+  "logs_uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a",
+  "raw_namespaces": [
+    "/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a",
+    "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a"
+  ],
+  "directories": [
+    "/movie-log/raw/movies",
+    "/movie-log/raw/user_logs",
+    "/movie-log/processed",
+    "/movie-log/results",
+    "/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a",
+    "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a"
+  ],
+  "files": [
+    {
+      "kind": "movies",
+      "local_path": "data/processed/movies.csv",
+      "bytes": 533347,
+      "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+      "expected_records": 9742,
+      "hdfs_path": "/movie-log/raw/movies/mls-1df01064e7a0-hdfs-385a18d3f03a/movies.csv"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-1.jsonl",
+      "bytes": 3433123,
+      "sha256": "4b4f08c601fde6f5c871f97dc98b714c254913b0eaa3ad7cae6d11a2abc613eb",
+      "expected_records": 10000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-1.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-10.jsonl",
+      "bytes": 12187848,
+      "sha256": "bd0e5b32ecbbe4b1684c3262dc864be06c1910feb8132051cfbbd87ac4d7c2d8",
+      "expected_records": 35500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-10.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-11.jsonl",
+      "bytes": 9956532,
+      "sha256": "c048ab4021560b523cab64590e68b54d40221d58aaf6540e9f2c90a6d57fd4fc",
+      "expected_records": 29000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-11.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-12.jsonl",
+      "bytes": 14076388,
+      "sha256": "577e0f4dd4eec4babc4251c50b2a43c1033275014ca93b69c576b1366aa6b78c",
+      "expected_records": 41000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-12.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-13.jsonl",
+      "bytes": 15278619,
+      "sha256": "f2da5fa82f4ae84034b9ee3eaffafd91b757e961fba8f936e386594e88128998",
+      "expected_records": 44500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-13.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-14.jsonl",
+      "bytes": 15794181,
+      "sha256": "6b985e0fe698455d8c402ed29c8eed7deb809401327fa1c68c4be0209ab841d3",
+      "expected_records": 46000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-14.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-15.jsonl",
+      "bytes": 13219016,
+      "sha256": "05881811bf7897a8e8598ba54eb84dc9fe2fca09a29e918acf0ff9fbe2aff455",
+      "expected_records": 38500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-15.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-16.jsonl",
+      "bytes": 13905109,
+      "sha256": "9767967cfa4251b819695a97f9dbda3228221b8043af77f7ec73cc01855353c0",
+      "expected_records": 40500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-16.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-17.jsonl",
+      "bytes": 10986851,
+      "sha256": "545ba129d06cceec997780100d95c1d20aeb06e4d3b8476cf9f6a7a980bdbd60",
+      "expected_records": 32000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-17.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-18.jsonl",
+      "bytes": 13218781,
+      "sha256": "1e4a3deff0213c2413e46ed6b662745143292986288e55405d7e8004c299c68b",
+      "expected_records": 38500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-18.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-19.jsonl",
+      "bytes": 15106911,
+      "sha256": "f941bcb957cdef66c5270a38e8516518eb73d37da68fa7b438ec325f07707d4c",
+      "expected_records": 44000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-19.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-2.jsonl",
+      "bytes": 14763395,
+      "sha256": "198e1a94c0182fd2f6efdad93d20e34d67724ca21052e5b03fe4d20294296e60",
+      "expected_records": 43000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-2.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-20.jsonl",
+      "bytes": 14248217,
+      "sha256": "8728b52e9682d66d7b879c49057ec7aba24881ed582500b6a216fbe67c868e12",
+      "expected_records": 41500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-20.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-21.jsonl",
+      "bytes": 16480482,
+      "sha256": "0b17bb26a05646c8c019ae269d670570c92914c5ae01b34e0892490f71991e63",
+      "expected_records": 48000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-21.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-22.jsonl",
+      "bytes": 16137194,
+      "sha256": "fa463324dfa83e6504060a8692008d4ad4595b9f0a20088050e0f7a6daae297d",
+      "expected_records": 47000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-22.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-23.jsonl",
+      "bytes": 15793252,
+      "sha256": "1227db64c69abce3d1e647ae98237376ccb179682bb90b6df0fd7f7b76985bde",
+      "expected_records": 46000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-23.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-24.jsonl",
+      "bytes": 15107150,
+      "sha256": "6f85870bc1f8c0e2090fd7de3ee1d683f3ff160f46775adff433aaa6303055fe",
+      "expected_records": 44000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-24.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-25.jsonl",
+      "bytes": 10300279,
+      "sha256": "aa512774f4a1a31c0e88826aba955cc55413145a23988563c990855c8236f3fb",
+      "expected_records": 30000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-25.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-26.jsonl",
+      "bytes": 1201680,
+      "sha256": "4b4b2e9e6b73d3a1cf8947edf7728a24ffdabadd949306753433182bb8205bf8",
+      "expected_records": 3500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-26.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-3.jsonl",
+      "bytes": 15450438,
+      "sha256": "211427531d9b8033f4953183aee9c6d89ab870e23483c1ef1ca246dd1f733d9f",
+      "expected_records": 45000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-3.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-4.jsonl",
+      "bytes": 16823804,
+      "sha256": "d0e1349aff96dc71ee91c2f2d2b34e6262a106ce368d8ecdc8ecb5686e73759f",
+      "expected_records": 49000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-4.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-5.jsonl",
+      "bytes": 16479472,
+      "sha256": "a7adc516bd78c48c1f57a3ebc9f05ba6275a175ade4fe882e616800b45c10d70",
+      "expected_records": 48000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-5.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-6.jsonl",
+      "bytes": 18025282,
+      "sha256": "4a3db6cba3cf1c38a94ef48ec143e026efb27e5d56d46d8712e42d5817f04c57",
+      "expected_records": 52500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-6.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-7.jsonl",
+      "bytes": 15278834,
+      "sha256": "d19b162d888f4bd44059b8a7adbdc487476bc8785284dd97827991a31bcc3e78",
+      "expected_records": 44500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-7.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-8.jsonl",
+      "bytes": 10815855,
+      "sha256": "750991cf2746a443877caa5b60b8e12a3d44a2122c9d23295ad4669cfc343223",
+      "expected_records": 31500,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-8.jsonl"
+    },
+    {
+      "kind": "logs",
+      "local_path": "data/runs/run-63efa2865c76/output/1791996256695-9.jsonl",
+      "bytes": 9270455,
+      "sha256": "aef35cf8764600e2011ab97532d0985b50e80b26a85ec99653876c78822399d7",
+      "expected_records": 27000,
+      "empty": false,
+      "hdfs_path": "/movie-log/raw/user_logs/run-63efa2865c76/hdfs-385a18d3f03a/1791996256695-9.jsonl"
+    }
+  ],
+  "note": "Input is checked only for lineage; uploaded logs are exclusively selected Flume Sink parts."
+}

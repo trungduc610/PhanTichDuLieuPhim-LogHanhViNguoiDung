@@ -74,7 +74,9 @@ class Exporter:
                 item=iterator.next();files.append({'uri':item.getPath().toString(),'bytes':item.getLen()})
             record['files']=files
         return {'status':'PASS','run_id':self.run_id,'artifacts':self.artifacts,
-                'local_dashboard_files':[str(p.relative_to(ROOT)) for p in sorted((self.evidence/'dashboard').glob('*'))]}
+                'local_dashboard_files':[str(p.relative_to(ROOT)) for p in sorted((self.evidence/'dashboard').glob('*'))],
+                'dashboard_files':{p.name:{'bytes':p.stat().st_size,'sha256':sha256(p)}
+                    for p in sorted((self.evidence/'dashboard').glob('*'))}}
 
 
 def main():

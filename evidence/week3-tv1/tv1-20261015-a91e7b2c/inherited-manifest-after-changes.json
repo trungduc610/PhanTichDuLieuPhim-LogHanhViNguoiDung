@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "files_checked": 378,
+  "issues": [
+    {
+      "path": ".gitattributes",
+      "error": "bytes/hash mismatch"
+    },
+    {
+      "path": "README.md",
+      "error": "bytes/hash mismatch"
+    }
+  ],
+  "checked_at_utc": "2026-10-14T18:58:11.374616+00:00",
+  "interpretation": "Historical manifest retained; only authorized Week 3 README and evidence byte-preservation attributes changed. Use the Week 3 delivery manifest for the current source."
+}

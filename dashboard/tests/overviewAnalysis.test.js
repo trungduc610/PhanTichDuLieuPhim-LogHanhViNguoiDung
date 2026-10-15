@@ -1,10 +1,11 @@
+import { selectedSource, copiedSource } from './selectedSource.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { prepareAnalysis } from '../src/services/overviewAnalysis.js';
 import { MissingDataError } from '../src/services/overviewMetrics.js';
 
-const source = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/', import.meta.url);
+const source = selectedSource('');
 const read = async (name) => JSON.parse(await readFile(new URL(name, source), 'utf8'));
 const actions = await read('stats_action_distribution.json');
 const hourly = await read('stats_hourly_activity.json');

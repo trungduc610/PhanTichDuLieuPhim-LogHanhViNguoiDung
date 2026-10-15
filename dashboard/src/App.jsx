@@ -8,9 +8,10 @@ import WatchDurationPage from './pages/WatchDurationPage.jsx';
 import CombinedAnalysisPage from './pages/CombinedAnalysisPage.jsx';
 import ClusteringPage from './pages/ClusteringPage.jsx';
 import { DashboardDataProvider } from './components/DashboardData.jsx';
+import { SourceGate, SourceInfo } from './components/DataSource.jsx';
 
 export default function App() {
-  return <DashboardDataProvider><DashboardLayout /></DashboardDataProvider>;
+  return <SourceGate><DashboardDataProvider><DashboardLayout /></DashboardDataProvider></SourceGate>;
 }
 
 export function DashboardLayout() {
@@ -19,6 +20,7 @@ export function DashboardLayout() {
       <a className="skip-link" href="#main-content">Đến nội dung chính</a>
       <AppNavigation />
       <main id="main-content" className="main-content" tabIndex={-1}>
+        <SourceInfo />
         <Routes>
           <Route path="/" element={<OverviewPage />} />
           <Route path="/phim" element={<AnalysisPage kind="movies" />} />

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "observed_exit_code": 1,
+  "refused_before_output_creation": true,
+  "stderr": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\reject-demo-official-f4b4cd74\\stderr.txt"
+}

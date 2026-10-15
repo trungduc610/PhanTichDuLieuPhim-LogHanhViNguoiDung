@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def new_json(path, value):
     path=Path(path)
     path.parent.mkdir(parents=True,exist_ok=True)
-    with path.open('x',encoding='utf-8') as f:
+    with path.open('x',encoding='utf-8',newline='\n') as f:
         json.dump(value,f,ensure_ascii=False,indent=2)
         f.write('\n')
 

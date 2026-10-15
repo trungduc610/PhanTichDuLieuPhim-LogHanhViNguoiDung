@@ -1,0 +1,73 @@
+{
+  "best_k": 2,
+  "silhouette": 0.6707563871905433,
+  "seed": 42,
+  "max_iter": 50,
+  "feature_columns": [
+    "playCount",
+    "completeCount",
+    "totalWatchDuration",
+    "avgWatchDuration",
+    "distinctMovies",
+    "distinctGenres",
+    "sessionCount",
+    "completionRate"
+  ],
+  "excluded_features": {
+    "activeDays": "zero_variance",
+    "eventCount": "exactly sessionCount + 2*playCount; retain in dataset, exclude redundant ML dimension"
+  },
+  "feature_variances": {
+    "playCount": 3892.0013253253255,
+    "completeCount": 123.44379479479484,
+    "totalWatchDuration": 12401886805.67321,
+    "avgWatchDuration": 141364.01119699486,
+    "distinctMovies": 4016.978334334334,
+    "distinctGenres": 0.33579179179179147,
+    "sessionCount": 8975.340636636638,
+    "completionRate": 0.0034972103341199294,
+    "activeDays": 0.0,
+    "eventCount": 46756.66466466466
+  },
+  "scaling": {
+    "withMean": true,
+    "withStd": true
+  },
+  "evaluator_distance": "squaredEuclidean",
+  "training_distance": "euclidean",
+  "users": 1000,
+  "cluster_sizes": [
+    237,
+    763
+  ],
+  "training_cost": 4404.271452313962,
+  "score_gap_to_runner_up": 0.09831634206793005,
+  "centers_scaled": [
+    [
+      1.4114313817217339,
+      1.1066560941406975,
+      1.3780204527292308,
+      -1.345357498487684,
+      1.2519224226293675,
+      0.27637391715662357,
+      1.2027662601990337,
+      -1.2386582241704331
+    ],
+    [
+      -0.43841315526612507,
+      -0.3437450777344022,
+      -0.4280351864964931,
+      0.4178895506442767,
+      -0.3888671221011326,
+      -0.08584615775374127,
+      -0.3735984320670627,
+      0.38474704997170556
+    ]
+  ],
+  "selection_rule": "Greatest measured silhouette; lower K only for an exact tie.",
+  "completion_rate": "completed distinct (runId,sessionId) / sessions with play; zero if denominator is zero",
+  "avg_watch_duration": "Mean positive watch segment duration, seconds; zero for users with no watch segments",
+  "labels": "Neutral cluster IDs; interpret from measured raw-unit profile metrics, not predefined behavior labels.",
+  "model_uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model",
+  "user_features_uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features"
+}

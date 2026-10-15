@@ -2,3 +2,22 @@
 *.py text eol=lf
 *.conf text eol=lf
 config/log4j2.xml text eol=lf
+*.yaml text eol=lf
+Dockerfile* text eol=lf
+# Preserve byte-exact new Windows ingestion receipts across checkouts.
+evidence/run-9655fcadf722/** -text
+evidence/run-63efa2865c76/** -text
+evidence/recovery-20261014/** -text
+evidence/week2-tv2/tv2-56569b78b4e1/** -text
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+dashboard/data-source.json text eol=lf
+*.css text eol=lf
+README.md text eol=lf
+dashboard/README.md text eol=lf
+# Week 3 receipts and captured source snapshots retain their measured bytes.
+evidence/week3-tv1/** -text
+evidence/run-922de67e4cbf/** -text
+evidence/run-c26cfa7fb494/** -text
+docs/week3_tv1_*.md text eol=lf

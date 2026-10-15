@@ -1,0 +1,2 @@
+error while interpolating services.datanode.environment.HDFS_RUN_ID: required variable HDFS_RUN_ID is missing a value: Use a saved run context
+error while interpolating services.namenode.environment.HDFS_RUN_ID: required variable HDFS_RUN_ID is missing a value: Use run_hdfs.py or the saved run context

@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "docker",
+    "inspect",
+    "712efa5b90f3",
+    "db63a5df76fd"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T18:44:14.697322+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\cluster-inspect-42d33f48\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\cluster-inspect-42d33f48\\stderr.txt"
+}

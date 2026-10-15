@@ -1,10 +1,11 @@
+import { selectedSource, copiedSource } from './selectedSource.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { prepareDailyActivity, displayDate } from '../src/services/dailyActivity.js';
 import { MissingDataError } from '../src/services/overviewMetrics.js';
 
-const source = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/stats_daily_active_users.json', import.meta.url);
+const source = selectedSource('stats_daily_active_users.json');
 const rows = JSON.parse(await readFile(source, 'utf8'));
 test('DAU khớp 30 ngày dữ liệu thật; không cộng thành người dùng toàn kỳ', () => {
   const result = prepareDailyActivity([...rows].reverse());

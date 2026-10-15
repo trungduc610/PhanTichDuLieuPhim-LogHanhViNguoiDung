@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "git",
+    "diff",
+    "--check"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T18:55:58.601866+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\git-diff-check-495e2611\\stdout.txt",
+  "stderr": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\git-diff-check-495e2611\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-14T18:55:58.733573+00:00"
+}

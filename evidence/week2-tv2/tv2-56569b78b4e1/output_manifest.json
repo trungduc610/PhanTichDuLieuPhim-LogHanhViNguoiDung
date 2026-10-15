@@ -1,0 +1,3540 @@
+{
+  "status": "PASS",
+  "run_id": "tv2-56569b78b4e1",
+  "artifacts": [
+    {
+      "name": "input_counts",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/input_counts",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/input_counts/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/input_counts/part-00000-23ffa702-a6ae-4247-b9df-1334abf3953d-c000.txt",
+          "bytes": 3149
+        }
+      ]
+    },
+    {
+      "name": "cleaning_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/cleaning_summary",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/cleaning_summary/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/cleaning_summary/part-00000-8b6ea3f9-c367-4360-bf50-4f8b02e84f8f-c000.txt",
+          "bytes": 1787
+        }
+      ]
+    },
+    {
+      "name": "cleaned_logs",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs",
+      "rows": 1000000,
+      "read_back_rows": 1000000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "eventId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sessionId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "watchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sequenceNumber",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "runId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "isSynthetic",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "simulatedMovieDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "durationSource",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "eventTimestamp",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sourceFile",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00000-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12089256
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00001-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12094118
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00002-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12091280
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00003-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12087920
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00004-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12093427
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00005-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12087239
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00006-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12090926
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/cleaned_logs/part-00007-08a179dc-b6e0-46d9-9f36-858d668403e3-c000.snappy.parquet",
+          "bytes": 12091892
+        }
+      ]
+    },
+    {
+      "name": "rejected_logs",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/rejected_logs",
+      "rows": 0,
+      "read_back_rows": 0,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "eventId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sessionId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "watchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sequenceNumber",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "runId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "isSynthetic",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "simulatedMovieDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "durationSource",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sourceFile",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "rawJson",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "rejected_reason",
+            "type": {
+              "type": "array",
+              "elementType": "string",
+              "containsNull": true
+            },
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/rejected_logs/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/rejected_logs/part-00000-7cdc274e-6053-4146-bc83-f8444c377a45-c000.snappy.parquet",
+          "bytes": 1696
+        }
+      ]
+    },
+    {
+      "name": "joined_events",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events",
+      "rows": 1000000,
+      "read_back_rows": 1000000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "eventId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sessionId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "action",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "watchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sequenceNumber",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "runId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "isSynthetic",
+            "type": "boolean",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "simulatedMovieDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "durationSource",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "eventTimestamp",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "sourceFile",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventLocalTimestamp",
+            "type": "timestamp",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "dayOfWeek",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "watchDurationMinutes",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "genres",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "releaseYear",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "genresArray",
+            "type": {
+              "type": "array",
+              "elementType": "string",
+              "containsNull": false
+            },
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00000-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14554646
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00001-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14560909
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00002-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14545380
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00003-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14549229
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00004-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14550477
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00005-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14556986
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00006-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14540534
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/joined_events/part-00007-5063dadb-1ff0-4884-8481-4264654c90f7-c000.snappy.parquet",
+          "bytes": 14554796
+        }
+      ]
+    },
+    {
+      "name": "transformation_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/transformation_summary",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/transformation_summary/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/transformation_summary/part-00000-8ae0a556-3c9a-4b69-ac7c-2f5e7644211b-c000.txt",
+          "bytes": 338
+        }
+      ]
+    },
+    {
+      "name": "join_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/join_summary",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/join_summary/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/join_summary/part-00000-b61d2e5f-667d-4af5-9563-71c1fbe1a4fa-c000.txt",
+          "bytes": 285
+        }
+      ]
+    },
+    {
+      "name": "stats/top_movies_by_play",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/parquet",
+      "rows": 20,
+      "read_back_rows": 20,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/parquet/part-00000-04161a39-ba56-4e2a-9146-e844d5429f01-c000.snappy.parquet",
+          "bytes": 1919
+        }
+      ]
+    },
+    {
+      "name": "stats/top_movies_by_play",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/csv",
+      "rows": 20,
+      "read_back_rows": 20,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/csv/part-00000-4cd0b513-29b1-4fc5-ad86-60b48098f2e0-c000.csv",
+          "bytes": 826
+        }
+      ]
+    },
+    {
+      "name": "stats/top_movies_by_play",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/json",
+      "rows": 20,
+      "read_back_rows": 20,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_movies_by_play/json/part-00000-6b09f23a-8f04-4df5-94a8-a0167a904c71-c000.json",
+          "bytes": 1474
+        }
+      ]
+    },
+    {
+      "name": "stats/top_genres",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/parquet",
+      "rows": 20,
+      "read_back_rows": 20,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "genre",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/parquet/part-00000-34bf7f45-60aa-4d6a-aad7-f73c86c8b7aa-c000.snappy.parquet",
+          "bytes": 1066
+        }
+      ]
+    },
+    {
+      "name": "stats/top_genres",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/csv",
+      "rows": 20,
+      "read_back_rows": 20,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "genre",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/csv/part-00000-d51338ba-fe23-4d93-9b21-ed93daf092d6-c000.csv",
+          "bytes": 301
+        }
+      ]
+    },
+    {
+      "name": "stats/top_genres",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/json",
+      "rows": 20,
+      "read_back_rows": 20,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "genre",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/top_genres/json/part-00000-a42ca335-316a-4578-8d8c-4d03cf740bfb-c000.json",
+          "bytes": 765
+        }
+      ]
+    },
+    {
+      "name": "stats/daily_active_users",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/parquet",
+      "rows": 30,
+      "read_back_rows": 30,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/parquet/part-00000-141bda79-7925-45db-815a-5bdfc760c0b6-c000.snappy.parquet",
+          "bytes": 885
+        }
+      ]
+    },
+    {
+      "name": "stats/daily_active_users",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/csv",
+      "rows": 30,
+      "read_back_rows": 30,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/csv/part-00000-700d1e9c-4cda-4390-bbc1-22d0735117bb-c000.csv",
+          "bytes": 497
+        }
+      ]
+    },
+    {
+      "name": "stats/daily_active_users",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/json",
+      "rows": 30,
+      "read_back_rows": 30,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/daily_active_users/json/part-00000-662fad98-3205-4e1d-9737-22a67f227640-c000.json",
+          "bytes": 1230
+        }
+      ]
+    },
+    {
+      "name": "stats/hourly_activity",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/parquet",
+      "rows": 24,
+      "read_back_rows": 24,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/parquet/part-00000-2365b3bf-c69f-4e0c-ab00-5cf42015280c-c000.snappy.parquet",
+          "bytes": 1625
+        }
+      ]
+    },
+    {
+      "name": "stats/hourly_activity",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/csv",
+      "rows": 24,
+      "read_back_rows": 24,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/csv/part-00000-956608c8-1bf8-42af-a6e8-9817309c9e3d-c000.csv",
+          "bytes": 506
+        }
+      ]
+    },
+    {
+      "name": "stats/hourly_activity",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/json",
+      "rows": 24,
+      "read_back_rows": 24,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/hourly_activity/json/part-00000-b7c5a75b-0fa3-48e7-b88c-6918a413ecea-c000.json",
+          "bytes": 1666
+        }
+      ]
+    },
+    {
+      "name": "stats/action_distribution",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/parquet",
+      "rows": 5,
+      "read_back_rows": 5,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "action",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "count",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "percentage",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/parquet/part-00000-5e5f422e-bb84-4a0a-8c78-dcc0a872c5a5-c000.snappy.parquet",
+          "bytes": 1090
+        }
+      ]
+    },
+    {
+      "name": "stats/action_distribution",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/csv",
+      "rows": 5,
+      "read_back_rows": 5,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "action",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "count",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "percentage",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/csv/part-00000-97b8065d-ed5e-4f87-901a-b975d3f29d26-c000.csv",
+          "bytes": 127
+        }
+      ]
+    },
+    {
+      "name": "stats/action_distribution",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/json",
+      "rows": 5,
+      "read_back_rows": 5,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "action",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "count",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "percentage",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/action_distribution/json/part-00000-2e6fb6db-fa48-4d38-9ab2-53f6e11d9d41-c000.json",
+          "bytes": 273
+        }
+      ]
+    },
+    {
+      "name": "stats/watch_duration_summary",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/parquet",
+      "rows": 2,
+      "read_back_rows": 2,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "count",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "mean",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "median",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "min",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "max",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "stddev",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "unit",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/parquet/part-00000-e185d68a-a789-49f4-933c-8ab813318eca-c000.snappy.parquet",
+          "bytes": 2367
+        }
+      ]
+    },
+    {
+      "name": "stats/watch_duration_summary",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/csv",
+      "rows": 2,
+      "read_back_rows": 2,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "count",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "mean",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "median",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "min",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "max",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "stddev",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "unit",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/csv/part-00000-0288e0e7-89b4-4c33-80d1-84f129534d47-c000.csv",
+          "bytes": 195
+        }
+      ]
+    },
+    {
+      "name": "stats/watch_duration_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/json",
+      "rows": 2,
+      "read_back_rows": 2,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "count",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "mean",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "median",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "min",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "max",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "stddev",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "scope",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "unit",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/watch_duration_summary/json/part-00000-0d6745fa-0525-4f86-b33a-7d7a419ce9be-c000.json",
+          "bytes": 283
+        }
+      ]
+    },
+    {
+      "name": "stats/user_movie_time",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/parquet",
+      "rows": 72,
+      "read_back_rows": 72,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "rank",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/parquet/part-00000-757a96d1-0eb3-4444-9f6e-445ec08e0732-c000.snappy.parquet",
+          "bytes": 2791
+        }
+      ]
+    },
+    {
+      "name": "stats/user_movie_time",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/csv",
+      "rows": 72,
+      "read_back_rows": 72,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "rank",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/csv/part-00000-0adb6663-0df9-4554-ae04-30747b5d4e36-c000.csv",
+          "bytes": 3163
+        }
+      ]
+    },
+    {
+      "name": "stats/user_movie_time",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/json",
+      "rows": 72,
+      "read_back_rows": 72,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "hour",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "movieId",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctUsers",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "rank",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/stats/user_movie_time/json/part-00000-4efb75d7-cf7f-4cf7-9d02-3d940c7bd65b-c000.json",
+          "bytes": 7675
+        }
+      ]
+    },
+    {
+      "name": "statistics_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/statistics_summary",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/statistics_summary/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/statistics_summary/part-00000-5e647709-62ab-4d98-a9cf-2ade507ea5c6-c000.txt",
+          "bytes": 15006
+        }
+      ]
+    },
+    {
+      "name": "user_features",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00000-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10663
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00001-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10702
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00002-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10646
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00003-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10766
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00004-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10661
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00005-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10672
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00006-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10499
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-56569b78b4e1/user_features/part-00007-ed49aae4-cd04-4bff-bc8b-ddffafeaae2f-c000.snappy.parquet",
+          "bytes": 10706
+        }
+      ]
+    },
+    {
+      "name": "kmeans/features_prepared",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "rawFeatures",
+            "type": {
+              "type": "udt",
+              "class": "org.apache.spark.ml.linalg.VectorUDT",
+              "pyClass": "pyspark.ml.linalg.VectorUDT",
+              "sqlType": {
+                "type": "struct",
+                "fields": [
+                  {
+                    "name": "type",
+                    "type": "byte",
+                    "nullable": false,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "size",
+                    "type": "integer",
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "indices",
+                    "type": {
+                      "type": "array",
+                      "elementType": "integer",
+                      "containsNull": false
+                    },
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "values",
+                    "type": {
+                      "type": "array",
+                      "elementType": "double",
+                      "containsNull": false
+                    },
+                    "nullable": true,
+                    "metadata": {}
+                  }
+                ]
+              }
+            },
+            "nullable": true,
+            "metadata": {
+              "ml_attr": {
+                "attrs": {
+                  "numeric": [
+                    {
+                      "idx": 0,
+                      "name": "playCount"
+                    },
+                    {
+                      "idx": 1,
+                      "name": "completeCount"
+                    },
+                    {
+                      "idx": 2,
+                      "name": "totalWatchDuration"
+                    },
+                    {
+                      "idx": 3,
+                      "name": "avgWatchDuration"
+                    },
+                    {
+                      "idx": 4,
+                      "name": "distinctMovies"
+                    },
+                    {
+                      "idx": 5,
+                      "name": "distinctGenres"
+                    },
+                    {
+                      "idx": 6,
+                      "name": "sessionCount"
+                    },
+                    {
+                      "idx": 7,
+                      "name": "completionRate"
+                    }
+                  ]
+                },
+                "num_attrs": 8
+              }
+            }
+          },
+          {
+            "name": "features",
+            "type": {
+              "type": "udt",
+              "class": "org.apache.spark.ml.linalg.VectorUDT",
+              "pyClass": "pyspark.ml.linalg.VectorUDT",
+              "sqlType": {
+                "type": "struct",
+                "fields": [
+                  {
+                    "name": "type",
+                    "type": "byte",
+                    "nullable": false,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "size",
+                    "type": "integer",
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "indices",
+                    "type": {
+                      "type": "array",
+                      "elementType": "integer",
+                      "containsNull": false
+                    },
+                    "nullable": true,
+                    "metadata": {}
+                  },
+                  {
+                    "name": "values",
+                    "type": {
+                      "type": "array",
+                      "elementType": "double",
+                      "containsNull": false
+                    },
+                    "nullable": true,
+                    "metadata": {}
+                  }
+                ]
+              }
+            },
+            "nullable": true,
+            "metadata": {
+              "ml_attr": {
+                "num_attrs": 8
+              }
+            }
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00000-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25557
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00001-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25556
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00002-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25540
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00003-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25106
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00004-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25222
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00005-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25125
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00006-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25619
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/features_prepared/part-00007-1a68a631-684b-424d-9355-30079c2c91a4-c000.snappy.parquet",
+          "bytes": 25296
+        }
+      ]
+    },
+    {
+      "name": "kmeans/user_features",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/parquet",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/parquet/part-00000-6d36b75f-8162-43a2-b18a-f7a2dce95453-c000.snappy.parquet",
+          "bytes": 42676
+        }
+      ]
+    },
+    {
+      "name": "kmeans/user_features",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/csv",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/csv/part-00000-48350cfd-71e6-4d06-b3df-daeebcc62798-c000.csv",
+          "bytes": 99852
+        }
+      ]
+    },
+    {
+      "name": "kmeans/user_features",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/json",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/user_features/json/part-00000-3a8b197b-aa8c-4005-8757-2912ec0271b9-c000.json",
+          "bytes": 341642
+        }
+      ]
+    },
+    {
+      "name": "kmeans/k_search",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/parquet",
+      "rows": 5,
+      "read_back_rows": 5,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "cluster_sizes",
+            "type": {
+              "type": "array",
+              "elementType": "long",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "k",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "silhouette",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "training_cost",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "users",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/parquet/part-00000-db2e5aa7-c52f-4170-bda8-9a2bfbb08295-c000.snappy.parquet",
+          "bytes": 1874
+        }
+      ]
+    },
+    {
+      "name": "kmeans/k_search",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/csv",
+      "rows": 5,
+      "read_back_rows": 5,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "cluster_sizes",
+            "type": {
+              "type": "array",
+              "elementType": "long",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "k",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "silhouette",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "training_cost",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "users",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/csv/part-00000-614a6da8-ce41-4098-98e7-445a2a4d98fc-c000.csv",
+          "bytes": 362
+        }
+      ]
+    },
+    {
+      "name": "kmeans/k_search",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/json",
+      "rows": 5,
+      "read_back_rows": 5,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "cluster_sizes",
+            "type": {
+              "type": "array",
+              "elementType": "long",
+              "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "k",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "silhouette",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "training_cost",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "users",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/k_search/json/part-00000-68858a5c-1430-4c82-a887-6c5b50cedf99-c000.json",
+          "bytes": 600
+        }
+      ]
+    },
+    {
+      "name": "kmeans/assignments",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/parquet",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "cluster",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/parquet/part-00000-eeb51888-34fa-47e2-af66-a715f2b81ed3-c000.snappy.parquet",
+          "bytes": 43154
+        }
+      ]
+    },
+    {
+      "name": "kmeans/assignments",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/csv",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "cluster",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/csv/part-00000-a521d9a2-99cf-4d27-8708-184c51d695d8-c000.csv",
+          "bytes": 101860
+        }
+      ]
+    },
+    {
+      "name": "kmeans/assignments",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/json",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "userId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "playCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "completeCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "totalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctMovies",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "distinctGenres",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "sessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "activeDays",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "eventCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "playedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completedSessionCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "completionRateDefined",
+            "type": "boolean",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "cluster",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/assignments/json/part-00000-2916b297-a2d5-4e01-8ed4-7d54f4b35ee8-c000.json",
+          "bytes": 353642
+        }
+      ]
+    },
+    {
+      "name": "kmeans/cluster_profiles",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/parquet",
+      "rows": 2,
+      "read_back_rows": 2,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "cluster",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "userCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "avgPlayCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgCompleteCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgTotalWatchDuration",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgDistinctMovies",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgDistinctGenres",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgSessionCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgCompletionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgActiveDays",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgEventCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "minPlayCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "maxPlayCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "minTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "maxTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "medianTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/parquet/part-00000-85edc838-f28e-4e71-b2a6-6d62b8637e0f-c000.snappy.parquet",
+          "bytes": 5451
+        }
+      ]
+    },
+    {
+      "name": "kmeans/cluster_profiles",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/csv",
+      "rows": 2,
+      "read_back_rows": 2,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "cluster",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "userCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "avgPlayCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgCompleteCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgTotalWatchDuration",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgDistinctMovies",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgDistinctGenres",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgSessionCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgCompletionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgActiveDays",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgEventCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "minPlayCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "maxPlayCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "minTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "maxTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "medianTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/csv/part-00000-8fc4084f-f366-4bc1-8b28-14c02748e442-c000.csv",
+          "bytes": 714
+        }
+      ]
+    },
+    {
+      "name": "kmeans/cluster_profiles",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/json",
+      "rows": 2,
+      "read_back_rows": 2,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "cluster",
+            "type": "integer",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "userCount",
+            "type": "long",
+            "nullable": false,
+            "metadata": {}
+          },
+          {
+            "name": "avgPlayCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgCompleteCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgTotalWatchDuration",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgWatchDuration",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgDistinctMovies",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgDistinctGenres",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgSessionCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgCompletionRate",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgActiveDays",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "avgEventCount",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "minPlayCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "maxPlayCount",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "minTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "maxTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "medianTotalWatchDuration",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "nullable": false,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/cluster_profiles/json/part-00000-c52ffd11-c068-4291-b484-12fa0de32ab7-c000.json",
+          "bytes": 1080
+        }
+      ]
+    },
+    {
+      "name": "kmeans/model",
+      "format": "spark_ml_pipeline",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model",
+      "rows": 1000,
+      "read_back_rows": 1000,
+      "validation": "Reloaded model reproduces all assignments",
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/metadata/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/metadata/part-00000",
+          "bytes": 261
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/0_VectorAssembler_d3860e4f111d/metadata/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/0_VectorAssembler_d3860e4f111d/metadata/part-00000",
+          "bytes": 448
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/1_StandardScaler_329733536545/data/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/1_StandardScaler_329733536545/data/part-00000-e8da610f-3d3f-41bb-91ac-d1534e50c6f8-c000.snappy.parquet",
+          "bytes": 2955
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/1_StandardScaler_329733536545/metadata/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/1_StandardScaler_329733536545/metadata/part-00000",
+          "bytes": 339
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/2_KMeans_6929fa9e55fe/data/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/2_KMeans_6929fa9e55fe/data/part-00000-817617a1-fa18-4f58-b7b9-4e0fc5cb517c-c000.snappy.parquet",
+          "bytes": 1991
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/2_KMeans_6929fa9e55fe/metadata/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model/stages/2_KMeans_6929fa9e55fe/metadata/part-00000",
+          "bytes": 497
+        }
+      ]
+    },
+    {
+      "name": "kmeans_search",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/kmeans_search",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/kmeans_search/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/kmeans_search/part-00000-1ce25491-3e09-4985-a541-3bcf3719a3cf-c000.txt",
+          "bytes": 666
+        }
+      ]
+    },
+    {
+      "name": "selected_k",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/selected_k",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/selected_k/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/selected_k/part-00000-ba951eb4-cd23-44f9-806f-f14a722fa7ad-c000.txt",
+          "bytes": 1986
+        }
+      ]
+    },
+    {
+      "name": "cluster_profiles",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/cluster_profiles",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/cluster_profiles/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/cluster_profiles/part-00000-4a6d21e7-cf0b-40b7-9580-c8522d68c6dd-c000.txt",
+          "bytes": 1153
+        }
+      ]
+    },
+    {
+      "name": "feature_validation",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/feature_validation",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/feature_validation/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/feature_validation/part-00000-22913982-3634-4e5f-a65d-3277059c4a58-c000.txt",
+          "bytes": 318
+        }
+      ]
+    },
+    {
+      "name": "model_metadata",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/model_metadata",
+      "rows": 1,
+      "read_back_rows": 1,
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/model_metadata/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/reports/model_metadata/part-00000-3a137d5e-bbfb-437f-9142-5eebe95228d6-c000.txt",
+          "bytes": 1986
+        }
+      ]
+    },
+    {
+      "name": "kmeans/model_metadata",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/parquet",
+      "rows": 1,
+      "read_back_rows": 1,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "bestK",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "silhouette",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "seed",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "users",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "featureColumnsJson",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/parquet/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/parquet/part-00000-6c879b12-cfcb-42ac-9a71-52bf03da3506-c000.snappy.parquet",
+          "bytes": 2263
+        }
+      ]
+    },
+    {
+      "name": "kmeans/model_metadata",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/csv",
+      "rows": 1,
+      "read_back_rows": 1,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "bestK",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "silhouette",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "seed",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "users",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "featureColumnsJson",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/csv/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/csv/part-00000-3cb63e35-a0c7-41f3-addb-7ef0ff1d683a-c000.csv",
+          "bytes": 237
+        }
+      ]
+    },
+    {
+      "name": "kmeans/model_metadata",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/json",
+      "rows": 1,
+      "read_back_rows": 1,
+      "schema": {
+        "type": "struct",
+        "fields": [
+          {
+            "name": "bestK",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "silhouette",
+            "type": "double",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "seed",
+            "type": "integer",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "users",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+          },
+          {
+            "name": "featureColumnsJson",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+          }
+        ]
+      },
+      "files": [
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/json/_SUCCESS",
+          "bytes": 0
+        },
+        {
+          "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-56569b78b4e1/kmeans/model_metadata/json/part-00000-8c01db7d-ff05-43a8-a9fc-5360f46fce7d-c000.json",
+          "bytes": 249
+        }
+      ]
+    }
+  ],
+  "local_dashboard_files": [
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_assignments.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_assignments.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_cluster_profiles.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_cluster_profiles.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_k_search.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_k_search.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_model_metadata.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_model_metadata.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_user_features.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/kmeans_user_features.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_action_distribution.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_action_distribution.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_daily_active_users.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_daily_active_users.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_hourly_activity.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_hourly_activity.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_top_genres.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_top_genres.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_top_movies_by_play.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_top_movies_by_play.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_user_movie_time.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_user_movie_time.json",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_watch_duration_summary.csv",
+    "evidence/week2-tv2/tv2-56569b78b4e1/dashboard/stats_watch_duration_summary.json"
+  ],
+  "dashboard_files": {
+    "kmeans_assignments.csv": {
+      "bytes": 102861,
+      "sha256": "40f3ab003d2072c22fd6c58caad62c8b424f198541d06c0f109939b796f95e2c"
+    },
+    "kmeans_assignments.json": {
+      "bytes": 449645,
+      "sha256": "c92651cd35a7724d333507c7ea849de426fa78a18d8e925fbf3ff31b564bb5cf"
+    },
+    "kmeans_cluster_profiles.csv": {
+      "bytes": 717,
+      "sha256": "795f4307af3d7dba2f0e9bd6914f0438e603c705077e373454b5b25872d2c7d9"
+    },
+    "kmeans_cluster_profiles.json": {
+      "bytes": 1311,
+      "sha256": "22abfaf86fc6885f42a199df86c96f78bb8354df2edcaf8f03aabfeb8cd5c2d5"
+    },
+    "kmeans_k_search.csv": {
+      "bytes": 383,
+      "sha256": "85350052e73fb4d83035649d903533dcb59a0940b6244ef3e12b5bab84d53858"
+    },
+    "kmeans_k_search.json": {
+      "bytes": 948,
+      "sha256": "92560b07eab19a7a6e4db98562cf329fbedf4741ce06f4f10dbde3ba9d008112"
+    },
+    "kmeans_model_metadata.csv": {
+      "bytes": 239,
+      "sha256": "1ac474a7276533b7f070337db663ae43a8cb3e639134976dcaf8db3455783b6b"
+    },
+    "kmeans_model_metadata.json": {
+      "bytes": 288,
+      "sha256": "6d5e609a9993a95802a364affaf74345355f29e46570b44e4a6c12721238734c"
+    },
+    "kmeans_user_features.csv": {
+      "bytes": 100853,
+      "sha256": "45a180b1d4877a4e71ea325cbd21e12b1afa48a60025eaf4b100934575a59f6e"
+    },
+    "kmeans_user_features.json": {
+      "bytes": 431645,
+      "sha256": "e3c5acea00318f9f10572dbe05929482f1f32d348d8a3939460b90de5f37bdc7"
+    },
+    "stats_action_distribution.csv": {
+      "bytes": 133,
+      "sha256": "1dd6b16b26ab42611583322c2419fd94253ec2d7435d15dd5d38b0f9da659307"
+    },
+    "stats_action_distribution.json": {
+      "bytes": 396,
+      "sha256": "b231335a6c64d2a6c72d1ec7648f35b60d0916eca4874661cd54b8c566ee4bb9"
+    },
+    "stats_daily_active_users.csv": {
+      "bytes": 528,
+      "sha256": "0081f77d4fc05de188f843caf6ba664fb46a7799d0e25b2d01bfe7fbfebb04ed"
+    },
+    "stats_daily_active_users.json": {
+      "bytes": 1773,
+      "sha256": "1b309a747c69c4f46b8785f7b0e376bec06618bc1b44163ddc424e2aba8f87df"
+    },
+    "stats_hourly_activity.csv": {
+      "bytes": 531,
+      "sha256": "7234848026dbb18f890ca6362d2f37179ca0ca88464d0b666f7e70e34531baed"
+    },
+    "stats_hourly_activity.json": {
+      "bytes": 2389,
+      "sha256": "eafa69286054933ec6699486ea0143d82f9e46a884b5f8c792bd4b689ca646c3"
+    },
+    "stats_top_genres.csv": {
+      "bytes": 322,
+      "sha256": "6ef2dd31c83194f1d281bb68f25ab556aa5f5dadc717b2b8d873a339ba217db1"
+    },
+    "stats_top_genres.json": {
+      "bytes": 1128,
+      "sha256": "1f7e2c46b4af0d1738dd6a60fb12bd42bbfb27e75ee0ffccbed7ccbdb65510dc"
+    },
+    "stats_top_movies_by_play.csv": {
+      "bytes": 847,
+      "sha256": "51ad09e1489f5e10f12d867ebe0e0c3f01cb83c846ad25055a7260902a330d53"
+    },
+    "stats_top_movies_by_play.json": {
+      "bytes": 1957,
+      "sha256": "36af527bd7a1d47da3b2d70ebe983263d988a6e29995001a6ab5b744571de147"
+    },
+    "stats_user_movie_time.csv": {
+      "bytes": 3236,
+      "sha256": "5881de7eef89ddad7802204a7fd513a478458dc408d6b723ac8b06813810533c"
+    },
+    "stats_user_movie_time.json": {
+      "bytes": 10702,
+      "sha256": "da9abba4d0c8f53d65aeeaeb0ee578d3ff956e02d4d9b87bd1f62e7ff7b59a7c"
+    },
+    "stats_watch_duration_summary.csv": {
+      "bytes": 198,
+      "sha256": "6246511941a3b77d5f1b288439b43af940d762f971f83d914e190adb82ee4c73"
+    },
+    "stats_watch_duration_summary.json": {
+      "bytes": 394,
+      "sha256": "93134e54fc5641b58f1e1d8db1f9bb436927ccb2c9d3e9586b0ac12b266dfbd7"
+    }
+  }
+}

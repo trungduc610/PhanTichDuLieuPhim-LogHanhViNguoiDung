@@ -1,0 +1,2 @@
+bestK,silhouette,seed,users,featureColumnsJson
+2,0.6707563871905433,42,1000,"[""playCount"", ""completeCount"", ""totalWatchDuration"", ""avgWatchDuration"", ""distinctMovies"", ""distinctGenres"", ""sessionCount"", ""completionRate""]"

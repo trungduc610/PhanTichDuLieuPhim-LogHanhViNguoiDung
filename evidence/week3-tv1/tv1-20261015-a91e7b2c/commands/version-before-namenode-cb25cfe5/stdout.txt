@@ -1,0 +1,7 @@
+#Wed Oct 14 16:34:12 UTC 2026
+namespaceID=1182174077
+clusterID=hdfs-385a18d3f03a
+cTime=1791789899789
+storageType=NAME_NODE
+blockpoolID=BP-1738312168-172.18.0.2-1791789899789
+layoutVersion=-66

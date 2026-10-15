@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-f",
+    "compose.tv2.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "ps",
+    "--all",
+    "--format",
+    "json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T16:58:01.783138+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\hdfs-services-42db9769\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\hdfs-services-42db9769\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-14T16:58:02.041611+00:00"
+}

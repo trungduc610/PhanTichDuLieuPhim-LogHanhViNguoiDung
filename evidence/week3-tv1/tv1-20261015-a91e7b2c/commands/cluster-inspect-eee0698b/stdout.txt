@@ -1,0 +1,768 @@
+[
+    {
+        "Id": "667d79b7023467c980080227096389627eb4d475ed96efb33d9d9f48a70d31d4",
+        "Created": "2026-10-14T18:52:28.235050116Z",
+        "Path": "/opt/spark/bin/spark-submit",
+        "Args": [
+            "--driver-memory",
+            "2g",
+            "scripts/spark_hdfs_validate.py",
+            "--source-manifest",
+            "evidence/week3-tv1/tv1-20261015-a91e7b2c/source_manifest.json",
+            "--hdfs-verification",
+            "evidence/week3-tv1/tv1-20261015-a91e7b2c/import-repeat.json",
+            "--report",
+            "evidence/week3-tv1/tv1-20261015-a91e7b2c/spark-full.json"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 11630,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-14T18:52:28.412522457Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:b49e3b73ce385c1693cc3294ec4b5b3882e9fa9bd5fc599d4c79198abc49cc94",
+        "ResolvConfPath": "/var/lib/docker/containers/667d79b7023467c980080227096389627eb4d475ed96efb33d9d9f48a70d31d4/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/667d79b7023467c980080227096389627eb4d475ed96efb33d9d9f48a70d31d4/hostname",
+        "HostsPath": "/var/lib/docker/containers/667d79b7023467c980080227096389627eb4d475ed96efb33d9d9f48a70d31d4/hosts",
+        "LogPath": "/var/lib/docker/containers/667d79b7023467c980080227096389627eb4d475ed96efb33d9d9f48a70d31d4/667d79b7023467c980080227096389627eb4d475ed96efb33d9d9f48a70d31d4-json.log",
+        "Name": "/movie-hdfs-385a18d3f03a-spark-run-a1aa8ff0f827",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung:/project:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "movie-hdfs-385a18d3f03a_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": true,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+                "Destination": "/project",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "667d79b70234",
+            "Domainname": "",
+            "User": "spark",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PYTHONDONTWRITEBYTECODE=1",
+                "HADOOP_CONF_DIR=/project/config/hdfs",
+                "HADOOP_USER_NAME=root",
+                "PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JAVA_HOME=/opt/java/openjdk",
+                "LANG=en_US.UTF-8",
+                "LANGUAGE=en_US:en",
+                "LC_ALL=en_US.UTF-8",
+                "JAVA_VERSION=jdk-11.0.22+7",
+                "SPARK_TGZ_URL=https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz",
+                "SPARK_TGZ_ASC_URL=https://archive.apache.org/dist/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz.asc",
+                "GPG_KEY=FD3E84942E5E6106235A1D25BD356A9F8740E4FF",
+                "SPARK_HOME=/opt/spark"
+            ],
+            "Cmd": [
+                "--driver-memory",
+                "2g",
+                "scripts/spark_hdfs_validate.py",
+                "--source-manifest",
+                "evidence/week3-tv1/tv1-20261015-a91e7b2c/source_manifest.json",
+                "--hdfs-verification",
+                "evidence/week3-tv1/tv1-20261015-a91e7b2c/import-repeat.json",
+                "--report",
+                "evidence/week3-tv1/tv1-20261015-a91e7b2c/spark-full.json"
+            ],
+            "Image": "apache/spark:3.5.1",
+            "Volumes": null,
+            "WorkingDir": "/project",
+            "Entrypoint": [
+                "/opt/spark/bin/spark-submit"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "edeb13b6ac88b4965fbfaad9a5387811fac8fcaa469c6d29ad187938bb4b0e58",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:4494ef2d6cb94e343402d67a0151ab39ce9b1a13810b82e5cbe55530c895aaf7",
+                "com.docker.compose.oneoff": "True",
+                "com.docker.compose.project": "movie-hdfs-385a18d3f03a",
+                "com.docker.compose.project.config_files": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\compose.hdfs.yaml",
+                "com.docker.compose.project.working_dir": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+                "com.docker.compose.service": "spark",
+                "com.docker.compose.slug": "a1aa8ff0f8273f77f682b3c01578b10d1fd13f26c51783e2856ccb4453cccba0",
+                "com.docker.compose.version": "5.4.0",
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "20.04"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "406dd51b69595f64f7f9f1d67ccfeca46c384cfc3171040c8cbad0a1172b52bc",
+            "SandboxKey": "/var/run/docker/netns/406dd51b6959",
+            "Ports": {},
+            "Networks": {
+                "movie-hdfs-385a18d3f03a_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "movie-hdfs-385a18d3f03a-spark-run-a1aa8ff0f827"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "7bc6e473404514d29a47961667203abae382eb7f9b1ca1ea27986de3700e3ded",
+                    "EndpointID": "dd820a361ef867164576b2157a5e38f895c45e6a30a16669a4b4d6857e9a4ff1",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.4",
+                    "MacAddress": "a2:75:3c:08:7e:93",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "movie-hdfs-385a18d3f03a-spark-run-a1aa8ff0f827",
+                        "667d79b70234"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:4494ef2d6cb94e343402d67a0151ab39ce9b1a13810b82e5cbe55530c895aaf7",
+            "size": 2471,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    },
+    {
+        "Id": "712efa5b90f3c6470edd68a5921c76f914d8d874612a99a8385e18c2f3d35c62",
+        "Created": "2026-10-12T07:24:48.954201374Z",
+        "Path": "bash",
+        "Args": [
+            "/project/scripts/hdfs_service.sh",
+            "datanode"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 10085,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-14T18:48:44.166075129Z",
+            "FinishedAt": "2026-10-14T18:48:43.866066335Z"
+        },
+        "Image": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+        "ResolvConfPath": "/var/lib/docker/containers/712efa5b90f3c6470edd68a5921c76f914d8d874612a99a8385e18c2f3d35c62/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/712efa5b90f3c6470edd68a5921c76f914d8d874612a99a8385e18c2f3d35c62/hostname",
+        "HostsPath": "/var/lib/docker/containers/712efa5b90f3c6470edd68a5921c76f914d8d874612a99a8385e18c2f3d35c62/hosts",
+        "LogPath": "/var/lib/docker/containers/712efa5b90f3c6470edd68a5921c76f914d8d874612a99a8385e18c2f3d35c62/712efa5b90f3c6470edd68a5921c76f914d8d874612a99a8385e18c2f3d35c62-json.log",
+        "Name": "/movie-hdfs-385a18d3f03a-datanode-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung:/project:ro",
+                "movie-hdfs-385a18d3f03a_datanode:/hdfs/data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "movie-hdfs-385a18d3f03a_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/data": ""
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ],
+            "Init": true
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "movie-hdfs-385a18d3f03a_datanode",
+                "Source": "/var/lib/docker/volumes/movie-hdfs-385a18d3f03a_datanode/_data",
+                "Destination": "/hdfs/data",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+                "Destination": "/project",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "datanode",
+            "Domainname": "",
+            "User": "0:0",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "HADOOP_HEAPSIZE_MAX=512",
+                "HDFS_RUN_ID=hdfs-385a18d3f03a",
+                "HADOOP_CONF_DIR=/project/config/hdfs",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hadoop/bin",
+                "JAVA_HOME=/usr/lib/jvm/jre/",
+                "HADOOP_LOG_DIR=/var/log/hadoop"
+            ],
+            "Cmd": null,
+            "Image": "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/opt/hadoop",
+            "Entrypoint": [
+                "bash",
+                "/project/scripts/hdfs_service.sh",
+                "datanode"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "977de8a678614a06124a269dade785b4a6d39982baa5ac2759acaa5c2a849608",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "namenode:service_started:false",
+                "com.docker.compose.image": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "movie-hdfs-385a18d3f03a",
+                "com.docker.compose.project.config_files": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\compose.hdfs.yaml",
+                "com.docker.compose.project.working_dir": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+                "com.docker.compose.service": "datanode",
+                "com.docker.compose.version": "5.4.0",
+                "org.label-schema.build-date": "20190305",
+                "org.label-schema.license": "GPLv2",
+                "org.label-schema.name": "CentOS Base Image",
+                "org.label-schema.schema-version": "1.0",
+                "org.label-schema.vendor": "CentOS"
+            },
+            "StopTimeout": 60
+        },
+        "NetworkSettings": {
+            "SandboxID": "7f0365959ce369cdd096eb595eac2528a6bfd1fbb38b4375c88e67968b719939",
+            "SandboxKey": "/var/run/docker/netns/7f0365959ce3",
+            "Ports": {},
+            "Networks": {
+                "movie-hdfs-385a18d3f03a_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "movie-hdfs-385a18d3f03a-datanode-1",
+                        "datanode"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "7bc6e473404514d29a47961667203abae382eb7f9b1ca1ea27986de3700e3ded",
+                    "EndpointID": "499014e9bebcb1fed31cbdac2eb250bb962e8a9d596b674356a8d28cfb02bcc8",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "MacAddress": "f2:05:48:c9:b0:41",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "movie-hdfs-385a18d3f03a-datanode-1",
+                        "datanode",
+                        "712efa5b90f3"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+            "size": 5124,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    },
+    {
+        "Id": "db63a5df76fde4f8fbdf8c8954a67f83c1f67e501624d5fb601b145f25d18e88",
+        "Created": "2026-10-12T07:24:48.743997637Z",
+        "Path": "bash",
+        "Args": [
+            "/project/scripts/hdfs_service.sh",
+            "namenode"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 10133,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-14T18:48:44.305329261Z",
+            "FinishedAt": "2026-10-14T18:48:43.874256408Z"
+        },
+        "Image": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+        "ResolvConfPath": "/var/lib/docker/containers/db63a5df76fde4f8fbdf8c8954a67f83c1f67e501624d5fb601b145f25d18e88/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/db63a5df76fde4f8fbdf8c8954a67f83c1f67e501624d5fb601b145f25d18e88/hostname",
+        "HostsPath": "/var/lib/docker/containers/db63a5df76fde4f8fbdf8c8954a67f83c1f67e501624d5fb601b145f25d18e88/hosts",
+        "LogPath": "/var/lib/docker/containers/db63a5df76fde4f8fbdf8c8954a67f83c1f67e501624d5fb601b145f25d18e88/db63a5df76fde4f8fbdf8c8954a67f83c1f67e501624d5fb601b145f25d18e88-json.log",
+        "Name": "/movie-hdfs-385a18d3f03a-namenode-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung:/project:ro",
+                "movie-hdfs-385a18d3f03a_namenode:/hdfs/name:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "movie-hdfs-385a18d3f03a_default",
+            "PortBindings": {
+                "9870/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "19870"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "Tmpfs": {
+                "/data": ""
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ],
+            "Init": true
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "movie-hdfs-385a18d3f03a_namenode",
+                "Source": "/var/lib/docker/volumes/movie-hdfs-385a18d3f03a_namenode/_data",
+                "Destination": "/hdfs/name",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "bind",
+                "Source": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+                "Destination": "/project",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "namenode",
+            "Domainname": "",
+            "User": "0:0",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "9870/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "HADOOP_HEAPSIZE_MAX=512",
+                "HDFS_RUN_ID=hdfs-385a18d3f03a",
+                "HADOOP_CONF_DIR=/project/config/hdfs",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/hadoop/bin",
+                "JAVA_HOME=/usr/lib/jvm/jre/",
+                "HADOOP_LOG_DIR=/var/log/hadoop"
+            ],
+            "Cmd": null,
+            "Image": "apache/hadoop@sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/opt/hadoop",
+            "Entrypoint": [
+                "bash",
+                "/project/scripts/hdfs_service.sh",
+                "namenode"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "2599a82499c62c7c604ece4a0c0640149cc69b22228d7b6fa9b57e85eeca9b3f",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "movie-hdfs-385a18d3f03a",
+                "com.docker.compose.project.config_files": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\compose.hdfs.yaml",
+                "com.docker.compose.project.working_dir": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+                "com.docker.compose.service": "namenode",
+                "com.docker.compose.version": "5.4.0",
+                "org.label-schema.build-date": "20190305",
+                "org.label-schema.license": "GPLv2",
+                "org.label-schema.name": "CentOS Base Image",
+                "org.label-schema.schema-version": "1.0",
+                "org.label-schema.vendor": "CentOS"
+            },
+            "StopTimeout": 60
+        },
+        "NetworkSettings": {
+            "SandboxID": "c2cf04412910abfeac9981c4347fa5fa5fc045582cf6b9cf0d53d80ae1b6e978",
+            "SandboxKey": "/var/run/docker/netns/c2cf04412910",
+            "Ports": {
+                "9870/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "19870"
+                    }
+                ]
+            },
+            "Networks": {
+                "movie-hdfs-385a18d3f03a_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "movie-hdfs-385a18d3f03a-namenode-1",
+                        "namenode"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "7bc6e473404514d29a47961667203abae382eb7f9b1ca1ea27986de3700e3ded",
+                    "EndpointID": "b636282cb2b4fc4924582c42033016e113c2dfb718b0f74c36826495bc83961e",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.3",
+                    "MacAddress": "66:1b:a1:ae:29:b1",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "movie-hdfs-385a18d3f03a-namenode-1",
+                        "namenode",
+                        "db63a5df76fd"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:62a22627f35a1bbf29c721192c02fe311c93749cc43d51df01792b2ac40ff144",
+            "size": 5124,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

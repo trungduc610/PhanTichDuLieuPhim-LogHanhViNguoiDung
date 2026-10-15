@@ -1,0 +1,36 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "--profile",
+    "spark",
+    "run",
+    "--rm",
+    "--no-deps",
+    "spark",
+    "--driver-memory",
+    "1g",
+    "scripts/hdfs_spark_import.py",
+    "--source-manifest",
+    "evidence/recovery-20261014/live-hdfs/source_manifest.json",
+    "--report",
+    "evidence/recovery-20261014/live-hdfs/import-live.json",
+    "--upload"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T16:56:51.625015+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\recovery-20261014\\live-hdfs\\commands\\java-client-import-live-d304da2f\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\recovery-20261014\\live-hdfs\\commands\\java-client-import-live-d304da2f\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-14T16:57:35.420102+00:00"
+}

@@ -1,4 +1,12 @@
 /* Các trang chi tiết dùng nền tảng trình bày của Tổng quan mới. */
+.source-info { margin-bottom:20px; padding:12px 16px; background:#f5f7fb; border:1px solid #e2e8f0; border-radius:10px; overflow-wrap:anywhere; }
+.source-info summary { color:#40516a; font-size:14px; }
+.source-stale { color:#80500e; }
+.daily-chart-frame { height:260px; min-width:0; }
+.daily-chart { margin:20px 0; min-width:0; }
+.duration-values { display:flex; flex-wrap:wrap; gap:12px 24px; margin:16px 0; color:#40516a; font-size:14px; }
+.daily-chart .overview-chart-readout { min-height:80px; }
+.daily-chart .overview-chart-readout span,.daily-chart .overview-chart-readout strong { display:block; }
 .analysis-page .analysis-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 20px; align-items: start; }
 .analysis-page .analysis-wide { grid-column: 1 / -1; }
 .analysis-page .chart-panel { min-width: 0; }

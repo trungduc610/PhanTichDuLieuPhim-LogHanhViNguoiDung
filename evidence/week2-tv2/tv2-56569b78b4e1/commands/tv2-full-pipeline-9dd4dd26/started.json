@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-f",
+    "compose.tv2.yaml",
+    "-p",
+    "movie-hdfs-385a18d3f03a",
+    "--profile",
+    "spark",
+    "run",
+    "--rm",
+    "--no-deps",
+    "spark",
+    "--driver-memory",
+    "1536m",
+    "scripts/tv2_pipeline.py",
+    "--run-context",
+    "evidence/week2-tv2/tv2-56569b78b4e1/run_context.json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T17:00:14.680889+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\tv2-full-pipeline-9dd4dd26\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week2-tv2\\tv2-56569b78b4e1\\commands\\tv2-full-pipeline-9dd4dd26\\stderr.txt"
+}

@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "tests": 57,
+  "finished_at_utc": "2026-10-14T18:49:01.917191+00:00",
+  "note": "Count verified from unittest stderr; includes official/demo, missing cluster and active-job guards."
+}

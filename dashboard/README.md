@@ -43,7 +43,7 @@ Sidebar luôn có tám đường dẫn. Desktop dùng thanh bên trái; từ 102
 
 ## Dữ liệu và phạm vi
 
-Frontend fetch các bản sao JSON trong public/data. Script scripts/sync-data.mjs chép nguyên nội dung từ ../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/:
+Frontend đọc snapshot trong public/data/<runId>/, chọn bằng public/data/source.json. Script scripts/sync-data.mjs kiểm run PASS, nguồn HDFS, hash source/output, raw trước/sau và số liệu trước khi chép nguyên JSON từ run được chọn trong data-source.json. Đổi run bằng `node scripts/sync-data.mjs --run <runId>`; chỉ công bố selector sau khi đủ file, không ghi đè snapshot đã công bố.
 
 - stats_action_distribution.json
 - stats_top_movies_by_play.json
@@ -68,13 +68,13 @@ Dữ liệu hành vi mô phỏng từ 01/09/2026 đến 30/09/2026 theo giờ Vi
 - Play có thể lặp lại trong cùng phiên/người dùng. View là xem thông tin phim, không phải phát phim. Tỷ lệ hành động có mẫu số là tổng sự kiện, không phải tổng người dùng.
 - Một phim có nhiều thể loại nên một play có thể vào nhiều nhóm. Không cộng nhóm thể loại thành tổng play độc lập.
 - Theo giờ: cộng gộp toàn kỳ, không phải một ngày. Người dùng khác nhau theo giờ hoặc phim–giờ được đếm riêng trong từng nhóm; không cộng các nhóm để suy ra tổng người dùng.
-- DAU đếm mỗi người có ít nhất một sự kiện một lần/ngày, gồm mọi hành động. Chuỗi hiện có 30 ngày đều 1.000 người/ngày; hiển thị tóm tắt thay biểu đồ lớn. Không cộng DAU các ngày thành người dùng khác nhau toàn kỳ.
-- Thời lượng có đơn vị gốc giây, tính theo bản ghi sự kiện. all_events gồm cả thời lượng 0; watch_segments chỉ gồm thời lượng dương và là tập con. Không cộng hai nhóm. Trung vị xấp xỉ; độ lệch chuẩn mẫu. Không suy ra thời lượng mỗi phiên hoặc histogram khi chưa có dữ liệu.
+- DAU đếm mỗi người có ít nhất một sự kiện một lần/ngày, gồm mọi hành động. Chuỗi hiện có 30 ngày đều 1.000 người/ngày; biểu đồ đường và bảng DAU giữ số liệu theo ngày, hỗ trợ bàn phím. Không cộng DAU các ngày thành người dùng khác nhau toàn kỳ.
+- Thời lượng có đơn vị gốc giây, tính theo bản ghi sự kiện. all_events gồm cả thời lượng 0; watch_segments chỉ gồm thời lượng dương và là tập con. Không cộng hai nhóm. Trung vị xấp xỉ; độ lệch chuẩn mẫu. Biểu đồ so sánh chọn trung bình, trung vị, min/max hoặc độ lệch chuẩn bằng giây; không suy ra thời lượng mỗi phiên hoặc histogram khi chưa có dữ liệu.
 - K-Means chỉ trình bày kết quả Spark đã xử lý. Đặc trưng đọc từ featureColumnsJson; bestK và silhouette đọc từ metadata. Silhouette không có đơn vị, đo phân tách cụm theo squared Euclidean, không chứng minh hành vi người xem thật.
 - completionRate là tỷ lệ từ 0–1, nhân 100 khi hiển thị %. Tỷ lệ của người dùng = số phiên có complete / số phiên có play; trung bình cụm là trung bình tỷ lệ người dùng, không phải tổng complete chia tổng play. Người không có phiên play ghi “Chưa xác định” khi tra cứu.
 - avgTotalWatchDuration là trung bình tổng thời lượng mỗi người dùng. avgWatchDuration là trung bình các trung bình đoạn xem dương của từng người, bằng 0 nếu không có đoạn xem. Hai chỉ số không thay thế nhau. Giữ nhãn Cluster gốc, không gán nhãn tâm lý/kinh doanh.
 
-Các services kiểm tra nguồn, đơn vị, số đếm và sự nhất quán giữa JSON. Không có số liệu demo hoặc fallback giả. Có trạng thái tải, thiếu dữ liệu, JSON hỏng và nút thử lại.
+Các services kiểm tra nguồn, đơn vị, số đếm và sự nhất quán giữa JSON. Không có số liệu demo hoặc fallback giả. Có trạng thái tải, thiếu dữ liệu, JSON hỏng và nút thử lại. Metadata nguồn thiếu/hỏng chặn hiển thị; hiển thị run, thời điểm xác minh và cảnh báo snapshot cũ sau 24 giờ.
 
 ## Giao diện và tương tác
 

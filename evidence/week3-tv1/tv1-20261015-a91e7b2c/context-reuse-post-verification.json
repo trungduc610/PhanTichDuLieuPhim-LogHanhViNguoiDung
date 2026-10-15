@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-14T18:58:41.158413+00:00",
+  "context": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c-context-reuse\\run-context.json",
+  "same_official_file_list": true,
+  "same_source_config": true,
+  "current_delivery_files_checked": 628,
+  "note": "README prepare successfully reuses final acceptance/context in a new folder. This is preparation verification, not a second complete acceptance."
+}

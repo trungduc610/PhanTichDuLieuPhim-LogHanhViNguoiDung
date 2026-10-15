@@ -1,10 +1,11 @@
+import { selectedSource, copiedSource } from './selectedSource.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { prepareGenres, selectGenres } from '../src/services/genreAnalysis.js';
 import { MissingDataError } from '../src/services/overviewMetrics.js';
 
-const source = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/stats_top_genres.json', import.meta.url);
+const source = selectedSource('stats_top_genres.json');
 const rows = JSON.parse(await readFile(source, 'utf8'));
 
 test('Xếp hạng, hai thể loại đầu và chênh lệch khớp JSON thực tế', () => {

@@ -1,0 +1,1081 @@
+{
+  "stats/top_movies_by_play": [
+    {
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 17064
+    },
+    {
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 9546
+    },
+    {
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 6728
+    },
+    {
+      "movieId": 52281,
+      "title": "Grindhouse (2007)",
+      "playCount": 5297
+    },
+    {
+      "movieId": 7074,
+      "title": "Navigator, The (1924)",
+      "playCount": 4390
+    },
+    {
+      "movieId": 4422,
+      "title": "Cries and Whispers (Viskningar och rop) (1972)",
+      "playCount": 3663
+    },
+    {
+      "movieId": 3055,
+      "title": "Felicia's Journey (1999)",
+      "playCount": 3174
+    },
+    {
+      "movieId": 101088,
+      "title": "Stoker (2013)",
+      "playCount": 2828
+    },
+    {
+      "movieId": 27778,
+      "title": "Ginger Snaps Back: The Beginning (2004)",
+      "playCount": 2718
+    },
+    {
+      "movieId": 164909,
+      "title": "La La Land (2016)",
+      "playCount": 2390
+    },
+    {
+      "movieId": 3802,
+      "title": "Freejack (1992)",
+      "playCount": 2379
+    },
+    {
+      "movieId": 46337,
+      "title": "Garfield: A Tail of Two Kitties (2006)",
+      "playCount": 2070
+    },
+    {
+      "movieId": 6201,
+      "title": "Lady Jane (1986)",
+      "playCount": 1922
+    },
+    {
+      "movieId": 73501,
+      "title": "Pekka ja Pätkä Suezilla (1958)",
+      "playCount": 1779
+    },
+    {
+      "movieId": 7062,
+      "title": "Birdman of Alcatraz (1962)",
+      "playCount": 1747
+    },
+    {
+      "movieId": 92665,
+      "title": "For a Good Time, Call... (2012)",
+      "playCount": 1614
+    },
+    {
+      "movieId": 2700,
+      "title": "South Park: Bigger, Longer and Uncut (1999)",
+      "playCount": 1601
+    },
+    {
+      "movieId": 7349,
+      "title": "Broken Wings (Knafayim Shvurot) (2002)",
+      "playCount": 1455
+    },
+    {
+      "movieId": 64695,
+      "title": "Sword of the Stranger (Sutorejia: Mukô hadan) (2007)",
+      "playCount": 1385
+    },
+    {
+      "movieId": 7169,
+      "title": "Chasing Liberty (2004)",
+      "playCount": 1344
+    }
+  ],
+  "stats/top_genres": [
+    {
+      "genre": "Comedy",
+      "playCount": 144882
+    },
+    {
+      "genre": "Drama",
+      "playCount": 143222
+    },
+    {
+      "genre": "Action",
+      "playCount": 77406
+    },
+    {
+      "genre": "Thriller",
+      "playCount": 66163
+    },
+    {
+      "genre": "Romance",
+      "playCount": 53795
+    },
+    {
+      "genre": "Adventure",
+      "playCount": 53602
+    },
+    {
+      "genre": "Crime",
+      "playCount": 53233
+    },
+    {
+      "genre": "Children",
+      "playCount": 38123
+    },
+    {
+      "genre": "Sci-Fi",
+      "playCount": 36487
+    },
+    {
+      "genre": "Horror",
+      "playCount": 34703
+    },
+    {
+      "genre": "Animation",
+      "playCount": 23941
+    },
+    {
+      "genre": "Fantasy",
+      "playCount": 23053
+    },
+    {
+      "genre": "Documentary",
+      "playCount": 19926
+    },
+    {
+      "genre": "Mystery",
+      "playCount": 19275
+    },
+    {
+      "genre": "Musical",
+      "playCount": 10688
+    },
+    {
+      "genre": "War",
+      "playCount": 8860
+    },
+    {
+      "genre": "Western",
+      "playCount": 4584
+    },
+    {
+      "genre": "IMAX",
+      "playCount": 4071
+    },
+    {
+      "genre": "Film-Noir",
+      "playCount": 3519
+    },
+    {
+      "genre": "(no genres listed)",
+      "playCount": 1538
+    }
+  ],
+  "stats/daily_active_users": [
+    {
+      "date": "2026-09-01",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-02",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-03",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-04",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-05",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-06",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-07",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-08",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-09",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-10",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-11",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-12",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-13",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-14",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-15",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-16",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-17",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-18",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-19",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-20",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-21",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-22",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-23",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-24",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-25",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-26",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-27",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-28",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-29",
+      "activeUsers": 1000
+    },
+    {
+      "date": "2026-09-30",
+      "activeUsers": 1000
+    }
+  ],
+  "stats/hourly_activity": [
+    {
+      "hour": 0,
+      "eventCount": 28880,
+      "distinctUsers": 1000,
+      "playCount": 8766
+    },
+    {
+      "hour": 1,
+      "eventCount": 30942,
+      "distinctUsers": 1000,
+      "playCount": 9546
+    },
+    {
+      "hour": 2,
+      "eventCount": 29757,
+      "distinctUsers": 1000,
+      "playCount": 10300
+    },
+    {
+      "hour": 3,
+      "eventCount": 27894,
+      "distinctUsers": 1000,
+      "playCount": 10352
+    },
+    {
+      "hour": 4,
+      "eventCount": 27986,
+      "distinctUsers": 1000,
+      "playCount": 9927
+    },
+    {
+      "hour": 5,
+      "eventCount": 24683,
+      "distinctUsers": 1000,
+      "playCount": 8050
+    },
+    {
+      "hour": 6,
+      "eventCount": 42597,
+      "distinctUsers": 1000,
+      "playCount": 16258
+    },
+    {
+      "hour": 7,
+      "eventCount": 40679,
+      "distinctUsers": 1000,
+      "playCount": 14987
+    },
+    {
+      "hour": 8,
+      "eventCount": 41564,
+      "distinctUsers": 1000,
+      "playCount": 14490
+    },
+    {
+      "hour": 9,
+      "eventCount": 42070,
+      "distinctUsers": 1000,
+      "playCount": 14608
+    },
+    {
+      "hour": 10,
+      "eventCount": 41638,
+      "distinctUsers": 1000,
+      "playCount": 14639
+    },
+    {
+      "hour": 11,
+      "eventCount": 42067,
+      "distinctUsers": 1000,
+      "playCount": 14879
+    },
+    {
+      "hour": 12,
+      "eventCount": 41927,
+      "distinctUsers": 1000,
+      "playCount": 14775
+    },
+    {
+      "hour": 13,
+      "eventCount": 41491,
+      "distinctUsers": 1000,
+      "playCount": 14514
+    },
+    {
+      "hour": 14,
+      "eventCount": 41979,
+      "distinctUsers": 1000,
+      "playCount": 14785
+    },
+    {
+      "hour": 15,
+      "eventCount": 42036,
+      "distinctUsers": 1000,
+      "playCount": 14840
+    },
+    {
+      "hour": 16,
+      "eventCount": 42279,
+      "distinctUsers": 1000,
+      "playCount": 14936
+    },
+    {
+      "hour": 17,
+      "eventCount": 40898,
+      "distinctUsers": 1000,
+      "playCount": 14173
+    },
+    {
+      "hour": 18,
+      "eventCount": 36450,
+      "distinctUsers": 1000,
+      "playCount": 11594
+    },
+    {
+      "hour": 19,
+      "eventCount": 62592,
+      "distinctUsers": 1000,
+      "playCount": 22592
+    },
+    {
+      "hour": 20,
+      "eventCount": 55217,
+      "distinctUsers": 1000,
+      "playCount": 18936
+    },
+    {
+      "hour": 21,
+      "eventCount": 54893,
+      "distinctUsers": 1000,
+      "playCount": 18283
+    },
+    {
+      "hour": 22,
+      "eventCount": 55419,
+      "distinctUsers": 1000,
+      "playCount": 18494
+    },
+    {
+      "hour": 23,
+      "eventCount": 64062,
+      "distinctUsers": 1000,
+      "playCount": 23750
+    }
+  ],
+  "stats/action_distribution": [
+    {
+      "action": "complete",
+      "count": 141907,
+      "percentage": 14.1907
+    },
+    {
+      "action": "pause",
+      "count": 90546,
+      "percentage": 9.0546
+    },
+    {
+      "action": "play",
+      "count": 348474,
+      "percentage": 34.8474
+    },
+    {
+      "action": "stop",
+      "count": 116021,
+      "percentage": 11.6021
+    },
+    {
+      "action": "view",
+      "count": 303052,
+      "percentage": 30.3052
+    }
+  ],
+  "stats/watch_duration_summary": [
+    {
+      "count": 1000000,
+      "mean": 1458.785357,
+      "median": 0.0,
+      "min": 0,
+      "max": 10800,
+      "stddev": 2654.320302200105,
+      "scope": "all_events",
+      "unit": "seconds"
+    },
+    {
+      "count": 348474,
+      "mean": 4186.210038625551,
+      "median": 3832.0,
+      "min": 1,
+      "max": 10800,
+      "stddev": 2966.5372587340803,
+      "scope": "watch_segments",
+      "unit": "seconds"
+    }
+  ],
+  "stats/user_movie_time": [
+    {
+      "hour": 0,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 428,
+      "distinctUsers": 337,
+      "rank": 1
+    },
+    {
+      "hour": 0,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 216,
+      "distinctUsers": 184,
+      "rank": 2
+    },
+    {
+      "hour": 0,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 164,
+      "distinctUsers": 146,
+      "rank": 3
+    },
+    {
+      "hour": 1,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 570,
+      "distinctUsers": 420,
+      "rank": 1
+    },
+    {
+      "hour": 1,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 225,
+      "distinctUsers": 188,
+      "rank": 2
+    },
+    {
+      "hour": 1,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 150,
+      "distinctUsers": 135,
+      "rank": 3
+    },
+    {
+      "hour": 2,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 591,
+      "distinctUsers": 414,
+      "rank": 1
+    },
+    {
+      "hour": 2,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 272,
+      "distinctUsers": 224,
+      "rank": 2
+    },
+    {
+      "hour": 2,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 163,
+      "distinctUsers": 137,
+      "rank": 3
+    },
+    {
+      "hour": 3,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 598,
+      "distinctUsers": 422,
+      "rank": 1
+    },
+    {
+      "hour": 3,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 253,
+      "distinctUsers": 212,
+      "rank": 2
+    },
+    {
+      "hour": 3,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 165,
+      "distinctUsers": 139,
+      "rank": 3
+    },
+    {
+      "hour": 4,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 536,
+      "distinctUsers": 380,
+      "rank": 1
+    },
+    {
+      "hour": 4,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 245,
+      "distinctUsers": 194,
+      "rank": 2
+    },
+    {
+      "hour": 4,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 172,
+      "distinctUsers": 144,
+      "rank": 3
+    },
+    {
+      "hour": 5,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 421,
+      "distinctUsers": 329,
+      "rank": 1
+    },
+    {
+      "hour": 5,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 192,
+      "distinctUsers": 153,
+      "rank": 2
+    },
+    {
+      "hour": 5,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 137,
+      "distinctUsers": 116,
+      "rank": 3
+    },
+    {
+      "hour": 6,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 784,
+      "distinctUsers": 494,
+      "rank": 1
+    },
+    {
+      "hour": 6,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 451,
+      "distinctUsers": 335,
+      "rank": 2
+    },
+    {
+      "hour": 6,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 305,
+      "distinctUsers": 225,
+      "rank": 3
+    },
+    {
+      "hour": 7,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 740,
+      "distinctUsers": 497,
+      "rank": 1
+    },
+    {
+      "hour": 7,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 436,
+      "distinctUsers": 329,
+      "rank": 2
+    },
+    {
+      "hour": 7,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 286,
+      "distinctUsers": 221,
+      "rank": 3
+    },
+    {
+      "hour": 8,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 769,
+      "distinctUsers": 516,
+      "rank": 1
+    },
+    {
+      "hour": 8,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 400,
+      "distinctUsers": 302,
+      "rank": 2
+    },
+    {
+      "hour": 8,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 288,
+      "distinctUsers": 227,
+      "rank": 3
+    },
+    {
+      "hour": 9,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 709,
+      "distinctUsers": 474,
+      "rank": 1
+    },
+    {
+      "hour": 9,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 412,
+      "distinctUsers": 314,
+      "rank": 2
+    },
+    {
+      "hour": 9,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 284,
+      "distinctUsers": 224,
+      "rank": 3
+    },
+    {
+      "hour": 10,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 765,
+      "distinctUsers": 514,
+      "rank": 1
+    },
+    {
+      "hour": 10,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 405,
+      "distinctUsers": 300,
+      "rank": 2
+    },
+    {
+      "hour": 10,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 296,
+      "distinctUsers": 240,
+      "rank": 3
+    },
+    {
+      "hour": 11,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 749,
+      "distinctUsers": 508,
+      "rank": 1
+    },
+    {
+      "hour": 11,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 457,
+      "distinctUsers": 335,
+      "rank": 2
+    },
+    {
+      "hour": 11,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 299,
+      "distinctUsers": 230,
+      "rank": 3
+    },
+    {
+      "hour": 12,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 691,
+      "distinctUsers": 476,
+      "rank": 1
+    },
+    {
+      "hour": 12,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 365,
+      "distinctUsers": 282,
+      "rank": 2
+    },
+    {
+      "hour": 12,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 292,
+      "distinctUsers": 228,
+      "rank": 3
+    },
+    {
+      "hour": 13,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 723,
+      "distinctUsers": 482,
+      "rank": 1
+    },
+    {
+      "hour": 13,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 365,
+      "distinctUsers": 287,
+      "rank": 2
+    },
+    {
+      "hour": 13,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 265,
+      "distinctUsers": 212,
+      "rank": 3
+    },
+    {
+      "hour": 14,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 680,
+      "distinctUsers": 465,
+      "rank": 1
+    },
+    {
+      "hour": 14,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 384,
+      "distinctUsers": 282,
+      "rank": 2
+    },
+    {
+      "hour": 14,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 297,
+      "distinctUsers": 233,
+      "rank": 3
+    },
+    {
+      "hour": 15,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 775,
+      "distinctUsers": 505,
+      "rank": 1
+    },
+    {
+      "hour": 15,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 373,
+      "distinctUsers": 288,
+      "rank": 2
+    },
+    {
+      "hour": 15,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 304,
+      "distinctUsers": 244,
+      "rank": 3
+    },
+    {
+      "hour": 16,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 743,
+      "distinctUsers": 504,
+      "rank": 1
+    },
+    {
+      "hour": 16,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 401,
+      "distinctUsers": 309,
+      "rank": 2
+    },
+    {
+      "hour": 16,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 265,
+      "distinctUsers": 207,
+      "rank": 3
+    },
+    {
+      "hour": 17,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 643,
+      "distinctUsers": 459,
+      "rank": 1
+    },
+    {
+      "hour": 17,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 383,
+      "distinctUsers": 293,
+      "rank": 2
+    },
+    {
+      "hour": 17,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 320,
+      "distinctUsers": 240,
+      "rank": 3
+    },
+    {
+      "hour": 18,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 526,
+      "distinctUsers": 372,
+      "rank": 1
+    },
+    {
+      "hour": 18,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 373,
+      "distinctUsers": 273,
+      "rank": 2
+    },
+    {
+      "hour": 18,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 238,
+      "distinctUsers": 177,
+      "rank": 3
+    },
+    {
+      "hour": 19,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 922,
+      "distinctUsers": 576,
+      "rank": 1
+    },
+    {
+      "hour": 19,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 687,
+      "distinctUsers": 456,
+      "rank": 2
+    },
+    {
+      "hour": 19,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 448,
+      "distinctUsers": 320,
+      "rank": 3
+    },
+    {
+      "hour": 20,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 787,
+      "distinctUsers": 520,
+      "rank": 1
+    },
+    {
+      "hour": 20,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 565,
+      "distinctUsers": 384,
+      "rank": 2
+    },
+    {
+      "hour": 20,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 371,
+      "distinctUsers": 284,
+      "rank": 3
+    },
+    {
+      "hour": 21,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 812,
+      "distinctUsers": 530,
+      "rank": 1
+    },
+    {
+      "hour": 21,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 540,
+      "distinctUsers": 387,
+      "rank": 2
+    },
+    {
+      "hour": 21,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 408,
+      "distinctUsers": 295,
+      "rank": 3
+    },
+    {
+      "hour": 22,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 828,
+      "distinctUsers": 545,
+      "rank": 1
+    },
+    {
+      "hour": 22,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 506,
+      "distinctUsers": 353,
+      "rank": 2
+    },
+    {
+      "hour": 22,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 370,
+      "distinctUsers": 265,
+      "rank": 3
+    },
+    {
+      "hour": 23,
+      "movieId": 7262,
+      "title": "Catch That Kid (2004)",
+      "playCount": 1274,
+      "distinctUsers": 687,
+      "rank": 1
+    },
+    {
+      "hour": 23,
+      "movieId": 100044,
+      "title": "Human Planet (2011)",
+      "playCount": 640,
+      "distinctUsers": 454,
+      "rank": 2
+    },
+    {
+      "hour": 23,
+      "movieId": 45720,
+      "title": "Devil Wears Prada, The (2006)",
+      "playCount": 441,
+      "distinctUsers": 330,
+      "rank": 3
+    }
+  ]
+}

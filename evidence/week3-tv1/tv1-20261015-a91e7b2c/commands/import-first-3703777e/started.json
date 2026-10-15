@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "C:\\Users\\User\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "scripts/hdfs_io.py",
+    "--context",
+    "evidence/week3-tv1/tv1-20261015-a91e7b2c/run-context.json",
+    "--client",
+    "spark",
+    "--label",
+    "import-first",
+    "--upload"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T18:44:35.241678+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-385a18d3f03a",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\import-first-3703777e\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\import-first-3703777e\\stderr.txt"
+}

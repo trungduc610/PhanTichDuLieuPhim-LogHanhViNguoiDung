@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "run_id": "tv2-56569b78b4e1",
+  "flume_run_id": "run-63efa2865c76",
+  "hdfs_run_id": "hdfs-385a18d3f03a",
+  "checks": {
+    "live_flume_reconciliation": true,
+    "hdfs_pipeline_and_model_reload": true,
+    "independent_exports_reconciliation": true,
+    "browser_eight_routes_four_widths": true,
+    "historical_files_unchanged": true,
+    "historical_hdfs_snapshot_unchanged": true,
+    "original_volumes_preserved": true,
+    "production_preview_selects_verified_run": true
+  },
+  "events": 1000000,
+  "users": 1000,
+  "movies": 9742,
+  "best_k": 2,
+  "silhouette": 0.6707563871905433,
+  "cluster_sizes": [
+    237,
+    763
+  ],
+  "historical_files_checked": 1564,
+  "python_unit_tests": 46,
+  "dashboard_unit_tests": 35,
+  "spark_fixture_tests": 3,
+  "preview_url": "http://127.0.0.1:4173/",
+  "evidence": {
+    "pipeline": "evidence/week2-tv2/tv2-56569b78b4e1/run_status.json",
+    "independent_results": "evidence/week2-tv2/tv2-56569b78b4e1/handoff_validation.json",
+    "browser": "evidence/recovery-20261014/browser-acceptance.json",
+    "preservation": "evidence/recovery-20261014/preservation-check.json",
+    "historical_hdfs": "evidence/recovery-20261014/historical-hdfs-after.json"
+  }
+}

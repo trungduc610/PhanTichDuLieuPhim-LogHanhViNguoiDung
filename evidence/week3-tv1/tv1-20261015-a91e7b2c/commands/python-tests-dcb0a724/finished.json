@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-14T18:48:54.377229+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\python-tests-dcb0a724\\stdout.txt",
+  "stderr": "evidence\\week3-tv1\\tv1-20261015-a91e7b2c\\commands\\python-tests-dcb0a724\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-14T18:49:01.899470+00:00"
+}

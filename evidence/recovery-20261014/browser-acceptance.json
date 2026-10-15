@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "runId": "tv2-56569b78b4e1",
+  "checkedAt": "2026-10-14T17:24:50.104Z",
+  "widths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "routes": [
+    "/",
+    "/phim",
+    "/hanh-vi",
+    "/thoi-gian",
+    "/the-loai",
+    "/thoi-luong",
+    "/ket-hop",
+    "/phan-cum"
+  ],
+  "javascriptErrors": []
+}

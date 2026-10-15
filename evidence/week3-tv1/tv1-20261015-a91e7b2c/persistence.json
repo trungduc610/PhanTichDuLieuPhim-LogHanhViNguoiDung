@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "checks": {
+    "versions_unchanged": true,
+    "same_containers_volumes": true,
+    "full_content_unchanged": true,
+    "no_additional_format": true,
+    "verified_reuse": true,
+    "before_after_pass": true
+  },
+  "checked_at_utc": "2026-10-14T18:50:10.244682+00:00",
+  "before_properties": {
+    "datanode": {
+      "storageID": "DS-530f74f7-1ee4-4b04-8596-ee4b071e22da",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "0",
+      "datanodeUuid": "666ed85c-0aa5-4e50-bc0c-70fa7a4d9b23",
+      "storageType": "DATA_NODE",
+      "layoutVersion": "-57"
+    },
+    "namenode": {
+      "namespaceID": "1182174077",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "1791789899789",
+      "storageType": "NAME_NODE",
+      "blockpoolID": "BP-1738312168-172.18.0.2-1791789899789",
+      "layoutVersion": "-66"
+    }
+  },
+  "after_properties": {
+    "datanode": {
+      "storageID": "DS-530f74f7-1ee4-4b04-8596-ee4b071e22da",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "0",
+      "datanodeUuid": "666ed85c-0aa5-4e50-bc0c-70fa7a4d9b23",
+      "storageType": "DATA_NODE",
+      "layoutVersion": "-57"
+    },
+    "namenode": {
+      "namespaceID": "1182174077",
+      "clusterID": "hdfs-385a18d3f03a",
+      "cTime": "1791789899789",
+      "storageType": "NAME_NODE",
+      "blockpoolID": "BP-1738312168-172.18.0.2-1791789899789",
+      "layoutVersion": "-66"
+    }
+  },
+  "note": "One NameNode/one DataNode; persistence only, no HA or production fault-tolerance claim."
+}

@@ -1,0 +1,16 @@
+{
+  "rows": 1000000,
+  "event_timestamp_timezone": "UTC",
+  "calendar_timezone": "Asia/Ho_Chi_Minh",
+  "dayOfWeek_convention": "Spark 1=Sunday,7=Saturday",
+  "watchDuration_unit": "seconds, incremental watch segments",
+  "derived_columns": [
+    "eventTimestamp",
+    "eventLocalTimestamp",
+    "date",
+    "hour",
+    "dayOfWeek",
+    "watchDurationMinutes",
+    "genresArray"
+  ]
+}

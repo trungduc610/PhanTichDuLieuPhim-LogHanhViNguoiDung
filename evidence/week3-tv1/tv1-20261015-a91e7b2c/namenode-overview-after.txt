@@ -1,0 +1,148 @@
+- banner:
+  - generic: Hadoop
+  - list:
+    - link "Overview":
+      - /url: "#tab-overview"
+    - link "Datanodes":
+      - /url: "#tab-datanode"
+    - link "Datanode Volume Failures":
+      - /url: "#tab-datanode-volume-failures"
+    - link "Snapshot":
+      - /url: "#tab-snapshot"
+    - link "Startup Progress":
+      - /url: "#tab-startup-progress"
+    - link "Utilities":
+      - /url: "#"
+      - text: Utilities
+- heading "Overview 'namenode:9000' (active)" [level=1]:
+  - text: Overview
+  - generic: "'namenode:9000' (active)"
+- table:
+  - rowgroup:
+    - 'row "Started: Thu Oct 15 01:48:54 +0700 2026"':
+      - rowheader "Started:"
+      - cell "Thu Oct 15 01:48:54 +0700 2026"
+    - 'row "Version: 3.3.6, r1be78238728da9266a4f88195058f08fd012bf9c"':
+      - rowheader "Version:"
+      - cell "3.3.6, r1be78238728da9266a4f88195058f08fd012bf9c"
+    - 'row "Compiled: Sun Jun 18 15:22:00 +0700 2023 by ubuntu from (HEAD detached at release-3.3.6-RC1)"':
+      - rowheader "Compiled:"
+      - cell "Sun Jun 18 15:22:00 +0700 2023 by ubuntu from (HEAD detached at release-3.3.6-RC1)"
+    - 'row "Cluster ID: hdfs-385a18d3f03a"':
+      - rowheader "Cluster ID:"
+      - cell "hdfs-385a18d3f03a"
+    - 'row "Block Pool ID: BP-1738312168-172.18.0.2-1791789899789"':
+      - rowheader "Block Pool ID:"
+      - cell "BP-1738312168-172.18.0.2-1791789899789"
+- heading "Summary" [level=1]
+- paragraph: Security is off.
+- paragraph: Safemode is off.
+- paragraph: 277 files and directories, 127 blocks (127 replicated blocks, 0 erasure coded block groups) = 404 total filesystem object(s).
+- paragraph: Heap Memory used 58.64 MB of 193 MB Heap Memory. Max Heap Memory is 455.5 MB.
+- paragraph: Non Heap Memory used 54.96 MB of 56.25 MB Commited Non Heap Memory. Max Non Heap Memory is <unbounded>.
+- table:
+  - rowgroup:
+    - 'row "Configured Capacity: 1006.85 GB"':
+      - rowheader "Configured Capacity:"
+      - cell "1006.85 GB"
+    - 'row "Configured Remote Capacity: 0 B"':
+      - rowheader "Configured Remote Capacity:"
+      - cell "0 B"
+    - 'row "DFS Used: 867.38 MB (0.08%)"':
+      - rowheader "DFS Used:"
+      - cell "867.38 MB (0.08%)"
+    - 'row "Non DFS Used: 7.36 GB"':
+      - rowheader "Non DFS Used:"
+      - cell "7.36 GB"
+    - 'row "DFS Remaining: 947.43 GB (94.1%)"':
+      - rowheader "DFS Remaining:"
+      - cell "947.43 GB (94.1%)"
+    - 'row "Block Pool Used: 867.38 MB (0.08%)"':
+      - rowheader "Block Pool Used:"
+      - cell "867.38 MB (0.08%)"
+    - 'row "DataNodes usages% (Min/Median/Max/stdDev): 0.08% / 0.08% / 0.08% / 0.00%"':
+      - rowheader "DataNodes usages% (Min/Median/Max/stdDev):"
+      - cell "0.08% / 0.08% / 0.08% / 0.00%"
+    - 'row "Live Nodes 1 (Decommissioned: 0, In Maintenance: 0)"':
+      - rowheader "Live Nodes":
+        - link "Live Nodes":
+          - /url: "#tab-datanode"
+      - 'cell "1 (Decommissioned: 0, In Maintenance: 0)"'
+    - 'row "Dead Nodes 0 (Decommissioned: 0, In Maintenance: 0)"':
+      - rowheader "Dead Nodes":
+        - link "Dead Nodes":
+          - /url: "#tab-datanode"
+      - 'cell "0 (Decommissioned: 0, In Maintenance: 0)"'
+    - row "Decommissioning Nodes 0":
+      - rowheader "Decommissioning Nodes":
+        - link "Decommissioning Nodes":
+          - /url: "#tab-datanode"
+      - cell "0"
+    - row "Entering Maintenance Nodes 0":
+      - rowheader "Entering Maintenance Nodes":
+        - link "Entering Maintenance Nodes":
+          - /url: "#tab-datanode"
+      - cell "0"
+    - row "Total Datanode Volume Failures 0 (0 B)":
+      - rowheader "Total Datanode Volume Failures":
+        - link "Total Datanode Volume Failures":
+          - /url: "#tab-datanode-volume-failures"
+      - cell "0 (0 B)"
+    - row "Number of Under-Replicated Blocks 0":
+      - rowheader "Number of Under-Replicated Blocks"
+      - cell "0"
+    - row "Number of Blocks Pending Deletion (including replicas) 0":
+      - rowheader "Number of Blocks Pending Deletion (including replicas)"
+      - cell "0"
+    - row "Block Deletion Start Time Thu Oct 15 01:48:54 +0700 2026":
+      - rowheader "Block Deletion Start Time"
+      - cell "Thu Oct 15 01:48:54 +0700 2026"
+    - row "Last Checkpoint Time Thu Oct 15 01:49:00 +0700 2026":
+      - rowheader "Last Checkpoint Time"
+      - cell "Thu Oct 15 01:49:00 +0700 2026"
+    - row "Enabled Erasure Coding Policies RS-6-3-1024k":
+      - rowheader "Enabled Erasure Coding Policies"
+      - cell "RS-6-3-1024k"
+- heading "NameNode Journal Status" [level=1]
+- paragraph: "Current transaction ID: 1402"
+- table "NameNode Journals":
+  - rowgroup:
+    - row "Journal Manager State":
+      - columnheader "Journal Manager"
+      - columnheader "State"
+  - rowgroup:
+    - row "FileJournalManager(root=/hdfs/name) EditLogFileOutputStream(/hdfs/name/current/edits_inprogress_0000000000000001387)":
+      - cell "FileJournalManager(root=/hdfs/name)"
+      - cell "EditLogFileOutputStream(/hdfs/name/current/edits_inprogress_0000000000000001387)"
+- heading "NameNode Storage" [level=1]
+- table "NameNode Storage":
+  - rowgroup:
+    - row "Storage Directory Type State":
+      - cell "Storage Directory"
+      - cell "Type"
+      - cell "State"
+  - rowgroup:
+    - row "/hdfs/name IMAGE_AND_EDITS Active":
+      - cell "/hdfs/name"
+      - cell "IMAGE_AND_EDITS"
+      - cell "Active"
+- heading "DFS Storage Types" [level=1]
+- table:
+  - rowgroup:
+    - row "Storage Type Configured Capacity Capacity Used Capacity Remaining Block Pool Used Nodes In Service":
+      - columnheader "Storage Type"
+      - columnheader "Configured Capacity"
+      - columnheader "Capacity Used"
+      - columnheader "Capacity Remaining"
+      - columnheader "Block Pool Used"
+      - columnheader "Nodes In Service"
+  - rowgroup:
+    - row "DISK 1006.85 GB 867.38 MB (0.08%) 947.43 GB (94.1%) 867.38 MB 1":
+      - cell "DISK"
+      - cell "1006.85 GB"
+      - cell "867.38 MB (0.08%)"
+      - cell "947.43 GB (94.1%)"
+      - cell "867.38 MB"
+      - cell "1"
+- separator
+- paragraph: Hadoop, 2023.

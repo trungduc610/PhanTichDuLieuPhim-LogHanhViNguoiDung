@@ -1,9 +1,10 @@
+import { selectedSource, copiedSource } from './selectedSource.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
-const source = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/', import.meta.url);
-const copied = new URL('../public/data/', import.meta.url);
+const source = selectedSource('');
+const copied = copiedSource;
 const files = ['stats_action_distribution.json', 'stats_hourly_activity.json', 'stats_daily_active_users.json',
   'stats_top_movies_by_play.json', 'stats_top_genres.json', 'stats_watch_duration_summary.json',
   'stats_user_movie_time.json', 'kmeans_model_metadata.json', 'kmeans_k_search.json',

@@ -1,114 +1,120 @@
 # Phân tích dữ liệu phim và log hành vi người dùng
 
-Apache Flume thu thập log; HDFS lưu snapshot để Spark/PySpark đọc ở Tuần 2.
+Luồng thành viên 1: Movie Dataset → HDFS; User Log → Apache Flume → File Roll Sink → HDFS; Spark đọc toàn bộ input HDFS theo schema hiện có.
 
-## Pipeline HDFS Tuần 2
+## Tuần 3 — Nhan Tử Mạnh: vận hành và nghiệm thu
 
-```text
-Movies metadata ------------------------------> HDFS raw/movies ---+
-User Log -> Flume -> local File Roll Sink -> HDFS raw/user_logs ----+-> Spark/PySpark
-```
+[Demo ngắn](docs/week3_tv1_demo.md) · [Kiến trúc triển khai](docs/week3_tv1_architecture.md) · [Context bàn giao](evidence/week3-tv1/tv1-20261015-a91e7b2c/run-context.json).
+Kết quả đo và hash nằm trong `source_manifest.json`, `acceptance.json`, `delivery-manifest.json` và `delivery-verification.json` cùng thư mục. Run ID trong bằng chứng là lịch sử được chọn rõ; script không mặc định một run ID.
 
-Run nguồn đang chọn: **run-f63c810e9d8d**, reconciliation PASS, 254 Sink parts,
-1.000.000 events. Generated input chỉ đối chiếu lineage; user log upload luôn là
-Flume Sink output. Số parts lấy từ reconciliation, không cố định trong code.
+### Điều kiện môi trường
 
-[Hướng dẫn HDFS hiện tại](docs/week2_tv2_hdfs_handoff.md),
-[kiến trúc Tuần 2](docs/week2_system_architecture.md),
-[cơ sở HDFS và lần nghiệm thu trước](docs/week2_tv1_hdfs_report.md).
-Chỉ kết luận HDFS/Spark PASS khi report của cluster hiện tại xác minh thành công;
-receipt từ máy trước không chứng minh runtime đang chạy ở checkout này.
+Python >=3.10 trên host, Docker Desktop/Engine dùng Linux containers và Docker Compose. Host scripts dùng stdlib; Spark/Java chạy trong container. Images của cluster được kiểm tra từ `docker inspect`, Hadoop 3.3.6 được pin digest trong `compose.hdfs.yaml`; Spark image 3.5.1; Flume 1.11.0/Temurin 8 được build từ Dockerfile. Cần Docker Engine truy cập được, đủ RAM/đĩa cho images, input, Sink, channel và SQLite; đã kiểm nghiệm với 4 CPU/~7.5 GiB Docker RAM.
+
+Chạy tại repo root. Đặt `TV1_PYTHON` nếu cần chọn executable Python; ví dụ dưới bỏ qua alias WindowsApps không thực thi được:
 
 ```powershell
-python -B scripts/run_hdfs.py --flume-run-id run-f63c810e9d8d --audit-dir evidence/week2-hdfs/check-new
+$py = $env:TV1_PYTHON
+if (-not $py) {
+  $py = (Get-Command python -All | Where-Object Source -NotMatch 'WindowsApps' | Select-Object -First 1).Source
+}
+if (-not $py) { throw 'Cần Python >=3.10; đặt TV1_PYTHON là executable Python thật.' }
+& $py --version
+& $py -B scripts/week3_tv1.py --help
+docker context show
+docker version
+docker compose version
 ```
 
-Dùng Python >=3.10 và audit-dir mới. Runner tạo cluster/project/volumes riêng và
-source manifest mới. Import và Spark QA theo context: xem hướng dẫn HDFS ở trên.
-Các phần/local Spark smoke test phía dưới thuộc **Tuần 1 và snapshot lịch sử**.
+Data ngoài Git phải đi kèm khi bàn giao: `data/raw/` (ZIP, CSV nguồn, license, download manifest), `data/processed/movies.csv`, generated input cùng manifest và **Sink output của đúng run** trong `data/runs/<run>/output/`. Verifier từ chối thiếu/hỏng input hoặc Sink; không tự lấy generated input thay Sink. Giữ nguyên evidence lịch sử có đường dẫn tuyệt đối; code vận hành xác định root từ vị trí script và dùng đường dẫn tương đối/container path.
 
-## Kết quả thực thi Tuần 1 đã lưu
-
-Ngày kiểm lại: 11/10/2026 (Asia/Saigon). Đây là sản phẩm thực thi mới tại checkout Windows hiện tại, độc lập bằng chứng lịch sử. Movies: 9.742 dòng, SHA256 `1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536`. Demo/main Flume E2E và Spark kiểm toàn bộ Sink đều PASS.
-
-| Lô mới | Run Flume | Events / unique | File / rỗng | Bytes Sink |
-|---|---|---:|---:|---:|
-| Demo | `run-aefc814b0b5f` | 10,000 / 10,000 | 3 / 1 | 3,433,123 |
-| Main | `run-aa6b9eb58dca` | 1,000,000 / 1,000,000 | 15 / 0 | 343,339,148 |
-
-Missing/unexpected/duplicate/conflicting ID/changed payload, UTF-8/JSON/type/provenance/action/duration, session/sequence và user overlap: đều 0 trên hai lô mới. File rỗng do rolling được giữ và thống kê, không có event; tất cả file không rỗng kết thúc bằng LF. Đối chiếu canonical payload không phụ thuộc thứ tự file/key JSON. Một lần đối chiếu thành công không chứng minh exactly-once hoặc phục hồi lỗi.
-
-Bằng chứng: `evidence/run-aefc814b0b5f/`, `evidence/run-aa6b9eb58dca/`, `evidence/recheck-20261011-221710/spark-demo.json`, `evidence/recheck-20261011-221710/spark-main.json`, `evidence/recheck-20261011-221710/dataset_quality.json`. Audit đầy đủ: `audit/2026-10-11-221710-week1-recheck/bao-cao-nghiem-thu-tuan-1-recheck.md`. Manifest mới: `evidence/recheck-20261011-221710/delivery_manifest.json`.
-
-MovieLens là metadata/rating nguồn GroupLens; log `sim-user-*` là synthetic do generator tạo. `watchDuration` là giây mới phát sinh từ play gần nhất; runtime phim cũng synthetic. Không kết luận về người xem thật.
-
-## Luồng và runtime Tuần 1
-
-```text
-MovieLens -> prepare_movies -> movies.csv -----------------------+
-                                                               v
-Generator -> spooldir Source -> File Channel -> File Roll Sink -> Spark QA
-                                                               |
-                                             Tuần 2: phân tích -> Dashboard
-```
-
-Host Windows 10 build 19045 dùng Python 3.12.14 thật tại `C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe`; alias WindowsApps không dùng. Docker Desktop 4.88.1, Client/Engine 29.7.2, Compose v5.4.0, context desktop-linux, Linux containers, 4 CPU / 7,486 GiB Docker memory. Flume 1.11.0 chạy Temurin Java 1.8.0_504; agent thực ghi InitialHeapSize 134.217.728 và MaxHeapSize 536.870.912 byte. Spark/PySpark 3.5.1, Python 3.8.10, Java 11.0.22, master local[2], driver 2 GiB trong `apache/spark:3.5.1`. Host không cần PySpark/Java; scripts host dùng stdlib. Phiên bản/digest thực đo nằm trong execution logs và image-inspect; tag có thể thay đổi nên giữ image ID/digest khi bàn giao.
-
-File Channel dùng volume Linux riêng theo Compose project; runner xuất checkpoint/data về `data/runs/<run-id>/channel/` sau khi dừng. Volume được giữ lại. Sink/spool bind vào thư mục run trên host; Storage là filesystem local, không HDFS. Không chạy hai lần trong cùng Compose project/channel.
-
-## Chạy và kiểm lại Tuần 1
-
-Trong PowerShell đặt `$py` là executable Python thật ở trên (hoặc Python >=3.10 có sẵn). Chạy ở thư mục project; Linux dùng `python3`. Không cần pip cho scripts host; Spark chạy từ service container có sẵn dependency.
+### Demo nhanh trên context đã bàn giao
 
 ```powershell
-& $py scripts/check_environment.py --report evidence/environment-new.json
-& $py scripts/download_dataset.py
-& $py scripts/prepare_movies.py --output data/processed/movies-repeat.csv --report evidence/movies-repeat.json
-& $py -m unittest discover -s tests -v
-& $py scripts/generate_logs.py --mode demo --output data/generated/demo-repeat.jsonl
-& $py scripts/run_pipeline.py --input data/generated/demo-repeat.jsonl --timeout 600
+$ctx = 'evidence/week3-tv1/tv1-20261015-a91e7b2c/run-context.json'
+& $py -B scripts/week3_tv1.py check --context $ctx
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+& $py -B scripts/week3_tv1.py import --context $ctx --label "demo-import-$stamp"
+& $py -B scripts/week3_tv1.py spark --context $ctx --verification "demo-import-$stamp" --label "demo-spark-$stamp"
+& $py -B scripts/create_delivery_manifest.py --verify ((Split-Path $ctx) + '/delivery-manifest.json')
 ```
 
-Downloader tái sử dụng snapshot đã có sau kiểm hash; không ghi đè raw. Mọi output/report phải là đường dẫn mới chưa tồn tại. Nếu cần CA, truyền `--ca-file` với bundle tin cậy; giữ HTTPS verification. Bản tải mới 11/10 đã dùng root CA public từ runtime Node, không tắt TLS.
+`check`: đúng cluster/project/mount/volume, 1 DataNode sống, Safe Mode OFF, dung lượng và list namespace được chọn. `import`: chỉ movies + các part Sink trong manifest; hash mọi byte HDFS, bỏ qua file đã khớp, từ chối nội dung khác, không overwrite/append. `spark`: đọc tất cả URI HDFS và schema; kiểm filesystem thực là DistributedFileSystem, count, field/type/timestamp/action/duration, ID trùng, join và session; không đọc sample, không fallback local. Expected counts và part count lấy từ manifest đã xác minh. Không chạy K-Means hoặc đổi nguồn Dashboard.
 
-Chỉ sinh/chạy main sau demo E2E PASS với cùng source/config. Trong checkout này main đã có; chọn tên khác nếu sinh lại. Thay `run-DEMO-MOI` bằng run thực sự mới vừa PASS; bằng chứng lịch sử thiếu hash snapshot không được runner chấp nhận.
+### Tạo đợt nghiệm thu mới, kế thừa snapshot chính thức
+
+Chọn context và acceptance đã bàn giao, không chọn context demo/fixture. Các giá trị là tham số, có thể dùng một bàn giao PASS khác tương thích. `prepare` reverify manifest bàn giao, source/config/input/Sink rồi tạo thư mục mới; không tạo hay format cluster.
 
 ```powershell
-& $py scripts/generate_logs.py --mode main --events 1000000 --output data/generated/main-repeat.jsonl
-& $py scripts/run_pipeline.py --input data/generated/main-repeat.jsonl --timeout 1800 --demo-proof evidence/run-DEMO-MOI/status.json
-& $py scripts/validate_pipeline.py --input data/generated/main.jsonl --output-dir data/runs/run-aa6b9eb58dca/output --report evidence/main-recheck-new.json
-docker compose -p movie-spark-recheck run --rm spark --driver-memory 2g scripts/spark_smoke_test.py --movie-report evidence/recheck-20261011-221710/dataset_quality.json --run-evidence evidence/run-aa6b9eb58dca --report evidence/spark-recheck-new.json
-& $py scripts/create_delivery_manifest.py --verify evidence/recheck-20261011-221710/delivery_manifest.json
+$sourceContext = $ctx
+$officialAcceptance = (Split-Path $sourceContext) + '/acceptance.json'
+$audit = 'evidence/week3-tv1/tv1-' + (Get-Date -Format 'yyyyMMdd-HHmmss') + '-' + [guid]::NewGuid().ToString('N').Substring(0,8)
+& $py -B scripts/week3_tv1.py prepare --source-context $sourceContext --official-acceptance $officialAcceptance --evidence-dir $audit
+$ctxNew = "$audit/run-context.json"
+& $py -B scripts/week3_tv1.py stability --context $ctxNew --input data/generated/demo.jsonl
+& $py -B scripts/week3_tv1.py import --context $ctxNew --label import-first
+& $py -B scripts/week3_tv1.py import --context $ctxNew --label import-repeat
+& $py -B scripts/week3_tv1.py persistence --context $ctxNew
+& $py -B scripts/week3_tv1.py spark --context $ctxNew --verification import-repeat --label spark-full
+# Snapshot lịch sử bổ sung được kế thừa từ acceptance, nếu có:
+& $py -B scripts/week3_tv1.py history --context $ctxNew
+& $py -B scripts/week3_tv1.py seal --context $ctxNew
+& $py -B scripts/create_delivery_manifest.py --verify "$audit/delivery-manifest.json"
 ```
 
-Lệnh Spark kiểm hash và file list của đúng Sink run PASS, dùng schema từ `src/schemas.py`, action đọc tất cả fields, parse timestamp UTC, kiểm null/type/duplicate/full left anti join/session. Expected count lấy từ manifest/reconciliation đã xác minh, không lấy count quan sát để tạo PASS. `INPUT_PASS`, `.COMPLETED`, count và mẫu join không thay E2E reconciliation.
+Chỉ chạy persistence khi cần chứng minh đợt này: script kiểm tra không có container Spark/Flume đang chạy, VERSION/cluster ID/volume hợp lệ, hash toàn bộ trước/sau, restart đúng hai service cũ, kiểm tra DataNode/Safe Mode và không phát sinh format. Không dừng/restart khi nhóm đang có job bên ngoài Docker mà script không quan sát được. Một NameNode/một DataNode với replication=1 chỉ chứng minh persistence trong thử nghiệm; không phải HA.
 
-Runner tạo run/project/output/evidence riêng, publish `.tmp` đóng xong rồi rename cùng spool, lưu argv/cwd/UTC/exit/logs/source hashes/launcher/heap/counters/images/Compose. Dừng và gỡ container/network của chính run; giữ volume/channel/data. Build không tính vào timeout drain. Khoảng 12 GB đĩa dự kiến cho images, generated/spool/Sink, channel/export và SQLite; máy thực đo có 16 GB RAM và trên 60 GB đĩa trống. Không dùng `docker system prune`.
+`stability` chạy Flume theo lô, output/channel/spool/volume riêng. Runner publish file `.tmp` đóng xong bằng rename, chỉ nhận `.jsonl`, đánh dấu `.COMPLETED`, chờ drain/timeout rồi dừng agent trước reconciliation; container/network của chính run được gỡ, volume vẫn giữ. Channel không dùng chung giữa các lần chạy. Lô <=10.000 event chỉ là thử ổn định, không được import vào namespace chính thức.
 
-## Bàn giao Tuần 1 (lịch sử)
+### Nếu phải chạy lại ingestion chính thức
 
-`data/raw/` có ZIP/CSV/README license/manifest; `data/processed/` có movies; `data/generated/` có input/manifest. Dữ liệu phân tích là `data/runs/run-aa6b9eb58dca/output/`; demo `run-aefc814b0b5f` chỉ dùng kiểm thử. `logs/<run>/` và `evidence/<run>/` là log/bằng chứng, không phải event input. Không gộp demo/main như hai lịch sử người dùng độc lập.
-
-Data/logs bị Git ignore nhưng thực sự tồn tại local, phải chép cùng source và evidence theo manifest khi bàn giao. Manifest loại spool bản copy, channel, temporary/fixtures, CA public tạm, history không được chọn và chính manifest; scope/exclusions được lưu trong JSON. Bằng chứng FAIL/BLOCKED/PASS cũ và audit cũ giữ nguyên, không dùng thay kết quả hiện tại.
-
-Tài liệu: [dataset](docs/dataset_description.md), [log](docs/log_schema.md), [movie schema](docs/movie_schema.md), [log schema](docs/user_log_schema.md), [Flume](docs/flume_pipeline.md), [kiến trúc](docs/system_architecture.md), [quyết định chờ nhóm](docs/architecture_decision_pending.md), [chất lượng](docs/data_quality_report.md), [bàn giao Tuần 2](docs/week2_handoff.md).
-
-## TV2 Tuần 2 — Spark analysis và K-Means
-
-Run thực thi **tv2-4ed70c10cd84**: **PASS**, đọc HDFS thật; 9.742 movies,
-1.000.000 raw/clean/joined events, 1.000 users. K=2..6 được đo bằng Spark MLlib;
-chọn **K=2**, silhouette **0.6707563871905433**, cluster sizes **237 / 763**.
-Raw snapshot và file TV1 được bảo vệ giữ nguyên hash.
-
-[Báo cáo TV2](docs/week2_tv2_processing_report.md) ·
-[Hướng dẫn chạy TV2](docs/week2_tv2_run_guide.md) ·
-[Evidence PASS](evidence/week2-tv2/tv2-4ed70c10cd84/run_status.json).
-Output Parquet và CSV/JSON đã sẵn sàng cho Dashboard; namespace run và manifest
-được ghi trong evidence. Model đã save/reload trên HDFS và kiểm assignment.
+Chỉ cần khi source/config/input/Sink chính thức không còn xác minh được. Sửa lỗi trước, chạy demo mới PASS với cùng source/config rồi chạy main trong run mới. Dùng input chính thức có hash/manifest khớp, hoặc sinh input mới qua generator; không sửa file đang ở spool hay output đã nghiệm thu.
 
 ```powershell
-python -B scripts/run_tv2.py --hdfs-context evidence/week2-hdfs/fix-run-f63c810e9d8d-20261012-verified/run-context.json
+& $py -B scripts/run_pipeline.py --input data/generated/demo.jsonl --timeout 600
+# Lấy status.json của run demo vừa PASS từ stdout/evidence, truyền bằng tham số:
+$demoProof = Read-Host 'Đường dẫn evidence/<demo-run>/status.json mới'
+& $py -B scripts/run_pipeline.py --input data/generated/main.jsonl --timeout 1800 --demo-proof $demoProof
 ```
 
-Runner tạo TV2 run mới; default driver heap 1536m, seed lấy từ event manifest.
-Dùng Python executable thật nếu WindowsApps alias không hoạt động.
+Để đổi release chính thức, nhóm phải chọn rõ run main mới và lập context/acceptance tương ứng sau kiểm chứng bằng `hdfs_source.py`/`hdfs_io.py`/`spark_hdfs_validate.py`. Không dùng `--flume-run-id` để đổi ngầm nguồn của một acceptance cũ; wrapper sẽ từ chối. Dataset phim upload trực tiếp, mọi log upload phải từ Sink Flume. Flume không được mô tả là đang chạy liên tục sau khi batch runner đã dừng.
+
+### Khởi động và dừng an toàn
+
+```powershell
+& $py -B scripts/week3_tv1.py start --context $ctx
+# Chỉ dừng khi không có job sử dụng cluster:
+& $py -B scripts/week3_tv1.py stop --context $ctx
+& $py -B scripts/week3_tv1.py start --context $ctx
+```
+
+`start` chỉ start container cũ đã kiểm mount/volume/VERSION; không có container thì từ chối tạo. Không dùng `run_hdfs.py` để tạo lại cluster đang có. Không format NameNode, `down -v`, prune, reset volume hoặc xóa dữ liệu. NameNode Web UI mặc định [localhost:19870](http://127.0.0.1:19870/dfshealth.html), kiểm port thực từ inspect nếu dùng port khác.
+
+### Kiểm thử và lỗi thường gặp
+
+```powershell
+& $py -B -m unittest discover -s tests -v
+```
+
+| Hiện tượng | Kiểm tra/xử lý |
+|---|---|
+| Docker không truy cập được | Khởi động Engine Linux, kiểm context/version; đây là lỗi môi trường, không tạo PASS. |
+| Python WindowsApps lỗi | Chọn Python thật bằng `TV1_PYTHON`; host không cần PySpark. |
+| Official source/config hash đổi | Rerun demo rồi main; không sửa hash trong receipt cũ. |
+| Manifest bàn giao cũ lệch vì source đã sửa | Giữ FAIL/issues cũ, kiểm chứng lại rồi seal manifest mới; không gọi manifest cũ là PASS hiện tại. |
+| Sink thiếu/trùng/truncated/UTF-8 lỗi | Xem reconciliation của run; giữ evidence FAIL, chạy run mới sau khi sửa nguyên nhân. |
+| Import khác hash/list | Từ chối overwrite, kiểm nguồn/namespace; không append/gộp nhiều run. |
+| Direct Compose báo thiếu HDFS_RUN_ID | Dùng wrapper `--context`; nếu gọi Compose trực tiếp, lấy `$env:HDFS_RUN_ID` từ `run_id` trong context, không tự đặt ID khác. |
+| Safe Mode ON hoặc không có DataNode | Kiểm `commands/*/stderr.txt`, logs hai service, VERSION/mount; không ép format để sửa. |
+| Cluster/job đang bận | Hoãn persistence/stop; không reset để giành tài nguyên. |
+| Report/label đã tồn tại | Dùng label/thư mục mới; không ghi đè bằng chứng. |
+
+Lệnh Docker/Spark và unit tests lưu argv/cwd/UTC/exit/stdout/stderr dưới `commands/`; Flume lưu `evidence/<run>/commands.json` và log riêng. Seal thực hiện **sau mọi thay đổi source/README/demo**; manifest dùng verifier hiện có và không hash chính nó/các verifier viết sau.
+
+## Bàn giao và các phạm vi đã nghiệm thu trước
+
+MovieLens là metadata phim nguồn GroupLens; `sim-user-*`, hành vi và runtime phim là mô phỏng. `watchDuration` là số giây mới phát sinh từ lần play gần nhất, không phải tổng tích lũy hay hành vi người thật. Không gộp demo/main thành hai quần thể độc lập.
+
+Spark/K-Means và Dashboard đã được nghiệm thu trước trong [bằng chứng phục hồi](evidence/recovery-20261014/system-acceptance.json); Tuần 3 TV1 giữ nguyên source/output và lựa chọn Dashboard. Dashboard chọn snapshot qua `dashboard/data-source.json`; xem [hướng dẫn Dashboard](dashboard/README.md). Kết quả lịch sử không thay thế kiểm runtime hiện tại.
+
+Tài liệu kỹ thuật trước: [schema phim](docs/movie_schema.md), [schema log](docs/user_log_schema.md), [Flume](docs/flume_pipeline.md), [bàn giao HDFS Tuần 2](docs/week2_tv2_hdfs_handoff.md), [hướng dẫn TV2](docs/week2_tv2_run_guide.md). Các hướng dẫn cluster mới/lần chạy cụ thể trong tài liệu Tuần 1/2 là lịch sử; luồng vận hành TV1 hiện tại dùng context ở trên.
