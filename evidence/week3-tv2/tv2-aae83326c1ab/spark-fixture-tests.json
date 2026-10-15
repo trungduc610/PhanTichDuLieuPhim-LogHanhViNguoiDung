@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "fixture_only": true,
+  "fixtures": "In-memory temporary DataFrames, no project/HDFS raw mutations",
+  "started_at_utc": "2026-10-15T06:50:35.733483+00:00",
+  "finished_at_utc": "2026-10-15T06:51:31.658840+00:00",
+  "tests": 4,
+  "failures": [],
+  "errors": []
+}

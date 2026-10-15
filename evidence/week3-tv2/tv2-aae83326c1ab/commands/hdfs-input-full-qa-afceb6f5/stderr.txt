@@ -1,0 +1,42 @@
+time="2026-10-15T13:49:06+07:00" level=warning msg="Found orphan containers (hdfs-baseline-qa-7311e8e8, hdfs-baseline-hash-7311e8e8) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container movie-hdfs-124cbf30bda7-spark-run-1d2d2170c01e Creating 
+ Container movie-hdfs-124cbf30bda7-spark-run-1d2d2170c01e Created 
+26/10/15 06:49:10 INFO SparkContext: Running Spark version 3.5.1
+26/10/15 06:49:10 INFO SparkContext: OS info Linux, 6.18.54.1-microsoft-standard-WSL2, amd64
+26/10/15 06:49:10 INFO SparkContext: Java version 11.0.22
+26/10/15 06:49:10 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/15 06:49:10 INFO ResourceUtils: ==============================================================
+26/10/15 06:49:10 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/15 06:49:10 INFO ResourceUtils: ==============================================================
+26/10/15 06:49:10 INFO SparkContext: Submitted application: Week2-TV1-HDFS-FullValidation
+26/10/15 06:49:10 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/15 06:49:10 INFO ResourceProfile: Limiting resource is cpu
+26/10/15 06:49:10 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/15 06:49:10 INFO SecurityManager: Changing view acls to: spark,root
+26/10/15 06:49:10 INFO SecurityManager: Changing modify acls to: spark,root
+26/10/15 06:49:10 INFO SecurityManager: Changing view acls groups to: 
+26/10/15 06:49:10 INFO SecurityManager: Changing modify acls groups to: 
+26/10/15 06:49:10 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark, root; groups with view permissions: EMPTY; users with modify permissions: spark, root; groups with modify permissions: EMPTY
+26/10/15 06:49:11 INFO Utils: Successfully started service 'sparkDriver' on port 35571.
+26/10/15 06:49:11 INFO SparkEnv: Registering MapOutputTracker
+26/10/15 06:49:11 INFO SparkEnv: Registering BlockManagerMaster
+26/10/15 06:49:11 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/15 06:49:11 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/15 06:49:11 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/15 06:49:11 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-bd921c2d-e344-4383-a980-90b544b6f91a
+26/10/15 06:49:11 INFO MemoryStore: MemoryStore started with capacity 741.6 MiB
+26/10/15 06:49:11 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/15 06:49:11 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/10/15 06:49:11 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/15 06:49:11 INFO Executor: Starting executor ID driver on host cad02c5d85ee
+26/10/15 06:49:11 INFO Executor: OS info Linux, 6.18.54.1-microsoft-standard-WSL2, amd64
+26/10/15 06:49:11 INFO Executor: Java version 11.0.22
+26/10/15 06:49:11 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/10/15 06:49:11 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@151caec8 for default.
+26/10/15 06:49:11 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35957.
+26/10/15 06:49:11 INFO NettyBlockTransferService: Server created on cad02c5d85ee:35957
+26/10/15 06:49:11 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/15 06:49:11 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, cad02c5d85ee, 35957, None)
+26/10/15 06:49:11 INFO BlockManagerMasterEndpoint: Registering block manager cad02c5d85ee:35957 with 741.6 MiB RAM, BlockManagerId(driver, cad02c5d85ee, 35957, None)
+26/10/15 06:49:11 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, cad02c5d85ee, 35957, None)
+26/10/15 06:49:11 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, cad02c5d85ee, 35957, None)

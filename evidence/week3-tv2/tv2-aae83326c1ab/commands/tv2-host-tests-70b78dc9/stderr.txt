@@ -1,0 +1,18 @@
+test_measured_max_and_exact_tie (test_tv2_contract.TV2ContractTests.test_measured_max_and_exact_tie) ... ok
+test_output_roots_and_allowed_descendant (test_tv2_contract.TV2ContractTests.test_output_roots_and_allowed_descendant) ... ok
+test_reject_invalid_authority_and_run (test_tv2_contract.TV2ContractTests.test_reject_invalid_authority_and_run) ... ok
+test_reject_missing_k_invalid_score_and_size (test_tv2_contract.TV2ContractTests.test_reject_missing_k_invalid_score_and_size) ... ok
+test_reject_raw_local_other_run_and_traversal (test_tv2_contract.TV2ContractTests.test_reject_raw_local_other_run_and_traversal) ... ok
+test_bad_rank_tie_order_and_duplicate_movies_fail (test_tv2_week3.Week3Tests.test_bad_rank_tie_order_and_duplicate_movies_fail) ... ok
+test_context_reference_is_repo_relative_and_portable (test_tv2_week3.Week3Tests.test_context_reference_is_repo_relative_and_portable) ... ok
+test_evidence_scope_cannot_traverse_or_select_tv1 (test_tv2_week3.Week3Tests.test_evidence_scope_cannot_traverse_or_select_tv1) ... ok
+test_exact_baseline_allowed (test_tv2_week3.Week3Tests.test_exact_baseline_allowed) ... ok
+test_manifest_count_and_bytes_not_forced_to_pass (test_tv2_week3.Week3Tests.test_manifest_count_and_bytes_not_forced_to_pass) ... ok
+test_other_release_and_wrong_input_refused (test_tv2_week3.Week3Tests.test_other_release_and_wrong_input_refused) ... ok
+test_sparse_hours_and_less_than_three_movies_are_valid (test_tv2_week3.Week3Tests.test_sparse_hours_and_less_than_three_movies_are_valid) ... ok
+test_stopped_baseline_blocks_before_build_or_spark (test_tv2_week3.Week3Tests.test_stopped_baseline_blocks_before_build_or_spark) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.082s
+
+OK

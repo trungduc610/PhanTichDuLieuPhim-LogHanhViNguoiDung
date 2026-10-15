@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-f",
+    "compose.tv2.yaml",
+    "-p",
+    "movie-hdfs-124cbf30bda7",
+    "--profile",
+    "spark",
+    "run",
+    "--rm",
+    "--no-deps",
+    "spark",
+    "--driver-memory",
+    "1536m",
+    "scripts/tv2_runtime_verify.py",
+    "--run-context",
+    "evidence/week3-tv2/tv2-5c5f819cacaa/run_context.json",
+    "--report",
+    "evidence/week3-tv2-diagnostics/verify-20261015-01/verification.json"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-15T06:44:05.516953+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2-diagnostics\\verify-20261015-01\\commands\\independent-validator-integration-5ba0ab03\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2-diagnostics\\verify-20261015-01\\commands\\independent-validator-integration-5ba0ab03\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-15T06:46:36.261531+00:00"
+}

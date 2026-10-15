@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/project/scripts/tv2_runtime_verify.py", line 200, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+  File "/project/scripts/tv2_runtime_verify.py", line 61, in main
+    tv1=json.loads((ROOT/context['hdfs_context']).read_text(encoding='utf-8'));validate_week3_baseline(tv1,source)
+  File "/usr/lib/python3.8/pathlib.py", line 1236, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.8/pathlib.py", line 1222, in open
+    return io.open(self, mode, buffering, encoding, errors, newline,
+  File "/usr/lib/python3.8/pathlib.py", line 1078, in _opener
+    return self._accessor.open(self, flags, mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/project/evidence\\week2-hdfs\\fix-run-f63c810e9d8d-20261012-verified\\run-context.json'

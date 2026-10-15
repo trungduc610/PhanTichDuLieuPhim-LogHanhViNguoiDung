@@ -1,0 +1,12 @@
+test_cleaning_and_disjoint_reconciliation (__main__.SparkFixtures) ... TV2_BASIC_RULES {'raw_log_count': 18, 'malformed_json_count': 3, 'null_count': 4, 'empty_required_string_count': 1, 'invalid_action_count': 2, 'invalid_timestamp_count': 3, 'invalid_watch_duration_count': 5, 'invalid_integer_count': 1, 'invalid_provenance_count': 1, 'parsed_log_count': 15}
+ok
+test_features_time_genres_and_resumed_session_rate (__main__.SparkFixtures) ... TV2_BASIC_RULES {'raw_log_count': 6, 'malformed_json_count': 0, 'null_count': 0, 'empty_required_string_count': 0, 'invalid_action_count': 0, 'invalid_timestamp_count': 0, 'invalid_watch_duration_count': 0, 'invalid_integer_count': 0, 'invalid_provenance_count': 0, 'parsed_log_count': 6}
+ok
+test_independent_comparison_rejects_corrupt_duplicate_and_missing_rows (__main__.SparkFixtures) ... ok
+test_movie_duplicates_and_allowed_unknown_metadata (__main__.SparkFixtures) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 55.930s
+
+OK
+{"status": "PASS", "fixture_only": true, "fixtures": "In-memory temporary DataFrames, no project/HDFS raw mutations", "started_at_utc": "2026-10-15T06:50:35.733483+00:00", "finished_at_utc": "2026-10-15T06:51:31.658840+00:00", "tests": 4, "failures": [], "errors": []}

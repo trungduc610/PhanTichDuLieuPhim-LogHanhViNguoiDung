@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-p",
+    "movie-hdfs-124cbf30bda7",
+    "exec",
+    "-T",
+    "namenode",
+    "hdfs",
+    "dfs",
+    "-test",
+    "-e",
+    "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-15T06:15:18.856847+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\hdfs-restart\\restart-20261015-7311e8e8\\commands\\path-exists-83aee054\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\hdfs-restart\\restart-20261015-7311e8e8\\commands\\path-exists-83aee054\\stderr.txt"
+}

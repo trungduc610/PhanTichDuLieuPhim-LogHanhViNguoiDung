@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "run_id": "tv2-aae83326c1ab",
+  "checked_at_utc": "2026-10-15T07:10:40.419800+00:00",
+  "checks": {
+    "runner": true,
+    "pipeline": true,
+    "input_hdfs_qa": true,
+    "host_tests": true,
+    "spark_fixtures": true,
+    "seven_independent_analyses": true,
+    "output_schemas_formats_values": true,
+    "model_scaler_reload": true,
+    "result_verifier": true,
+    "raw_preserved": true,
+    "historical_files_preserved": true,
+    "tv1_preserved": true,
+    "documentation_links": true,
+    "handoff_contract": true,
+    "git_diff_check": true
+  },
+  "input": {
+    "movies_uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv",
+    "logs_uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7",
+    "source_manifest": "evidence/week3-tv2/tv2-aae83326c1ab/source_manifest.json",
+    "source_manifest_sha256": "fdb4c551c34b412a5af3480191d0fb975c64fd43b5a5b80401ea0b0fabd959de",
+    "movies": 9742,
+    "events": 1000000,
+    "files": 255,
+    "bytes": 343872495,
+    "filesystem": "org.apache.hadoop.hdfs.DistributedFileSystem",
+    "local_fallback": false
+  },
+  "best_k": 2,
+  "silhouette": 0.6707563871905433,
+  "cluster_sizes": [
+    237,
+    763
+  ],
+  "host_tests": 65,
+  "tv2_tests": 13,
+  "spark_fixtures": 4,
+  "artifacts": 52,
+  "dashboard_format_variants": 36,
+  "historical_files_checked": 459,
+  "handoff": "evidence/week3-tv2/tv2-aae83326c1ab/handoff.json",
+  "tv3_can_proceed": true,
+  "safety": {
+    "no_flume_rerun": true,
+    "no_regeneration": true,
+    "raw_unmodified": true,
+    "old_runs_unmodified": true,
+    "tv1_unchanged": true,
+    "no_dashboard_ui_or_selection_changes": true,
+    "no_als_recommender": true,
+    "no_commit_push": true
+  }
+}

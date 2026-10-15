@@ -1,0 +1,12 @@
+{
+  "status": "PREPARED_RUNTIME_BLOCKED",
+  "files": {
+    "week3_tv2_processing_report.md": "a7d76edbb5ae35891b8b428b9e554678c235a0eded07be30dfed2f5d26c0bc56",
+    "week3_tv2_demo.md": "076e9c8cd8db60c37c8e41da1176abaeaa909fc8218bef4bdcf9814c97b6fb7e",
+    "week3_tv2_screenshots.md": "340a84cc4cd26058acf0d628fa9143117d494d6e0b7e828ab3ee4e687ff925d2",
+    "week3_tv2_handoff_contract.md": "b6597ac837f122344e940e5e1ad557c38c93a6f6d180f6cf6b6b93dedca05ba8",
+    "week3_tv2_run_guide.md": "10d658b8a2890d6d967470020f9b62a05ef5b7bd0d6635d232bfd303fb018465"
+  },
+  "final_handoff_released": false,
+  "checked_at_utc": "2026-10-15T06:04:51.084271+00:00"
+}

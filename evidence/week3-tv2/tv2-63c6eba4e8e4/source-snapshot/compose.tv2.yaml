@@ -1,0 +1,7 @@
+services:
+  spark:
+    build:
+      context: .
+      dockerfile: Dockerfile.tv2
+    image: movie-log-spark-tv2:3.5.1-numpy1.24.4
+    command: ["scripts/tv2_pipeline.py", "--help"]

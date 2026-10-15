@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "run_id": "tv2-63c6eba4e8e4",
+  "evidence": "evidence/week3-tv2/tv2-63c6eba4e8e4",
+  "checks": {},
+  "runtime_gate": "PASS",
+  "local_fallback": false,
+  "error": "tv2-spark-fixtures exit 1; see D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2\\tv2-63c6eba4e8e4\\commands\\tv2-spark-fixtures-f0710bbb",
+  "finished_at_utc": "2026-10-15T06:31:58.291102+00:00"
+}

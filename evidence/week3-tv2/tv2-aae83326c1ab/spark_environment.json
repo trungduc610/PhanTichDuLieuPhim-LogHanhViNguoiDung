@@ -1,0 +1,13 @@
+{
+  "spark": "3.5.1",
+  "python": "3.8.10 (default, Nov 22 2023, 10:22:35) \n[GCC 9.4.0]",
+  "java": "11.0.22",
+  "hadoop_client": "3.3.4",
+  "filesystem": "org.apache.hadoop.hdfs.DistributedFileSystem",
+  "actual_filesystem_uri": "hdfs://namenode:9000",
+  "session_timezone": "UTC",
+  "calendar_timezone": "Asia/Ho_Chi_Minh",
+  "master": "local[2]",
+  "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.29",
+  "local_fallback": false
+}

@@ -1,0 +1,4 @@
+TV2 Week 3 tv2-0523e144a808
+Runtime blocked before image build and before Spark jobs.
+Host tests: 64 PASS; TV2 tests: 12 PASS.
+See commands/*/started.json, finished.json, stdout.txt, stderr.txt.

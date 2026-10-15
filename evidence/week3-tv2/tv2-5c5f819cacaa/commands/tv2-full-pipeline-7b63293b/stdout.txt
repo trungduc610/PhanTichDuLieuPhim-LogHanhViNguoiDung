@@ -1,0 +1,39 @@
+TV2_READ_HDFS hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7
+TV2_CLEAN
+TV2_BASIC_RULES {'raw_log_count': 1000000, 'malformed_json_count': 0, 'null_count': 0, 'empty_required_string_count': 0, 'invalid_action_count': 0, 'invalid_timestamp_count': 0, 'invalid_watch_duration_count': 0, 'invalid_integer_count': 0, 'invalid_provenance_count': 0, 'parsed_log_count': 1000000}
+TV2_STATISTICS
+TV2_FEATURES_KMEANS
+{
+  "status": "PASS",
+  "run_id": "tv2-5c5f819cacaa",
+  "started_at_utc": "2026-10-15T06:37:35.001107+00:00",
+  "local_fallback": false,
+  "source_manifest_sha256": "fdb4c551c34b412a5af3480191d0fb975c64fd43b5a5b80401ea0b0fabd959de",
+  "movies_uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv",
+  "logs_uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7",
+  "environment": {
+    "spark": "3.5.1",
+    "python": "3.8.10 (default, Nov 22 2023, 10:22:35) \n[GCC 9.4.0]",
+    "java": "11.0.22",
+    "hadoop_client": "3.3.4",
+    "filesystem": "org.apache.hadoop.hdfs.DistributedFileSystem",
+    "actual_filesystem_uri": "hdfs://namenode:9000",
+    "session_timezone": "UTC",
+    "calendar_timezone": "Asia/Ho_Chi_Minh",
+    "master": "local[2]",
+    "os": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.29",
+    "local_fallback": false
+  },
+  "movies": 9742,
+  "raw_events": 1000000,
+  "clean_events": 1000000,
+  "joined_events": 1000000,
+  "user_count": 1000,
+  "best_k": 2,
+  "silhouette": 0.6707563871905433,
+  "processed_root": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-5c5f819cacaa",
+  "results_root": "hdfs://namenode:9000/movie-log/results/tv2/tv2-5c5f819cacaa",
+  "artifacts": 52,
+  "model_reload_assignments_match": true,
+  "finished_at_utc": "2026-10-15T06:41:39.497545+00:00"
+}

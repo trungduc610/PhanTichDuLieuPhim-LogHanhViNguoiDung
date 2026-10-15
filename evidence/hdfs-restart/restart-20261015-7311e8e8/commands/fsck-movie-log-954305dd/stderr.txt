@@ -1,0 +1,1 @@
+Connecting to namenode via http://namenode:9870/fsck?ugi=root&path=%2Fmovie-log

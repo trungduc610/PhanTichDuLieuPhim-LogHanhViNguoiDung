@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checks": {
+    "src/schemas.py": true,
+    "compose.hdfs.yaml": true,
+    "scripts/hdfs_source.py": true,
+    "scripts/run_hdfs.py": true,
+    "scripts/hdfs_io.py": true,
+    "scripts/hdfs_hash_verify.py": true,
+    "scripts/spark_hdfs_validate.py": true,
+    "config/hdfs/core-site.xml": true,
+    "config/hdfs/hdfs-site.xml": true,
+    "config/flume.conf": true,
+    "config/log4j2.xml": true,
+    "data/processed/movies.csv": true,
+    "evidence/week2-hdfs/hdfs-124cbf30bda7/source_manifest.json": true
+  },
+  "checked_at_utc": "2026-10-15T06:04:50.979475+00:00",
+  "remote_raw_hash_comparison": "NOT_RUN; no Spark or HDFS mutation command was executed"
+}

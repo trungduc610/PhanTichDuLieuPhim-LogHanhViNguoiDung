@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "git",
+    "diff",
+    "--check"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-15T07:10:40.242442+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2\\tv2-aae83326c1ab\\commands\\git-diff-check-final-57cb6f9e\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2\\tv2-aae83326c1ab\\commands\\git-diff-check-final-57cb6f9e\\stderr.txt"
+}

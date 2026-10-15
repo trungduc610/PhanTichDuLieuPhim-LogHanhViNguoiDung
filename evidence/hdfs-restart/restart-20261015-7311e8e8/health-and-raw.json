@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-15T06:16:04.038432+00:00",
+  "run_id": "hdfs-124cbf30bda7",
+  "project": "movie-hdfs-124cbf30bda7",
+  "live_datanodes": 1,
+  "safe_mode": "OFF",
+  "fsck": "HEALTHY",
+  "same_containers": true,
+  "same_storage_properties": true,
+  "no_format_marker_since_start": true,
+  "verified_reuse_markers": 2,
+  "movie_files": 1,
+  "log_files": 254,
+  "raw_files": 255,
+  "raw_bytes": 343872495,
+  "missing_files": [],
+  "unexpected_files": [],
+  "versions_after": {
+    "namenode": {
+      "namespaceID": "601087925",
+      "clusterID": "hdfs-124cbf30bda7",
+      "cTime": "1791814590482",
+      "storageType": "NAME_NODE",
+      "blockpoolID": "BP-1003441718-172.19.0.2-1791814590482",
+      "layoutVersion": "-66"
+    },
+    "datanode": {
+      "storageID": "DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6",
+      "clusterID": "hdfs-124cbf30bda7",
+      "cTime": "0",
+      "datanodeUuid": "9c9dc52c-27d9-42e0-8cd0-87bf86a21fdc",
+      "storageType": "DATA_NODE",
+      "layoutVersion": "-57"
+    }
+  },
+  "source_manifest_sha256": "fdb4c551c34b412a5af3480191d0fb975c64fd43b5a5b80401ea0b0fabd959de",
+  "spark_validation": "PENDING"
+}

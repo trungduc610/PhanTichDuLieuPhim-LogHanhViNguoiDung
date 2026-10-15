@@ -1,0 +1,393 @@
+{
+  "source": "Original command stdout/stderr, not reconstructed logs",
+  "commands": [
+    {
+      "label": "all-host-tests-final-e8f95540",
+      "argv": [
+        "C:\\Users\\GIGA\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/all-host-tests-final-e8f95540/finished.json"
+    },
+    {
+      "label": "compose-tv2-config-13c539fc",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "config"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/compose-tv2-config-13c539fc/finished.json"
+    },
+    {
+      "label": "docker-info-45bac107",
+      "argv": [
+        "docker",
+        "info",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/docker-info-45bac107/finished.json"
+    },
+    {
+      "label": "docker-version-001fc90a",
+      "argv": [
+        "docker",
+        "version"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/docker-version-001fc90a/finished.json"
+    },
+    {
+      "label": "hdfs-datanodes-a9bdb7db",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "exec",
+        "-T",
+        "namenode",
+        "hdfs",
+        "dfsadmin",
+        "-report"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/hdfs-datanodes-a9bdb7db/finished.json"
+    },
+    {
+      "label": "hdfs-fsck-0-3dc0fc47",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "exec",
+        "-T",
+        "namenode",
+        "hdfs",
+        "fsck",
+        "/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/hdfs-fsck-0-3dc0fc47/finished.json"
+    },
+    {
+      "label": "hdfs-fsck-1-b335df11",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "exec",
+        "-T",
+        "namenode",
+        "hdfs",
+        "fsck",
+        "/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/hdfs-fsck-1-b335df11/finished.json"
+    },
+    {
+      "label": "hdfs-input-full-qa-afceb6f5",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "--profile",
+        "spark",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark",
+        "--driver-memory",
+        "1536m",
+        "scripts/spark_hdfs_validate.py",
+        "--source-manifest",
+        "evidence/week3-tv2/tv2-aae83326c1ab/source_manifest.json",
+        "--hdfs-verification",
+        "evidence/week3-tv2/tv2-aae83326c1ab/raw-before.json",
+        "--report",
+        "evidence/week3-tv2/tv2-aae83326c1ab/input-hdfs-qa.json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/hdfs-input-full-qa-afceb6f5/finished.json"
+    },
+    {
+      "label": "hdfs-raw-count-5991d423",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "exec",
+        "-T",
+        "namenode",
+        "hdfs",
+        "dfs",
+        "-count",
+        "/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7",
+        "/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/hdfs-raw-count-5991d423/finished.json"
+    },
+    {
+      "label": "hdfs-safe-mode-56d8c986",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "exec",
+        "-T",
+        "namenode",
+        "hdfs",
+        "dfsadmin",
+        "-safemode",
+        "get"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/hdfs-safe-mode-56d8c986/finished.json"
+    },
+    {
+      "label": "hdfs-services-6743d0bf",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "ps",
+        "--all",
+        "--format",
+        "json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/hdfs-services-6743d0bf/finished.json"
+    },
+    {
+      "label": "raw-hashes-after-2b400935",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "--profile",
+        "spark",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark",
+        "--driver-memory",
+        "1g",
+        "scripts/hdfs_hash_verify.py",
+        "--source-manifest",
+        "evidence/week3-tv2/tv2-aae83326c1ab/source_manifest.json",
+        "--report",
+        "evidence/week3-tv2/tv2-aae83326c1ab/raw-after.json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/raw-hashes-after-2b400935/finished.json"
+    },
+    {
+      "label": "raw-hashes-before-95b8ba5b",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "--profile",
+        "spark",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark",
+        "--driver-memory",
+        "1g",
+        "scripts/hdfs_hash_verify.py",
+        "--source-manifest",
+        "evidence/week3-tv2/tv2-aae83326c1ab/source_manifest.json",
+        "--report",
+        "evidence/week3-tv2/tv2-aae83326c1ab/raw-before.json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/raw-hashes-before-95b8ba5b/finished.json"
+    },
+    {
+      "label": "result-verifier-591705b2",
+      "argv": [
+        "C:\\Users\\GIGA\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "scripts/verify_tv2_results.py",
+        "--run-id",
+        "tv2-aae83326c1ab",
+        "--evidence-root",
+        "evidence/week3-tv2",
+        "--report",
+        "evidence/week3-tv2/tv2-aae83326c1ab/result-verification.json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/result-verifier-591705b2/finished.json"
+    },
+    {
+      "label": "tv2-full-pipeline-d2099148",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "--profile",
+        "spark",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark",
+        "--driver-memory",
+        "1536m",
+        "scripts/tv2_pipeline.py",
+        "--run-context",
+        "evidence/week3-tv2/tv2-aae83326c1ab/run_context.json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/tv2-full-pipeline-d2099148/finished.json"
+    },
+    {
+      "label": "tv2-host-tests-70b78dc9",
+      "argv": [
+        "C:\\Users\\GIGA\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_tv2*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/tv2-host-tests-70b78dc9/finished.json"
+    },
+    {
+      "label": "tv2-image-1cb0bc2e",
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "movie-log-spark-tv2:3.5.1-numpy1.24.4"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/tv2-image-1cb0bc2e/finished.json"
+    },
+    {
+      "label": "tv2-independent-verification-39e5f45f",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "--profile",
+        "spark",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark",
+        "--driver-memory",
+        "1536m",
+        "scripts/tv2_runtime_verify.py",
+        "--run-context",
+        "evidence/week3-tv2/tv2-aae83326c1ab/run_context.json",
+        "--report",
+        "evidence/week3-tv2/tv2-aae83326c1ab/runtime-verification.json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/tv2-independent-verification-39e5f45f/finished.json"
+    },
+    {
+      "label": "tv2-spark-fixtures-448822c0",
+      "argv": [
+        "docker",
+        "compose",
+        "-f",
+        "compose.hdfs.yaml",
+        "-f",
+        "compose.tv2.yaml",
+        "-p",
+        "movie-hdfs-124cbf30bda7",
+        "--profile",
+        "spark",
+        "run",
+        "--rm",
+        "--no-deps",
+        "spark",
+        "--driver-memory",
+        "1g",
+        "scripts/tv2_spark_tests.py",
+        "--report",
+        "evidence/week3-tv2/tv2-aae83326c1ab/spark-fixture-tests.json"
+      ],
+      "exit_code": 0,
+      "record": "evidence/week3-tv2/tv2-aae83326c1ab/commands/tv2-spark-fixtures-448822c0/finished.json"
+    }
+  ]
+}

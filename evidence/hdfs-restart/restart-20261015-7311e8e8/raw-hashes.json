@@ -1,0 +1,2057 @@
+{
+  "status": "PASS",
+  "started_at_utc": "2026-10-15T06:16:37.402734+00:00",
+  "hdfs_run_id": "hdfs-124cbf30bda7",
+  "source_manifest_sha256": "fdb4c551c34b412a5af3480191d0fb975c64fd43b5a5b80401ea0b0fabd959de",
+  "verification_source_sha256": "03488617a62c80840c2f6ae7c67063eb1fb09400744bb54e41775500f4bf65a5",
+  "files": [
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv",
+      "bytes": 533347,
+      "sha256": "1df01064e7a0680e11dc93a57d10782a59323716596440244f9e6200c2925536",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-1.jsonl",
+      "bytes": 514899,
+      "sha256": "1c27b1da5488237fcc71e23356cb67476c1e9f8b5c0e6dbce5e3527e936ac1b5",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-10.jsonl",
+      "bytes": 171661,
+      "sha256": "bb9b4f25b25ad98db44f4eec544ac1509434b0cf196ae6a79d58afdb7d9cdfa9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-100.jsonl",
+      "bytes": 1201680,
+      "sha256": "6ab413e07758bd5a3e51a799cd62d9dcc979e6117f69d269b68627d610709af6",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-101.jsonl",
+      "bytes": 686525,
+      "sha256": "3cff7f09335b59bab39f14bc705442ea6a1a773493630efac43d386684b5c519",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-102.jsonl",
+      "bytes": 858227,
+      "sha256": "d7eac74c263766317f05746f4134855d2efd4f91e2ad7c27ee05a507135ddbd9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-103.jsonl",
+      "bytes": 858312,
+      "sha256": "2e50147eec85841213f0c0e4a25090206c3f2e5d38e7508f3396912bf027e86a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-104.jsonl",
+      "bytes": 858283,
+      "sha256": "d93da4c314a7a82abc5cb0c40c48ad5a2ea136fc1dec0c42cdc708943ca950c9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-105.jsonl",
+      "bytes": 1201623,
+      "sha256": "119dd9a091c63e23fd1d299344525f4e760ffb3badb3788cafd2d919ef39200f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-106.jsonl",
+      "bytes": 1201750,
+      "sha256": "13d03c91ba50b333cdd3e2c03771cf1969004bbb7206b13bb387ef9f807a52d7",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-107.jsonl",
+      "bytes": 1030084,
+      "sha256": "56666866b710f00d445e1062758cb7d67902f07f30b1a4054a89264a9213912c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-108.jsonl",
+      "bytes": 1201557,
+      "sha256": "14f115bbd484b9b573272e318da4378aab87558194cf298b7ad3f7071cad7a7c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-109.jsonl",
+      "bytes": 1201738,
+      "sha256": "513ca30dd83ec3526825f3e3e101185cecccdafee86df043a0ece8a99112d6fb",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-11.jsonl",
+      "bytes": 171724,
+      "sha256": "c591b074d37aeae846f8e487ca7ca973680c974aeccd940753dd8c36028ed479",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-110.jsonl",
+      "bytes": 1030104,
+      "sha256": "a89f1e2db348f1ae3ee56b6766a211b76decb1192cac188b0ad1c12c1be61dd3",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-111.jsonl",
+      "bytes": 1029865,
+      "sha256": "a8fddf1b93917ce804f77b55a91947398939873c73b3215f593952413ece1dab",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-112.jsonl",
+      "bytes": 1201610,
+      "sha256": "9234053751a12182947434af5e2b1f0eb50aee56aebfaee31f04133d0777a07b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-113.jsonl",
+      "bytes": 1029868,
+      "sha256": "036bb201808843435dccd1f5137d909ff5d69a80f0a78d242f4a64fb6f541271",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-114.jsonl",
+      "bytes": 1373436,
+      "sha256": "4916bbc5408b456db6511df8c55f8256168ce114c55c3bb0d93b8fbd6512456a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-115.jsonl",
+      "bytes": 2059898,
+      "sha256": "5da78ae34823445e62f0dd2af8abc298227fee0e895a7019f87b97d210ea2f51",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-116.jsonl",
+      "bytes": 2060330,
+      "sha256": "53d8f7729e1f86fb6e8292d06c68c0cf09b20a6ce52dd648a9e6bd824de9717e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-117.jsonl",
+      "bytes": 1716565,
+      "sha256": "bf7d31212321d570fb4004b3f353a1d5896ed1b64f351c9899a306801c98ea96",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-118.jsonl",
+      "bytes": 1373472,
+      "sha256": "c6000148b06962015e0dc51e64eb8077b899820605ae8bb66d3e08846717f6dd",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-119.jsonl",
+      "bytes": 1544909,
+      "sha256": "3f739f6b33f03fb795b8111bac63da77a8c757a24fd701fd1dad64b0f958366d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-12.jsonl",
+      "bytes": 171660,
+      "sha256": "b40dfd8e09d48c8b01c4919cba513df040d902f2e663e2ee1fae4b81baed8908",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-120.jsonl",
+      "bytes": 1373391,
+      "sha256": "0e3b79b03e7c63608299b2d41cd275b65c635fd741908b04a2398a14d4ded0e8",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-121.jsonl",
+      "bytes": 1545084,
+      "sha256": "b41116b68a08f9f4a827fdbd542f0a23b2a2453014fe6abd72610591d24ad55b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-122.jsonl",
+      "bytes": 1544946,
+      "sha256": "9ab37d0e5645f47b43841c37cefb058e51809adb65a474defc047840d3eee362",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-123.jsonl",
+      "bytes": 1545133,
+      "sha256": "3effcf13bb09729f8bb4b0cf44364beee89c4df5fc7b73e1dad2af325c579c67",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-124.jsonl",
+      "bytes": 2060004,
+      "sha256": "80be7487322ce96011c4801334ec7af8ac3997b91d3f1be1cf9b9ec6bc179f68",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-125.jsonl",
+      "bytes": 1716833,
+      "sha256": "26b57ad45c42973647eaf7f7149c6e982e0f9f206d3100582f01ce8ffcc83159",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-126.jsonl",
+      "bytes": 1888485,
+      "sha256": "dd953e25bea756751049efbfd52a5bf3d66fdeaf0ea2405fb2d1895ace0b1a34",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-127.jsonl",
+      "bytes": 2059984,
+      "sha256": "4c2465a6f80a4d4a931189406e95dc87cf311db4f85b382c267721c1a47a7762",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-128.jsonl",
+      "bytes": 1888560,
+      "sha256": "8c6606474be44d166ffc421bb5fda05ef3c9bf2803d7c646c4d4c4649d8400a2",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-129.jsonl",
+      "bytes": 2231670,
+      "sha256": "a34f17f69e863ee504dd0f80651e7e3de10398ca572bb2a1ea58e6f9c5efa368",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-13.jsonl",
+      "bytes": 171629,
+      "sha256": "dcc5689cf1dff6becaf6a0b8faf1345b167de00a421e748f9f701748f51f0d23",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-130.jsonl",
+      "bytes": 2231738,
+      "sha256": "0e5cc94fe002ad7e48c318d034abfe8b7599f723233f7919c2dca3c0266da4f8",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-131.jsonl",
+      "bytes": 1888663,
+      "sha256": "9bde281e15189f9a0afbe3525190060479a37e705dcbcf4e40f938eba7641d5c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-132.jsonl",
+      "bytes": 1888613,
+      "sha256": "ba49a1a2d535351466a6bade9673520807d8b5138a9795fee28f38f1fa65fac4",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-133.jsonl",
+      "bytes": 2060116,
+      "sha256": "118985fafc8284e27da6b71e47f742c7bc549b22739f6366b0a7010b5f714aec",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-134.jsonl",
+      "bytes": 1716875,
+      "sha256": "e4c62159dd8817d0fda9deafa77322a90f79302458ca54cb4c89e31f6131382f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-135.jsonl",
+      "bytes": 1888318,
+      "sha256": "f9c766620e11d4e9db0a8e11a7d0f11ebcf03f47764c03bd074432c7b3e1aae9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-136.jsonl",
+      "bytes": 1716857,
+      "sha256": "8b5b910bf2840e191b454be29fcf7426f82146b968deeeeb4a8be81e7e819622",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-137.jsonl",
+      "bytes": 1545163,
+      "sha256": "4240fc895fd700008461d078eb8462bac906d9f11d0698ef7d688ef56ea1fa44",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-138.jsonl",
+      "bytes": 1716437,
+      "sha256": "c60173094485570f274be4b304ab2345df7c892d06d4c5309df0f2a08dc4c957",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-139.jsonl",
+      "bytes": 1716597,
+      "sha256": "e20fe3b3e3ebcbaac9af3483baf63709af5082c9bf171675c99ac0377db4386c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-14.jsonl",
+      "bytes": 343378,
+      "sha256": "ea10ba0f2478a517ba0d641a2504d22ea2ede6e63d12e1980c1265ced406ec73",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-140.jsonl",
+      "bytes": 1888456,
+      "sha256": "d09c8e042a11378965f2905622046df0956f37b04bae266003933568ae0f2bb5",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-141.jsonl",
+      "bytes": 2059856,
+      "sha256": "09c86c6b5a99879b949d0c4c7eda34d566d94fc31c53053a11d2df1320275096",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-142.jsonl",
+      "bytes": 1887877,
+      "sha256": "870eedeae68f0c600acc3af415daa7660a1e7f836dfebf7d3e7fcc818217df4b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-143.jsonl",
+      "bytes": 1888307,
+      "sha256": "5f89d2378cc812ceac04c1b785ce48fb4c318198b93018f756479f2e42a54c95",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-144.jsonl",
+      "bytes": 2060210,
+      "sha256": "a2611b22e5371cea55543afaf6192f272c5f8fa2ec3a0ea717508633ee603137",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-145.jsonl",
+      "bytes": 1544912,
+      "sha256": "4089a708a6624b8738f4ca0683d1c7bcbc22fdf8b426d9873abaa5c3ec61ddd7",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-146.jsonl",
+      "bytes": 1888123,
+      "sha256": "eeefb2fbfea19d24836810ddb01594398425e9e13b89f1773c7f52597eca3f94",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-147.jsonl",
+      "bytes": 1716573,
+      "sha256": "95419d6901dda65b03c2cf5248dc61b91ddb2dbcc932db8c1d04fb98a81db586",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-148.jsonl",
+      "bytes": 2060214,
+      "sha256": "7dd302b0c4dbbf2aa70854510713d7eedc0967b4b4a2e3716d71b2453806a634",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-149.jsonl",
+      "bytes": 2059927,
+      "sha256": "7dc3ebf40a0fb9d9db616938b4740ad495bb3c91f5cd567b641cca39931d4820",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-15.jsonl",
+      "bytes": 171674,
+      "sha256": "cf1615ced38f7cfd46f9bdf2bf7bffd6b359b0bfb6e22e295b82a8903f5dceaa",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-150.jsonl",
+      "bytes": 2231653,
+      "sha256": "a0fb187bcc8206b1cd4a99055e21904598f0b2b38a881df831fc8bc31ba7d7d4",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-151.jsonl",
+      "bytes": 1545027,
+      "sha256": "420c987f4e0616fa2244c55d2f19ab45cf3c526e564aaade1d0972be5cc2189f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-152.jsonl",
+      "bytes": 1888265,
+      "sha256": "f95353fe88947a1630a82ceeae258cf941c6c55e0678698d0fa9601c326947b8",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-153.jsonl",
+      "bytes": 2060060,
+      "sha256": "334cb2aa46c4579015de608789600b7733719d3a2364b32f0b0052b665620e51",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-154.jsonl",
+      "bytes": 2059967,
+      "sha256": "8ab9c3ccc2c7d3692186c6be7f0a02690673a1e13931a929160257df8deb9e5f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-155.jsonl",
+      "bytes": 2231359,
+      "sha256": "bc8fd66bd626283ca39a2dc7acc70cda9f38cef247dfd5a44a21e12beaa08345",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-156.jsonl",
+      "bytes": 2060099,
+      "sha256": "14052834889e2afd87082a752db7558f274dc5b50032b3d611cdd9d4fc861f4a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-157.jsonl",
+      "bytes": 2231775,
+      "sha256": "a11ee0c989cbbe4fd236ca7375740a002c40f3348dfb030b3fc8750655fa1e2b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-158.jsonl",
+      "bytes": 1888317,
+      "sha256": "de53d4639d0b44b6cfea1508451ea75e462b611d7b77cb3707aac1dbe09c9bbe",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-159.jsonl",
+      "bytes": 1888659,
+      "sha256": "cbf06b21fa0a64e4a51af5f43cd0d1a3decdf8ec7793644adfeb7351b26cb866",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-16.jsonl",
+      "bytes": 171697,
+      "sha256": "2a55f8defdf1221eaaec9bf0258f03f2464306b0e65fe6b50aae3473ca647d06",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-160.jsonl",
+      "bytes": 2231868,
+      "sha256": "97827547aa2ea9c4515e40672c4de4cf4edd48497cf8fca561ed0af1f8e531e7",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-161.jsonl",
+      "bytes": 2059962,
+      "sha256": "8cd45ecdd6ef62d4dafa7624ddd4492248de31f541f50d6a376a0f614e4b5f4a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-162.jsonl",
+      "bytes": 2403045,
+      "sha256": "00dd07017582a41b7b343c666f2219d56dff0422bd9f847133590d1e34a956ab",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-163.jsonl",
+      "bytes": 2060074,
+      "sha256": "0e8dacb5ea4fa7fc528846a01413d6e53621a8960bd02ff474784ad218087bd3",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-164.jsonl",
+      "bytes": 1888255,
+      "sha256": "acabe616caf6d2eedb6f70ee49a91163e1bf9e66445bb556adede5bb8856ec75",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-165.jsonl",
+      "bytes": 2060234,
+      "sha256": "92ff46a843c5f9fb34483b9a802f6e5963407f5eb2ddd7319aa935f2ac45c586",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-166.jsonl",
+      "bytes": 1545047,
+      "sha256": "73632f5edcc8a874989345d1712ec3fd287f8babff0ff4f31497f14cdcda5e7a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-167.jsonl",
+      "bytes": 1201835,
+      "sha256": "ec3a8f7bab075aa1d0e40cdf49cfe9df7d450d33e427ebe08bcfc25085348433",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-168.jsonl",
+      "bytes": 1717083,
+      "sha256": "b0d565500000d686b00cf63ab5009ee61df7c7f5fba80a42714f45d91ee4bb20",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-169.jsonl",
+      "bytes": 1544983,
+      "sha256": "ce0159c4989145de49bd47243052e54b7c17dda8444037925a15623de2fc940d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-17.jsonl",
+      "bytes": 171693,
+      "sha256": "84a405138957431dac099d939bdf3c7373d1b992c913a80a6623db68e5258a34",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-170.jsonl",
+      "bytes": 1545015,
+      "sha256": "c5622e5b978e90e8661225a9a0e512e51d2268bc765faa6cf595b434ec5077d6",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-171.jsonl",
+      "bytes": 1716654,
+      "sha256": "5a409635fe667aadef323660d9c9f7696c2dea283fc625d04da395f2d75bb322",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-172.jsonl",
+      "bytes": 1030077,
+      "sha256": "cbbd996681b32a9772e8e25f851573bd95c33ed05fee502d29d11a305dc6b6fb",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-173.jsonl",
+      "bytes": 1716545,
+      "sha256": "a0e70873107b3c453b797a3c05b05f87643f227bba3a547b873f7cb595e490d9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-174.jsonl",
+      "bytes": 2060079,
+      "sha256": "07dad655ec81285290efb621fb1344d986926de2f832b9d52e882907c10e9f9a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-175.jsonl",
+      "bytes": 2060107,
+      "sha256": "165aa37a7e502e68bf56e1c04fa68477e41e52b1b0c186d3a3505f1c06472deb",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-176.jsonl",
+      "bytes": 1716666,
+      "sha256": "af875779fb143229cd1a714180fdc2dcbddf15de15df4d25281adf2d1c8a133f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-177.jsonl",
+      "bytes": 2231899,
+      "sha256": "e0ac4cde1068c910f5aa899b64a670f303b74ea1e38d90d9ee7e38ca354b7417",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-178.jsonl",
+      "bytes": 1888541,
+      "sha256": "92d01c719326f8a6d8db7624778be0b57bd0491e2ec882a5a0b391abc48622fd",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-179.jsonl",
+      "bytes": 1888487,
+      "sha256": "0fb5cd8e49243505a2435e1141f820ed6016bc2ec9fe7514cb0361e589bee4ea",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-18.jsonl",
+      "bytes": 171676,
+      "sha256": "4b18ca84cf67d91d79cbfa3841ed6888fc401c1b6956910cb30fcecbc431e442",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-180.jsonl",
+      "bytes": 2059990,
+      "sha256": "14086511054f47c40710a6804c077addb66fca91d2394353856e4a0bed76cee4",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-181.jsonl",
+      "bytes": 1716592,
+      "sha256": "c8e61f7cffdc15d180b77e4365b22d6a1cfcc4f8ae4d1d6e57ac458ebd1120f8",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-182.jsonl",
+      "bytes": 1888434,
+      "sha256": "d92359c74f8923920bee0704182c17b4b68c9864f37a00c04da07115288cf82c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-183.jsonl",
+      "bytes": 2231777,
+      "sha256": "be510709c7ba2a02cdc74356cad705b2ca2faeb3400742db93cc1c1275598251",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-184.jsonl",
+      "bytes": 1888406,
+      "sha256": "24d671d455f9ff4def29127a69318bca1bcc3bb8f7b4b56683aa00ebbce4edda",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-185.jsonl",
+      "bytes": 1716760,
+      "sha256": "0c20545d27a0f9918413618ce81f43914691542d4317a258e43789a045435f67",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-186.jsonl",
+      "bytes": 1888163,
+      "sha256": "530454a2d0409a6af664b5bc73f1a12a37a02fc70ccb4e5f3e92d514d749750c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-187.jsonl",
+      "bytes": 2231646,
+      "sha256": "a20e324e4e4eae07dd03ad6de2ec6cdb8d179bbd0fd34d1113b701f554d4fe4c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-188.jsonl",
+      "bytes": 2059867,
+      "sha256": "4699ba1e09e7d7881a9b7cf631834b8bfaddf7373a781f385f5d83e2e2ff93a1",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-189.jsonl",
+      "bytes": 2231950,
+      "sha256": "7afe3aeba99b35d2200dd17ea031cfe4e86d97ff1d7c6cf7220d70a4dbb2218e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-19.jsonl",
+      "bytes": 171749,
+      "sha256": "dbb7f251e505213b49b98812565f8162ed80a212c7a506f13412c609ff9d9ac9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-190.jsonl",
+      "bytes": 2059988,
+      "sha256": "5cd1c255a62b28e229976426340b6f85892b9af9b2ffeb4f6e83deef201a7881",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-191.jsonl",
+      "bytes": 2060024,
+      "sha256": "613927389fd60708d332098ffb34ef1afe72215549ba75b46ee89a87e40b09ef",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-192.jsonl",
+      "bytes": 1716522,
+      "sha256": "84c55fd21bf2a4f5b43959d8950165236ef1c06fbca1ab92354f2e4564524a44",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-193.jsonl",
+      "bytes": 2060106,
+      "sha256": "ce5ffe74d46f99a5faa5b3556f322f012ea335b04ab434191f8b7dc6fd6d0f23",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-194.jsonl",
+      "bytes": 2060103,
+      "sha256": "7cbf88c3dc05ba151adcb158683c459d4e894421ee7e0571716ccea47afd794e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-195.jsonl",
+      "bytes": 2059992,
+      "sha256": "4d89d9ed9ab6822809f79c6aa309c13cd61b541dec430d59b00f98bd6d73b6a2",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-196.jsonl",
+      "bytes": 2060259,
+      "sha256": "26301e70fd1c71c418bd3e27659dee5c231b38fc2f8d2f8d3cf57dd9bea39662",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-197.jsonl",
+      "bytes": 2060168,
+      "sha256": "fc456add53791f9c6663f1c595b44831caf20471329dd863de2ce486cb47a9b6",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-198.jsonl",
+      "bytes": 2060029,
+      "sha256": "819679700a84f78b6dc360b6274bffe198145d703cfb40a2bc9c4870ce1aa397",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-199.jsonl",
+      "bytes": 1716711,
+      "sha256": "5d463aebb5a04be858e589651d3c1e428aa4d807e29a16e336636bad8d9d21cc",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-2.jsonl",
+      "bytes": 343202,
+      "sha256": "fee588e50c9add3e51fad42c5f6dfd729a73f303f9b37a84b779a685fa4c0dd7",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-20.jsonl",
+      "bytes": 171653,
+      "sha256": "c06756f0c431d2e694dab2199c1af4ba7b4151cdca1ff159e298bafbc6f1b3f6",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-200.jsonl",
+      "bytes": 1716624,
+      "sha256": "d1796c58da7a54c5c688608c20e1f7cf3397cf1b7aa50806e4bef408b0be8b8c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-201.jsonl",
+      "bytes": 2060157,
+      "sha256": "94c3ec4252d873e9fc89f613c3de5ca9fb4c4323ecba6ff65316e47141092ec4",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-202.jsonl",
+      "bytes": 2059674,
+      "sha256": "e5624efa682022e6a877adfc4f99f6b317f9ea7bfcc25ea5acf50a97a9d0a86c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-203.jsonl",
+      "bytes": 2231850,
+      "sha256": "dd4360cad3ea9bdc5f68ab1ee9acb9e872e3633d7ca0e54136438681cde0957b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-204.jsonl",
+      "bytes": 2231593,
+      "sha256": "843d2219d083d94d2192cef1a186002ea242177f2ee42f40b8fe13c5268a19ed",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-205.jsonl",
+      "bytes": 1888396,
+      "sha256": "e2dc1e386f5707bd77feedbf2c133e6d81fe844c6dc2508640b7337239272d8f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-206.jsonl",
+      "bytes": 2060233,
+      "sha256": "0188f599a3d9a8c7c68108b9b0f636ba0aa0bdd30e84ce833371cbbce7c7f796",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-207.jsonl",
+      "bytes": 2059903,
+      "sha256": "a43b3bd88bd063d20cd8bcfa21f124c8a9f14a4f5d85fe79956e8b166861afc8",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-208.jsonl",
+      "bytes": 2403373,
+      "sha256": "86665388aa935c0fdfbc56d359020fb6a6cd9c1824214cee364697eb313d82c6",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-209.jsonl",
+      "bytes": 1888260,
+      "sha256": "0cee486960c1c34fd688e0403d716299301d810b17726d75c470fc8c223c8518",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-21.jsonl",
+      "bytes": 171650,
+      "sha256": "ef90fa65ee4faf3a83f6657d402e488c16e9ca0cc25aea633e8bb2aa70187cde",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-210.jsonl",
+      "bytes": 2059955,
+      "sha256": "094ed34dd56b597efbff373971f0c01bced73cae19ea8a932d350771d8e20d7d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-211.jsonl",
+      "bytes": 1888324,
+      "sha256": "9ed1f4c59c1048b07ade2eda9b56d3f256edde91e714af1781728bd5b545ca57",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-212.jsonl",
+      "bytes": 1545061,
+      "sha256": "872690ca5be5cc37d27b78bec5a2b217ed81e4dc558f72d6457e4a8c7cc7d94e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-213.jsonl",
+      "bytes": 1888296,
+      "sha256": "9884dc159078656d260e9086172f96f2f66821d2037118db30a0e1ca7c6da58f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-214.jsonl",
+      "bytes": 1888171,
+      "sha256": "611577e7b2e66affd145646f4a973d66523a14839c28cfe71e7486a0cce6d5a0",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-215.jsonl",
+      "bytes": 1888701,
+      "sha256": "14d1b51cf9023042382130e5ce6d0ca05f409e033a240dc1c5e897408cc2e39a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-216.jsonl",
+      "bytes": 2231773,
+      "sha256": "13281f5fbaf3252195183d4cf5da648f7ebfa9728b4f0c553a18520eaebe59be",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-217.jsonl",
+      "bytes": 2059993,
+      "sha256": "1728167a37759efde6d5674ba068684dfefa9506132e8c5b0fdad2bfe42338e0",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-218.jsonl",
+      "bytes": 1888352,
+      "sha256": "cb97127c026b94e63177e1b62352339bc468609ee02bcff814621dca773d81ab",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-219.jsonl",
+      "bytes": 1716816,
+      "sha256": "3d28322947f0dd929c83488760ffe7800ac9ed4f6f5ce4432691e3ce836f2d8c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-22.jsonl",
+      "bytes": 171602,
+      "sha256": "4d26ac40fa6b2da4f4712b55dded0c073b7c7581850f2b6f6590ae4649fb594d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-220.jsonl",
+      "bytes": 2231365,
+      "sha256": "c2faf63ed67e6b29a8dfa1150e7c7005585226f98717496de233a75718c35664",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-221.jsonl",
+      "bytes": 2060042,
+      "sha256": "c89602bfa8b94890564f50cdd4fb1ccd853f99487437d5cc6fc9fab95824247a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-222.jsonl",
+      "bytes": 1888435,
+      "sha256": "9dd99d5ceac0ff09577932fa2f406c577240a97165dae738d11f13e62abf24b0",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-223.jsonl",
+      "bytes": 2231780,
+      "sha256": "2f09d7080b8a5eb6f2d4366b0acc46dd6bcd0618de4ee2d9746e6f4c026c9392",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-224.jsonl",
+      "bytes": 1888738,
+      "sha256": "8c2ca31884793f68ce2706c3425b131e1e6877e3330ee198e807159636abee53",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-225.jsonl",
+      "bytes": 1373088,
+      "sha256": "482f32cbcb840c1bb0791dec18243183e76d03bc03b1b9d406772466f25583a0",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-226.jsonl",
+      "bytes": 2060238,
+      "sha256": "187d5d92de0fe13a843b1fe798ddd85f26223ed0ba918cb0c395e3b32e13f598",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-227.jsonl",
+      "bytes": 1888328,
+      "sha256": "937b8f870c1a3e200168d7e8cd210b38c4ea1a78b0d5d2f780f978d4d69cbe00",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-228.jsonl",
+      "bytes": 1888108,
+      "sha256": "bca0bb406878a189ab4fe567a6a64935670f62f9e1deac7b026b9420b91ebad4",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-229.jsonl",
+      "bytes": 1888616,
+      "sha256": "de1c487215f5ff9629a828f9128b7bc4c1df53d2fe925fa15222ba76240fd186",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-23.jsonl",
+      "bytes": 171700,
+      "sha256": "6946280053945f5f9e5e62f3e67bb42995aac968f6e25e39767f3418b3c48a0a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-230.jsonl",
+      "bytes": 2059964,
+      "sha256": "d641fbd3052ca91f7cc52c4c5ddcbb9969d21320a2f036d575a936c55e3bacd0",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-231.jsonl",
+      "bytes": 1888500,
+      "sha256": "52ee442a4bda892ce414e72ba43bfb82a1a218dbc368c3cad4adf429ea187bcc",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-232.jsonl",
+      "bytes": 1544942,
+      "sha256": "056365e7874d4b80ed7b9fa1d0d23bd74925044fb64d8706d4a76db0f8f3a95f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-233.jsonl",
+      "bytes": 2059678,
+      "sha256": "2c0d45fd173fb95fd75346bad1f0581d4b67cdc9b7e618cfb13d53295e228360",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-234.jsonl",
+      "bytes": 1373437,
+      "sha256": "d0682734ba716f357e8ec17981425a2a114e42403097131d92d8cbd14036ec4e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-235.jsonl",
+      "bytes": 1716784,
+      "sha256": "402b4d5b770b8d6befda2a1018cc9b4cadd634fd6f84dfbabcbfdb0d91cfcb47",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-236.jsonl",
+      "bytes": 1373186,
+      "sha256": "305c7c5cdf8d566b4e3a553da43fe5d4831d516cffdd70c5debc44f76325732b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-237.jsonl",
+      "bytes": 1888205,
+      "sha256": "e6986ee9972348f9a4a1b134c1b8f2c9604fef5a130e0ba996dddcd178fdfb0d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-238.jsonl",
+      "bytes": 1716730,
+      "sha256": "debdb9b1624288385ad0a5c1a075cbc4885e7921856c5baed539a24fa9de6a12",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-239.jsonl",
+      "bytes": 1888552,
+      "sha256": "1d4dab824a2c076eac7a283d6adff118d600a8cc70e14ba84578c8736d0fc743",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-24.jsonl",
+      "bytes": 171593,
+      "sha256": "8546fb3cb707e0c7f2230eb3c689b12edf042f57da21a8c349bbe13bcdc42d7d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-240.jsonl",
+      "bytes": 2060141,
+      "sha256": "a6578716c81b051f05c7bd7ee4eeb9176c99e7f60174d62b02d650ec51efc64e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-241.jsonl",
+      "bytes": 2059852,
+      "sha256": "838e19ac0b1e14c24b3d7b510af92305569d2d93f8b12fbfa725d8555a52b804",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-242.jsonl",
+      "bytes": 2059819,
+      "sha256": "a40f98f21180e0a94fac0c1bae7930cc5db00afbf2f8d2147b0c804711fe7d7a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-243.jsonl",
+      "bytes": 2060130,
+      "sha256": "d0aadb5280eef354e7ca4c49a0a870ab84c4ec81cf4300c568b4ca326c3986ad",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-244.jsonl",
+      "bytes": 1716657,
+      "sha256": "058af23faf68bb1e9c85f6de12df55ca9d08a0b3e0a3dc948b09519a2e1e2cb1",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-245.jsonl",
+      "bytes": 1544935,
+      "sha256": "12266eb97a6c37b9ebc9efe84e36902b690724a5fa972854ee8e5efe5b6f66db",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-246.jsonl",
+      "bytes": 2060174,
+      "sha256": "71503c377a3e18c73ca30490606e816d480b50272f2fbe59a28559d2d51aca25",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-247.jsonl",
+      "bytes": 2060257,
+      "sha256": "16440854bf4ec5462671581d624484ea766da55fbaea4dbb5d54ebeb82dac147",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-248.jsonl",
+      "bytes": 2060241,
+      "sha256": "e0233af1d322acc51a7537f1af0ff904c77ea793a9e4dfc1cb34bfd644826965",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-249.jsonl",
+      "bytes": 1888403,
+      "sha256": "eeccc9437949a21b315dc5cf2c49e53fd749f95fe06b4e1a66e1b235ce5b6dc5",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-25.jsonl",
+      "bytes": 171664,
+      "sha256": "1006412c23ef8256bc3ce43636af1311739ac9f9974d8748c073b6b85c7b6f56",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-250.jsonl",
+      "bytes": 2231832,
+      "sha256": "67732facb1318a2550bdd2f337b5af70b6955dca0e942ceffb548c1808edcd64",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-251.jsonl",
+      "bytes": 1888302,
+      "sha256": "3748803494f990c503d4d76e08d835a11c1fba020e613066c34b6f4e29c4b274",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-252.jsonl",
+      "bytes": 1716747,
+      "sha256": "9aed7942e79b16f2afc50a0af56cf9916169249958f3b676576f1ff1265b509e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-253.jsonl",
+      "bytes": 2231547,
+      "sha256": "01ae6e3836e08c6a30ffebc500eb09cf923729a3ed74ba20519de4db8275ada2",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-254.jsonl",
+      "bytes": 1373426,
+      "sha256": "ee0c5a09c760beb39e5ef07ec2299c65cf48304ae8657ac58b36a782fe42675e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-26.jsonl",
+      "bytes": 171752,
+      "sha256": "ee1edcc7d196a3b1539c3d05906f18ec8fb18f709dfea3e946cafbc55dc5ef3e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-27.jsonl",
+      "bytes": 171740,
+      "sha256": "118cd1668aa962ae169fa3d4004b7bdc962a8d4be3385940f0682285ecb8f063",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-28.jsonl",
+      "bytes": 171665,
+      "sha256": "fafd913cd6202e8def47bbfdd3d8471644907557c09d6624abc1a10c42121006",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-29.jsonl",
+      "bytes": 171722,
+      "sha256": "0448b2e967eea03f23d9a687b883fcf3ff722857177c7063f67bddf9e3c25013",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-3.jsonl",
+      "bytes": 343329,
+      "sha256": "0427040262d9498206e5347933fe5ddc15b78e40f658da45219086b904dfdb2d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-30.jsonl",
+      "bytes": 171666,
+      "sha256": "b804e3daae61b74c6ba275c65b599d2cb0cf1d72d78fe1419b834decbc852cab",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-31.jsonl",
+      "bytes": 171690,
+      "sha256": "2e42ad865a6b06c7caae97a46b0b03371fef39ab80a375a7cf2372b2d1db2e05",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-32.jsonl",
+      "bytes": 171689,
+      "sha256": "a10e506ebadbd7fc16ece0901894882f301c69d21458e3a303fc7be38ad0279e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-33.jsonl",
+      "bytes": 171690,
+      "sha256": "57185b6444cc982da6cf40ecf0ab19bc5fdfaa9f41080eff6a135e791e79dc23",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-34.jsonl",
+      "bytes": 171651,
+      "sha256": "303f69cdf86ec7fc3fd08f2c749e857b8f1da1e503a1dc2872658a256b3b0549",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-35.jsonl",
+      "bytes": 171655,
+      "sha256": "8e5c04e188c913f5fcd03cc23cb85078ab8b5b2a59c73cb8bee6f5288745bfc3",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-36.jsonl",
+      "bytes": 171582,
+      "sha256": "ee37615df9b6a81349d234ed9e35768029cf01adaa1abbdaf0c18e453055282b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-37.jsonl",
+      "bytes": 171656,
+      "sha256": "209b4455f0fd930cfe8288a1340ae35a6b3129870c597ac97a675a6f64ed21d4",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-38.jsonl",
+      "bytes": 171631,
+      "sha256": "b5e6d4a8cd0328ea55b6bf71ce8f0f2010f313bad335e1d903239fb612c4ba91",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-39.jsonl",
+      "bytes": 171613,
+      "sha256": "551124989a1b834f2acea6735726713483ba5ba5a26888ea2219b9758076cd5d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-4.jsonl",
+      "bytes": 171696,
+      "sha256": "633c090c09a167db5a47560eda22c2c54372a4b4ed5702557c336a1ce2443f89",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-40.jsonl",
+      "bytes": 171690,
+      "sha256": "99e147d12bd46c444d8b0ffcd1e109bed4778c6196f4288d3b4bdfc04cd8b951",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-41.jsonl",
+      "bytes": 171639,
+      "sha256": "376eaa5fd7cfc0e6ffefc3db80e7d7fca8d4fea78d15703a0a82ccd24039713c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-42.jsonl",
+      "bytes": 171740,
+      "sha256": "4d653b41c278d7c92ec882b461b3862e1e27682aea07b83b55d741bfff83c1c5",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-43.jsonl",
+      "bytes": 171693,
+      "sha256": "c4d595b1d9a983edceaa6763ef5de87c27fcae3287cfe3b0986b1d9ba78ae3f3",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-44.jsonl",
+      "bytes": 171718,
+      "sha256": "42eda043602db3d5bfb0211c4c91771c533fe7c56330e7e08d6e3d7dcabad4dc",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-45.jsonl",
+      "bytes": 171737,
+      "sha256": "99de2adf9059de6c6072b77597b3c5b26fd29fe59f5aa68bd2a0d3f5ddae5d51",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-46.jsonl",
+      "bytes": 171577,
+      "sha256": "f32386416efc1e3db3ade2e0526c281fbda9face0804b4007e33115b883d2e42",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-47.jsonl",
+      "bytes": 171718,
+      "sha256": "da1fa44b19135275063e409f9e9a0b7754d45bdc3b56c592785d89e46d93f051",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-48.jsonl",
+      "bytes": 171657,
+      "sha256": "dd16d390419fef174401fcf5397d1c5b45b048f88c85bf8a1977fc72c7c70229",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-49.jsonl",
+      "bytes": 171720,
+      "sha256": "f76c70cd059e1de5d311ba20315151e58e7c4bd5fef6bbcddf055ef38bcd2e0b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-5.jsonl",
+      "bytes": 171627,
+      "sha256": "b84ba68a241b59cd4db7e4dbf555a8010d49612ee6b8fff0ec515272527e07c3",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-50.jsonl",
+      "bytes": 171684,
+      "sha256": "ac5f7630129b393aaf5196e1852b3a0841ef6e8eab3ef64a1376d6ed4597ed9b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-51.jsonl",
+      "bytes": 171607,
+      "sha256": "0dc165ae7a78f8fd812075815901f416f5b6467df808ff326f533d3bc2f3ca03",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-52.jsonl",
+      "bytes": 171634,
+      "sha256": "31081303b0e55c141ac79ceb3e6105d81a3ef333579762c030ec8051017d224f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-53.jsonl",
+      "bytes": 171616,
+      "sha256": "74ca200b93fd8ef8be02505a304b11dacc366378f8e0a4975ff403844effcbb9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-54.jsonl",
+      "bytes": 171703,
+      "sha256": "65c908d606f72c042563b54ed17f80f01fc05e52337053d6b61f1adfd6479644",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-55.jsonl",
+      "bytes": 171644,
+      "sha256": "648f422a14996a44aba520db66cba91a3a222bee1f9d10b5304d659a9510f10c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-56.jsonl",
+      "bytes": 171706,
+      "sha256": "3322462d5ad796c27c2e77ba93482c7d7f81013d234ac387131e477898c7438e",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-57.jsonl",
+      "bytes": 171680,
+      "sha256": "ac0db0ad30a34060f8cf127799a172f924fb069a7e409edf6a1d9821c3f77488",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-58.jsonl",
+      "bytes": 171686,
+      "sha256": "3680cdf39f1a2ff81be3c6d67770c0a495c9ed10732eda015757697139d07891",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-59.jsonl",
+      "bytes": 171608,
+      "sha256": "f66f297e1dacc8966246a824f1481cd20ae3f0a667b2981f96a4dad5a8893763",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-6.jsonl",
+      "bytes": 171640,
+      "sha256": "90b5ba24f3dd97393c66d3216e5b12a888d1c49add8ddd89e1099f341591c450",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-60.jsonl",
+      "bytes": 171745,
+      "sha256": "707aa6de3a8aef87d1121fa57ca4740e059a86d4a829669d4da7885b2a9f992d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-61.jsonl",
+      "bytes": 171705,
+      "sha256": "087bfb6f647fda0aa21b8b4aa281cbd45e7fe93f08ed5516ed49448d35dccb02",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-62.jsonl",
+      "bytes": 171661,
+      "sha256": "8c3a4df89f2e6838a7d0401a361820aee42ea7fe1a8b3b448b9b37e6dfeab86f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-63.jsonl",
+      "bytes": 171733,
+      "sha256": "12318080b70547f08a3579434f6a0a46ee6e692908c06a560bf6eaaa49c4239d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-64.jsonl",
+      "bytes": 171671,
+      "sha256": "0485f8cc3f7f8f2d6cb5ffef6d8395e3de51bca38fc3e356bb06f33208e0b8fc",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-65.jsonl",
+      "bytes": 171670,
+      "sha256": "43166d3ced06ad7c5423feed589ba785c969a282779614a1bcfff7ebe17fe435",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-66.jsonl",
+      "bytes": 171704,
+      "sha256": "185c27ab1b4deab80a7e0a24db3c95f7ac3f6ed007895c7712ea70609f50ce80",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-67.jsonl",
+      "bytes": 171689,
+      "sha256": "5f03093457b17c834569af4b948778f270d7be299b263bee2c605bd2cb965ac8",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-68.jsonl",
+      "bytes": 171670,
+      "sha256": "b2ae0452d06b10210db26f81a7d89e73a32c5986b56aa87621bbba1e8a800318",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-69.jsonl",
+      "bytes": 171695,
+      "sha256": "08d4bbe8f7fe9d636f24c2855702d64a3d1982dd55fe412f932ec475f01a89f3",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-7.jsonl",
+      "bytes": 171767,
+      "sha256": "3fb3dc0488aeb5c3d8f5880402fc235dc86a6e1b1ba93df23da3474c8dc439fd",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-70.jsonl",
+      "bytes": 171619,
+      "sha256": "4f759f0d708d130532e3c694f14dc26e3571e750c1ba4c499d357f463642cbf1",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-71.jsonl",
+      "bytes": 171645,
+      "sha256": "054bb4dddc60b83ce78758331f9f66753b12f9957bd6b971a3fefbe4880888f1",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-72.jsonl",
+      "bytes": 171665,
+      "sha256": "aaeb6d5ec3e45eb94ea5c5f2e06d117f122e262096b7baeaf3deb76071d5fcb1",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-73.jsonl",
+      "bytes": 171624,
+      "sha256": "4f1663a7be5b46e248b8f865041bb84936d4471defc25e713fa8164e29ced640",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-74.jsonl",
+      "bytes": 171613,
+      "sha256": "92a6594a6770b5b5204aca56a69fa396db7fb0bb68bdc49e57c18405e803a7ca",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-75.jsonl",
+      "bytes": 171690,
+      "sha256": "61c8540686e3589ea847bce9ed13781b0c72cc82a909fabf3ea543cf176af5b0",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-76.jsonl",
+      "bytes": 1201351,
+      "sha256": "ae2114916fd192e1bc07b2a1af528b74c095ef0dbea12b3f2375b3c904dd3cd6",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-77.jsonl",
+      "bytes": 2060160,
+      "sha256": "ed144e8adb6c6150fd742764ed11f9cee922503a29307ffcd98e153ffc431a84",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-78.jsonl",
+      "bytes": 2231410,
+      "sha256": "acdc1de4d36f226c9a1b555fdc5045066f49593174f501ecbcdd3348aebe316c",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-79.jsonl",
+      "bytes": 1888306,
+      "sha256": "ae6c3ae95ef66059f9d8f87cff51deb4552d02fad4a9aa7335dfa48f1f85c3e0",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-8.jsonl",
+      "bytes": 171605,
+      "sha256": "9f5d8680c06a5baad76c9c28cb7ff799a23801f512cbb32ca4c991e758e1e15d",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-80.jsonl",
+      "bytes": 1888400,
+      "sha256": "7eca94c11c0a811dde5f191cf8956a33adcbfcf0d7e2e2015d2427dd7dc5c860",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-81.jsonl",
+      "bytes": 1888321,
+      "sha256": "4080dfa1475e0766c2057c3926a645e5e29d9eb799a65be7e27954f7e0be56a3",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-82.jsonl",
+      "bytes": 1545247,
+      "sha256": "8b470124b3c78664aabfe58d1d45695df6caea525812bb5986682d0a1cbfa34f",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-83.jsonl",
+      "bytes": 1888490,
+      "sha256": "1bb75dd43c6608a5cff83460234d45aac5be3705350395ee019979303c277ffb",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-84.jsonl",
+      "bytes": 2231934,
+      "sha256": "f025c8a9b5c9ba7790c653a29d72821e40f240a67b4622aa39a2caa069c2c28b",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-85.jsonl",
+      "bytes": 2231498,
+      "sha256": "2cf75f39bad7dbc12e7b643e9ebc11d24f5fa4b583c31ba7a09192b51cadeb88",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-86.jsonl",
+      "bytes": 1888079,
+      "sha256": "4bba220c0156096172083c2b8653f5e3591f46fc2b306ec69fef191c7f817278",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-87.jsonl",
+      "bytes": 2231701,
+      "sha256": "b617521a3a17c7a104f1d7ddf6843e6f2a2a675061fafd35b354f135e50641a7",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-88.jsonl",
+      "bytes": 2231549,
+      "sha256": "e44546839b6c193ad2590e117fb13b1d06dd8b7185025308909c312e8634cf41",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-89.jsonl",
+      "bytes": 2060026,
+      "sha256": "a585db3299448ab7fda9ba83600312b4e01358a46b2040d41751f2ff97b94392",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-9.jsonl",
+      "bytes": 171632,
+      "sha256": "1ba0b31f33a23294dc809b5b07313fd0c4c0fac7dd6c476d6391d189b6e21921",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-90.jsonl",
+      "bytes": 2060178,
+      "sha256": "f8fbd11044e8d39e88037696ae9ecf3abda03bf91b7b9f3a43af481890be9589",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-91.jsonl",
+      "bytes": 2060153,
+      "sha256": "a37b8e5ff1bc97438abda68407891157fc1ce08267f697e2491d4c7401a12604",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-92.jsonl",
+      "bytes": 1373433,
+      "sha256": "f718e5e2918621591b88cc923eab6e092822bdcdd4042addc62c2a870dfc069a",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-93.jsonl",
+      "bytes": 2231819,
+      "sha256": "8d6b7619b0ea830f9a1c0d5592fdd76e9ef411730ce367d61f4ba92254d8b3be",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-94.jsonl",
+      "bytes": 2060333,
+      "sha256": "5e759724d4084bb0869923efe889918a58170332e23ff8f6d502b18cfd7c7a97",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-95.jsonl",
+      "bytes": 2231604,
+      "sha256": "e765a303b1bf7e42d88519fe4ece8576a564755cbddc3f673228836bb4c8e608",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-96.jsonl",
+      "bytes": 2231677,
+      "sha256": "26f202391b98debcefd9e68d30a4b2b388273dcaee6a007683ae12ec4db631fb",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-97.jsonl",
+      "bytes": 2403476,
+      "sha256": "eb6b5fce2bed25f188b23691800ab7516c7610d90be79d57486aec875bab4556",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-98.jsonl",
+      "bytes": 2059865,
+      "sha256": "6ae301b013bd8a27c6426c42bdfb1405e31fd1457e25e683be618ea2ec2f5be6",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    },
+    {
+      "uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7/1791097145996-99.jsonl",
+      "bytes": 1373114,
+      "sha256": "ba8a3abb9659fd0b51f0f53e43026c8c655b304b20a10329093aa93db03851a9",
+      "replication": 1,
+      "matches_source": true,
+      "unchanged_during_read": true
+    }
+  ],
+  "method": "HDFS FSDataInputStream -> Java DigestInputStream SHA-256 -> IOUtils.copyBytes -> nullOutputStream",
+  "filesystem_class": "org.apache.hadoop.hdfs.DistributedFileSystem",
+  "hadoop_client": "3.3.4",
+  "missing_files": [],
+  "unexpected_files": [],
+  "total_bytes": 343872495,
+  "local_fallback": false,
+  "finished_at_utc": "2026-10-15T06:17:11.681373+00:00"
+}

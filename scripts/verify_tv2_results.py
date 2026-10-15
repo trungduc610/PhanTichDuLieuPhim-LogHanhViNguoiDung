@@ -6,16 +6,18 @@ import math
 from pathlib import Path
 from common import sha256, utcnow
 from hdfs_common import ROOT, new_json
+from tv2_common import evidence_folder, valid_hourly_ranks
 
 
-def verify(run_id, report):
-    folder = ROOT / 'evidence/week2-tv2' / run_id
+def verify(run_id, report, evidence_root='evidence/week2-tv2'):
+    folder = evidence_folder(ROOT, run_id, evidence_root)
     load = lambda name: json.loads((folder / name).read_text(encoding='utf-8'))
     status, pipeline, context = load('run_status.json'), load('pipeline_summary.json'), load('run_context.json')
     checks = {'runner_pass': status['status'] == 'PASS', 'pipeline_pass': pipeline['status'] == 'PASS',
               'no_local_fallback': pipeline['local_fallback'] is False,
               'model_reloaded_assignments_match': pipeline['model_reload_assignments_match'] is True,
               'code_hashes_match': all(sha256(ROOT/name) == expected for name,expected in context['code_hashes'].items())}
+    if evidence_root=='evidence/week3-tv2':checks['independent_runtime_verification']=load('runtime-verification.json')['status']=='PASS'
     manifest = load('output_manifest.json')
     checks['output_read_back_counts'] = all(row['rows'] == row['read_back_rows'] for row in manifest['artifacts'])
     source = load('source_manifest.json')
@@ -66,7 +68,7 @@ def verify(run_id, report):
     checks['all_ten_profile_means_reconcile'] = profiles_ok
     combined = data['stats_user_movie_time']
     checks['seven_analysis_groups_present'] = all('stats_'+name in data for name in ['top_movies_by_play','top_genres','daily_active_users','hourly_activity','action_distribution','watch_duration_summary','user_movie_time'])
-    checks['combined_hours_ranks'] = len(combined) == 72 and all(sorted(row['rank'] for row in combined if row['hour'] == hour) == [1,2,3] for hour in range(24))
+    checks['combined_hours_ranks'] = valid_hourly_ranks(combined)
     checks['daily_counts_in_range'] = all(0 <= row['activeUsers'] <= len(users) for row in data['stats_daily_active_users'])
     result = {'status':'PASS' if all(checks.values()) else 'FAIL','run_id':run_id,'checked_at_utc':utcnow(),
       'checks':checks,'local_csv_json_counts':counts,'raw_files':len(expected),'raw_bytes':sum(row[0] for row in expected.values()),
@@ -81,7 +83,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-id',required=True)
     parser.add_argument('--report',required=True)
+    parser.add_argument('--evidence-root',choices=['evidence/week2-tv2','evidence/week3-tv2'],default='evidence/week2-tv2')
     args = parser.parse_args()
-    result = verify(args.run_id,args.report)
+    result = verify(args.run_id,args.report,args.evidence_root)
     print(json.dumps(result,ensure_ascii=True,indent=2))
     raise SystemExit(0 if result['status'] == 'PASS' else 1)

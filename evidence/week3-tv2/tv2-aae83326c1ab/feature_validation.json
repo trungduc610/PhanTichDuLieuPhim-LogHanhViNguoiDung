@@ -1,0 +1,14 @@
+{
+  "users": 1000,
+  "unique_users": 1000,
+  "playCount_invalid": 0,
+  "completeCount_invalid": 0,
+  "totalWatchDuration_invalid": 0,
+  "avgWatchDuration_invalid": 0,
+  "distinctMovies_invalid": 0,
+  "distinctGenres_invalid": 0,
+  "sessionCount_invalid": 0,
+  "completionRate_invalid": 0,
+  "activeDays_invalid": 0,
+  "eventCount_invalid": 0
+}

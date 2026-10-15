@@ -1,0 +1,2 @@
+movie-hdfs-124cbf30bda7_datanode
+movie-hdfs-124cbf30bda7_namenode

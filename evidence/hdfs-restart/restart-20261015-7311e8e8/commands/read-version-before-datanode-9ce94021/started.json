@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "docker",
+    "cp",
+    "movie-hdfs-124cbf30bda7-datanode-1:/hdfs/data/current/VERSION",
+    "-"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-15T06:14:00.142423+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\hdfs-restart\\restart-20261015-7311e8e8\\commands\\read-version-before-datanode-9ce94021\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\hdfs-restart\\restart-20261015-7311e8e8\\commands\\read-version-before-datanode-9ce94021\\stderr.txt"
+}

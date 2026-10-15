@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-f",
+    "compose.tv2.yaml",
+    "-p",
+    "movie-hdfs-124cbf30bda7",
+    "--profile",
+    "spark",
+    "run",
+    "--rm",
+    "--no-deps",
+    "spark",
+    "--driver-memory",
+    "1g",
+    "scripts/tv2_spark_tests.py",
+    "--report",
+    "evidence/week3-tv2/tv2-5c5f819cacaa/spark-fixture-tests.json"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-15T06:36:25.739929+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2\\tv2-5c5f819cacaa\\commands\\tv2-spark-fixtures-631c2046\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2\\tv2-5c5f819cacaa\\commands\\tv2-spark-fixtures-631c2046\\stderr.txt"
+}

@@ -1,0 +1,2 @@
+           1            1             533347 /movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7
+           1          254          343339148 /movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7

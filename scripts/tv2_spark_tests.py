@@ -101,6 +101,15 @@ class SparkFixtures(unittest.TestCase):
         finally:
             clean.unpersist()
             for frame in buffers:frame.unpersist()
+    def test_independent_comparison_rejects_corrupt_duplicate_and_missing_rows(self):
+        from tv2_runtime_verify import compare_frames
+        expected=self.spark.createDataFrame([(1,2.0),(2,4.0)],'id long,value double')
+        self.assertTrue(compare_frames(expected,expected,['id'])['pass'])
+        for actual in [self.spark.createDataFrame([(1,2.0)],'id long,value double'),
+                       self.spark.createDataFrame([(1,2.0),(1,2.0)],'id long,value double'),
+                       self.spark.createDataFrame([(1,2.0),(2,99.0)],'id long,value double')]:
+            self.assertFalse(compare_frames(expected,actual,['id'])['pass'])
+
     def test_movie_duplicates_and_allowed_unknown_metadata(self):
         movies=self.movies()
         self.assertEqual(validate_movies(movies)['rows'],1)

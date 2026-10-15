@@ -1,0 +1,40 @@
+{
+  "argv": [
+    "docker",
+    "compose",
+    "-f",
+    "compose.hdfs.yaml",
+    "-p",
+    "movie-hdfs-124cbf30bda7",
+    "--profile",
+    "spark",
+    "run",
+    "--no-deps",
+    "--pull",
+    "never",
+    "--name",
+    "hdfs-baseline-qa-7311e8e8",
+    "spark",
+    "--driver-memory",
+    "1536m",
+    "scripts/spark_hdfs_validate.py",
+    "--source-manifest",
+    "evidence/week2-hdfs/hdfs-124cbf30bda7/source_manifest.json",
+    "--hdfs-verification",
+    "evidence/hdfs-restart/restart-20261015-7311e8e8/raw-hashes.json",
+    "--report",
+    "evidence/hdfs-restart/restart-20261015-7311e8e8/spark-hdfs-qa.json"
+  ],
+  "cwd": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata",
+  "started_at_utc": "2026-10-15T06:17:12.377464+00:00",
+  "environment": {
+    "HDFS_RUN_ID": "hdfs-124cbf30bda7",
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\hdfs-restart\\restart-20261015-7311e8e8\\commands\\spark-full-hdfs-qa-83b284d5\\stdout.txt",
+  "stderr": "D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\hdfs-restart\\restart-20261015-7311e8e8\\commands\\spark-full-hdfs-qa-83b284d5\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-15T06:18:39.231239+00:00"
+}

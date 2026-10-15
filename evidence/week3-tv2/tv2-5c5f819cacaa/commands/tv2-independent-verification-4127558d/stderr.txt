@@ -1,0 +1,6 @@
+time="2026-10-15T13:41:41+07:00" level=warning msg="Found orphan containers (hdfs-baseline-qa-7311e8e8, hdfs-baseline-hash-7311e8e8) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container movie-hdfs-124cbf30bda7-spark-run-2f48b196ec8c Creating 
+ Container movie-hdfs-124cbf30bda7-spark-run-2f48b196ec8c Created 
+26/10/15 06:41:47 INFO ShutdownHookManager: Shutdown hook called
+26/10/15 06:41:47 INFO ShutdownHookManager: Deleting directory /tmp/spark-c802e6ed-d413-4ad0-991f-51306f426998
+

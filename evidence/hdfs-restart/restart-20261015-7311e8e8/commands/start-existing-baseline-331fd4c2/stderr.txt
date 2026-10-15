@@ -1,0 +1,4 @@
+ Container movie-hdfs-124cbf30bda7-namenode-1 Starting 
+ Container movie-hdfs-124cbf30bda7-namenode-1 Started 
+ Container movie-hdfs-124cbf30bda7-datanode-1 Starting 
+ Container movie-hdfs-124cbf30bda7-datanode-1 Started 

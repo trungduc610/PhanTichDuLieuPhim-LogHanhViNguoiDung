@@ -1,0 +1,10 @@
+{
+  "status": "BLOCKED_BY_TV1_RUNTIME",
+  "run_id": "tv2-0523e144a808",
+  "evidence": "evidence/week3-tv2/tv2-0523e144a808",
+  "checks": {},
+  "runtime_gate": "BLOCKED_BY_TV1_RUNTIME",
+  "local_fallback": false,
+  "error": "HDFS services not running; TV2 will not fall back to local",
+  "finished_at_utc": "2026-10-15T06:01:41.207503+00:00"
+}

@@ -1,0 +1,53 @@
+{
+  "run_id": "hdfs-124cbf30bda7",
+  "project": "movie-hdfs-124cbf30bda7",
+  "flume_run_id": "run-f63c810e9d8d",
+  "source_manifest": "evidence/week2-hdfs/hdfs-124cbf30bda7/source_manifest.json",
+  "source_manifest_sha256": "fdb4c551c34b412a5af3480191d0fb975c64fd43b5a5b80401ea0b0fabd959de",
+  "configuration_hashes": {
+    "compose.hdfs.yaml": "c9afaae9ee08fafa757014cbeb43fa37f6d74c4d86fbef0dabaa917e3db9ec24",
+    "config/hdfs/core-site.xml": "67c630f4c15c668c3b687165de09c3d7cd02eee679658a861ea30ab9d638a1b3",
+    "config/hdfs/hdfs-site.xml": "23ea6f5bc3fd8e9351c247b7709a5d1454631982ff1c6a644592b237c90d2653",
+    "config/hdfs/log4j.properties": "8f4f3c1769b40e553b25fd23efabf63855a6d6482e1ca25cf776dee0506b64cf",
+    "scripts/hdfs_service.sh": "b52f82d5019c36273ca61644fcfada9bfb3dfcabde992ae515ee0e8df2a00a7e",
+    "scripts/run_hdfs.py": "83b68ebdebb860e405fd9dfd0e1e2a8166a77bb8bd2aa3e65e4e737489055d13",
+    "scripts/hdfs_common.py": "f52b831067b7f7c6a1eb6646c1626e507ed57a9e4cd540be121d070d930afd91",
+    "scripts/hdfs_source.py": "21ad2286440df5a844a74501e65586961fa0578da605dcd06f9ae642cc027bd8"
+  },
+  "nodes_before": {
+    "namenode": {
+      "id": "e432287e89a9a4638af95c1177696409e2695f53cde98c13211bccfa96aa812c",
+      "name": "movie-hdfs-124cbf30bda7-namenode-1",
+      "volume": "movie-hdfs-124cbf30bda7_namenode",
+      "store": "/hdfs/name",
+      "state": "exited"
+    },
+    "datanode": {
+      "id": "866c0002ca4d92449d902495c925f8024ec49da9ee2519b562c0c31f97983992",
+      "name": "movie-hdfs-124cbf30bda7-datanode-1",
+      "volume": "movie-hdfs-124cbf30bda7_datanode",
+      "store": "/hdfs/data",
+      "state": "exited"
+    }
+  },
+  "versions_before": {
+    "namenode": {
+      "namespaceID": "601087925",
+      "clusterID": "hdfs-124cbf30bda7",
+      "cTime": "1791814590482",
+      "storageType": "NAME_NODE",
+      "blockpoolID": "BP-1003441718-172.19.0.2-1791814590482",
+      "layoutVersion": "-66"
+    },
+    "datanode": {
+      "storageID": "DS-51c18cd5-1aa7-4a9d-b76d-d5cbd2f9eab6",
+      "clusterID": "hdfs-124cbf30bda7",
+      "cTime": "0",
+      "datanodeUuid": "9c9dc52c-27d9-42e0-8cd0-87bf86a21fdc",
+      "storageType": "DATA_NODE",
+      "layoutVersion": "-57"
+    }
+  },
+  "created_at_utc": "2026-10-15T06:14:00.251204+00:00",
+  "evidence": "evidence/hdfs-restart/restart-20261015-7311e8e8"
+}

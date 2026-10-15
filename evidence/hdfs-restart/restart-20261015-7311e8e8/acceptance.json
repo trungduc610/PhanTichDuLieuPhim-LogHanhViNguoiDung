@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-15T06:20:49.114720+00:00",
+  "hdfs_run": "hdfs-124cbf30bda7",
+  "project": "movie-hdfs-124cbf30bda7",
+  "flume_run": "run-f63c810e9d8d",
+  "volumes": {
+    "namenode": "movie-hdfs-124cbf30bda7_namenode",
+    "datanode": "movie-hdfs-124cbf30bda7_datanode"
+  },
+  "containers": {
+    "namenode": {
+      "name": "movie-hdfs-124cbf30bda7-namenode-1",
+      "id": "e432287e89a9a4638af95c1177696409e2695f53cde98c13211bccfa96aa812c",
+      "status": "running",
+      "restart_count": 0,
+      "volume": "movie-hdfs-124cbf30bda7_namenode"
+    },
+    "datanode": {
+      "name": "movie-hdfs-124cbf30bda7-datanode-1",
+      "id": "866c0002ca4d92449d902495c925f8024ec49da9ee2519b562c0c31f97983992",
+      "status": "running",
+      "restart_count": 0,
+      "volume": "movie-hdfs-124cbf30bda7_datanode"
+    }
+  },
+  "live_datanodes": 1,
+  "safe_mode": "OFF",
+  "fsck": "HEALTHY",
+  "movies_uri": "hdfs://namenode:9000/movie-log/raw/movies/mls-1df01064e7a0-hdfs-124cbf30bda7/movies.csv",
+  "logs_uri": "hdfs://namenode:9000/movie-log/raw/user_logs/run-f63c810e9d8d/hdfs-124cbf30bda7",
+  "movie_files": 1,
+  "log_files": 254,
+  "raw_files": 255,
+  "raw_bytes": 343872495,
+  "hash_verified_files": 255,
+  "hash_mismatches": 0,
+  "spark": {
+    "status": "PASS",
+    "checked_at_utc": "2026-10-15T06:18:39.281904+00:00",
+    "filesystem": "org.apache.hadoop.hdfs.DistributedFileSystem",
+    "local_fallback": false,
+    "movies": 9742,
+    "events": 1000000,
+    "unique_event_ids": 1000000,
+    "log_source_files": 254,
+    "qa_groups": 23,
+    "qa_errors": 0,
+    "raw_hash_files": 255,
+    "raw_hash_bytes": 343872495,
+    "raw_hash_mismatches": 0,
+    "source_manifest": "evidence/week2-hdfs/hdfs-124cbf30bda7/source_manifest.json"
+  },
+  "safety": {
+    "existing_containers_reused": true,
+    "storage_properties_unchanged": true,
+    "no_format": true,
+    "no_volume_deletion": true,
+    "no_raw_overwrite_or_reimport": true,
+    "same_cluster": true,
+    "no_flume_rerun": true,
+    "source_unchanged": true,
+    "no_tv2_pipeline": true,
+    "no_commit_push": true
+  },
+  "can_tv2_week3_continue": true,
+  "evidence": "evidence/hdfs-restart/restart-20261015-7311e8e8"
+}

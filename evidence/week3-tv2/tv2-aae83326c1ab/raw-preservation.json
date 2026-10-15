@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-15T07:00:04.735427+00:00",
+  "files_before": 255,
+  "files_after": 255,
+  "bytes_before": 343872495,
+  "bytes_after": 343872495,
+  "unchanged_files": 255,
+  "missing": [],
+  "extra": [],
+  "hash_or_size_mismatches": []
+}

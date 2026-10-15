@@ -1,0 +1,24 @@
+{
+  "runtime_gate": "BLOCKED_BY_TV1_RUNTIME",
+  "source_audit": "PARTIAL",
+  "host_tests": "PASS",
+  "spark_fixtures": "NOT_RUN",
+  "hdfs_input_verification": "NOT_RUN",
+  "preprocessing": "NOT_RUN",
+  "transformation_join": "NOT_RUN",
+  "analysis_cross_checks": {
+    "top_movies_by_play": "NOT_RUN",
+    "top_genres": "NOT_RUN",
+    "daily_active_users": "NOT_RUN",
+    "hourly_activity": "NOT_RUN",
+    "action_distribution": "NOT_RUN",
+    "watch_duration_summary": "NOT_RUN",
+    "user_movie_time": "NOT_RUN"
+  },
+  "feature_engineering": "NOT_RUN",
+  "kmeans": "NOT_RUN",
+  "result_verifier": "NOT_RUN",
+  "model_reload": "NOT_RUN",
+  "raw_before_after": "NOT_RUN",
+  "handoff": "NOT_RELEASED"
+}

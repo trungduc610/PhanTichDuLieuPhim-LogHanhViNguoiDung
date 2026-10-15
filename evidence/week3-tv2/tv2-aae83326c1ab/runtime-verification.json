@@ -1,0 +1,1030 @@
+{
+  "status": "PASS",
+  "run_id": "tv2-aae83326c1ab",
+  "started_at_utc": "2026-10-15T06:55:51.609442+00:00",
+  "checks": {
+    "cleaning_and_join_identity": true,
+    "clean_join_payload_preserved": true,
+    "transformation_values": true,
+    "analysis_totals": true,
+    "all_seven_analyses": true,
+    "independent_features": true,
+    "variance_and_exclusion_remeasured": true,
+    "excluded_features_justified": true,
+    "all_output_formats_schemas_counts_values": true,
+    "independent_model_reload": true,
+    "prepared_vectors_match_saved_scaler": true
+  },
+  "analyses": {
+    "top_movies_by_play": {
+      "pass": true,
+      "expected_rows": 20,
+      "actual_rows": 20,
+      "expected_duplicate_keys": 0,
+      "actual_duplicate_keys": 0,
+      "mismatched_rows": 0
+    },
+    "top_genres": {
+      "pass": true,
+      "expected_rows": 20,
+      "actual_rows": 20,
+      "expected_duplicate_keys": 0,
+      "actual_duplicate_keys": 0,
+      "mismatched_rows": 0
+    },
+    "daily_active_users": {
+      "pass": true,
+      "expected_rows": 30,
+      "actual_rows": 30,
+      "expected_duplicate_keys": 0,
+      "actual_duplicate_keys": 0,
+      "mismatched_rows": 0
+    },
+    "hourly_activity": {
+      "pass": true,
+      "expected_rows": 24,
+      "actual_rows": 24,
+      "expected_duplicate_keys": 0,
+      "actual_duplicate_keys": 0,
+      "mismatched_rows": 0
+    },
+    "action_distribution": {
+      "pass": true,
+      "expected_rows": 5,
+      "actual_rows": 5,
+      "expected_duplicate_keys": 0,
+      "actual_duplicate_keys": 0,
+      "mismatched_rows": 0
+    },
+    "user_movie_time": {
+      "pass": true,
+      "expected_rows": 72,
+      "actual_rows": 72,
+      "expected_duplicate_keys": 0,
+      "actual_duplicate_keys": 0,
+      "mismatched_rows": 0
+    },
+    "watch_duration_summary": {
+      "pass": true,
+      "expected_rows": 2,
+      "actual_rows": 2,
+      "expected_duplicate_keys": 0,
+      "actual_duplicate_keys": 0,
+      "mismatched_rows": 0,
+      "approximate_median_rank_checks": [
+        {
+          "scope": "all_events",
+          "median": 0.0,
+          "pass": true,
+          "less": 0,
+          "less_equal": 651526
+        },
+        {
+          "scope": "watch_segments",
+          "median": 3833.0,
+          "pass": true,
+          "less": 174218,
+          "less_equal": 174244
+        }
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "name": "input_counts",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/input_counts",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "cleaning_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/cleaning_summary",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "cleaned_logs",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-aae83326c1ab/cleaned_logs",
+      "expected_rows": 1000000,
+      "rows": 1000000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "rejected_logs",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-aae83326c1ab/rejected_logs",
+      "expected_rows": 0,
+      "rows": 0,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "joined_events",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-aae83326c1ab/joined_events",
+      "expected_rows": 1000000,
+      "rows": 1000000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "transformation_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/transformation_summary",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "join_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/join_summary",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/top_movies_by_play",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/top_movies_by_play/parquet",
+      "expected_rows": 20,
+      "rows": 20,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/top_movies_by_play",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/top_movies_by_play/csv",
+      "expected_rows": 20,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 20,
+        "actual_rows": 20,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 20,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/top_movies_by_play",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/top_movies_by_play/json",
+      "expected_rows": 20,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 20,
+        "actual_rows": 20,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 20,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/top_genres",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/top_genres/parquet",
+      "expected_rows": 20,
+      "rows": 20,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/top_genres",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/top_genres/csv",
+      "expected_rows": 20,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 20,
+        "actual_rows": 20,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 20,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/top_genres",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/top_genres/json",
+      "expected_rows": 20,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 20,
+        "actual_rows": 20,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 20,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/daily_active_users",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/daily_active_users/parquet",
+      "expected_rows": 30,
+      "rows": 30,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/daily_active_users",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/daily_active_users/csv",
+      "expected_rows": 30,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 30,
+        "actual_rows": 30,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 30,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/daily_active_users",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/daily_active_users/json",
+      "expected_rows": 30,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 30,
+        "actual_rows": 30,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 30,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/hourly_activity",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/hourly_activity/parquet",
+      "expected_rows": 24,
+      "rows": 24,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/hourly_activity",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/hourly_activity/csv",
+      "expected_rows": 24,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 24,
+        "actual_rows": 24,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 24,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/hourly_activity",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/hourly_activity/json",
+      "expected_rows": 24,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 24,
+        "actual_rows": 24,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 24,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/action_distribution",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/action_distribution/parquet",
+      "expected_rows": 5,
+      "rows": 5,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/action_distribution",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/action_distribution/csv",
+      "expected_rows": 5,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 5,
+        "actual_rows": 5,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 5,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/action_distribution",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/action_distribution/json",
+      "expected_rows": 5,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 5,
+        "actual_rows": 5,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 5,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/watch_duration_summary",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/watch_duration_summary/parquet",
+      "expected_rows": 2,
+      "rows": 2,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/watch_duration_summary",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/watch_duration_summary/csv",
+      "expected_rows": 2,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 2,
+        "actual_rows": 2,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 2,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/watch_duration_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/watch_duration_summary/json",
+      "expected_rows": 2,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 2,
+        "actual_rows": 2,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 2,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/user_movie_time",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/user_movie_time/parquet",
+      "expected_rows": 72,
+      "rows": 72,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/user_movie_time",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/user_movie_time/csv",
+      "expected_rows": 72,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 72,
+        "actual_rows": 72,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 72,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "stats/user_movie_time",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/stats/user_movie_time/json",
+      "expected_rows": 72,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 72,
+        "actual_rows": 72,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 72,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "statistics_summary",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/statistics_summary",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "user_features",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/processed/tv2/tv2-aae83326c1ab/user_features",
+      "expected_rows": 1000,
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/features_prepared",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/features_prepared",
+      "expected_rows": 1000,
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/user_features",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/user_features/parquet",
+      "expected_rows": 1000,
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/user_features",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/user_features/csv",
+      "expected_rows": 1000,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 1000,
+        "actual_rows": 1000,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/user_features",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/user_features/json",
+      "expected_rows": 1000,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 1000,
+        "actual_rows": 1000,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/k_search",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/k_search/parquet",
+      "expected_rows": 5,
+      "rows": 5,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/k_search",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/k_search/csv",
+      "expected_rows": 5,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 5,
+        "actual_rows": 5,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 5,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/k_search",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/k_search/json",
+      "expected_rows": 5,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 5,
+        "actual_rows": 5,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 5,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/assignments",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/assignments/parquet",
+      "expected_rows": 1000,
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/assignments",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/assignments/csv",
+      "expected_rows": 1000,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 1000,
+        "actual_rows": 1000,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/assignments",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/assignments/json",
+      "expected_rows": 1000,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 1000,
+        "actual_rows": 1000,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 1000,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/cluster_profiles",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/cluster_profiles/parquet",
+      "expected_rows": 2,
+      "rows": 2,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/cluster_profiles",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/cluster_profiles/csv",
+      "expected_rows": 2,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 2,
+        "actual_rows": 2,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 2,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/cluster_profiles",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/cluster_profiles/json",
+      "expected_rows": 2,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 2,
+        "actual_rows": 2,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 2,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans_search",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/kmeans_search",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "selected_k",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/selected_k",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "cluster_profiles",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/cluster_profiles",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "feature_validation",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/feature_validation",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "model_metadata",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/reports/model_metadata",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/model_metadata",
+      "format": "parquet",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/model_metadata/parquet",
+      "expected_rows": 1,
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/model_metadata",
+      "format": "csv",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/model_metadata/csv",
+      "expected_rows": 1,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 1,
+        "actual_rows": 1,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    },
+    {
+      "name": "kmeans/model_metadata",
+      "format": "json",
+      "uri": "hdfs://namenode:9000/movie-log/results/tv2/tv2-aae83326c1ab/kmeans/model_metadata/json",
+      "expected_rows": 1,
+      "value_comparison": {
+        "pass": true,
+        "expected_rows": 1,
+        "actual_rows": 1,
+        "expected_duplicate_keys": 0,
+        "actual_duplicate_keys": 0,
+        "mismatched_rows": 0
+      },
+      "rows": 1,
+      "schema_valid": true,
+      "values_valid": true,
+      "pass": true
+    }
+  ],
+  "source_sha256": "70811b8699a5fbbda63f603a382d48093c13d8d2032db134730933abb2c4629c",
+  "method": "Independent SQL on HDFS joined Parquet, keyed full-value comparisons, format read-back and model reload",
+  "filesystem": "org.apache.hadoop.hdfs.DistributedFileSystem",
+  "local_fallback": false,
+  "joined_events": 1000000,
+  "clean_join_payload": {
+    "pass": true,
+    "expected_rows": 1000000,
+    "actual_rows": 1000000,
+    "expected_duplicate_keys": 0,
+    "actual_duplicate_keys": 0,
+    "mismatched_rows": 0
+  },
+  "transformation_bad_rows": 0,
+  "features": {
+    "pass": true,
+    "expected_rows": 1000,
+    "actual_rows": 1000,
+    "expected_duplicate_keys": 0,
+    "actual_duplicate_keys": 0,
+    "mismatched_rows": 0
+  },
+  "feature_variances": {
+    "playCount": 3892.001325325325,
+    "completeCount": 123.44379479479483,
+    "totalWatchDuration": 12401886805.673227,
+    "avgWatchDuration": 141364.01119699475,
+    "distinctMovies": 4016.978334334334,
+    "distinctGenres": 0.33579179179179186,
+    "sessionCount": 8975.340636636633,
+    "completionRate": 0.003497210334119927,
+    "activeDays": 0.0,
+    "eventCount": 46756.66466466468
+  },
+  "feature_correlations": [
+    {
+      "left": "playCount",
+      "right": "completeCount",
+      "pearson": 0.6456913063139487
+    },
+    {
+      "left": "playCount",
+      "right": "totalWatchDuration",
+      "pearson": 0.8869346637951245
+    },
+    {
+      "left": "playCount",
+      "right": "avgWatchDuration",
+      "pearson": -0.94260605342261
+    },
+    {
+      "left": "playCount",
+      "right": "distinctMovies",
+      "pearson": 0.9498165103677793
+    },
+    {
+      "left": "playCount",
+      "right": "distinctGenres",
+      "pearson": 0.18504558447475433
+    },
+    {
+      "left": "playCount",
+      "right": "sessionCount",
+      "pearson": 0.9395967306527965
+    },
+    {
+      "left": "playCount",
+      "right": "completionRate",
+      "pearson": -0.8729853263837143
+    },
+    {
+      "left": "playCount",
+      "right": "eventCount",
+      "pearson": 0.9886913196809042
+    },
+    {
+      "left": "completeCount",
+      "right": "totalWatchDuration",
+      "pearson": 0.809882639541552
+    },
+    {
+      "left": "completeCount",
+      "right": "avgWatchDuration",
+      "pearson": -0.5275931305843848
+    },
+    {
+      "left": "completeCount",
+      "right": "distinctMovies",
+      "pearson": 0.5294183982852483
+    },
+    {
+      "left": "completeCount",
+      "right": "distinctGenres",
+      "pearson": 0.10322335650590694
+    },
+    {
+      "left": "completeCount",
+      "right": "sessionCount",
+      "pearson": 0.4989701642997511
+    },
+    {
+      "left": "completeCount",
+      "right": "completionRate",
+      "pearson": -0.2739170796687686
+    },
+    {
+      "left": "completeCount",
+      "right": "eventCount",
+      "pearson": 0.5911942654182083
+    },
+    {
+      "left": "totalWatchDuration",
+      "right": "avgWatchDuration",
+      "pearson": -0.7374709069286095
+    },
+    {
+      "left": "totalWatchDuration",
+      "right": "distinctMovies",
+      "pearson": 0.7848031582495035
+    },
+    {
+      "left": "totalWatchDuration",
+      "right": "distinctGenres",
+      "pearson": 0.18450860505283084
+    },
+    {
+      "left": "totalWatchDuration",
+      "right": "sessionCount",
+      "pearson": 0.7614404832760867
+    },
+    {
+      "left": "totalWatchDuration",
+      "right": "completionRate",
+      "pearson": -0.7094019427702508
+    },
+    {
+      "left": "totalWatchDuration",
+      "right": "eventCount",
+      "pearson": 0.8453940544829709
+    },
+    {
+      "left": "avgWatchDuration",
+      "right": "distinctMovies",
+      "pearson": -0.87082878187929
+    },
+    {
+      "left": "avgWatchDuration",
+      "right": "distinctGenres",
+      "pearson": -0.1695954109161674
+    },
+    {
+      "left": "avgWatchDuration",
+      "right": "sessionCount",
+      "pearson": -0.8551120187449719
+    },
+    {
+      "left": "avgWatchDuration",
+      "right": "completionRate",
+      "pearson": 0.8755180085215567
+    },
+    {
+      "left": "avgWatchDuration",
+      "right": "eventCount",
+      "pearson": -0.9185582225868564
+    },
+    {
+      "left": "distinctMovies",
+      "right": "distinctGenres",
+      "pearson": 0.17877637909368777
+    },
+    {
+      "left": "distinctMovies",
+      "right": "sessionCount",
+      "pearson": 0.9912447214411969
+    },
+    {
+      "left": "distinctMovies",
+      "right": "completionRate",
+      "pearson": -0.8433634485806963
+    },
+    {
+      "left": "distinctMovies",
+      "right": "eventCount",
+      "pearson": 0.982362756859807
+    },
+    {
+      "left": "distinctGenres",
+      "right": "sessionCount",
+      "pearson": 0.16966747458908515
+    },
+    {
+      "left": "distinctGenres",
+      "right": "completionRate",
+      "pearson": -0.19386226897667116
+    },
+    {
+      "left": "distinctGenres",
+      "right": "eventCount",
+      "pearson": 0.18111248477762187
+    },
+    {
+      "left": "sessionCount",
+      "right": "completionRate",
+      "pearson": -0.8323606140207425
+    },
+    {
+      "left": "sessionCount",
+      "right": "eventCount",
+      "pearson": 0.9803016437196428
+    },
+    {
+      "left": "completionRate",
+      "right": "eventCount",
+      "pearson": -0.8684172244803254
+    }
+  ],
+  "event_count_redundancy_bad_users": 0,
+  "model_reload": {
+    "pass": true,
+    "expected_rows": 1000,
+    "actual_rows": 1000,
+    "expected_duplicate_keys": 0,
+    "actual_duplicate_keys": 0,
+    "mismatched_rows": 0
+  },
+  "prepared_vectors": {
+    "pass": true,
+    "expected_rows": 1000,
+    "actual_rows": 1000,
+    "expected_duplicate_keys": 0,
+    "actual_duplicate_keys": 0,
+    "mismatched_rows": 0
+  },
+  "finished_at_utc": "2026-10-15T06:58:30.330536+00:00"
+}

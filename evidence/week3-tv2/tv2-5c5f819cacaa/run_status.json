@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "run_id": "tv2-5c5f819cacaa",
+  "evidence": "evidence/week3-tv2/tv2-5c5f819cacaa",
+  "checks": {},
+  "runtime_gate": "PASS",
+  "local_fallback": false,
+  "error": "tv2-independent-verification exit 1; see D:\\Code\\Bigdata\\movie-log-bigdata-week1\\movie-log-bigdata\\evidence\\week3-tv2\\tv2-5c5f819cacaa\\commands\\tv2-independent-verification-4127558d",
+  "finished_at_utc": "2026-10-15T06:41:48.141870+00:00"
+}

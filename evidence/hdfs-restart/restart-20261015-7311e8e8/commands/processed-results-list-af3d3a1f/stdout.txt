@@ -1,0 +1,4 @@
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-10-12 16:02 /movie-log/processed/tv2
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2026-10-12 16:02 /movie-log/results/tv2

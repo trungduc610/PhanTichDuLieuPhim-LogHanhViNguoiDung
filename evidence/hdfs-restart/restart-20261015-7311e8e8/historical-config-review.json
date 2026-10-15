@@ -1,0 +1,13 @@
+{
+  "initial_preflight": "STOPPED_BEFORE_START",
+  "status": "REVIEWED",
+  "mismatches": {
+    "scripts/hdfs_common.py": {
+      "historical": "a0fad9d1dbc2df51bc728cc20a7146572fc2c7790bdc9c376dc62a71ea205839",
+      "current": "f52b831067b7f7c6a1eb6646c1626e507ed57a9e4cd540be121d070d930afd91"
+    }
+  },
+  "bootstrap_files_match": true,
+  "reason": "Only the host evidence/namespace helper differs from the Week 2 receipt. Reviewed current source; not executed by the HDFS service entrypoint. No source modified.",
+  "checked_at_utc": "2026-10-15T06:13:59.324531+00:00"
+}

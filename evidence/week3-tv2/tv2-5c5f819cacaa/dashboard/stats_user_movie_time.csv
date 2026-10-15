@@ -1,0 +1,73 @@
+hour,movieId,title,playCount,distinctUsers,rank
+0,7262,Catch That Kid (2004),428,337,1
+0,100044,Human Planet (2011),216,184,2
+0,45720,"Devil Wears Prada, The (2006)",164,146,3
+1,7262,Catch That Kid (2004),570,420,1
+1,100044,Human Planet (2011),225,188,2
+1,45720,"Devil Wears Prada, The (2006)",150,135,3
+2,7262,Catch That Kid (2004),591,414,1
+2,100044,Human Planet (2011),272,224,2
+2,45720,"Devil Wears Prada, The (2006)",163,137,3
+3,7262,Catch That Kid (2004),598,422,1
+3,100044,Human Planet (2011),253,212,2
+3,45720,"Devil Wears Prada, The (2006)",165,139,3
+4,7262,Catch That Kid (2004),536,380,1
+4,100044,Human Planet (2011),245,194,2
+4,45720,"Devil Wears Prada, The (2006)",172,144,3
+5,7262,Catch That Kid (2004),421,329,1
+5,100044,Human Planet (2011),192,153,2
+5,45720,"Devil Wears Prada, The (2006)",137,116,3
+6,7262,Catch That Kid (2004),784,494,1
+6,100044,Human Planet (2011),451,335,2
+6,45720,"Devil Wears Prada, The (2006)",305,225,3
+7,7262,Catch That Kid (2004),740,497,1
+7,100044,Human Planet (2011),436,329,2
+7,45720,"Devil Wears Prada, The (2006)",286,221,3
+8,7262,Catch That Kid (2004),769,516,1
+8,100044,Human Planet (2011),400,302,2
+8,45720,"Devil Wears Prada, The (2006)",288,227,3
+9,7262,Catch That Kid (2004),709,474,1
+9,100044,Human Planet (2011),412,314,2
+9,45720,"Devil Wears Prada, The (2006)",284,224,3
+10,7262,Catch That Kid (2004),765,514,1
+10,100044,Human Planet (2011),405,300,2
+10,45720,"Devil Wears Prada, The (2006)",296,240,3
+11,7262,Catch That Kid (2004),749,508,1
+11,100044,Human Planet (2011),457,335,2
+11,45720,"Devil Wears Prada, The (2006)",299,230,3
+12,7262,Catch That Kid (2004),691,476,1
+12,100044,Human Planet (2011),365,282,2
+12,45720,"Devil Wears Prada, The (2006)",292,228,3
+13,7262,Catch That Kid (2004),723,482,1
+13,100044,Human Planet (2011),365,287,2
+13,45720,"Devil Wears Prada, The (2006)",265,212,3
+14,7262,Catch That Kid (2004),680,465,1
+14,100044,Human Planet (2011),384,282,2
+14,45720,"Devil Wears Prada, The (2006)",297,233,3
+15,7262,Catch That Kid (2004),775,505,1
+15,100044,Human Planet (2011),373,288,2
+15,45720,"Devil Wears Prada, The (2006)",304,244,3
+16,7262,Catch That Kid (2004),743,504,1
+16,100044,Human Planet (2011),401,309,2
+16,45720,"Devil Wears Prada, The (2006)",265,207,3
+17,7262,Catch That Kid (2004),643,459,1
+17,100044,Human Planet (2011),383,293,2
+17,45720,"Devil Wears Prada, The (2006)",320,240,3
+18,7262,Catch That Kid (2004),526,372,1
+18,100044,Human Planet (2011),373,273,2
+18,45720,"Devil Wears Prada, The (2006)",238,177,3
+19,7262,Catch That Kid (2004),922,576,1
+19,100044,Human Planet (2011),687,456,2
+19,45720,"Devil Wears Prada, The (2006)",448,320,3
+20,7262,Catch That Kid (2004),787,520,1
+20,100044,Human Planet (2011),565,384,2
+20,45720,"Devil Wears Prada, The (2006)",371,284,3
+21,7262,Catch That Kid (2004),812,530,1
+21,100044,Human Planet (2011),540,387,2
+21,45720,"Devil Wears Prada, The (2006)",408,295,3
+22,7262,Catch That Kid (2004),828,545,1
+22,100044,Human Planet (2011),506,353,2
+22,45720,"Devil Wears Prada, The (2006)",370,265,3
+23,7262,Catch That Kid (2004),1274,687,1
+23,100044,Human Planet (2011),640,454,2
+23,45720,"Devil Wears Prada, The (2006)",441,330,3

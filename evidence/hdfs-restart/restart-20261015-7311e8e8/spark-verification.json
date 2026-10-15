@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-15T06:18:39.281904+00:00",
+  "filesystem": "org.apache.hadoop.hdfs.DistributedFileSystem",
+  "local_fallback": false,
+  "movies": 9742,
+  "events": 1000000,
+  "unique_event_ids": 1000000,
+  "log_source_files": 254,
+  "qa_groups": 23,
+  "qa_errors": 0,
+  "raw_hash_files": 255,
+  "raw_hash_bytes": 343872495,
+  "raw_hash_mismatches": 0,
+  "source_manifest": "evidence/week2-hdfs/hdfs-124cbf30bda7/source_manifest.json"
+}

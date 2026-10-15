@@ -1,0 +1,11 @@
+{
+  "status": "COMPARISON_ONLY",
+  "historical_run": "tv2-4ed70c10cd84",
+  "new_run": "tv2-aae83326c1ab",
+  "historical_best_k": 2,
+  "historical_silhouette": 0.6707563871905433,
+  "new_best_k": 2,
+  "new_silhouette": 0.6707563871905433,
+  "silhouette_delta": 0.0,
+  "not_used_to_force_acceptance": true
+}
