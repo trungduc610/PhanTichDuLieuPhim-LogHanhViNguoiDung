@@ -5,7 +5,8 @@ import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import os from 'node:os';
 import path from 'node:path';
-import { verifyRun, files } from '../scripts/verified-data.mjs';
+import { verifyRun as verifyAnyRun, files } from '../scripts/verified-data.mjs';
+const verifyRun = (root,runId) => verifyAnyRun(root,runId,'evidence/week2-tv2');
 
 const hash = content => createHash('sha256').update(content).digest('hex');
 const fixtureSource = new URL('../../evidence/week2-tv2/tv2-4ed70c10cd84/dashboard/',import.meta.url);

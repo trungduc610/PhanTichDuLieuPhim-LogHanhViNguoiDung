@@ -7,6 +7,9 @@ import { createServer } from 'vite';
 import assert from 'node:assert/strict';
 import { number, percent } from '../src/services/formatNumbers.js';
 import { buildCsv, overviewTables } from '../src/services/overviewExport.js';
+import { calculateOverview } from '../src/services/overviewMetrics.js';
+import { durationFields } from '../src/services/watchDuration.js';
+import { actionLabels as overviewActionLabels, hourRange } from '../src/content/overviewContent.js';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const selectedSource = JSON.parse(await readFile(new URL('../public/data/source.json',import.meta.url),'utf8'));
@@ -21,6 +24,8 @@ const combinedRows = (await sourceData('stats_user_movie_time.json'));
 const clusteringMetadata = (await sourceData('kmeans_model_metadata.json'))[0];
 const clusterProfiles = (await sourceData('kmeans_cluster_profiles.json'));
 const clusterUsers = (await sourceData('kmeans_assignments.json')).sort((a,b) => a.userId.localeCompare(b.userId));
+const overview = calculateOverview(actionRows,clusterUsers);
+const expectedKpis = [overview.totalEvents,overview.distinctUsers,actionRows.find(row=>row.action==='play').count].map(number);
 const artifacts = new URL(`../.browser-check/${Date.now()}/`, import.meta.url);
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const reserve = createNetServer();
@@ -298,7 +303,7 @@ try {
           await key(name,code);
           const row=clusterProfiles[index];
           const readout=await evaluate(`document.querySelectorAll('.comparison-chart')[${chart}].querySelector('.overview-chart-readout').textContent`);
-          assert.ok(readout.includes(row.label) && readout.includes(number(row[fields[chart]])));
+          assert.ok(readout.includes(`Cụm ${row.cluster}`) && readout.includes(number(row[fields[chart]])));
           assert.equal(await evaluate(`document.querySelectorAll('.comparison-chart')[${chart}].querySelectorAll('.comparison-active-bar').length`),1);
         }
         await key('Escape',27);
@@ -327,16 +332,153 @@ try {
     await evaluate('document.activeElement.blur()');
     console.log(`Đạt: ${width}px ${path} biểu đồ/bảng khớp JSON, highlight/focus và hướng dẫn dùng bàn phím.`);
   }
+  async function checkDetailUx(path,width,downloadDirectory) {
+    assert.equal(await evaluate('innerWidth'),width,'Mở bảng không được làm nở viewport mobile');
+    const heights=await evaluate("[...document.querySelectorAll('.analysis-grid > .chart-panel,.analysis-grid > .daily-activity')].map(node=>node.getBoundingClientRect().height)");
+    const assertHeights=async()=>{
+      assert.equal(await evaluate('innerWidth'),width,'Giải thích không được làm nở viewport mobile');
+      assert.deepEqual(await evaluate("[...document.querySelectorAll('.analysis-grid > .chart-panel,.analysis-grid > .daily-activity')].map(node=>node.getBoundingClientRect().height)"),heights,'Mở giải thích phải giữ nguyên chiều cao các card');
+    };
+    const indicators=async()=>assert.equal(await evaluate("[...document.querySelectorAll('.detail-ux details > summary')].every(s=>getComputedStyle(s,'::before').content===(s.parentElement.open?'\"▾\"':'\"▸\"') && getComputedStyle(s,'::after').content==='none')"),true,'Mũi tên phải theo đúng mục cha trực tiếp');
+    const count=await evaluate("document.querySelectorAll('.analysis-explanations > details').length");
+    await indicators();
+    for(let i=0;i<count;i++) {
+      await evaluate(`document.querySelectorAll('.analysis-explanations > details > summary')[${i}].focus()`);
+      await key(i%2?' ':'Enter',i%2?32:13,i%2?' ':'\r');await pause(100);
+      assert.equal(await evaluate(`document.querySelectorAll('.analysis-explanations > details')[${i}].open`),true);
+      const id=await evaluate(`document.querySelectorAll('.analysis-explanations > details > summary')[${i}].getAttribute('aria-controls')`);
+      assert.ok(id);
+      assert.equal(await evaluate(`!!document.getElementById(${JSON.stringify(id)})?.closest('.independent-explanations')`),true);
+      await assertHeights();await indicators();
+      if(i%2===0) {
+        await evaluate(`document.getElementById(${JSON.stringify(id)}).querySelector('.technical-definition > summary').focus()`);
+        await key('Enter',13,'\r');await pause(50);await indicators();
+        assert.equal(await evaluate(`document.getElementById(${JSON.stringify(id)}).querySelector('.technical-definition').open`),true);
+        assert.ok((await evaluate(`document.getElementById(${JSON.stringify(id)}).textContent`)).includes(selectedSource.runId));
+      }
+    }
+    assert.equal(await evaluate("document.querySelectorAll('.independent-explanations > .explanation-body').length"),count);
+    await indicators();await assertHeights();
+
+    const kind=({'/phim':'movies','/the-loai':'genres','/hanh-vi':'actions','/thoi-gian':'hourly'})[path];
+    if(kind) {
+    const csvColumns={
+      movies:[['rank','Hạng'],['title','Phim'],['playCount','Lượt phát phim']],
+      genres:[['rank','Hạng'],['genre','Thể loại'],['playCount','Lượt phát phim']],
+      actions:[['label','Hành động'],['action','Mã hành động'],['count','Số hành động'],['percentage','Tỷ lệ hành động (%)']],
+      hourly:[['label','Giờ (UTC+7)'],['eventCount','Số hành động'],['playCount','Lượt phát phim'],['distinctUsers','Người dùng duy nhất trong giờ']],
+    }[kind].map(([key,label])=>({key,label}));
+    const expected=(kind==='movies'?movieRows.slice(0,20):kind==='genres'?genreRows:kind==='actions'?actionRows:hourlyRows).map((row,i)=>({...row,rank:i+1,...(kind==='actions'?{label:overviewActionLabels[row.action]}:kind==='hourly'?{label:`${String(row.hour).padStart(2,'0')}h`}:{})}));
+    async function download(expectedRows) {
+      const start=downloads.length;
+      await evaluate("document.querySelector('.analysis-results .csv-button').focus()");await key('Enter',13,'\r');
+      for(let i=0;i<40;i++){if(downloads.length>start&&completedDownloads.has(downloads.at(-1).guid))break;await pause(100);}
+      assert.ok(downloads.length>start&&completedDownloads.has(downloads.at(-1).guid),'CSV phải tải thành công');
+      assert.equal(downloads.at(-1).suggestedFilename,`phan-tich-${kind}.csv`);
+      assert.equal(await readFile(new URL(downloads.at(-1).guid,downloadDirectory),'utf8'),buildCsv(csvColumns,expectedRows));
+    }
+    await download(expected);
+    if(kind==='movies') {
+      await evaluate("document.querySelector('.page-size select').value='10';document.querySelector('.page-size select').dispatchEvent(new Event('change',{bubbles:true}))");await pause(100);
+      assert.equal(await evaluate("document.querySelectorAll('.analysis-results tbody tr').length"),10);
+      await evaluate("document.querySelector('.results-pagination button:last-child').focus()");await key('Enter',13,'\r');await pause(100);
+      assert.deepEqual(await evaluate("[...document.querySelectorAll('.analysis-results tbody tr')].map(row=>row.children[1].textContent)"),expected.slice(10).map(row=>row.title));
+      await download(expected); // CSV giữ tất cả kết quả, kể cả khi ở trang 2.
+      const query=async value=>{await evaluate(`(()=>{const input=document.querySelector('.analysis-results input[type=search]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,${JSON.stringify(value)});input.dispatchEvent(new Event('input',{bubbles:true}));})()`);await pause(100);};
+      await query(expected.at(-1).title.toUpperCase());
+      assert.equal(await evaluate("document.querySelector('.analysis-results tbody tr td').textContent"),String(expected.length));
+      await download([expected.at(-1)]);
+      await query('khong-co-phim-xyz');
+      assert.equal(await evaluate("document.querySelectorAll('.analysis-results tbody tr').length"),0);
+      assert.equal(await evaluate("document.querySelector('.analysis-results .csv-button').disabled"),true);
+      await query('');
+      await evaluate("document.querySelector('.page-size select').value='20';document.querySelector('.page-size select').dispatchEvent(new Event('change',{bubbles:true}))");await pause(100);
+      assert.equal(await evaluate("document.querySelectorAll('.analysis-results tbody tr').length"),expected.length);
+    }
+    } else await checkAdvancedCsv(path,downloadDirectory);
+    for(let i=0;i<count;i++) {
+      const id=await evaluate(`document.querySelectorAll('.analysis-explanations > details > summary')[${i}].getAttribute('aria-controls')`);
+      await evaluate(`document.getElementById(${JSON.stringify(id)}).querySelector('.explanation-close').focus()`);await key('Enter',13,'\r');await pause(80);
+      assert.equal(await evaluate(`document.activeElement===document.querySelectorAll('.analysis-explanations > details > summary')[${i}]`),true);
+      assert.equal(await evaluate(`document.querySelectorAll('.analysis-explanations > details')[${i}].open`),false);
+      await indicators();
+    }
+    // Mở/đóng lặp bằng cả Enter và Space, giữ nguyên vùng vẽ và trạng thái.
+    for(let repeat=0;repeat<2;repeat++)for(const [name,code,text] of [['Enter',13,'\r'],[' ',32,' ']]){
+      await evaluate("document.querySelector('.analysis-explanations > details > summary').focus()");await key(name,code,text);await pause(80);await indicators();await assertHeights();
+    }
+    assert.equal(await evaluate("document.querySelectorAll('.independent-explanations > .explanation-body').length"),0);
+    assert.ok(await evaluate("document.querySelectorAll('.analysis-related a[href]').length>=2"));
+    assert.equal(await evaluate('document.documentElement.scrollWidth>innerWidth'),false);
+    console.log(`Đạt: ${width}px ${path} giải thích độc lập/lồng nhau, Enter/Space, trả focus, CSV khớp JSON${kind==='movies'?', tìm kiếm/phân trang/CSV giữ hạng gốc':''}.`);
+  }
+  async function checkAdvancedCsv(path,downloadDirectory) {
+    const query=async(selector,value)=>{
+      await evaluate(`(()=>{const input=document.querySelector(${JSON.stringify(selector)});Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input,${JSON.stringify(value)});input.dispatchEvent(new Event('input',{bubbles:true}));})()`);await pause(100);
+    };
+    const select=async(selector,value)=>{await evaluate(`document.querySelector(${JSON.stringify(selector)}).value=${JSON.stringify(String(value))};document.querySelector(${JSON.stringify(selector)}).dispatchEvent(new Event('change',{bubbles:true}))`);await pause(100);};
+    async function download(filename,columns,rows) {
+      const start=downloads.length;
+      await evaluate(`document.querySelector('[data-export="${filename}"]').focus()`);await key('Enter',13,'\r');
+      for(let i=0;i<40;i++){if(downloads.length>start&&completedDownloads.has(downloads.at(-1).guid))break;await pause(100);}
+      assert.ok(downloads.length>start&&completedDownloads.has(downloads.at(-1).guid),'CSV phải tải thành công');
+      assert.equal(downloads.at(-1).suggestedFilename,filename);
+      assert.equal(await readFile(new URL(downloads.at(-1).guid,downloadDirectory),'utf8'),buildCsv(columns,rows),'CSV phải giữ giá trị gốc đúng phạm vi đã lọc');
+    }
+    if(path==='/thoi-luong') {
+      const columns=[{key:'scope',label:'Nhóm bản ghi'},{key:'unit',label:'Đơn vị gốc'},...durationFields.map(row=>({key:row.key,label:`${row.label} (${row.unit})`}))];
+      await download('thong-ke-thoi-luong.csv',columns,['all_events','watch_segments'].map(scope=>durationRows.find(row=>row.scope===scope)));
+      await evaluate("document.querySelector('[data-chart=watch-duration] .comparison-interaction').focus()");
+      for(const [name,code,scope] of [['Home',36,'all_events'],['End',35,'watch_segments']]) {
+        await key(name,code);
+        assert.ok((await evaluate("document.querySelector('[data-chart=watch-duration] .overview-chart-readout').textContent")).includes(number(durationRows.find(row=>row.scope===scope).mean)));
+      }
+      await key('Escape',27);await evaluate('document.activeElement.blur()');
+    }
+    if(path==='/ket-hop') {
+      const columns=[['hour','Giờ UTC+7'],['rank','Hạng trong giờ'],['movieId','Mã phim'],['title','Phim'],['playCount','Lượt phát phim'],['distinctUsers','Người dùng duy nhất trong nhóm']].map(([key,label])=>({key,label}));
+      await download('phim-theo-gio.csv',columns,combinedRows);
+      await select('#combined-page-size',12);
+      await evaluate("document.querySelector('.results-pagination button:last-child').focus()");await key('Enter',13,'\r');
+      assert.deepEqual(await evaluate("[...document.querySelectorAll('.combined-browse tbody tr')].map(row=>[row.children[0].textContent,row.children[2].textContent])"),combinedRows.slice(12,24).map(row=>[`${String(row.hour).padStart(2,'0')}h`,row.title]));
+      await download('phim-theo-gio.csv',columns,combinedRows);
+      await query('#combined-query',combinedRows[0].title.toUpperCase());
+      const matching=combinedRows.filter(row=>row.title.toLowerCase().includes(combinedRows[0].title.toLowerCase()));
+      await download('phim-theo-gio.csv',columns,matching);
+      await evaluate("document.querySelector('#combined-only-selected').click()");await pause(100);
+      await download('phim-theo-gio.csv',columns,matching.filter(row=>row.hour===0));
+      await query('#combined-query','khong-co-phim-xyz');
+      assert.equal(await evaluate("document.querySelectorAll('.combined-browse tbody tr').length"),0);
+      assert.equal(await evaluate("document.querySelector('[data-export]').disabled"),true);
+      await query('#combined-query','');await evaluate("document.querySelector('#combined-only-selected').click()");await select('#combined-page-size',0);
+    }
+    if(path==='/phan-cum') {
+      const columns=[['userId','Mã người dùng'],['cluster','Mã cụm'],['playCount','Lượt phát phim'],['completeCount','Hành động hoàn thành xem phim'],['distinctMovies','Phim khác nhau'],['distinctGenres','Thể loại khác nhau'],['sessionCount','Phiên sử dụng'],['playedSessionCount','Phiên có phát phim'],['completedSessionCount','Phiên có hoàn thành'],['completionRate','Tỷ lệ hoàn thành phiên (0–1)'],['completionRateDefined','Tỷ lệ có xác định'],['totalWatchDuration','Tổng thời lượng (giây)'],['avgWatchDuration','Trung bình đoạn xem (giây)']].map(([key,label])=>({key,label}));
+      await download('nguoi-dung-theo-cum.csv',columns,clusterUsers);
+      await evaluate("document.querySelector('.cluster-pagination button:last-child').focus()");await key('Enter',13,'\r');
+      await download('nguoi-dung-theo-cum.csv',columns,clusterUsers);
+      await query('#cluster-user-query',clusterUsers.at(-1).userId);
+      await download('nguoi-dung-theo-cum.csv',columns,[clusterUsers.at(-1)]);
+      await query('#cluster-user-query','');await select('#cluster-user-filter',clusterProfiles[0].cluster);
+      await download('nguoi-dung-theo-cum.csv',columns,clusterUsers.filter(row=>row.cluster===clusterProfiles[0].cluster));
+      await query('#cluster-user-query','khong-co-user-xyz');
+      assert.equal(await evaluate("document.querySelector('[data-export]').disabled"),true);
+      await query('#cluster-user-query','');await select('#cluster-user-filter','all');
+      assert.ok((await evaluate("document.querySelector('.independent-explanations').textContent")).includes(String(clusteringMetadata.seed)));
+      assert.deepEqual(await evaluate("[...document.querySelectorAll('.feature-list code')].map(node=>node.textContent)"),JSON.parse(clusteringMetadata.featureColumnsJson));
+    }
+  }
   const routes = [
-    ['/', 'Tổng quan', 0], ['/phim', 'Phân tích phim', 20],
+    ['/', 'Tổng quan hoạt động xem phim', 0], ['/phim', 'Phân tích phim', 20],
     ['/hanh-vi', 'Hành vi người dùng', 5], ['/thoi-gian', 'Hoạt động theo thời gian', 24 + dailyRows.length],
     ['/the-loai', 'Phân tích thể loại', 20],
     ['/thoi-luong', 'Thời lượng xem', 6],
     ['/ket-hop', 'Phân tích kết hợp', 75],
-    ['/phan-cum', 'Phân cụm người dùng', 31],
+    ['/phan-cum', 'Phân nhóm người dùng', 31],
   ];
   const selectedWidth = Number(process.argv.find(arg => arg.startsWith('--width='))?.split('=')[1]);
   const selectedRoute = process.argv.find(arg => arg.startsWith('--route='))?.split('=')[1];
+  const includedRoutes = process.argv.includes('--advanced-pages') ? routes.filter(([path])=>['/thoi-luong','/ket-hop','/phan-cum'].includes(path)) : process.argv.includes('--detail-pages') ? routes.filter(([path])=>['/phim','/the-loai','/hanh-vi','/thoi-gian'].includes(path)) : selectedRoute ? routes.filter(([path])=>path===selectedRoute) : routes;
   assert.ok(!selectedWidth || [1440,768,390,320].includes(selectedWidth), 'Kích thước kiểm tra không được hỗ trợ');
   assert.ok(!selectedRoute || routes.some(([path]) => path === selectedRoute), 'Route kiểm tra không được hỗ trợ');
   for (const width of selectedWidth ? [selectedWidth] : [1440, 768, 390, 320]) {
@@ -345,7 +487,7 @@ try {
     await call('Browser.setDownloadBehavior', {behavior:'allowAndName',downloadPath:fileURLToPath(downloadDirectory),eventsEnabled:true});
     await call('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width <= 390 });
     await call('Emulation.setTouchEmulationEnabled', {enabled: width <= 390, maxTouchPoints: 1});
-    for (const [path, title, rows] of selectedRoute ? routes.filter(([path]) => path === selectedRoute) : routes) {
+    for (const [path, title, rows] of includedRoutes) {
       await call('Page.navigate', { url: origin + path });
       let ready = false;
       for (let attempt = 0; attempt < 150; attempt++) {
@@ -464,9 +606,9 @@ try {
           await evaluate(`document.querySelectorAll('.table-scroll')[${index}].scrollLeft=0; window.scrollTo(0,0)`);
         }
       }
-      if (width <= 560) assert.ok(await evaluate("[...document.querySelectorAll('.metric-card')].every(node => node.getBoundingClientRect().height <= 200)"), `${path}: KPI mobile quá cao`);
+      if (width <= 560) assert.ok(await evaluate(`[...document.querySelectorAll('.metric-card')].every(node => node.getBoundingClientRect().height <= ${path === '/' ? 260 : 200} && node.scrollWidth <= node.clientWidth+1)`), `${path}: KPI mobile quá cao hoặc cắt nội dung`);
       if (path === '/') {
-        assert.deepEqual(result.kpis, ['1.000.000', '1.000', '303.052', '257.928']);
+        assert.deepEqual(result.kpis, expectedKpis);
         assert.deepEqual(result.links, ['/thoi-gian', '/hanh-vi', '/phim']);
         const peak = Math.max(...hourlyRows.map(row => row.eventCount));
         const readHighlight = key => evaluate(`document.querySelector('[data-highlight="${key}"]').textContent`);
@@ -475,18 +617,105 @@ try {
         assert.ok((await readHighlight('action')).includes(number(actionRows[0].count)));
         assert.ok((await readHighlight('action')).includes(percent(actionRows[0].percentage)));
         assert.ok((await readHighlight('hour')).includes(number(peak)));
-        for (const row of hourlyRows.filter(row => row.eventCount === peak)) assert.ok((await readHighlight('hour')).includes(`${String(row.hour).padStart(2,'0')}h`));
+        for (const row of hourlyRows.filter(row => row.eventCount === peak)) assert.ok((await readHighlight('hour')).includes(hourRange(row.hour)));
         assert.deepEqual(await evaluate("[...document.querySelectorAll('.highlight-card a')].map(node=>node.getAttribute('href'))"), ['/phim','/hanh-vi','/thoi-gian']);
         assert.deepEqual(await evaluate("[...document.querySelectorAll('.action-legend-item strong')].map(node=>node.textContent)"), actionRows.map(row=>percent(row.percentage)));
         assert.deepEqual(await evaluate("[...document.querySelectorAll('.movie-rank-heading strong')].map(node=>node.textContent)"), movieRows.slice(0,5).map(row=>number(row.playCount)));
         assert.deepEqual(await evaluate("[...document.querySelectorAll('.movie-ranking h3')].map(node=>node.textContent)"), movieRows.slice(0,5).map(row=>row.title));
         assert.deepEqual(await evaluate("[...document.querySelectorAll('.recharts-wrapper')[0].querySelectorAll('.recharts-bar-rectangle path')].map(node=>node.getAttribute('fill'))"), hourlyRows.map(row=>row.eventCount===peak?'#244c78':'#698cae'));
-        await evaluate("document.querySelector('.overview-source summary').focus(); document.querySelector('.overview-source summary').click()");
-        assert.equal(await evaluate("document.querySelector('.overview-source').open"),true);
+        // Lớp chính không bắt người xem đọc mã trường hoặc file; các phần sâu mở bằng bàn phím.
+        assert.equal(await evaluate("/\\.json|tv2-|playCount|sessionCount/.test(document.querySelector('.overview-home').innerText)"),false);
+        assert.deepEqual(await evaluate("[...document.querySelectorAll('.metrics-grid h2')].map(node=>node.textContent)"),['Tổng số hành động','Số người dùng','Lượt phát phim']);
+        assert.deepEqual(await evaluate("[...document.querySelectorAll('.action-count')].map(node=>node.textContent)"),actionRows.map(row=>number(row.count)+' lần'));
+        const assertDisclosureIndicators = async () => {
+          const problems=await evaluate(`Array.from(document.querySelectorAll('.overview-home details > summary')).filter(summary=>
+            !getComputedStyle(summary,'::before').content.includes(summary.parentElement.open?'▾':'▸')
+            || getComputedStyle(summary,'::after').content!=='none'
+            || getComputedStyle(summary).listStyleType!=='none').map(node=>node.textContent)`);
+          assert.deepEqual(problems,[],'Mỗi summary chỉ có một mũi tên theo trạng thái của chính details');
+        };
+        const toggleWithKeyboard = async selector => {
+          await evaluate(`document.querySelector('${selector} > summary').focus()`);
+          await key('Enter',13,'\r');
+          assert.equal(await evaluate(`document.querySelector('${selector}').open`),true);
+          assert.equal(await evaluate('document.documentElement.scrollWidth>innerWidth'),false);
+          await assertDisclosureIndicators();
+          const contentId = await evaluate(`document.querySelector('${selector} > summary').getAttribute('aria-controls')`);
+          return contentId ? `[id="${contentId}"]` : selector;
+        };
+        const closeWithKeyboard = async selector => {
+          await evaluate(`document.querySelector('${selector} > summary').focus()`);
+          await key(' ',32);
+          assert.equal(await evaluate(`document.querySelector('${selector}').open`),false);
+          assert.equal(await evaluate(`document.activeElement===document.querySelector('${selector} > summary')`),true);
+          await assertDisclosureIndicators();
+        };
+        await assertDisclosureIndicators();
+        const kpiHeights = await evaluate("[...document.querySelectorAll('.metrics-grid > .metric-card')].map(node=>node.getBoundingClientRect().height)");
+        const assertKpiHeights = async () => assert.deepEqual(await evaluate("[...document.querySelectorAll('.metrics-grid > .metric-card')].map(node=>node.getBoundingClientRect().height)"),kpiHeights,'Mở giải thích không được tăng chiều cao card KPI');
+        for (let index=1;index<=3;index++) {
+          const selector=`.metrics-grid .metric-card:nth-child(${index}) .metric-explanation`;
+          const content = await toggleWithKeyboard(selector);
+          assert.ok(await evaluate(`document.querySelector('${content}').textContent.includes('Cách tính:')`));
+          await assertKpiHeights();
+          await toggleWithKeyboard(content+' .technical-definition');
+          assert.ok(await evaluate(`document.querySelector('${content} .technical-definition').textContent.includes('.json')`));
+          await assertKpiHeights();
+          await closeWithKeyboard(content+' .technical-definition');
+          await closeWithKeyboard(selector);
+        }
+        const firstKpi='.metrics-grid .metric-card:first-child .metric-explanation';
+        for(let index=1;index<=3;index++) await toggleWithKeyboard(`.metrics-grid .metric-card:nth-child(${index}) .metric-explanation`);
+        await assertKpiHeights();
+        assert.equal(await evaluate("document.querySelectorAll('.overview-home > .independent-explanations > section').length"),3);
+        const firstRegion = await evaluate("document.querySelector('.metrics-grid .metric-explanation > summary').getAttribute('aria-controls')");
+        await evaluate(`document.getElementById('${firstRegion}').querySelector('.explanation-close').click()`);
+        assert.equal(await evaluate(`document.querySelector('${firstKpi}').open`),false);
+        assert.equal(await evaluate(`document.activeElement===document.querySelector('${firstKpi} > summary')`),true);
+        assert.equal(await evaluate("document.querySelectorAll('.metrics-grid .metric-explanation[open]').length"),2);
+        for(let index=2;index<=3;index++) await closeWithKeyboard(`.metrics-grid .metric-card:nth-child(${index}) .metric-explanation`);
+        for(let repeat=0;repeat<3;repeat++) { await toggleWithKeyboard(firstKpi);await closeWithKeyboard(firstKpi); }
+        // Bấm chuột thật vào summary, không chỉ gán thuộc tính open bằng script.
+        for(const expected of [true,false]) {
+          const point=await hover(firstKpi+' > summary');
+          await call('Input.dispatchMouseEvent',{type:'mousePressed',...point,button:'left',clickCount:1});
+          await call('Input.dispatchMouseEvent',{type:'mouseReleased',...point,button:'left',clickCount:1});
+          await pause(150);
+          assert.equal(await evaluate(`document.querySelector('${firstKpi}').open`),expected);
+          await assertDisclosureIndicators();
+        }
+        await assertKpiHeights();
+        assert.equal(await evaluate("document.querySelector('.overview-home > .independent-explanations').children.length"),0);
+        await toggleWithKeyboard('.overview-sessions');
+        assert.deepEqual(await evaluate("[...document.querySelectorAll('.session-value')].map(node=>node.textContent)"),[overview.totalSessions,overview.playedSessions].map(number));
+        for (let index=1;index<=2;index++) {
+          const selector=`.session-grid article:nth-child(${index}) .metric-explanation`;
+          const content = await toggleWithKeyboard(selector);
+          await toggleWithKeyboard(content+' .technical-definition');
+          await closeWithKeyboard(content+' .technical-definition');
+          await closeWithKeyboard(selector);
+        }
+        await closeWithKeyboard('.overview-sessions');
+        await toggleWithKeyboard('.overview-source');
         assert.ok(await evaluate("document.querySelector('.overview-source').textContent.includes('stats_action_distribution.json')"));
-        await evaluate("document.querySelector('.overview-source summary').click()");
+        assert.ok(await evaluate("document.querySelector('.overview-source').textContent.includes('Flume') && document.querySelector('.overview-source').textContent.includes('HDFS') && document.querySelector('.overview-source').textContent.includes('Spark')"));
+        await closeWithKeyboard('.overview-source');
+        const accessibilityProblems = await evaluate(`(() => {
+          const problems=[], ids=[...document.querySelectorAll('[id]')].map(node=>node.id);
+          if(new Set(ids).size!==ids.length) problems.push('Trùng id');
+          for(const node of document.querySelectorAll('.overview-home [aria-describedby],.overview-home [aria-controls]')) {
+            for(const attr of ['aria-describedby','aria-controls']) for(const id of (node.getAttribute(attr)||'').split(' ').filter(Boolean)) {
+              if(!document.getElementById(id)) problems.push('Thiếu đích '+id);
+            }
+          }
+          for(const node of document.querySelectorAll('.overview-home button,.overview-home a,.overview-home summary')) {
+            if(!(node.getAttribute('aria-label')||node.textContent).trim()) problems.push('Thiếu tên điều khiển');
+          }
+          return problems;
+        })()`);
+        assert.deepEqual(accessibilityProblems,[],'Liên kết aria, id và tên điều khiển phải hợp lệ');
         assert.equal(await evaluate("document.querySelector('.overview-comparison-link')"),null);
-        const actionLabels = {play:'Phát phim',view:'Xem thông tin',pause:'Tạm dừng',stop:'Dừng phát',complete:'Hoàn thành'};
+        const actionLabels = overviewActionLabels;
         for (const row of actionRows) {
           await evaluate(`document.querySelector('[data-action="${row.action}"]').focus()`);
           await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'});
@@ -506,13 +735,35 @@ try {
           actions: actionRows.map(row=>({...row,label:actionLabels[row.action]})),
           movies: movieRows.slice(0,5).map((row,index)=>({...row,rank:index+1})),
         };
+        const chartHeights=await evaluate("['hourly','actions'].map(kind=>document.querySelector('[data-panel='+kind+']').getBoundingClientRect().height)");
+        const assertChartHeights=async()=>assert.deepEqual(await evaluate("['hourly','actions'].map(kind=>document.querySelector('[data-panel='+kind+']').getBoundingClientRect().height)"),chartHeights,'Nội dung mở rộng không được kéo cao hàng card biểu đồ');
+        const hourlyHelp='[data-panel="hourly"] .overview-help:not(.operation-help)';
+        const actionsHelp='[data-panel="actions"] .overview-help:not(.operation-help)';
+        const hourlyContent=await toggleWithKeyboard(hourlyHelp);
+        await assertChartHeights();
+        await toggleWithKeyboard(actionsHelp);
+        await toggleWithKeyboard(hourlyContent+' .technical-definition');
+        await assertChartHeights();
+        await closeWithKeyboard(hourlyContent+' .technical-definition');
+        await closeWithKeyboard(hourlyHelp);
+        assert.equal(await evaluate(`document.querySelector('${actionsHelp}').open`),true);
+        await closeWithKeyboard(actionsHelp);
+        await assertChartHeights();
+        if(width===1440) {
+          const sideBySide=await evaluate("(() => { const chart=document.querySelector('.donut-visual').getBoundingClientRect(),legend=document.querySelector('.action-legend').getBoundingClientRect();return chart.right<=legend.left+1 && chart.width>=190 && chart.height>=200; })()");
+          assert.ok(sideBySide,'Desktop: donut và chú giải phải cạnh nhau, giữ biểu đồ đủ lớn');
+        }
         for (const kind of ['hourly','actions','movies']) {
+          const helpSelector=`[data-panel="${kind}"] .overview-help:not(.operation-help)`;
+          const content=await toggleWithKeyboard(helpSelector);
+          await toggleWithKeyboard(content+' .technical-definition');
+          await toggleWithKeyboard(`[data-panel="${kind}"] .operation-help`);
           await evaluate(`document.querySelector('[data-panel="${kind}"] .overview-view-switch button:nth-child(2)').focus()`);
           await call('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13,text:'\r'});
           await call('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
           await pause(200);
           const config = overviewTables[kind];
-          assert.deepEqual(await evaluate(`[...document.querySelectorAll('[data-panel="${kind}"] tbody tr')].map(row=>[...row.children].map(cell=>cell.textContent))`), expectedDatasets[kind].map(row=>config.columns.map(column=>column.format==='number'?number(row[column.key]):column.format==='percent'?percent(row[column.key]):String(row[column.key]))));
+          assert.deepEqual(await evaluate(`[...document.querySelectorAll('[data-panel="${kind}"] tbody tr')].map(row=>[...row.children].map(cell=>cell.textContent))`), expectedDatasets[kind].map(row=>config.columns.filter(column=>column.key!=='action').map(column=>column.format==='number'?number(row[column.key]):column.format==='percent'?percent(row[column.key]):String(row[column.key]))));
           assert.equal(await evaluate('document.documentElement.scrollWidth > innerWidth'),false);
           const downloadCount = downloads.length;
           await evaluate(`document.querySelector('[data-panel="${kind}"] .csv-button').click()`);
@@ -530,9 +781,10 @@ try {
             await key('Home',36); await pause(400);
             assert.equal(await evaluate("document.querySelector('[data-panel=\"hourly\"] .table-scroll').scrollTop"),0);
           }
-          await evaluate(`document.querySelector('[data-panel="${kind}"] .overview-help summary').click()`);
-          assert.equal(await evaluate(`document.querySelector('[data-panel="${kind}"] .overview-help').open`),true);
-          await evaluate(`document.querySelector('[data-panel="${kind}"] .overview-help summary').click(); document.querySelector('[data-panel="${kind}"] .overview-view-switch button:first-child').click()`);
+          await closeWithKeyboard(content+' .technical-definition');
+          await closeWithKeyboard(helpSelector);
+          await closeWithKeyboard(`[data-panel="${kind}"] .operation-help`);
+          await evaluate(`document.querySelector('[data-panel="${kind}"] .overview-view-switch button:first-child').click()`);
           await pause(300);
         }
         console.log(`Đạt: ${width}px donut chọn bằng bàn phím; bảng và 3 CSV tải xuống khớp đúng 24/5/5 dòng JSON.`);
@@ -541,7 +793,7 @@ try {
       if (path === '/' || path === '/phim') assert.ok(result.text.includes('Catch That Kid'));
       const readTable = (selector = 'tbody tr') => evaluate(`[...document.querySelectorAll('${selector}')].map(row => [...row.children].map(cell => cell.textContent))`);
       if (path === '/phim') assert.deepEqual(await readTable(), movieRows.slice(0,20).map((row,index) => [String(index+1),row.title,number(row.playCount)]));
-      if (path === '/hanh-vi') assert.deepEqual(await readTable(), actionRows.map(row => [`${({play:'Phát phim',view:'Xem thông tin',pause:'Tạm dừng',stop:'Dừng phát',complete:'Hoàn thành'})[row.action]} (${row.action})`,number(row.count),percent(row.percentage)]));
+      if (path === '/hanh-vi') assert.deepEqual(await readTable(), actionRows.map(row => [overviewActionLabels[row.action],number(row.count),percent(row.percentage)]));
       if (path === '/thoi-gian') {
         assert.deepEqual(await readTable('.analysis-wide tbody tr'), hourlyRows.map(row => [`${String(row.hour).padStart(2,'0')}h`,number(row.eventCount),number(row.playCount),number(row.distinctUsers)]));
         assert.ok(result.text.includes('Mỗi ngày có 1.000 người dùng hoạt động'));
@@ -549,11 +801,13 @@ try {
       }
       if (path === '/the-loai') assert.deepEqual(await readTable(), genreRows.map((row,index) => [String(index+1),row.genre,number(row.playCount)]));
       if (path === '/phan-cum') {
-        assert.equal(await evaluate("document.querySelector('.clustering-page .metric-card h2').textContent"), 'Người dùng được phân cụm');
+        assert.equal(await evaluate("document.querySelector('.clustering-page .metric-card h2').textContent"), 'Người dùng được phân nhóm');
         assert.equal(await evaluate("document.querySelector('.clustering-page .metric-value').textContent"), number(clusteringMetadata.users));
         assert.equal(await evaluate("document.querySelector('.selected-k th').textContent"), String(clusteringMetadata.bestK));
         assert.equal(await evaluate("document.querySelector('.selected-k td').title"), String(clusteringMetadata.silhouette));
+        await evaluate("document.querySelector('summary[aria-label=\"Giải thích dữ liệu: K-Means và Silhouette\"]').parentElement.open=true");await pause(100);
         assert.deepEqual(await evaluate("[...document.querySelectorAll('.feature-list code')].map(node => node.textContent)"), JSON.parse(clusteringMetadata.featureColumnsJson));
+        await evaluate("document.querySelector('summary[aria-label=\"Giải thích dữ liệu: K-Means và Silhouette\"]').parentElement.open=false");await pause(100);
         assert.deepEqual(await evaluate("[...document.querySelector('.cluster-size-summary').parentElement.querySelectorAll('.recharts-label-list text')].map(node => node.textContent)"), clusterProfiles.map(row => number(row.userCount)));
         for (const key of ['avgPlayCount', 'avgDistinctMovies', 'avgSessionCount']) {
           assert.deepEqual(await evaluate(`[...document.querySelector('[data-comparison="${key}"]').querySelectorAll('.recharts-label-list text')].map(node => node.textContent)`), clusterProfiles.map(row => number(row[key])));
@@ -628,7 +882,7 @@ try {
         const actual = await evaluate("[...document.querySelectorAll('tbody tr')].map(row => ({key: row.dataset.stat, values: [...row.querySelectorAll('td')].map(cell => ({text: cell.textContent, raw: cell.title}))}))");
         const expected = ['count', 'mean', 'median', 'min', 'max', 'stddev'].map(key => ({key, values: [all, segments].map(row => ({text: new Intl.NumberFormat('vi-VN').format(row[key]), raw: String(row[key])}))}));
         assert.deepEqual(actual, expected);
-        assert.ok(result.text.includes('Đơn vị gốc: giây'));
+        assert.ok(result.text.includes('Đơn vị: giây'));
         assert.ok(result.text.includes('2.727,425 giây'));
         console.log(`Đạt: ${width}px đối chiếu đủ 12 giá trị thời lượng, định dạng giây và nhận xét với JSON.`);
       }
@@ -649,6 +903,7 @@ try {
         console.log(`Đạt: ${width}px chọn Top 5/10/toàn bộ; nhận xét và bảng thể loại khớp JSON.`);
       }
       if (path !== '/') await checkDetailInteractions(path,width);
+      if (path !== '/') await checkDetailUx(path,width,downloadDirectory);
       const tooltipValues = path === '/' ? [number(hourlyRows[0].eventCount),number(actionRows[0].count)]
         : path === '/hanh-vi' ? [percent(actionRows[0].percentage)]
         : path === '/thoi-gian' ? [number(hourlyRows[0].eventCount)]
@@ -665,6 +920,11 @@ try {
         await pause(200);
         const tooltip = path === '/phan-cum' ? await evaluate(`(() => {const node=document.querySelectorAll('.comparison-chart')[${chartIndex}].querySelector('.overview-chart-readout');return {visible:node.dataset.cluster==='0',text:node.textContent};})()`)
           : await evaluate(`(() => {const node=document.querySelector('${pie ? '.donut-selection' : '.overview-chart-readout'}');return {visible:${pie ? "node?.dataset.action === 'play'" : "node?.dataset.hour === '0'"},text:node?.textContent};})()`);
+        if(!tooltip.visible) {
+          console.log('Hover diagnostic:',{point,tooltip,layout:await evaluate(`({viewport:{width:innerWidth,height:innerHeight,scale:visualViewport.scale},focus:document.activeElement?.outerHTML,hit:document.elementFromPoint(${point.x},${point.y})?.outerHTML,rect:document.querySelector('.hourly-interaction')?.getBoundingClientRect().toJSON(),chart:document.querySelector('.chart-frame .recharts-wrapper')?.getBoundingClientRect().toJSON()})`)});
+          const shot=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
+          await writeFile(new URL(`${width}-${path.slice(1)}-hover-debug.png`,artifacts),Buffer.from(shot.data,'base64'));
+        }
         assert.equal(tooltip.visible,true,`${width}px ${path}: vùng đọc số liệu không hiển thị đúng nhóm`);
         assert.ok(tooltip.text.includes(tooltipValues[chartIndex]),`${path}: tooltip ${tooltip.text} không khớp ${tooltipValues[chartIndex]}`);
         if (path === '/' && chartIndex === 0) assert.ok(tooltip.text.includes('UTC+7') && await evaluate("document.querySelector('.hourly-interaction').getAttribute('aria-label').includes('toàn kỳ')"));
@@ -706,13 +966,23 @@ try {
         const chartScreenshot = await call('Page.captureScreenshot', {format:'png',captureBeyondViewport:false});
         await writeFile(new URL(`${width}-${path.slice(1) || 'overview'}-chart.png`, artifacts), Buffer.from(chartScreenshot.data,'base64'));
       }
+      if (path === '/thoi-gian') await evaluate("document.querySelector('.daily-activity .table-shell').closest('details').open=false");
       await evaluate('window.scrollTo(0,0)');
       const fullHeight = await evaluate('document.documentElement.scrollHeight');
-      await call('Emulation.setDeviceMetricsOverride', { width, height: fullHeight, deviceScaleFactor: 1, mobile: width <= 390 });
-      await pause(700);
-      const screenshot = await call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true });
+      const screenshot = await call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip:{x:0,y:0,width,height:fullHeight,scale:1} });
       await writeFile(new URL(`${width}-${path.slice(1) || 'overview'}.png`, artifacts), Buffer.from(screenshot.data, 'base64'));
       await call('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width <= 390 });
+      if (path !== '/') {
+        // Chỉ chụp full-page sau tất cả tương tác: Edge có thể tạm thay visual viewport.
+        await pause(200);
+        await evaluate("document.querySelectorAll('.analysis-explanations > details').forEach(node=>node.open=true)");await pause(100);
+        await evaluate("document.querySelectorAll('.independent-explanations .technical-definition').forEach(node=>node.open=true);window.scrollTo(0,0)");await pause(100);
+        const expandedHeight=await evaluate('document.documentElement.scrollHeight');
+        const expanded=await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width,height:expandedHeight,scale:1}});
+        await writeFile(new URL(`${width}-${path.slice(1)}-explanations-open.png`,artifacts),Buffer.from(expanded.data,'base64'));
+        await evaluate("document.querySelectorAll('.analysis-explanations > details').forEach(node=>node.open=false)");
+        await call('Emulation.setDeviceMetricsOverride', {width,height:1000,deviceScaleFactor:1,mobile:width<=390});await pause(200);
+      }
       if (path === '/phan-cum') {
         await evaluate("document.querySelector('.cluster-comparisons').scrollIntoView({block:'start'})");
         await pause(600);
@@ -746,7 +1016,7 @@ try {
     await navigate('/phan-cum');
     await pause(300);
     assert.equal(await evaluate('location.pathname'), '/phan-cum');
-    assert.equal(await evaluate("document.querySelector('h1').textContent"), 'Phân cụm người dùng');
+    assert.equal(await evaluate("document.querySelector('h1').textContent"), 'Phân nhóm người dùng');
     if (width <= 1023) assert.equal(await evaluate("getComputedStyle(document.querySelector('nav')).display"), 'none');
     // Chuyển từ trang dài sau khi cuộn, rồi kiểm tra cả tám liên kết.
     await navigate('/phim');
@@ -756,9 +1026,9 @@ try {
     assert.equal(await evaluate("document.activeElement.id"), 'main-content');
     await navigate('/');
     await call('Page.navigate',{url:origin+'/?layout=v1'});
-    for(let attempt=0;attempt<150;attempt++) { if(await evaluate("document.querySelectorAll('.metric-value').length === 4 && document.querySelectorAll('.highlight-card').length === 3")) break; await pause(100); }
+    for(let attempt=0;attempt<150;attempt++) { if(await evaluate("document.querySelectorAll('.metric-value').length === 3 && document.querySelectorAll('.highlight-card').length === 3")) break; await pause(100); }
     assert.equal(await evaluate("document.querySelectorAll('.overview-comparison-link,.overview-version-switch,.summary-grid').length"),0,'URL cũ không được khôi phục giao diện V1');
-    assert.deepEqual(await evaluate("[...document.querySelectorAll('.metric-value')].map(node=>node.textContent)"), ['1.000.000','1.000','303.052','257.928']);
+    assert.deepEqual(await evaluate("[...document.querySelectorAll('.metric-value')].map(node=>node.textContent)"), expectedKpis);
     assert.equal(await evaluate("document.querySelectorAll('.highlight-card').length"),3);
     // Kiểm tra tất cả liên kết phân tích mới bằng điều hướng thật.
     for (const selector of ['.highlight-card a','.overview-page .detail-link']) {
@@ -781,7 +1051,7 @@ try {
     for(let attempt=0;attempt<150;attempt++) { if(await evaluate(expression)) return; await pause(100); }
     throw new Error(`Hết thời gian chờ: ${expression}`);
   };
-  for (const [path,file] of faultRoutes.filter(([path]) => !selectedRoute || path === selectedRoute)) {
+  for (const [path,file] of faultRoutes.filter(([path]) => includedRoutes.some(([route])=>route===path))) {
     await call('Fetch.enable',{patterns:[{urlPattern:`*/data/*/${file}`,requestStage:'Request'}]});
     interceptMode='hold';
     heldRequests.length=0;
@@ -809,7 +1079,7 @@ try {
   assert.deepEqual(errors, [], 'Có lỗi JavaScript/React trong trình duyệt');
   await writeFile(new URL('result.json',artifacts),JSON.stringify({status:'PASS',runId:selectedSource.runId,
     checkedAt:new Date().toISOString(),widths:selectedWidth?[selectedWidth]:[1440,768,390,320],
-    routes:selectedRoute?[selectedRoute]:routes.map(row=>row[0]),javascriptErrors:errors},null,2));
+    routes:includedRoutes.map(row=>row[0]),javascriptErrors:errors},null,2));
   console.log('Browser artifacts:',fileURLToPath(artifacts));
   console.log('Đạt: liên kết chi tiết, Back, trang không tồn tại và không có lỗi JavaScript/React.');
 } finally {

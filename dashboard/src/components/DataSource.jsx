@@ -29,11 +29,11 @@ export function SourceGate({ children }) {
   return <SourceContext.Provider value={state.source}>{children}</SourceContext.Provider>;
 }
 
-export function DataScope() {
+export function DataScope({ syntheticLabel = 'Dữ liệu mô phỏng' }) {
   const source = useSource();
   if (!source) return null;
   return <div className="overview-scope" aria-label="Phạm vi dữ liệu">
-    <span className="simulation-badge">{source.isSynthetic ? 'Dữ liệu mô phỏng' : 'Dữ liệu thực tế'}</span>
+    <span className="simulation-badge">{source.isSynthetic ? syntheticLabel : 'Dữ liệu thực tế'}</span>
     <span>{displaySourceDate(source.firstDate)}–{displaySourceDate(source.lastDate)}</span><span>Giờ Việt Nam · UTC+7</span>
   </div>;
 }

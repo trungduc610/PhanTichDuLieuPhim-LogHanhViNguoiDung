@@ -4,7 +4,7 @@ import { number, percent } from '../services/formatNumbers.js';
 
 const colors = { play: '#315fa8', view: '#8567b0', complete: '#25817e', stop: '#9a6434', pause: '#687d97' };
 
-export default function OverviewActionDonut({ data, selectedAction, onSelect }) {
+export default function OverviewActionDonut({ data, selectedAction, onSelect, plainLanguage = false, compactHelp = false }) {
   const legend = useRef(null);
   const [hoverAction, setHoverAction] = useState(null);
   const [focusedAction, setFocusedAction] = useState(null);
@@ -75,10 +75,10 @@ export default function OverviewActionDonut({ data, selectedAction, onSelect }) 
     }}>
       {data.map(row => <button key={row.action} className="action-legend-item" style={{ '--action-color': colors[row.action] }} data-action={row.action} data-preview={highlighting && selected.action === row.action} aria-pressed={selectedAction === row.action}
         onMouseEnter={() => preview(row.action)} onFocus={() => { setFocusedAction(row.action); setDismissed(false); }} onClick={() => { setHoverAction(null); choose(row.action); }}>
-        <span className="legend-dot" style={{ background: colors[row.action] }} /><span>{row.label}</span><strong>{percent(row.percentage)}</strong>
+        <span className="legend-dot" style={{ background: colors[row.action] }} /><span>{row.label}{plainLanguage && <span className="action-count">{number(row.count)} lần</span>}</span><strong>{percent(row.percentage)}</strong>
       </button>)}
     </div>
-    <p className="donut-selection" role="status" aria-live="polite" aria-atomic="true" data-action={selected.action}><strong>{selected.label}</strong>: {number(selected.count)} sự kiện · {percent(selected.percentage)} tổng sự kiện.</p>
-    <p className="overview-interaction-help donut-help">Di chuột hoặc dùng Tab/← → để đọc; bấm hoặc Enter/phím cách để giữ lựa chọn. Esc: bỏ highlight.</p>
+    <p className="donut-selection" role="status" aria-live="polite" aria-atomic="true" data-action={selected.action}><strong>{selected.label}</strong>: {number(selected.count)} {plainLanguage ? 'lần' : 'sự kiện'} · {percent(selected.percentage)} {plainLanguage ? 'tổng số hành động' : 'tổng sự kiện'}.</p>
+    <p className={compactHelp ? 'overview-sr-only' : 'overview-interaction-help donut-help'}>Di chuột hoặc dùng Tab/← → để đọc; bấm hoặc Enter/phím cách để giữ lựa chọn. Esc: {plainLanguage ? 'bỏ đánh dấu' : 'bỏ highlight'}.</p>
   </div>;
 }

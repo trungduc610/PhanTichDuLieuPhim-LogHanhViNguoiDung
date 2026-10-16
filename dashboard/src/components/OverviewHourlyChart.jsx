@@ -3,7 +3,7 @@ import { BarChart, Bar, Cell, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveCo
 import { number, axisNumber } from '../services/formatNumbers.js';
 
 // Tách giờ đang xem bằng chuột khỏi vị trí bàn phím; không thay đổi dữ liệu thống kê.
-export default function OverviewHourlyChart({ data, peakHours }) {
+export default function OverviewHourlyChart({ data, peakHours, plainLanguage = false, compactHelp = false }) {
   const id = useId();
   const region = useRef(null);
   const [hoverIndex, setHoverIndex] = useState(null);
@@ -48,17 +48,17 @@ export default function OverviewHourlyChart({ data, peakHours }) {
     }
   }
   return <>
-    <div className="chart-unit">Đơn vị: sự kiện · Giờ Việt Nam (UTC+7)</div>
+    <div className="chart-unit">Đơn vị: {plainLanguage ? 'hành động' : 'sự kiện'} · Giờ Việt Nam (UTC+7)</div>
     <div ref={region} className="hourly-interaction" role="group" tabIndex={0}
-      aria-label="Hoạt động theo 24 giờ trong toàn kỳ 01/09/2026–30/09/2026"
+      aria-label={plainLanguage ? 'Số hành động theo giờ trong toàn kỳ' : 'Hoạt động theo 24 giờ trong toàn kỳ 01/09/2026–30/09/2026'}
       aria-describedby={`${id}-help ${id}-value`}
       onFocus={() => { setFocused(true); setDismissed(false); }} onBlur={() => setFocused(false)}
       onKeyDown={handleKeyDown} onMouseLeave={() => setHoverIndex(null)}
       onMouseDown={event => { if (event.target.closest('.recharts-bar-rectangle')) event.preventDefault(); }}
       onTouchStartCapture={() => setHoverIndex(null)}>
       <div id={`${id}-value`} className="overview-chart-readout" role="status" aria-live="polite" aria-atomic="true" data-hour={active?.hour}>
-        {active ? <><span><strong>{active.label}</strong> (UTC+7)</span><strong>{number(active.eventCount)} sự kiện</strong></>
-          : <span>Di chuột hoặc dùng Tab để đọc số liệu.</span>}
+        {active ? <><span><strong>{active.label}</strong> (UTC+7)</span><strong>{number(active.eventCount)} {plainLanguage ? 'hành động' : 'sự kiện'}</strong></>
+          : <span>{plainLanguage ? 'Số hành động ở từng khung giờ, cộng gộp toàn kỳ.' : 'Di chuột hoặc dùng Tab để đọc số liệu.'}</span>}
       </div>
       <div className="chart-frame">
         <ResponsiveContainer width="100%" height="100%">
@@ -79,6 +79,6 @@ export default function OverviewHourlyChart({ data, peakHours }) {
         </ResponsiveContainer>
       </div>
     </div>
-    <p id={`${id}-help`} className="overview-interaction-help">← →: đổi giờ · Home/End: đầu/cuối · Esc: bỏ highlight. Số liệu cộng gộp toàn kỳ.</p>
+    <p id={`${id}-help`} className={compactHelp ? 'overview-sr-only' : 'overview-interaction-help'}>← →: đổi giờ · Home/End: đầu/cuối · Esc: {plainLanguage ? 'bỏ đánh dấu' : 'bỏ highlight'}. Số liệu cộng gộp toàn kỳ.</p>
   </>;
 }

@@ -21,3 +21,13 @@ evidence/week3-tv1/** -text
 evidence/run-922de67e4cbf/** -text
 evidence/run-c26cfa7fb494/** -text
 docs/week3_tv1_*.md text eol=lf
+# Final TV2 handoff: retain measured bytes; CSV and two captured files use CRLF.
+evidence/week3-tv2/tv2-aae83326c1ab/** -text
+evidence/week3-tv2/tv2-aae83326c1ab/**/*.csv text eol=crlf
+evidence/week3-tv2/tv2-aae83326c1ab/source-snapshot/compose.tv2.yaml text eol=crlf
+evidence/week3-tv2/tv2-aae83326c1ab/source-snapshot/Dockerfile.tv2 text eol=crlf
+evidence/week3-tv2/tv2-aae83326c1ab/source_manifest.json text eol=crlf
+evidence/week3-tv2/tv2-aae83326c1ab/commands/all-host-tests-final-e8f95540/stderr.txt text eol=crlf
+evidence/week3-tv2/tv2-aae83326c1ab/commands/all-host-tests-final-e8f95540/stdout.txt text eol=crlf
+evidence/week3-tv2/tv2-aae83326c1ab/commands/result-verifier-591705b2/stdout.txt text eol=crlf
+evidence/week3-tv2/tv2-aae83326c1ab/commands/tv2-host-tests-70b78dc9/stderr.txt text eol=crlf

@@ -5,7 +5,7 @@ import { number, axisNumber } from '../services/formatNumbers.js';
 const colors = ['#315fa8', '#25817e', '#8567b0', '#9a6434', '#687d97'];
 
 // Một chỉ số và một đơn vị cho mỗi biểu đồ; dữ liệu lấy nguyên từ hồ sơ cụm.
-export default function ComparisonBarChart({ data, dataKey, unit, title, vertical = false, itemName = 'cụm' }) {
+export default function ComparisonBarChart({ data, dataKey, unit, title, vertical = false, itemName = 'cụm', compactHelp = false }) {
   const id = useId();
   const region = useRef(null);
   const [hoverIndex, setHoverIndex] = useState(null);
@@ -73,6 +73,6 @@ export default function ComparisonBarChart({ data, dataKey, unit, title, vertica
         </ResponsiveContainer>
       </div>
     </div>
-    <p id={id} className="overview-interaction-help">← → hoặc ↑ ↓: đổi {itemName} · Home/End: đầu/cuối · Esc: bỏ highlight.</p>
+    <p id={id} className={compactHelp ? 'overview-sr-only' : 'overview-interaction-help'}>← → hoặc ↑ ↓: đổi {itemName} · Home/End: đầu/cuối · Esc: bỏ đánh dấu.</p>
   </div>;
 }

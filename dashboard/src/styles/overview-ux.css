@@ -1,0 +1,98 @@
+/* Chỉ Tổng quan dùng hệ ngôn ngữ và lớp giải thích mới. */
+.overview-home .overview-origin { margin: 12px 0 0; color: #526079; font-size: 13px; line-height: 1.6; }
+.overview-home .metrics-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.overview-home .metric-card { border-top: 3px solid #d7e3f7; }
+.overview-home .metric-card:nth-child(2) { border-top-color: #b9dfda; }
+.overview-home .metric-card:nth-child(3) { border-top-color: #d7c6ec; }
+.overview-home .metric-card:nth-child(3) .metric-icon { color: #705197; background: #f4f0fa; }
+.overview-home .metric-description { min-height: 0; }
+.overview-home .metric-explanation { font-size: 13px; margin-top: 12px; }
+.overview-home .metric-explanation > summary,
+.overview-home .technical-definition > summary { width: fit-content; color: #234fa3; cursor: pointer; padding: 5px 0; font-size: 13px; }
+.overview-home .explanation-body { padding: 16px 18px; border: 1px solid #d8e2f0; border-radius: 10px; background: #fff; }
+.overview-home .explanation-body p { color: #526079; line-height: 1.65; }
+.overview-home .independent-explanations:not(:empty) { display: grid; gap: 12px; margin-top: 16px; }
+.overview-home .chart-explanations { grid-column: 1 / -1; }
+.overview-home .chart-explanations:empty { display: none; }
+.overview-home .chart-explanations:not(:empty) { margin-top: 0; }
+.overview-home .explanation-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.overview-home .explanation-heading h3 { margin: 0; font-size: 15px; color: #172b4d; }
+.overview-home .explanation-close { padding: 5px 9px; background: #f0f5fc; color: #234fa3; font-size: 13px; flex-shrink: 0; }
+/* Chỉ lấy trạng thái của details trực tiếp; bỏ dấu +/− kế thừa và marker mặc định. */
+.overview-home details > summary { display: flex; align-items: baseline; gap: 6px; list-style: none; }
+.overview-home details > summary::-webkit-details-marker { display: none; }
+.overview-home details > summary::marker { content: ''; }
+.overview-home details > summary::after { content: none !important; }
+.overview-home details > summary::before { content: '▸'; flex: 0 0 12px; font-size: 13px; }
+.overview-home details[open] > summary::before { content: '▾'; }
+.overview-home .technical-definition { margin-top: 10px; padding-top: 4px; border-top: 1px solid #e2e8f0; }
+.overview-home .technical-definition p { overflow-wrap: anywhere; }
+.overview-home .overview-sessions { margin: 16px 0 0; padding: 14px 18px; background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; }
+.overview-home .overview-sessions > summary { color: #315078; font-size: 14px; cursor: pointer; line-height: 1.6; }
+.overview-home .overview-sessions > summary span { color: #526079; font-size: 12px; margin-left: 8px; }
+.overview-home .overview-sessions > p { font-size: 14px; color: #526079; max-width: 800px; }
+.overview-home .session-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; align-items: start; }
+.overview-home .session-grid article { min-width: 0; background: #f5f7fb; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; }
+.overview-home .session-grid h3 { margin: 0; font-size: 14px; }
+.overview-home .session-value { margin: 10px 0; font-size: 26px; font-weight: 700; color: #172b4d; font-variant-numeric: tabular-nums; }
+.overview-home .highlight-context { max-width: 860px; line-height: 1.6; }
+.overview-home .highlight-label { line-height: 1.6; align-items: flex-start; }
+.overview-home .highlight-label .ui-icon { flex-shrink: 0; margin-top: 2px; }
+.overview-home .highlight-card h3 { font-size: 16px; }
+.overview-home .overview-chart-grid { grid-template-columns: repeat(2,minmax(0,1fr)); align-items: start; }
+.overview-home .overview-chart-readout { min-height: 44px; background: #f8fafd; }
+.overview-home .chart-insight { color: #315078; background: #f0f5fc; border-left: 3px solid #698cae; padding: 10px 12px; margin: 14px 0 0; border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.65; }
+.overview-home .overview-panel-footer { align-items: flex-start; }
+.overview-home .panel-explanations { display: grid; gap: 4px; flex: 1; min-width: 0; }
+.overview-home .overview-panel-footer .detail-link { flex-shrink: 0; padding: 4px 0; font-size: 13px; }
+.overview-home .overview-help p { line-height: 1.7; }
+.overview-home .overview-help summary { cursor: pointer; }
+.overview-home .operation-help summary { color: #526079; }
+.overview-home .action-donut { grid-template-columns: 1fr; gap: 12px; }
+.overview-home [data-panel="actions"] .overview-panel-content { container-type: inline-size; container-name: overview-actions; }
+.overview-home .donut-visual { height: 215px; }
+.overview-home .action-legend { grid-template-columns: 1fr; }
+.overview-home .action-legend-item { min-height: 48px; padding: 6px 10px; }
+.overview-home .action-count { display: block; font-size: 12px; font-weight: 400; margin-top: 3px; color: #526079; }
+.overview-home .donut-center span { max-width: 100px; font-size: 12px; line-height: 1.4; }
+.overview-home .donut-selection { grid-column: 1 / -1; line-height: 1.65; }
+.overview-home .overview-methodology { margin-top: 28px; }
+.overview-home .methodology-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 20px; }
+.overview-home .methodology-grid section { min-width: 0; }
+.overview-home .methodology-grid h3 { font-size: 15px; margin: 0; }
+.overview-home .methodology-grid p, .overview-home .methodology-grid li { font-size: 13px; line-height: 1.8; }
+.overview-home .methodology-grid ul, .overview-home .methodology-grid ol { padding-left: 20px; }
+.overview-home .methodology-flow li + li { margin-top: 10px; }
+.overview-home .methodology-limits { grid-column: 1 / -1; border-top: 1px solid #e2e8f0; padding-top: 18px; }
+.overview-home .overview-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.overview-home summary:focus-visible { outline: 3px solid #b26916; outline-offset: 3px; border-radius: 3px; }
+@media (max-width: 1100px) {
+  .overview-home .overview-chart-grid { grid-template-columns: 1fr; }
+}
+@container overview-actions (min-width: 450px) {
+  .overview-home .action-donut { grid-template-columns: minmax(190px,1fr) minmax(0,1.25fr); }
+  .overview-home .donut-visual { height: 230px; }
+}
+@media (max-width: 800px) {
+  .overview-home .metric-value { font-size: 30px; }
+}
+@media (max-width: 560px) {
+  .overview-home .metrics-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .overview-home .metrics-grid > :last-child { grid-column: 1 / -1; }
+  .overview-home .metric-value { font-size: 26px; }
+  .overview-home .metric-description { min-height: 0; }
+  .overview-home .metric-card { padding: 14px; }
+  .overview-home .overview-sessions { padding: 12px 14px; }
+  .overview-home .overview-sessions > summary span { display: block; margin: 2px 0 0; }
+  .overview-home .session-grid, .overview-home .methodology-grid, .overview-home .action-donut { grid-template-columns: 1fr; }
+  .overview-home .overview-panel-heading { flex-wrap: wrap; }
+  .overview-home .overview-panel-heading > div { flex: 1 1 185px; }
+  .overview-home .overview-panel-footer .detail-link { font-size: 12px; }
+  .overview-home .overview-panel-heading h2 { font-size: 17px; line-height: 1.5; }
+  .overview-home .overview-origin { font-size: 12px; }
+}
+@media (max-width: 359px) {
+  .overview-home .metrics-grid { grid-template-columns: 1fr; }
+  /* Chừa đủ hai dòng để đọc số liệu không làm dịch chuyển vùng vẽ. */
+  .overview-home .overview-chart-readout { min-height: 64px; }
+}
