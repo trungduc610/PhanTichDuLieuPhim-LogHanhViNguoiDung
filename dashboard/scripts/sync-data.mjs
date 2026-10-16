@@ -6,5 +6,6 @@ try {
   await sync(index >= 0 ? process.argv[index + 1] : undefined);
 } catch (error) {
   console.error(`Không thể đồng bộ dữ liệu đã xác minh: ${error.message}`);
+  console.error('Nếu checkout cũ chỉ lệch LF/CRLF, chạy npm run repair:data; lệnh sẽ sao lưu và từ chối sửa đổi nội dung thật.');
   process.exitCode = 1;
 }

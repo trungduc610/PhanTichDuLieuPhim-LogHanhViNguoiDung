@@ -36,6 +36,21 @@ npm.cmd run preview
 
 Preview dùng bản build đã tạo, thường tại http://localhost:4173. Nếu dữ liệu thay đổi, chạy build lại trước preview.
 
+### Khi checkout cũ báo lỗi SHA sau khi pull
+
+Git có thể giữ LF/CRLF cũ ở những file không đổi nội dung khi `.gitattributes` được cập nhật. Nếu sync/predev báo SHA không khớp, tại `dashboard/` chạy:
+
+```powershell
+npm.cmd run repair:data -- --check
+npm.cmd run repair:data
+npm.cmd run sync:data
+npm.cmd run dev
+```
+
+`--check` chỉ xem trước; exit code 2 nghĩa là có file cần khôi phục. Lệnh sửa cần Git và một checkout đầy đủ. Nó chọn đúng run Week 3 trong `data-source.json`, lấy manifest từ commit HEAD đã chốt, rồi kiểm SHA-256 và số byte của bản Git trước khi sửa. Chỉ các file bàn giao của run và hướng dẫn TV2 được liệt kê trong manifest được xét; source pipeline hiện tại và `public/data/` được giữ nguyên.
+
+Lệnh từ chối sửa nội dung thật, file thiếu, symlink/junction hoặc bản Git không khớp hash đã bàn giao. Mọi bản lệch LF/CRLF được sao lưu nguyên byte vào `work/sha-checkout-repair/<id>/` trước khi thay file; nhật ký `repair.json` ghi SHA trước/sau. Cuối cùng CLI chạy lại verifier handoff hiện có. Hash/manifest lịch sử và quy tắc kiểm SHA không bị sửa; không cần chạy lại Flume, HDFS hoặc K-Means. Nếu bị từ chối, giữ nguyên file và backup để review, không bỏ kiểm SHA hoặc ghi lại hash cho khớp.
+
 ## Tám trang
 
 | Đường dẫn | Nội dung |
