@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "node",
+    "--test",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\clustering.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\combinedAnalysis.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\dailyActivity.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\dataLoading.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\dataSource.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\evidenceAudit.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\formatNumbers.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\genreAnalysis.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\overviewAnalysis.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\overviewContent.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\overviewExport.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\overviewMetrics.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\repairCheckout.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\verifiedData.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\watchDuration.test.js",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc\\dashboard\\tests\\week3Handoff.test.js"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-16T03:24:02.655910+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\fresh-committed-unit-tests-6eed8a06\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\fresh-committed-unit-tests-6eed8a06\\stderr.txt"
+}

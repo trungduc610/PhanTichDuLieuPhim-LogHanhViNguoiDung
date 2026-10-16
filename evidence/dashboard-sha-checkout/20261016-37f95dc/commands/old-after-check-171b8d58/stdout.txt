@@ -1,0 +1,2 @@
+SHA và handoff PASS: tv2-aae83326c1ab. Khôi phục 0 file.
+Tiếp theo: npm run sync:data hoặc npm run dev.

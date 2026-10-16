@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "node",
+    "dashboard/scripts/check-ui.mjs",
+    "--width=1440",
+    "--route=/"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-16T03:25:05.477302+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\browser-smoke-95c7609e\\stdout.txt",
+  "stderr": "evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\browser-smoke-95c7609e\\stderr.txt"
+}

@@ -1,0 +1,8 @@
+Port 5173 is in use, trying another one...
+Đạt: 1440px donut chọn bằng bàn phím; bảng và 3 CSV tải xuống khớp đúng 24/5/5 dòng JSON.
+Đạt: 1440px hover 24 giờ/5 hành vi, bàn phím, Escape, focus lại, phối hợp chuột/phím và giữ lựa chọn sau đổi chế độ.
+Đạt: 1440px /, 2 biểu đồ SVG, 5 thanh xếp hạng HTML, 0 dòng bảng, không tràn trang.
+Đạt: 1440px menu 8 chức năng, trạng thái trang hiện tại và mở/đóng menu mobile.
+Đạt: / tải chậm → dữ liệu trống → JSON hỏng → thử lại thành công.
+Browser artifacts: C:\Users\User\Documents\GitHub\PhanTichDuLieuPhim-LogHanhViNguoiDung\dashboard\.browser-check\1792121106216\
+Đạt: liên kết chi tiết, Back, trang không tồn tại và không có lỗi JavaScript/React.

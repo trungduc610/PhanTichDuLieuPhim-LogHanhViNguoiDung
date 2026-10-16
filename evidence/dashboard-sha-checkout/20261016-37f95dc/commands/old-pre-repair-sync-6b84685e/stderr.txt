@@ -1,0 +1,2 @@
+Không thể đồng bộ dữ liệu đã xác minh: SHA-256 biên nhận không khớp: run_status.json
+Nếu checkout cũ chỉ lệch LF/CRLF, chạy npm run repair:data; lệnh sẽ sao lưu và từ chối sửa đổi nội dung thật.

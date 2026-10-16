@@ -1,0 +1,3 @@
+SHA và handoff PASS: tv2-aae83326c1ab. Khôi phục 119 file.
+Backup: work/sha-checkout-repair/b49a2947-99e8-478c-b591-4a3bc5d37c57
+Tiếp theo: npm run sync:data hoặc npm run dev.

@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-16T03:24:20.505155+00:00",
+  "source_commit": "37f95dc88dc4e39dbacb8532c49c3198d6a54aa9",
+  "tests": 47,
+  "checkouts": [
+    {
+      "mode": "fresh-lf",
+      "status": "PASS",
+      "core_autocrlf": "false",
+      "run_id": "tv2-aae83326c1ab",
+      "manifest_files": 162
+    },
+    {
+      "mode": "fresh-crlf",
+      "status": "PASS",
+      "core_autocrlf": "true",
+      "run_id": "tv2-aae83326c1ab",
+      "manifest_files": 162
+    },
+    {
+      "mode": "old-checkout",
+      "status": "PASS",
+      "core_autocrlf": "true",
+      "native_upgrade_reproduced": true,
+      "restored_files": 119,
+      "backup_hashes_verified": true
+    }
+  ],
+  "scope": "SHA/checkout recovery and unchanged Dashboard data; no Flume/Spark/K-Means rerun",
+  "sha_validation_disabled": false
+}

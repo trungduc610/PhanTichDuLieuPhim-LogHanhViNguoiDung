@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "git",
+    "-C",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc",
+    "checkout",
+    "--detach",
+    "37f95dc88dc4e39dbacb8532c49c3198d6a54aa9"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-16T03:23:08.992748+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\fresh-lf-checkout-03149f7c\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\fresh-lf-checkout-03149f7c\\stderr.txt"
+}

@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-old-37f95dc\\scripts\\create_delivery_manifest.py",
+    "--verify",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-old-37f95dc\\evidence\\week3-tv2\\tv2-aae83326c1ab\\delivery-manifest.json"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-16T03:23:59.179461+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\old-after-delivery-c77adec5\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\old-after-delivery-c77adec5\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-16T03:24:01.325312+00:00"
+}

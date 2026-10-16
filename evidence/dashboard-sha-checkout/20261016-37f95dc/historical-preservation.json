@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-16T03:28:47.307387+00:00",
+  "baseline_files": 158,
+  "unchanged_files": 157,
+  "restored_file": "evidence/week3-tv2/tv2-aae83326c1ab/delivery-manifest.json",
+  "authority": "Exact pre-fix Git blob; content/entries/hashes not regenerated",
+  "backup_directory": "work/sha-checkout-repair/4ec14e6a-1ce6-4789-afc3-9711837e539e",
+  "backup_hash_matches_baseline": true
+}

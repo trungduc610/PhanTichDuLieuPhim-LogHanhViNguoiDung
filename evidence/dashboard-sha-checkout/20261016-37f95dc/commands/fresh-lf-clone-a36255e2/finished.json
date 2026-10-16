@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "git",
+    "clone",
+    "--local",
+    "--no-hardlinks",
+    "--no-checkout",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+    "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\work\\sha-fresh-lf-37f95dc"
+  ],
+  "cwd": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung",
+  "started_at_utc": "2026-10-16T03:23:05.207324+00:00",
+  "environment": {
+    "HDFS_RUN_ID": null,
+    "HDFS_HADOOP_IMAGE": null,
+    "HADOOP_USER_NAME": null,
+    "DOCKER_CONTEXT": null
+  },
+  "stdout": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\fresh-lf-clone-a36255e2\\stdout.txt",
+  "stderr": "C:\\Users\\User\\Documents\\GitHub\\PhanTichDuLieuPhim-LogHanhViNguoiDung\\evidence\\dashboard-sha-checkout\\20261016-37f95dc\\commands\\fresh-lf-clone-a36255e2\\stderr.txt",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-16T03:23:08.819544+00:00"
+}

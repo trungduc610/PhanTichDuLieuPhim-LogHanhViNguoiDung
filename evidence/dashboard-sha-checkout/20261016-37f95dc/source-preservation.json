@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-16T03:28:47.379505+00:00",
+  "strict_verifier": "dashboard/scripts/verified-data.mjs",
+  "sha256": "9344980f92d36cd7499ad9d873f641454e74d40b07d444a3b56d64b9982930c6",
+  "equals_pre_fix_git_blob": true,
+  "pipeline_sources_changed": false,
+  "original_manifest_verification": {
+    "status": "PASS",
+    "files_checked": 162,
+    "issues": [],
+    "checked_at_utc": "2026-10-16T03:28:47.537025+00:00"
+  },
+  "build": {
+    "command": "npm.cmd run build",
+    "status": "PASS",
+    "note": "Observed before acceptance recording; bundle size warning only"
+  },
+  "browser_driver_note": "Child exit 0 and result PASS. Later Python console printing failed on cp1252; raw child logs preserved."
+}
