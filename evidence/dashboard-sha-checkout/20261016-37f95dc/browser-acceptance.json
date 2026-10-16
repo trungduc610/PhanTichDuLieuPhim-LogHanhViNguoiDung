@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "runId": "tv2-aae83326c1ab",
+  "checkedAt": "2026-10-16T03:26:05.010Z",
+  "widths": [
+    1440
+  ],
+  "routes": [
+    "/"
+  ],
+  "javascriptErrors": []
+}

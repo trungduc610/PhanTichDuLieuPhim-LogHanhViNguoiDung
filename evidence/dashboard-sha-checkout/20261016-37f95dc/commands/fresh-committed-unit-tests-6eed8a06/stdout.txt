@@ -1,0 +1,57 @@
+✔ Metadata, đặc trưng, K search, hồ sơ và gán cụm khớp JSON (19.6354ms)
+✔ Tỷ lệ hoàn thành hiển thị nhân 100; không nhầm hai trường thời lượng (25.6727ms)
+✔ Tìm một phần hoặc chính xác userId, kết hợp lọc cụm và phân trang (5.0052ms)
+✔ Không sửa nguồn; từ chối dữ liệu trống và nguồn không nhất quán (62.2687ms)
+✔ Loader báo lỗi JSON hỏng, thiếu tệp và metadata rỗng (137.0191ms)
+✔ Đủ 72 dòng, 24 giờ và 3 phim mỗi giờ; giữ nguyên giá trị và thứ hạng Spark (6.7063ms)
+✔ Đổi giờ thay đổi đúng Top 3 và chênh lệch, không dùng một kết quả cố định (1.7967ms)
+✔ Báo lỗi khi thiếu giờ/phim, trùng thứ hạng hoặc số đếm sai (2.3924ms)
+✔ Không âm thầm tính lại thứ hạng khi khác quy tắc Spark (3.1254ms)
+✔ DAU khớp 30 ngày dữ liệu thật; không cộng thành người dùng toàn kỳ (57.7763ms)
+✔ Báo lỗi dữ liệu DAU rỗng, ngày trùng/sai và số người dùng sai (2.4938ms)
+✔ Mọi loader báo lỗi HTTP, thiếu tệp, HTML thay JSON, JSON hỏng và dữ liệu rỗng (122.366ms)
+✔ Metadata sai, FAIL, thiếu hash hoặc run ID traversal không được dùng (7.5613ms)
+✔ Cảnh báo cũ theo thời điểm xác minh, không theo tháng dữ liệu mô phỏng (2.308ms)
+✔ Thiếu nguồn hoặc JSON hỏng không được che bằng snapshot mặc định (74.7001ms)
+✔ 11 bản sao frontend giống nguyên nội dung evidence (65.9972ms)
+✔ Đối chiếu chéo sự kiện, play, thời lượng và hồ sơ cụm trên kết quả thật (23.6314ms)
+✔ Trục số dùng nghìn/triệu và dấu phẩy thập phân theo tiếng Việt (68.7816ms)
+✔ Xếp hạng, hai thể loại đầu và chênh lệch khớp JSON thực tế (15.6209ms)
+✔ Top 5, Top 10, toàn bộ và thứ tự nguồn được giữ nguyên (1.7736ms)
+✔ Từ chối dữ liệu trống, tên trùng và số đếm không hợp lệ (1.3516ms)
+✔ Một thể loại không tạo nhận xét so sánh thiếu căn cứ (0.6526ms)
+✔ Nhận xét, tỷ lệ và Top 5 khớp kết quả JSON thực tế (4.4255ms)
+✔ Sắp xếp dữ liệu mà không sửa mảng nguồn (0.6141ms)
+✔ Từ chối dữ liệu thiếu, tỷ lệ sai và các giờ không nhất quán (3.8082ms)
+✔ Ngôn ngữ Tổng quan giữ nguyên mã, số đếm, tỷ lệ và nguồn, không ảnh hưởng trang chi tiết (27.0884ms)
+✔ CSV đổi nhãn tiếng Việt nhưng giữ mã action và tỷ lệ chưa làm tròn (1.5361ms)
+✔ Khoảng giờ có đủ đầu/cuối để đọc kết quả cao điểm, không cố định một khung giờ (0.3591ms)
+✔ CSV và bảng chỉ chứa đúng 24 giờ, 5 hành động và Top 5 trên Tổng quan (6.9092ms)
+✔ CSV thoát dấu nháy, dấu phẩy, xuống dòng và trung hòa công thức bảng tính (0.9854ms)
+✔ Tính đủ bốn chỉ số từ dữ liệu thật, phân biệt phiên có play với sự kiện play (6.714ms)
+✔ Không hiển thị dữ liệu trống, sai cấu trúc hoặc userId trùng (5.6757ms)
+✔ Từ chối số phiên sai và hai nguồn không nhất quán (12.8162ms)
+✔ Repair restores both LF and CRLF from Git, backs up exact old bytes and leaves index unchanged (5174.4016ms)
+✔ Check mode reports stale files without modifying files or creating backups (2269.2394ms)
+✔ Substantive local edits abort the entire preflight before any replacement (1489.5368ms)
+✔ A Git candidate with the wrong expected SHA is refused; hashes are never regenerated (1942.0261ms)
+✔ Local manifest edits, missing files and path traversal are refused (3651.2524ms)
+✔ Repair refuses a linked evidence directory instead of writing through it (1011.6386ms)
+✔ Sync từ chối FAIL, dữ liệu bị sửa, source thay đổi và raw không nhất quán (1699.3833ms)
+✔ Giữ nguyên cả sáu thống kê và đơn vị từ JSON, không sửa dữ liệu nguồn (4.5415ms)
+✔ Định dạng tiếng Việt, giây và tối đa 3 số lẻ; không cố định percentile xấp xỉ của một run (86.3341ms)
+✔ Báo dữ liệu thiếu, nhóm trùng hoặc sai đơn vị (1.7991ms)
+✔ Không đổi giá trị null, số âm hoặc số không hữu hạn thành số liệu hiển thị (6.7454ms)
+✔ Week 3: 11 JSON khớp hash, byte, schema, row count và metadata chính thức (404.1684ms)
+✔ Week 3: từ chối thiếu file, JSON hỏng, sai hash/schema/rows/path và biên nhận FAIL (3168.1759ms)
+Đã xác minh và đồng bộ 11 JSON từ tv2-aae83326c1ab.
+Đã xác minh và đồng bộ 11 JSON từ tv2-aae83326c1ab.
+✔ Week 3: chỉ công bố đủ snapshot, không ghi đè snapshot sai hash hoặc thiếu file (1852.3416ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 47
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 17712.0716
